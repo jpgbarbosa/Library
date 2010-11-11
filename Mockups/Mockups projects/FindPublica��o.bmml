@@ -1,0 +1,99 @@
+<mockup version="1.0" skin="sketch" measuredW="1123" measuredH="517" mockupW="900" mockupH="485">
+  <controls>
+    <control controlID="0" controlTypeID="com.balsamiq.mockups::TitleWindow" x="213" y="22" w="900" h="485" measuredW="450" measuredH="400" zOrder="0" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Publica%E7%E3o</text>
+      </controlProperties>
+    </control>
+    <control controlID="8" controlTypeID="com.balsamiq.mockups::Label" x="248" y="74" w="-1" h="-1" measuredW="127" measuredH="25" zOrder="1" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Procurar%20Publica%E7%E3o</text>
+      </controlProperties>
+    </control>
+    <control controlID="24" controlTypeID="com.balsamiq.mockups::ComboBox" x="510" y="99" w="165" h="-1" measuredW="105" measuredH="72" zOrder="2" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Inform%E1tica%0AAutomobilismo%0ASuspence</text>
+      </controlProperties>
+    </control>
+    <control controlID="26" controlTypeID="com.balsamiq.mockups::RadioButtonGroup" x="291" y="105" w="-1" h="-1" measuredW="68" measuredH="25" zOrder="3" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>%28o%29%20G%E9nero</text>
+      </controlProperties>
+    </control>
+    <control controlID="27" controlTypeID="com.balsamiq.mockups::RadioButtonGroup" x="403" y="104" w="-1" h="-1" measuredW="60" measuredH="25" zOrder="4" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>%28%20%29%20Autor</text>
+      </controlProperties>
+    </control>
+    <control controlID="28" controlTypeID="com.balsamiq.mockups::RadioButtonGroup" x="403" y="144" w="-1" h="-1" measuredW="71" measuredH="25" zOrder="5" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>%28%20%29%20Editora</text>
+      </controlProperties>
+    </control>
+    <control controlID="29" controlTypeID="com.balsamiq.mockups::HRule" x="275" y="187" w="472" h="-1" measuredW="100" measuredH="5" zOrder="6" locked="false" isInGroup="-1"/>
+    <control controlID="30" controlTypeID="com.balsamiq.mockups::Label" x="291" y="203" w="-1" h="-1" measuredW="47" measuredH="25" zOrder="7" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>T%EDtulo%3A</text>
+      </controlProperties>
+    </control>
+    <control controlID="31" controlTypeID="com.balsamiq.mockups::TextInput" x="347" y="202" w="406" h="-1" measuredW="53" measuredH="29" zOrder="8" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Potter</text>
+      </controlProperties>
+    </control>
+    <control controlID="32" controlTypeID="com.balsamiq.mockups::Button" x="699" y="250" w="-1" h="-1" measuredW="60" measuredH="28" zOrder="9" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Listar</text>
+      </controlProperties>
+    </control>
+    <control controlID="33" controlTypeID="com.balsamiq.mockups::Button" x="699" y="149" w="-1" h="-1" measuredW="60" measuredH="28" zOrder="10" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Listar</text>
+      </controlProperties>
+    </control>
+    <control controlID="34" controlTypeID="com.balsamiq.mockups::HRule" x="275" y="288" w="472" h="-1" measuredW="100" measuredH="5" zOrder="11" locked="false" isInGroup="-1"/>
+    <control controlID="35" controlTypeID="com.balsamiq.mockups::Label" x="291" y="309" w="-1" h="-1" measuredW="28" measuredH="25" zOrder="12" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>ID%3A</text>
+      </controlProperties>
+    </control>
+    <control controlID="36" controlTypeID="com.balsamiq.mockups::TextInput" x="328" y="308" w="425" h="-1" measuredW="79" measuredH="29" zOrder="13" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="37" controlTypeID="com.balsamiq.mockups::Button" x="682" y="349" w="-1" h="-1" measuredW="77" measuredH="28" zOrder="14" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Procurar</text>
+      </controlProperties>
+    </control>
+    <control controlID="38" controlTypeID="com.balsamiq.mockups::VRule" x="777" y="67" w="-1" h="386" measuredW="5" measuredH="100" zOrder="15" locked="false" isInGroup="-1"/>
+    <control controlID="39" controlTypeID="com.balsamiq.mockups::TextArea" x="804" y="69" w="279" h="384" measuredW="200" measuredH="140" zOrder="16" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Harry%20Potter%20-%20C%E2mara%20dos%20Segredos%0AHarry%20Potter%20-%20Pedra%20Filosofal</text>
+      </controlProperties>
+    </control>
+    <control controlID="40" controlTypeID="com.balsamiq.mockups::VerticalScrollBar" x="1065" y="72" w="-1" h="381" measuredW="16" measuredH="100" zOrder="17" locked="false" isInGroup="-1"/>
+    <control controlID="41" controlTypeID="com.balsamiq.mockups::HRule" x="275" y="392" w="472" h="-1" measuredW="100" measuredH="5" zOrder="18" locked="false" isInGroup="-1"/>
+    <control controlID="42" controlTypeID="com.balsamiq.mockups::Button" x="699" y="411" w="-1" h="-1" measuredW="60" measuredH="28" zOrder="19" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Listar</text>
+      </controlProperties>
+    </control>
+    <control controlID="43" controlTypeID="com.balsamiq.mockups::DateChooser" x="435" y="411" w="176" h="-1" measuredW="106" measuredH="29" zOrder="20" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>%20%20/%20%20/%20%20%20%20</text>
+      </controlProperties>
+    </control>
+    <control controlID="44" controlTypeID="com.balsamiq.mockups::Label" x="291" y="413" w="-1" h="-1" measuredW="131" measuredH="25" zOrder="21" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Data%20da%20publica%E7%E3o%3A</text>
+      </controlProperties>
+    </control>
+    <control controlID="45" controlTypeID="com.balsamiq.mockups::RadioButtonGroup" x="291" y="145" w="-1" h="-1" measuredW="87" measuredH="25" zOrder="22" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>%28%20%29%20Prateleira</text>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>
