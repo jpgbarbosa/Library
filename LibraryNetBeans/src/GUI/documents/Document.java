@@ -46,19 +46,19 @@ public class Document extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         jTextField3 = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
         jFormattedTextField1 = new javax.swing.JFormattedTextField();
         jTextField5 = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jFormattedTextField2 = new javax.swing.JFormattedTextField();
-        jTextField6 = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jTextField7 = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jFormattedTextField3 = new javax.swing.JFormattedTextField();
-        jTextField8 = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
+        jTextField4 = new javax.swing.JTextField();
+        jTextField6 = new javax.swing.JTextField();
+        jTextField8 = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         jRadioButton1 = new javax.swing.JRadioButton();
@@ -112,39 +112,28 @@ public class Document extends javax.swing.JPanel {
 
         jLabel4.setText("ID:");
 
-        jTextField1.setText("jTextField1");
-
-        jTextField2.setText("jTextField2");
-
         jButton2.setText("Find");
 
         jLabel5.setText("Return on:");
 
-        jTextField3.setText("jTextField3");
-
         jLabel6.setText("ID:");
 
-        jTextField4.setText("jTextField4");
-
-        jFormattedTextField1.setText("jFormattedTextField1");
-
-        jTextField5.setText("jTextField3");
+        jFormattedTextField1.setText("    /    /    ");
 
         jLabel7.setText("Return on:");
 
-        jFormattedTextField2.setText("jFormattedTextField1");
-
-        jTextField6.setText("jTextField4");
+        jFormattedTextField2.setText("    /    /    ");
+        jFormattedTextField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jFormattedTextField2ActionPerformed(evt);
+            }
+        });
 
         jLabel8.setText("ID:");
 
-        jTextField7.setText("jTextField3");
-
         jLabel9.setText("Return on:");
 
-        jFormattedTextField3.setText("jFormattedTextField1");
-
-        jTextField8.setText("jTextField4");
+        jFormattedTextField3.setText("    /    /    ");
 
         jLabel10.setText("ID:");
 
@@ -171,7 +160,7 @@ public class Document extends javax.swing.JPanel {
                                         .addGap(33, 33, 33)
                                         .addComponent(jLabel4)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(18, 18, 18)
                                 .addComponent(jButton2))))
                     .addGroup(jPanel3Layout.createSequentialGroup()
@@ -190,7 +179,7 @@ public class Document extends javax.swing.JPanel {
                                 .addGap(29, 29, 29)
                                 .addComponent(jLabel8)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addGap(19, 19, 19)
                                 .addComponent(jLabel7)
@@ -201,7 +190,7 @@ public class Document extends javax.swing.JPanel {
                                 .addGap(29, 29, 29)
                                 .addComponent(jLabel6)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addGap(19, 19, 19)
                                 .addComponent(jLabel9)
@@ -212,8 +201,8 @@ public class Document extends javax.swing.JPanel {
                                 .addGap(29, 29, 29)
                                 .addComponent(jLabel10)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(160, Short.MAX_VALUE))
+                                .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(184, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -279,15 +268,11 @@ public class Document extends javax.swing.JPanel {
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jTextField9.setText("jTextField9");
-
         jRadioButton5.setText("Author");
 
         jRadioButton6.setText("Pages:");
 
         jLabel12.setText("than");
-
-        jTextField10.setText("jTextField10");
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -324,12 +309,12 @@ public class Document extends javax.swing.JPanel {
                                         .addGap(12, 12, 12)
                                         .addComponent(jLabel12)
                                         .addGap(18, 18, 18)
-                                        .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(41, 41, 41))))
+                                        .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(122, 122, 122)
                         .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(218, Short.MAX_VALUE))
+                .addContainerGap(255, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -379,9 +364,13 @@ public class Document extends javax.swing.JPanel {
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 464, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(84, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jFormattedTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextField2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jFormattedTextField2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
