@@ -41,11 +41,14 @@ public class Login extends javax.swing.JPanel {
 
         jLabel2.setText("Password: ");
 
+        jTextField1.setText("admin");
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
             }
         });
+
+        jPasswordField1.setText("fixe");
 
         jLabel1.setText("Username:");
 

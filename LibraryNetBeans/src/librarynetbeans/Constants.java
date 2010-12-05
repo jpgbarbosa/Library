@@ -24,8 +24,8 @@ public class Constants {
 
     public static Frame frame;
 
-    public static int DIM_H = 800;
-    public static int DIM_V = 400;
+    public static int DIM_H = 1000;
+    public static int DIM_V = 600;
 
     public Constants(Login login, MainMenu main, Document doc, Employees emp, Reader readers, Frame f){
         loginMenu = login;

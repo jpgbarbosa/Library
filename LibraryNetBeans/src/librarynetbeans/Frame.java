@@ -59,7 +59,7 @@ public class Frame extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 Frame frame = new Frame();
-
+                
                 Login login = new Login();
                 MainMenu mainMenu = new MainMenu();
                 Document doc = new Document();
@@ -73,6 +73,7 @@ public class Frame extends javax.swing.JFrame {
                 reader.setVisible(false);
 
                 new Constants(login, mainMenu, doc, emp, reader, frame);
+                frame.setSize(Constants.DIM_H,Constants.DIM_V);
 
                 frame.setContentPane(Constants.loginMenu);
                 frame.setTitle("Library");
