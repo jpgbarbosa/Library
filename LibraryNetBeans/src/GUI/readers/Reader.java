@@ -112,6 +112,11 @@ public class Reader extends javax.swing.JPanel {
         jButton1.setText("Exclude");
 
         jButton2.setText("Add");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Change Info");
 
@@ -281,6 +286,21 @@ public class Reader extends javax.swing.JPanel {
         Constants.mainMenu.setVisible(true);
         Constants.frame.setContentPane(Constants.mainMenu);
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO We have to protect against wrong input. Also, maybe complete birthday and stuff.
+
+        String nome, morada, eMail, telefone, bi;
+
+        nome = jTextField2.getText();
+        morada = jTextField3.getText();
+        bi = jTextField4.getText();
+        telefone = jTextField5.getText();
+        eMail = jTextField6.getText();
+
+        Constants.dbhandler.addReader(nome, morada, bi, telefone, eMail);
+
+    }//GEN-LAST:event_jButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

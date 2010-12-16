@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      ORACLE Version 11g                           */
-/* Created on:     06-12-2010 18:00:18                          */
+/* Created on:     16-12-2010 17:05:25                          */
 /*==============================================================*/
 
 
@@ -8,7 +8,7 @@ alter table EMPRESTIMO
    drop constraint FK_EMPRESTI_ALUGAR_FUNCIONA;
 
 alter table EMPRESTIMO
-   drop constraint FK_EMPRESTI_INCLUIR_E_PUBLICAC;
+   drop constraint FK_EMPRESTI_CONTER_PU_PUBLICAC;
 
 alter table EMPRESTIMO
    drop constraint FK_EMPRESTI_REQUISITA_LEITOR;
@@ -20,16 +20,21 @@ alter table LEITOR
    drop constraint FK_LEITOR_TIPO_PESSOA;
 
 alter table PUBLICACAO
+   drop constraint FK_PUBLICAC_AUTOR_DE_AUTOR;
+
+alter table PUBLICACAO
    drop constraint FK_PUBLICAC_PERTENCER_PRATELEI;
 
 alter table PUBLICACAO
    drop constraint FK_PUBLICAC_POSSUIR_EDITORA;
 
+drop table AUTOR cascade constraints;
+
 drop table EDITORA cascade constraints;
 
-drop index ALUGAR_FK;
+drop index CONTER_PUBLICACAO_FK;
 
-drop index INCLUIR_EMPRESTIMO_FK;
+drop index ALUGAR_FK;
 
 drop index REQUISITAR_FK;
 
@@ -43,6 +48,8 @@ drop table PESSOA cascade constraints;
 
 drop table PRATELEIRA cascade constraints;
 
+drop index AUTOR_DE_FK;
+
 drop index PERTENCER_FK;
 
 drop index POSSUIR_FK;
@@ -50,13 +57,23 @@ drop index POSSUIR_FK;
 drop table PUBLICACAO cascade constraints;
 
 /*==============================================================*/
+/* Table: AUTOR                                                 */
+/*==============================================================*/
+create table AUTOR 
+(
+   NOME_AUTOR           VARCHAR2(1024)       not null,
+   ID_AUTOR             INTEGER              not null,
+   constraint PK_AUTOR primary key (ID_AUTOR)
+);
+
+/*==============================================================*/
 /* Table: EDITORA                                               */
 /*==============================================================*/
 create table EDITORA 
 (
-   ID_EDITORAE          NUMBER               not null,
+   ID_EDITORA           NUMBER               not null,
    NOME_EDITORA         VARCHAR2(1024)       not null,
-   constraint PK_EDITORA primary key (ID_EDITORAE)
+   constraint PK_EDITORA primary key (ID_EDITORA)
 );
 
 /*==============================================================*/
@@ -65,12 +82,13 @@ create table EDITORA
 create table EMPRESTIMO 
 (
    LEI_ID_PESSOA        INTEGER              not null,
-   ID_PUB               NUMBER               not null,
    ID_PESSOA            INTEGER              not null,
+   ID_DOC               NUMBER               not null,
+   ID_EMPRESTIMO        INTEGER              not null,
    DATA_DE_REQUISITO    DATE                 not null,
    DATA_PREVISTA        DATE                 not null,
    DATA_ENTREGA         DATE,
-   constraint PK_EMPRESTIMO primary key (LEI_ID_PESSOA, ID_PUB, ID_PESSOA)
+   constraint PK_EMPRESTIMO primary key (LEI_ID_PESSOA, ID_PESSOA, ID_DOC, ID_EMPRESTIMO)
 );
 
 /*==============================================================*/
@@ -81,17 +99,17 @@ create index REQUISITAR_FK on EMPRESTIMO (
 );
 
 /*==============================================================*/
-/* Index: INCLUIR_EMPRESTIMO_FK                                 */
-/*==============================================================*/
-create index INCLUIR_EMPRESTIMO_FK on EMPRESTIMO (
-   ID_PUB ASC
-);
-
-/*==============================================================*/
 /* Index: ALUGAR_FK                                             */
 /*==============================================================*/
 create index ALUGAR_FK on EMPRESTIMO (
    ID_PESSOA ASC
+);
+
+/*==============================================================*/
+/* Index: CONTER_PUBLICACAO_FK                                  */
+/*==============================================================*/
+create index CONTER_PUBLICACAO_FK on EMPRESTIMO (
+   ID_DOC ASC
 );
 
 /*==============================================================*/
@@ -102,8 +120,6 @@ create table FUNCIONARIO
    ID_PESSOA            INTEGER              not null,
    DATA_ENTRADA         DATE                 not null,
    DATA_SAIDA           DATE,
-   PASSWORD             CHAR(50)             not null,
-   ISADMIN              SMALLINT             not null,
    constraint PK_FUNCIONARIO primary key (ID_PESSOA)
 );
 
@@ -122,6 +138,7 @@ create table LEITOR
 /*==============================================================*/
 create table PESSOA 
 (
+   NOME_PESSOA          VARCHAR2(1024)       not null,
    MORADA               VARCHAR2(1024)       not null,
    BI                   NUMBER               not null,
    TELEFONE             NUMBER,
@@ -147,21 +164,23 @@ create table PRATELEIRA
 /*==============================================================*/
 create table PUBLICACAO 
 (
-   ID_PUB               NUMBER               not null,
+   ID_DOC               NUMBER               not null,
    ID_PRATELEIRA        INTEGER              not null,
-   ID_EDITORAE          NUMBER,
-   DESCRICAO            VARCHAR2(1024)       not null,
-   AUTOR                VARCHAR2(1024)       not null,
-   DISPONIVEIS          NUMBER               not null,
-   TOTAL                NUMBER               not null,
-   constraint PK_PUBLICACAO primary key (ID_PUB)
+   ID_AUTOR             INTEGER              not null,
+   ID_EDITORA           NUMBER,
+   DESCRICAO            VARCHAR2(1024),
+   DATA                 DATE,
+   NOME_DOC             VARCHAR2(1024)       not null,
+   DISPONIVEIS          INTEGER,
+   TOTAL                INTEGER,
+   constraint PK_PUBLICACAO primary key (ID_DOC)
 );
 
 /*==============================================================*/
 /* Index: POSSUIR_FK                                            */
 /*==============================================================*/
 create index POSSUIR_FK on PUBLICACAO (
-   ID_EDITORAE ASC
+   ID_EDITORA ASC
 );
 
 /*==============================================================*/
@@ -171,13 +190,20 @@ create index PERTENCER_FK on PUBLICACAO (
    ID_PRATELEIRA ASC
 );
 
+/*==============================================================*/
+/* Index: AUTOR_DE_FK                                           */
+/*==============================================================*/
+create index AUTOR_DE_FK on PUBLICACAO (
+   ID_AUTOR ASC
+);
+
 alter table EMPRESTIMO
    add constraint FK_EMPRESTI_ALUGAR_FUNCIONA foreign key (ID_PESSOA)
       references FUNCIONARIO (ID_PESSOA);
 
 alter table EMPRESTIMO
-   add constraint FK_EMPRESTI_INCLUIR_E_PUBLICAC foreign key (ID_PUB)
-      references PUBLICACAO (ID_PUB);
+   add constraint FK_EMPRESTI_CONTER_PU_PUBLICAC foreign key (ID_DOC)
+      references PUBLICACAO (ID_DOC);
 
 alter table EMPRESTIMO
    add constraint FK_EMPRESTI_REQUISITA_LEITOR foreign key (LEI_ID_PESSOA)
@@ -192,10 +218,14 @@ alter table LEITOR
       references PESSOA (ID_PESSOA);
 
 alter table PUBLICACAO
+   add constraint FK_PUBLICAC_AUTOR_DE_AUTOR foreign key (ID_AUTOR)
+      references AUTOR (ID_AUTOR);
+
+alter table PUBLICACAO
    add constraint FK_PUBLICAC_PERTENCER_PRATELEI foreign key (ID_PRATELEIRA)
       references PRATELEIRA (ID_PRATELEIRA);
 
 alter table PUBLICACAO
-   add constraint FK_PUBLICAC_POSSUIR_EDITORA foreign key (ID_EDITORAE)
-      references EDITORA (ID_EDITORAE);
+   add constraint FK_PUBLICAC_POSSUIR_EDITORA foreign key (ID_EDITORA)
+      references EDITORA (ID_EDITORA);
 

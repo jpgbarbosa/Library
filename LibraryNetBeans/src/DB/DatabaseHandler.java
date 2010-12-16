@@ -72,9 +72,11 @@ public class DatabaseHandler implements DB.DataAccessInterface{
      * @return
      */
      public ArrayList<Editora> getPublishers() {
-        System.out.print("\n[Performing getEditoras] ... ");
         ArrayList<Editora> publishersList = new ArrayList<Editora>();
         Editora singlePublisher;
+
+        System.out.print("\n[Performing getEditoras] ... ");
+
         try {
             //Execute statement
             Statement stmt;
@@ -84,7 +86,7 @@ public class DatabaseHandler implements DB.DataAccessInterface{
             while (rset.next()) {//while there are still results left to read
                 //create Album instance with current album information
                 //you can get each of the albums attributes by using the column name
-                singlePublisher= new Editora(rset.getInt("ID_EDITORAE"),rset.getString("NOME_EDITORA"));
+                singlePublisher= new Editora(rset.getInt("ID_EDITORA"),rset.getString("NOME_EDITORA"));
                 publishersList.add(singlePublisher);
             }
             stmt.close();
@@ -95,6 +97,49 @@ public class DatabaseHandler implements DB.DataAccessInterface{
         return publishersList;
 
     }
-    
+
+    public int getIdReaderByName(String name){
+        int id = -1;
+
+        System.out.print("\n[Performing getIdReaderByName]");
+        try {
+            //Execute statement
+            Statement stmt;
+            stmt = conn.createStatement();//create statement
+            // execute querie
+            ResultSet rset = stmt.executeQuery(
+                    "SELECT * FROM Pessoa p, Leitor l "
+                     + "WHERE p.Id_pessoa = l.Id_pessoa AND p.nome_pessoa = '" + name + "'");
+            while (rset.next()) {//while there are still results left to read
+                id = rset.getInt("ID_PESSOA");
+            }
+            stmt.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(DatabaseHandler.class.getName()).log(Level.SEVERE, null, ex);
+            return -1;
+        }
+        
+
+        return id;
+
+    }
+
+    public void addReader(String name, String morada, String bi, String telefone, String eMail){
+        System.out.print("\n[Performing addReader]");
+        try {
+            //Execute statement
+            Statement stmt;
+            stmt = conn.createStatement();//create statement
+            // execute querie
+            stmt.executeQuery(
+                    "EXECUTE addReader('" + name + "', '" + morada + "'," + bi + "," + telefone + ", '" + eMail + "')");
+
+            stmt.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(DatabaseHandler.class.getName()).log(Level.SEVERE, null, ex);
+            return;
+        }
+
+    }
 
 }

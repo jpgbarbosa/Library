@@ -16,5 +16,7 @@ public interface DataAccessInterface {
     
     public void close();
     public ArrayList<Editora> getPublishers();
+    public int getIdReaderByName(String name);
+    public void addReader(String name, String morada, String bi, String telefone, String eMail);
     
 }

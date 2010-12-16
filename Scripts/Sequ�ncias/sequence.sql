@@ -1,0 +1,6 @@
+DROP SEQUENCE seq_id_pessoa;
+
+CREATE SEQUENCE seq_id_pessoa
+START WITH 1
+INCREMENT BY 1
+NOCYCLE;
