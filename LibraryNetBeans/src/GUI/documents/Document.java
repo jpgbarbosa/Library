@@ -11,6 +11,8 @@
 
 package GUI.documents;
 
+import DataStructures.Editora;
+import java.util.ArrayList;
 import librarynetbeans.Constants;
 
 /**
@@ -561,6 +563,11 @@ genreComboBox.addActionListener(new java.awt.event.ActionListener() {
     jLabel14.setText("ID:");
 
     jButton4.setText("List");
+    jButton4.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            jButton4ActionPerformed(evt);
+        }
+    });
 
     jButton5.setText("List");
 
@@ -738,6 +745,19 @@ genreComboBox.addActionListener(new java.awt.event.ActionListener() {
     private void genreComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_genreComboBoxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_genreComboBoxActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+
+        ArrayList<Editora> publishersList = Constants.dbhandler.getPublishers();
+
+        jTextArea1.setText("");
+
+        for (int i = 0; i < publishersList.size(); i++){
+            Editora publisher = publishersList.get(i);
+            jTextArea1.append(publisher.getId() + " - " + publisher.getNome() + "\n");
+        }
+
+    }//GEN-LAST:event_jButton4ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
