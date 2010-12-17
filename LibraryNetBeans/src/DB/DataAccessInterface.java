@@ -5,7 +5,9 @@
 
 package DB;
 
+import DataStructures.Book;
 import DataStructures.Editora;
+import DataStructures.Person;
 import java.util.ArrayList;
 
 /**
@@ -17,6 +19,7 @@ public interface DataAccessInterface {
     public void close();
     public ArrayList<Editora> getPublishers();
     public int getIdReaderByName(String name);
-    public void addReader(String name, String morada, String bi, String telefone, String eMail);
-    
+    public void addPerson(String name, String morada, String bi, String telefone, String eMail, boolean isEmployee);
+    public ArrayList<Person> getPersonsList(boolean isEmployee);
+    public ArrayList<Book> getSpecificBooks(String type, String value);
 }

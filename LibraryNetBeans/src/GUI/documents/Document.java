@@ -11,8 +11,11 @@
 
 package GUI.documents;
 
-import DataStructures.Editora;
+import DataStructures.Book;
 import java.util.ArrayList;
+import java.util.Enumeration;
+import javax.swing.ButtonGroup;
+import javax.swing.JRadioButton;
 import librarynetbeans.Constants;
 
 /**
@@ -44,7 +47,6 @@ public class Document extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
         jRadioButton3 = new javax.swing.JRadioButton();
         jRadioButton4 = new javax.swing.JRadioButton();
         genreComboBox = new javax.swing.JComboBox();
@@ -64,7 +66,6 @@ public class Document extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jTextField17 = new javax.swing.JTextField();
-        jTextField18 = new javax.swing.JTextField();
         jTextField19 = new javax.swing.JTextField();
         jTextField20 = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
@@ -132,16 +133,13 @@ public class Document extends javax.swing.JPanel {
 
         jLabel11.setText("Find Document");
 
-        findGroup.add(jRadioButton1);
+        selectionGroup.add(jRadioButton1);
         jRadioButton1.setText("Genre");
 
-        findGroup.add(jRadioButton2);
-        jRadioButton2.setText("Shelf");
-
-        findGroup.add(jRadioButton3);
+        selectionGroup.add(jRadioButton3);
         jRadioButton3.setText("Title");
 
-        findGroup.add(jRadioButton4);
+        selectionGroup.add(jRadioButton4);
         jRadioButton4.setText("Publisher");
 
         genreComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Art and design", "Audiobooks", "Biography", "Children and teenagers", "Business and finance", "Chick lit", "Classics",
@@ -154,10 +152,10 @@ genreComboBox.addActionListener(new java.awt.event.ActionListener() {
     }
     });
 
-    findGroup.add(jRadioButton5);
+    selectionGroup.add(jRadioButton5);
     jRadioButton5.setText("Author");
 
-    findGroup.add(jRadioButton6);
+    selectionGroup.add(jRadioButton6);
     jRadioButton6.setText("Pages:");
 
     jLabel12.setText("than");
@@ -205,14 +203,13 @@ genreComboBox.addActionListener(new java.awt.event.ActionListener() {
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel13)
                                 .addComponent(jRadioButton1)
-                                .addComponent(jRadioButton2)
-                                .addComponent(jRadioButton3)
                                 .addComponent(jRadioButton5)
                                 .addComponent(jRadioButton6)
-                                .addComponent(jLabel14))
+                                .addComponent(jLabel14)
+                                .addComponent(jRadioButton3))
                             .addGap(18, 18, 18)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(genreComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -233,7 +230,6 @@ genreComboBox.addActionListener(new java.awt.event.ActionListener() {
                                             .addComponent(jButton4)
                                             .addComponent(jButton5)))
                                     .addComponent(jTextField9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jTextField20, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))))))
             .addGap(18, 18, 18)
             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -253,15 +249,11 @@ genreComboBox.addActionListener(new java.awt.event.ActionListener() {
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jRadioButton1)
                                 .addComponent(genreComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(4, 4, 4)
+                            .addGap(18, 18, 18)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jRadioButton3)
                                 .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jRadioButton2)
-                                .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(18, 18, 18)
+                            .addGap(33, 33, 33)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jRadioButton4)
                                 .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -293,6 +285,8 @@ genreComboBox.addActionListener(new java.awt.event.ActionListener() {
                         .addComponent(jButton5))))
             .addContainerGap(26, Short.MAX_VALUE))
     );
+
+    jRadioButton1.setSelected(true);
 
     jTabbedPane1.addTab("Find Documents", jPanel1);
 
@@ -558,11 +552,11 @@ genreComboBox.addActionListener(new java.awt.event.ActionListener() {
             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 346, Short.MAX_VALUE))
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 317, Short.MAX_VALUE))
                 .addGroup(jPanel4Layout.createSequentialGroup()
                     .addGap(20, 20, 20)
                     .addComponent(jLabel16)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel17)
                         .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -602,7 +596,7 @@ genreComboBox.addActionListener(new java.awt.event.ActionListener() {
                     .addGap(24, 24, 24)))
             .addGap(18, 18, 18)
             .addComponent(jButton8)
-            .addGap(44, 44, 44))
+            .addGap(80, 80, 80))
     );
 
     jTabbedPane1.addTab("New Document", jPanel4);
@@ -656,16 +650,53 @@ genreComboBox.addActionListener(new java.awt.event.ActionListener() {
     }//GEN-LAST:event_genreComboBoxActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-
-        ArrayList<Editora> publishersList = Constants.dbhandler.getPublishers();
-
+        //TODO: Protecções
+        JRadioButton b = getSelection(selectionGroup);
+        ArrayList<Book> list = null;
         jTextArea1.setText("");
+        String value = null;
+        int i;
 
-        for (int i = 0; i < publishersList.size(); i++){
-            Editora publisher = publishersList.get(i);
-            jTextArea1.append(publisher.getId() + " - " + publisher.getNome() + "\n");
-            
+        if (b.getText().equals("Genre")){
+            value = (String) genreComboBox.getSelectedItem();
+            list = Constants.dbhandler.getSpecificBooks("Genre", value);
         }
+        else if(b.getText().equals("Title")){
+            value = jTextField17.getText();
+            list = Constants.dbhandler.getSpecificBooks("Title", value);
+        }
+        else if(b.getText().equals("Publisher")){
+            value = jTextField19.getText();
+            list = Constants.dbhandler.getSpecificBooks("Publisher", value);
+        }
+        else if(b.getText().equals("Author")){
+            value = jTextField20.getText();
+            list = Constants.dbhandler.getSpecificBooks("Author", value);
+        }
+        else if(b.getText().equals("Pages")){
+            String str = (String) pagesComboBox.getSelectedItem();
+
+            if (str.equals("More")){
+                value = ">";
+            }
+            else{
+                value = "<";
+            }
+            
+            value += jTextField17.getText();
+            list = Constants.dbhandler.getSpecificBooks("Pages", value);
+        }
+
+        if (list == null || list.isEmpty()){
+                jTextArea1.setText("No books were found.");
+            }
+            else{
+                for (i = 0; i < list.size(); i++){
+                    String str = list.get(i).getTitle() + " ID: " + list.get(i).getId() + "\n";
+                    jTextArea1.append(str);
+                }
+            }
+        
 
     }//GEN-LAST:event_jButton4ActionPerformed
 
@@ -686,7 +717,19 @@ genreComboBox.addActionListener(new java.awt.event.ActionListener() {
 
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    // This method returns the selected radio button in a button group
+    public static JRadioButton getSelection(ButtonGroup group) {
+    for (Enumeration e=group.getElements(); e.hasMoreElements(); ) {
+        JRadioButton b = (JRadioButton)e.nextElement();
+        if (b.getModel() == group.getSelection()) {
+            return b;
+        }
+    }
+    return null;
+}
 
+
+    private ButtonGroup selectionGroup = new ButtonGroup();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup authorGroup;
     private javax.swing.ButtonGroup findGroup;
@@ -733,7 +776,6 @@ genreComboBox.addActionListener(new java.awt.event.ActionListener() {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JRadioButton jRadioButton3;
     private javax.swing.JRadioButton jRadioButton4;
     private javax.swing.JRadioButton jRadioButton5;
@@ -756,7 +798,6 @@ genreComboBox.addActionListener(new java.awt.event.ActionListener() {
     private javax.swing.JTextField jTextField15;
     private javax.swing.JTextField jTextField16;
     private javax.swing.JTextField jTextField17;
-    private javax.swing.JTextField jTextField18;
     private javax.swing.JTextField jTextField19;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField20;
