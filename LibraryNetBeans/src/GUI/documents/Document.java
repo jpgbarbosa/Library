@@ -726,7 +726,7 @@ genreComboBox.addActionListener(new java.awt.event.ActionListener() {
         }
     }
     return null;
-}
+    }
 
 
     private ButtonGroup selectionGroup = new ButtonGroup();

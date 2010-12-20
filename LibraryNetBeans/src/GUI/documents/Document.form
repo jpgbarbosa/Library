@@ -233,7 +233,7 @@
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="jRadioButton1.setSelected(true);"/>
-                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="selectionGroup.add(jRadionButton1);"/>
+                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="selectionGroup.add(jRadioButton1);"/>
               </AuxValues>
             </Component>
             <Component class="javax.swing.JRadioButton" name="jRadioButton3">
@@ -241,7 +241,7 @@
                 <Property name="text" type="java.lang.String" value="Title"/>
               </Properties>
               <AuxValues>
-                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="selectionGroup.add(jRadionButton3);"/>
+                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="selectionGroup.add(jRadioButton3);"/>
               </AuxValues>
             </Component>
             <Component class="javax.swing.JRadioButton" name="jRadioButton4">
@@ -249,7 +249,7 @@
                 <Property name="text" type="java.lang.String" value="Publisher"/>
               </Properties>
               <AuxValues>
-                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="selectionGroup.add(jRadionButton4);"/>
+                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="selectionGroup.add(jRadioButton4);"/>
               </AuxValues>
             </Component>
             <Component class="javax.swing.JComboBox" name="genreComboBox">
@@ -269,7 +269,7 @@
                 <Property name="text" type="java.lang.String" value="Author"/>
               </Properties>
               <AuxValues>
-                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="selectionGroup.add(jRadionButton5);"/>
+                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="selectionGroup.add(jRadioButton5);"/>
               </AuxValues>
             </Component>
             <Component class="javax.swing.JRadioButton" name="jRadioButton6">
@@ -277,7 +277,7 @@
                 <Property name="text" type="java.lang.String" value="Pages:"/>
               </Properties>
               <AuxValues>
-                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="selectionGroup.add(jRadionButton6);"/>
+                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="selectionGroup.add(jRadioButton6);"/>
               </AuxValues>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel12">
