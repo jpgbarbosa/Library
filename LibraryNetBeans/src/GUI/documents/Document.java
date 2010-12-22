@@ -25,6 +25,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
 import javax.swing.SpinnerNumberModel;
 import librarynetbeans.Constants;
+import librarynetbeans.Validation;
 
 /**
  *
@@ -116,7 +117,7 @@ public class Document extends javax.swing.JPanel implements
         jTextField13 = new javax.swing.JTextField();
         jTextField14 = new javax.swing.JTextField();
         jTextField15 = new javax.swing.JTextField();
-        jFormattedTextField5 = new javax.swing.JFormattedTextField();
+        DateTextDocTab3 = new javax.swing.JFormattedTextField();
         jButton8 = new javax.swing.JButton();
         jTextField16 = new javax.swing.JTextField();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -125,6 +126,7 @@ public class Document extends javax.swing.JPanel implements
         AmountNewDocTab3 = new javax.swing.JSpinner(new SpinnerNumberModel(1, 1, 100, 1));
         NumCopiesDocTab3 = new javax.swing.JSpinner();
         NumCopiesDocTab3 = new javax.swing.JSpinner(new SpinnerNumberModel(1, 1, 100, 1));
+        ChooseDateDocsTab3 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -198,7 +200,6 @@ genreComboBox.addActionListener(new java.awt.event.ActionListener() {
     jScrollPane1.setViewportView(jTextArea1);
 
     ChooseDateDocsTab1.setText("Choose Date");
-    ChooseDateDocsTab1.setActionCommand("Choose Date");
     ChooseDateDocsTab1.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
             ChooseDateDocsTab1ActionPerformed(evt);
@@ -254,15 +255,14 @@ genreComboBox.addActionListener(new java.awt.event.ActionListener() {
                                     .addComponent(jTextField19, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jTextField20, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE)))))))
             .addGap(18, 18, 18)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addContainerGap(676, Short.MAX_VALUE))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addContainerGap(37, Short.MAX_VALUE))
     );
     jPanel1Layout.setVerticalGroup(
         jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(jPanel1Layout.createSequentialGroup()
             .addContainerGap()
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 399, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(jPanel1Layout.createSequentialGroup()
@@ -304,8 +304,9 @@ genreComboBox.addActionListener(new java.awt.event.ActionListener() {
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(ChooseDateField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(List2InDocsTab1)
-                        .addComponent(ChooseDateDocsTab1))))
-            .addContainerGap(26, Short.MAX_VALUE))
+                        .addComponent(ChooseDateDocsTab1)))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 388, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addContainerGap(37, Short.MAX_VALUE))
     );
 
     jRadioButton1.setSelected(true);
@@ -422,7 +423,7 @@ genreComboBox.addActionListener(new java.awt.event.ActionListener() {
                     .addComponent(jLabel2)))
             .addGap(45, 45, 45)
             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addContainerGap(617, Short.MAX_VALUE))
+            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
     );
     jPanel3Layout.setVerticalGroup(
         jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -498,7 +499,7 @@ genreComboBox.addActionListener(new java.awt.event.ActionListener() {
 
     jLabel25.setText("Shelf:");
 
-    jFormattedTextField5.setText("   /   /   ");
+    DateTextDocTab3.setText("   /   /   ");
 
     jButton8.setText("Add Document");
 
@@ -513,6 +514,13 @@ genreComboBox.addActionListener(new java.awt.event.ActionListener() {
     jScrollPane3.setViewportView(jTextArea3);
 
     AmountNewDocTab3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+    ChooseDateDocsTab3.setText("Choose Date");
+    ChooseDateDocsTab3.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            ChooseDateDocsTab3ActionPerformed(evt);
+        }
+    });
 
     javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
     jPanel4.setLayout(jPanel4Layout);
@@ -533,7 +541,10 @@ genreComboBox.addActionListener(new java.awt.event.ActionListener() {
                                         .addComponent(jLabel22)
                                         .addComponent(jLabel23))
                                     .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jFormattedTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(jPanel4Layout.createSequentialGroup()
+                                            .addComponent(DateTextDocTab3, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(ChooseDateDocsTab3))
                                         .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, 407, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGroup(jPanel4Layout.createSequentialGroup()
                                             .addGap(18, 18, 18)
@@ -576,7 +587,7 @@ genreComboBox.addActionListener(new java.awt.event.ActionListener() {
             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 317, Short.MAX_VALUE))
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE))
                 .addGroup(jPanel4Layout.createSequentialGroup()
                     .addGap(20, 20, 20)
                     .addComponent(jLabel16)
@@ -608,7 +619,8 @@ genreComboBox.addActionListener(new java.awt.event.ActionListener() {
                     .addGap(18, 18, 18)
                     .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel23)
-                        .addComponent(jFormattedTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(DateTextDocTab3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(ChooseDateDocsTab3))
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                     .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel24)
@@ -638,11 +650,10 @@ genreComboBox.addActionListener(new java.awt.event.ActionListener() {
         layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(layout.createSequentialGroup()
             .addContainerGap()
-            .addComponent(jButton1)
-            .addGap(365, 365, 365))
-        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addComponent(jButton1))
+        .addGroup(layout.createSequentialGroup()
             .addGap(20, 20, 20)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1473, Short.MAX_VALUE))
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 825, javax.swing.GroupLayout.PREFERRED_SIZE))
     );
     layout.setVerticalGroup(
         layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -758,34 +769,9 @@ genreComboBox.addActionListener(new java.awt.event.ActionListener() {
         listCalendar.addPropertyChangeListener(this);
     }//GEN-LAST:event_ChooseDateDocsTab1ActionPerformed
 
-    /**
-     * This function check if the date textField is a valid date.
-     *
-     * @param dateString
-     * @return an int array with day, month and year. null if invalid date
-     */
-    private int [] checkInsertedDate(String dateString){
-        try {
-            String [] dateFields = dateString.split("/");
-            int day = Integer.parseInt(dateFields[0]);
-            int month = Integer.parseInt(dateFields[1]);
-            int year = Integer.parseInt(dateFields[2]);
-
-            int [] date = new int[3];
-
-            date[0]=day;
-            date[1]=month;
-            date[2]=year;
-
-            return date;
-
-        } catch (NumberFormatException e1) {
-            return null;
-        }
-    }
 
     private void List2InDocsTab1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_List2InDocsTab1ActionPerformed
-          int [] date = checkInsertedDate(ChooseDateField.getText());
+          int [] date = Validation.checkInsertedDate(ChooseDateField.getText(), false);
 
           if(date==null){
               JOptionPane.showMessageDialog(this, "Invalid date");
@@ -793,6 +779,16 @@ genreComboBox.addActionListener(new java.awt.event.ActionListener() {
             //TODO: data é válida. Fazer o list apenas!
           }
     }//GEN-LAST:event_List2InDocsTab1ActionPerformed
+
+    private void ChooseDateDocsTab3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChooseDateDocsTab3ActionPerformed
+        JFrame date = new JFrame("Choose Date");
+        newDocCalendar = new JCalendar();
+
+        date.getContentPane().add(newDocCalendar);
+        date.pack();
+        date.setVisible(true);
+        newDocCalendar.addPropertyChangeListener(this);
+    }//GEN-LAST:event_ChooseDateDocsTab3ActionPerformed
 
     public void propertyChange(PropertyChangeEvent evt) {
         Object source = evt.getSource();
@@ -803,6 +799,14 @@ genreComboBox.addActionListener(new java.awt.event.ActionListener() {
                 cal1 = new GregorianCalendar(cal.get(Calendar.YEAR),
                                 cal.get(Calendar.MONTH), cal.get(Calendar.DAY_OF_MONTH));
                 ChooseDateField.setText(cal1.get(Calendar.DAY_OF_MONTH) + "/"
+                                + cal1.get(Calendar.MONTH) + "/"
+                                + cal1.get(Calendar.YEAR));
+
+        } else if (source == newDocCalendar) {
+                cal = newDocCalendar.getCalendar();
+                cal1 = new GregorianCalendar(cal.get(Calendar.YEAR),
+                                cal.get(Calendar.MONTH), cal.get(Calendar.DAY_OF_MONTH));
+                DateTextDocTab3.setText(cal1.get(Calendar.DAY_OF_MONTH) + "/"
                                 + cal1.get(Calendar.MONTH) + "/"
                                 + cal1.get(Calendar.YEAR));
 
@@ -824,12 +828,15 @@ genreComboBox.addActionListener(new java.awt.event.ActionListener() {
 }
     /* Add a new JCalender for each ChooseDate input */
     private JCalendar listCalendar;
+    private JCalendar newDocCalendar;
     
     private ButtonGroup selectionGroup = new ButtonGroup();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JSpinner AmountNewDocTab3;
     private javax.swing.JButton ChooseDateDocsTab1;
+    private javax.swing.JButton ChooseDateDocsTab3;
     private javax.swing.JFormattedTextField ChooseDateField;
+    private javax.swing.JFormattedTextField DateTextDocTab3;
     private javax.swing.JButton List2InDocsTab1;
     private javax.swing.JSpinner NumCopiesDocTab3;
     private javax.swing.ButtonGroup authorGroup;
@@ -844,7 +851,6 @@ genreComboBox.addActionListener(new java.awt.event.ActionListener() {
     private javax.swing.JFormattedTextField jFormattedTextField1;
     private javax.swing.JFormattedTextField jFormattedTextField2;
     private javax.swing.JFormattedTextField jFormattedTextField3;
-    private javax.swing.JFormattedTextField jFormattedTextField5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
