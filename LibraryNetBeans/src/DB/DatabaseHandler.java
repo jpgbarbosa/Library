@@ -161,7 +161,7 @@ public class DatabaseHandler implements DB.DataAccessInterface{
     }
 
     @Override
-    public ArrayList<Person> getPersonsList(boolean isEmployee){
+    public ArrayList<Person> getPersonsList(boolean isEmployee, String orderBy){
 
         ArrayList<Person> personsList = new ArrayList<Person>();
         Person singlePerson;
@@ -182,7 +182,8 @@ public class DatabaseHandler implements DB.DataAccessInterface{
             }
             ResultSet rset = stmt.executeQuery("SELECT p.nome_pessoa, p.id_pessoa " +
                                 "FROM Pessoa p WHERE p.id_pessoa IN ("
-                                + appendix + ")");//Select all from Album
+                                + appendix + ")"
+                                + "ORDER BY " + orderBy);//Select all from Album
             while (rset.next()) {//while there are still results left to read
                 //create Album instance with current album information
                 //you can get each of the albums attributes by using the column name

@@ -83,9 +83,8 @@ public class Employees extends javax.swing.JPanel implements
         BirthDate1Emp = new javax.swing.JButton();
         BirthDate2Emp = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
-        Name = new javax.swing.JRadioButton();
-        ID = new javax.swing.JRadioButton();
         FindButtonEmp1 = new javax.swing.JButton();
+        jComboBox1 = new javax.swing.JComboBox();
 
         setPreferredSize(new java.awt.Dimension(800, 400));
 
@@ -189,18 +188,14 @@ public class Employees extends javax.swing.JPanel implements
 
         jLabel12.setText("Order By:");
 
-        orderGroup.add(Name);
-        Name.setText("Name");
-
-        orderGroup.add(ID);
-        ID.setText("ID");
-
         FindButtonEmp1.setText("Find");
         FindButtonEmp1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 FindButtonEmp1ActionPerformed(evt);
             }
         });
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Name", "ID" }));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -250,9 +245,9 @@ public class Employees extends javax.swing.JPanel implements
                                 .addGap(24, 24, 24)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField6, javax.swing.GroupLayout.DEFAULT_SIZE, 406, Short.MAX_VALUE)
-                                    .addComponent(jTextField4, javax.swing.GroupLayout.DEFAULT_SIZE, 406, Short.MAX_VALUE)
-                                    .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 406, Short.MAX_VALUE)
+                                    .addComponent(jTextField6, javax.swing.GroupLayout.DEFAULT_SIZE, 408, Short.MAX_VALUE)
+                                    .addComponent(jTextField4, javax.swing.GroupLayout.DEFAULT_SIZE, 408, Short.MAX_VALUE)
+                                    .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 408, Short.MAX_VALUE)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -264,30 +259,30 @@ public class Employees extends javax.swing.JPanel implements
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addComponent(BirthDate2Emp)))
                                         .addGap(204, 204, 204))
-                                    .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 406, Short.MAX_VALUE)))))
+                                    .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 408, Short.MAX_VALUE)))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(110, 110, 110)
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGap(47, 47, 47)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 262, Short.MAX_VALUE)
+                            .addContainerGap())
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                            .addComponent(jButton5)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jButton1)
+                            .addGap(82, 82, 82)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(47, 47, 47)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel12)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addGap(25, 25, 25)
-                                    .addComponent(Name)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(ID)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jButton5)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton1)))
-                        .addGap(82, 82, 82))))
+                        .addGap(58, 58, 58)
+                        .addComponent(jLabel12)
+                        .addContainerGap())))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(630, Short.MAX_VALUE)
+                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(148, 148, 148))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -358,15 +353,11 @@ public class Employees extends javax.swing.JPanel implements
                             .addComponent(jButton5)
                             .addComponent(jButton1))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel12)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(Name)
-                            .addComponent(ID))))
+                        .addComponent(jLabel12)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
-
-        Name.setSelected(true);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -374,13 +365,13 @@ public class Employees extends javax.swing.JPanel implements
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 780, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 842, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 465, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 474, Short.MAX_VALUE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -407,7 +398,8 @@ public class Employees extends javax.swing.JPanel implements
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        ArrayList <Person> list = Constants.dbhandler.getPersonsList(true);
+        String orderBy = (((String) jComboBox1.getSelectedItem()).equals("Name") ? "nome_pessoa" : "id_pessoa");
+        ArrayList <Person> list = Constants.dbhandler.getPersonsList(true, orderBy);
 
         DefaultListModel model = (DefaultListModel) jList1.getModel();
         model.clear();
@@ -458,22 +450,10 @@ public class Employees extends javax.swing.JPanel implements
 
     private void FindButtonEmp1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FindButtonEmp1ActionPerformed
         //TODO: Protecções
-        JRadioButton b = getSelectionEmployees(orderGroup);
         String orderBy;
 
-        if (b.getName() != null)
-            System.out.println("here we go");
-        else
-            System.out.println("there we go");
-
-        if (b.getName().equals("Name")){
-            orderBy = "nome_pessoa";
-        }
-         else{
-            orderBy = "id_pessoa";
-         }
-        //orderBy = (b.getName().equals("Name") ? "nome_pessoa" : "id_pessoa");
-        ArrayList <Person> list = Constants.dbhandler.findReaderByName(jTextField1.getText(), orderBy);
+        orderBy = (((String) jComboBox1.getSelectedItem()).equals("Name") ? "nome_pessoa" : "id_pessoa");
+        ArrayList <Person> list = Constants.dbhandler.findEmployeeByName(jTextField1.getText(), orderBy);
 
         DefaultListModel model = (DefaultListModel) jList1.getModel();
         model.clear();
@@ -541,14 +521,13 @@ public class Employees extends javax.swing.JPanel implements
     private javax.swing.JFormattedTextField BirthdayTextEmp2;
     private javax.swing.JButton FindButtonEmp;
     private javax.swing.JButton FindButtonEmp1;
-    private javax.swing.JRadioButton ID;
-    private javax.swing.JRadioButton Name;
     private javax.swing.ButtonGroup genreGroup;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

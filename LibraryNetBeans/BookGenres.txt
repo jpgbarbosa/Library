@@ -1,4 +1,32 @@
-"Art and design", "Audiobooks", "Biography", "Children and teenagers", "Business and finance", "Chick lit", "Classics",
-"Comics and graphic novels", "Computing and the net", "Crime fiction", "Fiction", "Film", "Food and drink", "Health, mind and body",
-"History", "House and garden", "Literary criticism", "Music", "Philosophy", "Poetry", "Politics", "Reference and languages", "Religion",
-"Science and nature", "Science fiction, fantasy and horror", "Society", "Sport and leisure", "Stage", "Travel", "TV and radio"
+Art and design
+Audiobooks
+Biography
+Children and teenagers
+Business and finance
+Chick lit
+Classics
+Comics and graphic novels
+Computing and the net
+Crime fiction
+Fiction
+Film
+Food and drink
+Health, mind and body
+History
+House and garden
+Literary criticism
+Music
+Philosophy
+Poetry
+Politics
+Reference and languages
+Religion
+Science and nature
+Science fiction
+fantasy and horror
+Society
+Sport and leisure
+Stage
+Travel
+TV and radio
+Barbosa's books
