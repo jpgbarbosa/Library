@@ -310,4 +310,72 @@ public class DatabaseHandler implements DB.DataAccessInterface{
         }
         return personsList;
     }
+
+    @Override
+    public ArrayList<Book> findBookByName(String name){
+
+        ArrayList<Book> booksList = new ArrayList<Book>();
+        Book singleBook;
+
+        System.out.print("\n[Performing findBookByName] ... ");
+
+        try {
+            //Execute statement
+            Statement stmt;
+            stmt = conn.createStatement();//create statement
+            // execute querie
+            ResultSet rset = stmt.executeQuery("SELECT p.nome_doc, p.id_doc " +
+                    "FROM Publicacao p WHERE p.nome_doc = '" + name + "' "
+                    + "ORDER BY p.nome_doc");//Select all from Album
+            while (rset.next()) {//while there are still results left to read
+                //create Album instance with current album information
+                //you can get each of the albums attributes by using the column name
+                singleBook = new Book(rset.getString("NOME_DOC"), rset.getInt("ID_DOC"));
+                booksList.add(singleBook);
+            }
+            stmt.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(DatabaseHandler.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+        return booksList;
+    }
+
+    @Override
+    public ArrayList<Book> findBookById(int id){
+
+        ArrayList<Book> booksList = new ArrayList<Book>();
+        Book singleBook;
+
+        System.out.print("\n[Performing findBookById] ... ");
+
+        try {
+            //Execute statement
+            Statement stmt;
+            stmt = conn.createStatement();//create statement
+            // execute querie
+            ResultSet rset = stmt.executeQuery("SELECT p.nome_doc, p.id_doc, p.descricao, "
+                    + "pra.genero, a.nome_autor, e.nome_editora, p.total, p.disponiveis " +
+                    "FROM Publicacao p, Prateleira pra, Autor a, Editora e "
+                    + "WHERE p.id_doc = " + id + " "
+                    + "AND p.id_autor = a.id_autor "
+                    + "AND p.id_prateleira = pra.id_prateleira "
+                    + "AND p.id_editora = e.id_editora");//Select all from Album
+            while (rset.next()) {//while there are still results left to read
+                //create Album instance with current album information
+                //you can get each of the albums attributes by using the column name
+                System.out.println("Here");
+                singleBook = new Book(rset.getString("NOME_DOC"), rset.getInt("ID_DOC"),
+                        rset.getString("GENERO"), rset.getString("DESCRICAO"),
+                        rset.getString("NOME_AUTOR"), rset.getString("NOME_EDITORA"),
+                        rset.getInt("TOTAL"), rset.getInt("DISPONIVEIS"));
+                booksList.add(singleBook);
+            }
+            stmt.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(DatabaseHandler.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+        return booksList;
+    }
 }

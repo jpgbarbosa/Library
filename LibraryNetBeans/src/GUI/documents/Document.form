@@ -109,41 +109,50 @@
                                           <Component id="jRadioButton6" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
                                           <Component id="jRadioButton3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jTextField17" pref="395" max="32767" attributes="1"/>
-                                          <Component id="jTextField11" alignment="0" min="-2" pref="331" max="-2" attributes="0"/>
-                                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                              <Group type="102" alignment="0" attributes="1">
-                                                  <Component id="pagesComboBox" min="-2" pref="70" max="-2" attributes="0"/>
-                                                  <EmptySpace max="-2" attributes="0"/>
-                                                  <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Group type="102" alignment="0" attributes="1">
-                                                          <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
-                                                          <Component id="ChooseDateDocsTab1" min="-2" max="-2" attributes="0"/>
-                                                          <EmptySpace max="-2" attributes="0"/>
-                                                          <Component id="ChooseDateField" min="-2" pref="68" max="-2" attributes="0"/>
-                                                      </Group>
-                                                      <Group type="102" alignment="0" attributes="0">
-                                                          <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
-                                                          <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                                                          <Component id="jTextField10" pref="64" max="32767" attributes="0"/>
-                                                      </Group>
-                                                  </Group>
-                                                  <EmptySpace min="-2" pref="96" max="-2" attributes="0"/>
-                                                  <Group type="103" groupAlignment="1" attributes="0">
-                                                      <Component id="jButton4" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="List2InDocsTab1" min="-2" max="-2" attributes="0"/>
-                                                  </Group>
-                                              </Group>
-                                              <Component id="jTextField9" alignment="0" min="-2" pref="331" max="-2" attributes="0"/>
-                                          </Group>
+                                          <Component id="jTextField17" pref="441" max="32767" attributes="1"/>
                                           <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
                                               <Component id="jTextField19" alignment="0" max="32767" attributes="1"/>
                                               <Component id="jTextField20" alignment="0" pref="178" max="32767" attributes="1"/>
                                           </Group>
                                           <Component id="genreComboBox" alignment="0" min="-2" pref="225" max="-2" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="jTextField11" min="-2" pref="331" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="List2InDocsTab1" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                              <Group type="102" alignment="0" attributes="1">
+                                                  <Group type="103" groupAlignment="1" attributes="0">
+                                                      <Component id="pagesComboBox" min="-2" pref="70" max="-2" attributes="0"/>
+                                                      <Component id="ChooseDateField" alignment="1" min="-2" pref="68" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Group type="102" alignment="0" attributes="0">
+                                                          <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
+                                                          <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                                                          <Component id="jTextField10" pref="64" max="32767" attributes="0"/>
+                                                          <EmptySpace min="-2" pref="96" max="-2" attributes="0"/>
+                                                          <Component id="jButton4" min="-2" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <Group type="102" alignment="0" attributes="1">
+                                                          <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
+                                                          <Component id="ChooseDateDocsTab1" min="-2" max="-2" attributes="0"/>
+                                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                          <Component id="List2InDocsTab3" min="-2" max="-2" attributes="0"/>
+                                                      </Group>
+                                                  </Group>
+                                              </Group>
+                                              <Group type="102" alignment="0" attributes="1">
+                                                  <Component id="jTextField9" min="-2" pref="331" max="-2" attributes="0"/>
+                                                  <EmptySpace max="32767" attributes="0"/>
+                                                  <Component id="List2InDocsTab2" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
                                       </Group>
                                   </Group>
                               </Group>
@@ -151,7 +160,7 @@
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jScrollPane1" min="-2" pref="254" max="-2" attributes="0"/>
-                      <EmptySpace pref="37" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -201,17 +210,20 @@
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel13" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jTextField9" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="List2InDocsTab2" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel14" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jTextField11" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="List2InDocsTab1" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="ChooseDateField" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="List2InDocsTab1" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="ChooseDateDocsTab1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="ChooseDateField" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel15" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="List2InDocsTab3" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Component id="jScrollPane1" alignment="0" min="-2" pref="388" max="-2" attributes="0"/>
@@ -353,6 +365,27 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ChooseDateDocsTab1ActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="List2InDocsTab2">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="List"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="List2InDocsTab2ActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel15">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Publication Date:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="List2InDocsTab3">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="List"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="List2InDocsTab3ActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>

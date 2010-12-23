@@ -90,7 +90,7 @@ public class Employees extends javax.swing.JPanel implements
 
         jPanel1.setPreferredSize(new java.awt.Dimension(800, 400));
 
-        jLabel1.setText("Find Reader:");
+        jLabel1.setText("Find Employee:");
 
         jLabel2.setText("Name:");
 
