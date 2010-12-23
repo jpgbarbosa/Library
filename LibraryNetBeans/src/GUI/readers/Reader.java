@@ -318,7 +318,7 @@ public class Reader extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 454, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 446, Short.MAX_VALUE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -392,10 +392,8 @@ public class Reader extends javax.swing.JPanel {
             return b;
         }
     }
-    return null;
+        return null;
     }
-	private javax.swing.ButtonGroup order = new ButtonGroup();
-	
 	
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JRadioButton ID;
@@ -432,6 +430,7 @@ public class Reader extends javax.swing.JPanel {
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
+    private javax.swing.ButtonGroup order;
     // End of variables declaration//GEN-END:variables
 
 }
