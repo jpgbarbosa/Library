@@ -50,9 +50,10 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jButton1" min="-2" max="-2" attributes="0"/>
           </Group>
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="32767" attributes="0"/>
               <Component id="jTabbedPane1" min="-2" pref="825" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -111,7 +112,7 @@
                                       </Group>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="genreComboBox" alignment="0" min="-2" pref="225" max="-2" attributes="0"/>
+                                          <Component id="jTextField17" pref="395" max="32767" attributes="1"/>
                                           <Component id="jTextField11" alignment="0" min="-2" pref="331" max="-2" attributes="0"/>
                                           <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
                                               <Group type="102" alignment="0" attributes="1">
@@ -139,10 +140,10 @@
                                               <Component id="jTextField9" alignment="0" min="-2" pref="331" max="-2" attributes="0"/>
                                           </Group>
                                           <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                              <Component id="jTextField17" alignment="0" max="32767" attributes="1"/>
                                               <Component id="jTextField19" alignment="0" max="32767" attributes="1"/>
                                               <Component id="jTextField20" alignment="0" pref="178" max="32767" attributes="1"/>
                                           </Group>
+                                          <Component id="genreComboBox" alignment="0" min="-2" pref="225" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -168,12 +169,12 @@
                                           <Component id="jRadioButton1" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="genreComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jRadioButton3" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="jTextField17" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jRadioButton4" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="jTextField19" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -252,14 +253,13 @@
               </AuxValues>
             </Component>
             <Component class="javax.swing.JComboBox" name="genreComboBox">
-              <Properties>
-                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="new javax.swing.DefaultComboBoxModel(new String[] { &quot;Art and design&quot;, &quot;Audiobooks&quot;, &quot;Biography&quot;, &quot;Children and teenagers&quot;, &quot;Business and finance&quot;, &quot;Chick lit&quot;, &quot;Classics&quot;,&#xa;&quot;Comics and graphic novels&quot;, &quot;Computing and the net&quot;, &quot;Crime fiction&quot;, &quot;Fiction&quot;, &quot;Film&quot;, &quot;Food and drink&quot;, &quot;Health, mind and body&quot;,&#xa;&quot;History&quot;, &quot;House and garden&quot;, &quot;Literary criticism&quot;, &quot;Music&quot;, &quot;Philosophy&quot;, &quot;Poetry&quot;, &quot;Politics&quot;, &quot;Reference and languages&quot;, &quot;Religion&quot;,&#xa;&quot;Science and nature&quot;, &quot;Science fiction, fantasy and horror&quot;, &quot;Society&quot;, &quot;Sport and leisure&quot;, &quot;Stage&quot;, &quot;Travel&quot;, &quot;TV and radio&quot; })" type="code"/>
-                </Property>
-              </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="genreComboBoxActionPerformed"/>
               </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JComboBox()"/>
+                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="if(genres==null){&#xa;    genres = new Vector&lt;String&gt;(30);&#xa;    try {&#xa;        FileInputStream fstream = new FileInputStream(&quot;BookGenres.txt&quot;);&#xa;        DataInputStream in = new DataInputStream(fstream);&#xa;        BufferedReader br = new BufferedReader(new InputStreamReader(in));&#xa;&#xa;            String word;&#xa;            while ((word = br.readLine()) != null){&#xa;                    genres.add(word);&#xa;            }&#xa;&#xa;            in.close();&#xa;&#xa;    } catch (FileNotFoundException e) {&#xa;            e.printStackTrace();&#xa;    } catch (IOException e) {&#xa;            e.printStackTrace();&#xa;    }&#xa;}&#xa;genreComboBox.setModel(new javax.swing.DefaultComboBoxModel(genres));"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JTextField" name="jTextField9">
             </Component>
@@ -639,47 +639,39 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                              <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="jLabel25" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                                      <Component id="jTextField15" min="-2" pref="182" max="-2" attributes="0"/>
+                                  </Group>
                                   <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                                      <Component id="jLabel25" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Group type="103" alignment="1" groupAlignment="1" attributes="0">
-                                          <Component id="jLabel18" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Group type="102" alignment="1" attributes="0">
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="jLabel21" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="jLabel22" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="jLabel23" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Group type="102" attributes="0">
-                                                      <Component id="DateTextDocTab3" min="-2" pref="67" max="-2" attributes="0"/>
-                                                      <EmptySpace max="-2" attributes="0"/>
-                                                      <Component id="ChooseDateDocsTab3" min="-2" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <Component id="jTextField16" alignment="0" min="-2" pref="407" max="-2" attributes="0"/>
-                                                  <Group type="102" alignment="0" attributes="0">
-                                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                      <Group type="103" groupAlignment="0" attributes="0">
-                                                          <Component id="jTextField13" alignment="0" min="-2" pref="154" max="-2" attributes="0"/>
-                                                          <Component id="jTextField14" alignment="0" min="-2" pref="154" max="-2" attributes="0"/>
-                                                      </Group>
-                                                  </Group>
-                                                  <Group type="102" alignment="0" attributes="0">
-                                                      <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
-                                                      <Component id="jTextField15" min="-2" pref="182" max="-2" attributes="0"/>
+                                      <Component id="jLabel18" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="jLabel21" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel22" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="jTextField16" alignment="0" min="-2" pref="407" max="-2" attributes="0"/>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                                      <Component id="jTextField18" alignment="0" pref="154" max="32767" attributes="1"/>
+                                                      <Component id="jTextField13" alignment="0" pref="154" max="32767" attributes="1"/>
+                                                      <Component id="genreNewDoc" alignment="0" max="32767" attributes="1"/>
                                                   </Group>
                                               </Group>
                                           </Group>
                                       </Group>
                                   </Group>
                                   <Component id="jLabel20" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jLabel24" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="NumCopiesDocTab3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
                                       <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
@@ -692,11 +684,20 @@
                                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                                       <Component id="jButton7" min="-2" max="-2" attributes="0"/>
                                   </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="jLabel24" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="NumCopiesDocTab3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="jLabel23" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="DateTextDocTab3" min="-2" pref="67" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="ChooseDateDocsTab3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="jLabel26" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-                              <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
@@ -716,7 +717,7 @@
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jScrollPane3" pref="320" max="32767" attributes="1"/>
+                              <Component id="jScrollPane3" pref="338" max="32767" attributes="1"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
@@ -750,7 +751,12 @@
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel22" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextField14" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jTextField18" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jLabel26" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="genreNewDoc" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
@@ -758,17 +764,16 @@
                                   <Component id="DateTextDocTab3" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="ChooseDateDocsTab3" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel24" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="NumCopiesDocTab3" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel25" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jTextField15" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel25" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -838,8 +843,6 @@
             </Component>
             <Component class="javax.swing.JTextField" name="jTextField13">
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField14">
-            </Component>
             <Component class="javax.swing.JTextField" name="jTextField15">
             </Component>
             <Component class="javax.swing.JFormattedTextField" name="DateTextDocTab3">
@@ -894,6 +897,26 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ChooseDateDocsTab3ActionPerformed"/>
               </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel26">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Genre:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextField18">
+            </Component>
+            <Component class="javax.swing.JComboBox" name="genreNewDoc">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="0"/>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="genreNewDocActionPerformed"/>
+              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="if(genres==null){&#xa;            genres = new Vector&lt;String&gt;(30);&#xa;            try {&#xa;                FileInputStream fstream = new FileInputStream(&quot;BookGenres.txt&quot;);&#xa;                DataInputStream in = new DataInputStream(fstream);&#xa;                BufferedReader br = new BufferedReader(new InputStreamReader(in));&#xa;&#xa;                    String word;&#xa;                    while ((word = br.readLine()) != null){&#xa;                            genres.add(word);&#xa;                    }&#xa;&#xa;                    in.close();&#xa;&#xa;            } catch (FileNotFoundException e) {&#xa;                    e.printStackTrace();&#xa;            } catch (IOException e) {&#xa;                    e.printStackTrace();&#xa;            }&#xa;        }&#xa;        genreNewDoc.setModel(new javax.swing.DefaultComboBoxModel(genres));"/>
+              </AuxValues>
             </Component>
           </SubComponents>
         </Container>
