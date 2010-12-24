@@ -47,18 +47,89 @@ END;
 
 /
 
+create or replace function getPrateleira (gen IN PRATELEIRA.GENERO%type) return PRATELEIRA.ID_PRATELEIRA%type is
 
-CREATE OR REPLACE PROCEDURE addDocument ( idPra IN PUBLICACAO.ID_PRATELEIRA%type,
-											idAut IN PUBLICACAO.ID_AUTOR%type, idEdi IN PUBLICACAO.ID_EDITORA%type, descri IN PUBLICACAO.DESCRICAO%type,
-											DATA IN PUBLICACAO.DATA%type, nome IN PUBLICACAO.NOME_DOC%type, disp IN PUBLICACAO.DISPONIVEIS%type,
-											total IN PUBLICACAO.TOTAL%type) IS
+prat PRATELEIRA.ID_PRATELEIRA%type:=-1;
+
+begin
+
+select id_prateleira into prat from prateleira where upper(genero) like upper(gen);
+
+if SQL%NOTFOUND then
+	return prat;
+end if;
+	
+return prat;
+	
+end;
+
+/
+
+
+create or replace function getEditora (edi IN EDITORA.NOME_EDITORA%type) return EDITORA.ID_EDITORA%type is
+
+edit EDITORA.ID_EDITORA%type:=-1;
+
+begin
+
+select ID_EDITORA into edit from editora where upper(NOME_EDITORA) like upper(edi);
+
+if SQL%NOTFOUND then
+	return edit;
+end if;
+	
+return edit;
+	
+end;
+
+/
+
+
+-- falta verificar a questao das prateleiras! atencao a rollbacks!
+CREATE OR REPLACE PROCEDURE addDocument ( Aut IN AUTOR.NOME_AUTOR%type, Edi IN EDITORA.NOME_EDITORA%type,
+											gen IN PRATELEIRA.GENERO%type,
+											descri IN PUBLICACAO.DESCRICAO%type,
+											DATA IN PUBLICACAO.DATA%type, nome IN PUBLICACAO.NOME_DOC%type, 
+											total IN PUBLICACAO.TOTAL%type, retVal out integer) IS
 	current_id NUMBER;
+	idAut AUTOR.ID_AUTOR%type;
+	idEdi EDITORA.ID_EDITORA%type;
+	idPra PRATELEIRA.ID_PRATELEIRA%type;
 	
 BEGIN
+
+	Begin
+		select id_autor into idAut from Autor where upper(nome_autor) like upper(Aut);
+
+		if SQL%NOTFOUND then
+			SELECT seq_id_author.nextval INTO idAut FROM dual;
+			insert into editora values (idAut,Aut);
+		elsif SQL%ROWCOUNT>1 then
+			retVal:=-1;
+			return;
+		end if;
+		
+		idPra := getPrateleira(gen);
+		
+		if idPra=-1 then --n existem prateleiras para esse genero
+			retVal:=-2;
+			return;
+		end if;
+		
+		idEdi := getEditora(Edi);
+		
+		if idEdi=-1 then 
+			SELECT seq_id_publisher.nextval INTO idEdi FROM dual;
+			insert into editora values (idEdi,Edi);
+		end if;
+
+	end;
+
+
 	SELECT seq_id_document.nextval INTO current_id
 	FROM dual;
 	
-	INSERT INTO PUBLICACAO VALUES (current_id, idPra, idAut, idEdi, descri, DATA, nome, disp, total);
+	INSERT INTO PUBLICACAO VALUES (current_id, idPra, idAut, idEdi, descri, DATA, nome, total, total);
 		
 	COMMIT;
 	
@@ -66,6 +137,7 @@ END;
 
 /
 
+-- falta verificar a questao das prateleiras!
 CREATE OR REPLACE PROCEDURE addCopyDocument(idDoc IN PUBLICACAO.ID_DOC%type, novos IN PUBLICACAO.TOTAL%type) IS
 
 Begin

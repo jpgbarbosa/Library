@@ -64,7 +64,7 @@
               <Component id="jTabbedPane1" min="-2" pref="464" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
               <Component id="jButton1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="40" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -419,7 +419,7 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="jLabel25" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-                                      <Component id="jTextField15" min="-2" pref="287" max="-2" attributes="0"/>
+                                      <Component id="TextDescTab3Doc" min="-2" pref="287" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="103" alignment="0" groupAlignment="1" attributes="0">
                                       <Component id="jLabel18" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -433,7 +433,7 @@
                                               <Group type="102" alignment="0" attributes="0">
                                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                                      <Component id="jTextField18" alignment="0" pref="154" max="32767" attributes="1"/>
+                                                      <Component id="TextAutTab3Doc" alignment="0" pref="154" max="32767" attributes="1"/>
                                                       <Component id="TextPubTab3Doc" alignment="0" pref="154" max="32767" attributes="1"/>
                                                       <Component id="genreNewDoc" alignment="0" max="32767" attributes="1"/>
                                                   </Group>
@@ -521,7 +521,7 @@
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel22" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextField18" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="TextAutTab3Doc" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
@@ -541,7 +541,7 @@
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jTextField15" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="TextDescTab3Doc" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel25" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
@@ -613,7 +613,7 @@
             </Component>
             <Component class="javax.swing.JTextField" name="TextPubTab3Doc">
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField15">
+            <Component class="javax.swing.JTextField" name="TextDescTab3Doc">
             </Component>
             <Component class="javax.swing.JFormattedTextField" name="DateTextDocTab3">
               <Properties>
@@ -676,7 +676,7 @@
                 <Property name="text" type="java.lang.String" value="Genre:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField18">
+            <Component class="javax.swing.JTextField" name="TextAutTab3Doc">
             </Component>
             <Component class="javax.swing.JComboBox" name="genreNewDoc">
               <Properties>
@@ -723,7 +723,6 @@
                                       <Component id="jTextField1" min="-2" pref="378" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Component id="jButton2" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
