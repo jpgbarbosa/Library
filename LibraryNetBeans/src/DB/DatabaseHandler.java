@@ -162,6 +162,30 @@ public class DatabaseHandler implements DB.DataAccessInterface{
         }
      }
 
+      public void addCopyDocument(int id, int novos){
+                  System.out.print("\n[Performing addCopyDocument]");
+        //Execute statement
+        CallableStatement proc = null;
+        try {
+            /* If it's not an employee, than it is a reader. */
+            proc = conn.prepareCall("{ call addCopyDocument(?, ?) }");
+
+            proc.setInt(1, id);
+            proc.setInt(2, novos);
+            proc.execute();
+
+            // TODO tratar valor de retorno
+            // TODO IDEIA: numero de livros nas prateleiras mantem-se inalterados. quando procuramos um livro
+            // e este se encontra em mais q uma, dizemos q existem nas 2
+
+            proc.close();
+
+        }catch (SQLException ex) {
+            Logger.getLogger(DatabaseHandler.class.getName()).log(Level.SEVERE, null, ex);
+            return;
+        }
+      }
+
     @Override
     public void addPerson(String name, String morada, String bi, String telefone, String eMail, boolean isEmployee){
         System.out.print("\n[Performing addPerson]");

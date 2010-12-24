@@ -122,7 +122,7 @@ BEGIN
 	
 	if idPra=-1 then --n existem prateleiras para esse genero
 		SELECT seq_id_shelf.nextval INTO idPra FROM dual;
-		insert into prateleira values(0,20,idPra,gen);
+		insert into prateleira values(20,0,idPra,gen);
 	end if;
 	
 	idEdi := getEditora(Edi);
@@ -147,8 +147,50 @@ END;
 
 /
 
+
+--penso que esta a funcionar como deve ser. verificar melhor
+create or Replace trigger checkShelf after update on publicacao for each row
+
+declare
+
+oldPratRow PRATELEIRA%ROWTYPE;
+newPratRow PRATELEIRA%ROWTYPE;
+pub publicacao%rowtype;
+idPra PRATELEIRA.ID_PRATELEIRA%type;
+
+begin
+	--Procuramos se a prateleira q ja contem estas publicacoes tem espaco. se nao devolver nada, entao significa q ainda existe espaco nessa prateleira
+	select * into oldPratRow from prateleira where :old.id_prateleira = id_prateleira 
+		AND (capacidade < OCUPACAO +(:new.total-:old.total));
+		
+	BEGIN
+		--Procuramos um prateleira do mesmo genero que tenha espaco
+		select * into newPratRow from prateleira where (capacidade >= OCUPACAO +(:new.total)) 
+			AND genero like oldPratRow.genero;
+		
+		Exception 
+			--se nao existir entao criamos uma nova
+			when no_data_found then
+				SELECT seq_id_shelf.nextval INTO idPra FROM dual;
+				insert into prateleira values(20,0,idPra,oldPratRow.genero);
+					select * into newPratRow from prateleira where (capacidade >= OCUPACAO +(:new.total)) 
+						AND genero like oldPratRow.genero;
+	end;
+
+	update prateleira set OCUPACAO=OCUPACAO+:new.total where ID_PRATELEIRA = newPratRow.id_prateleira;
+	update prateleira set OCUPACAO=OCUPACAO-:old.total where ID_PRATELEIRA = oldPratRow.id_prateleira;
+	
+	Exception
+		when no_data_found then
+			return;
+
+end;
+
+/
+
 -- falta verificar a questao das prateleiras!
 CREATE OR REPLACE PROCEDURE addCopyDocument(idDoc IN PUBLICACAO.ID_DOC%type, novos IN PUBLICACAO.TOTAL%type) IS
+
 
 Begin
 	update PUBLICACAO
