@@ -256,7 +256,9 @@ public class DatabaseHandler implements DB.DataAccessInterface{
                     + "WHERE a.id_autor = p.id_autor AND a.nome_autor = '" + value + "'";
         }
         else if(type.equals("Pages")){
-            //TODO: Make this
+            String [] splitted = value.split(" ");
+            query = "SELECT nome_doc, id_doc FROM publicacao p "
+                    + "WHERE p.paginas " + splitted[0] + " " + splitted[1];
         }
 
         try {
@@ -430,7 +432,6 @@ public class DatabaseHandler implements DB.DataAccessInterface{
             while (rset.next()) {//while there are still results left to read
                 //create Album instance with current album information
                 //you can get each of the albums attributes by using the column name
-                System.out.println("Here");
                 singleBook = new Book(rset.getString("NOME_DOC"), rset.getInt("ID_DOC"),
                         rset.getString("GENERO"), rset.getString("DESCRICAO"),
                         rset.getString("NOME_AUTOR"), rset.getString("NOME_EDITORA"),
