@@ -891,7 +891,54 @@ public class Document extends javax.swing.JPanel implements
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        
+        int id_employee, id_reader;
+        int [] books = new int[3];
+
+        jTextArea2.setText("");
+        //TODO: We have to change the id_employee to the correct one!
+        id_employee = 1;
+
+        if (!Validation.isInteger(jTextField2.getText())){
+            jTextArea2.append("Invalid ID for the reader.\n");
+        }
+        else{
+            id_reader = Integer.parseInt(jTextField2.getText());
+
+            if (jTextField4.getText().equals("")){
+                books[0] = -1;
+            }
+            else if (!Validation.isInteger(jTextField4.getText())){
+                jTextArea2.append("Invalid ID for the first book.\n");
+            }
+            else{
+                 books[0] = Integer.parseInt(jTextField4.getText());
+            }
+
+            if (jTextField6.getText().equals("")){
+                 books[1] = -1;
+            }
+            else if (!Validation.isInteger(jTextField6.getText())){
+                jTextArea2.append("Invalid ID for the second book.\n");
+            }
+            else{
+                 books[1] = Integer.parseInt(jTextField6.getText());
+            }
+
+            if (jTextField8.getText().equals("")){
+                 books[2] = -1;
+            }
+            else if (!Validation.isInteger(jTextField8.getText())){
+                jTextArea2.append("Invalid ID for the third book.\n");
+            }
+            else{
+                 books[2] = Integer.parseInt(jTextField8.getText());
+            }
+
+            //TODO: Maybe inform the user how many books were successful
+            Constants.dbhandler.newRequisiton(books, id_reader, id_employee);
+
+            jTextArea2.append("Operation concluded!\n");
+        }
     }//GEN-LAST:event_jButton3ActionPerformed
 
     public void propertyChange(PropertyChangeEvent evt) {

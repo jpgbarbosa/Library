@@ -22,6 +22,7 @@ public interface DataAccessInterface {
     public void addPerson(String name, String morada, String bi, String telefone, String eMail, boolean isEmployee);
     public ArrayList<Person> getPersonsList(boolean isEmployee, String orderBy);
     public ArrayList<Book> getSpecificBooks(String type, String value);
+    public void newRequisiton(int[] book_ids, int id_reader, int id_employee);
     public ArrayList<Person> findEmployeeByName(String name, String orderBy);
     public ArrayList<Person> findReaderByName(String name, String orderBy);
     public ArrayList<Book> findBookByName(String name);
