@@ -385,7 +385,7 @@ public class Document extends javax.swing.JPanel implements
 
         jLabel24.setText("Number of copies:");
 
-        jLabel25.setText("Shelf:");
+        jLabel25.setText("Description:");
 
         DateTextDocTab3.setText("   /   /   ");
 
@@ -454,7 +454,7 @@ public class Document extends javax.swing.JPanel implements
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addComponent(jLabel25)
                                 .addGap(38, 38, 38)
-                                .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(jLabel18, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(jPanel4Layout.createSequentialGroup()

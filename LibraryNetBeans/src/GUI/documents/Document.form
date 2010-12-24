@@ -419,7 +419,7 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="jLabel25" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-                                      <Component id="jTextField15" min="-2" pref="182" max="-2" attributes="0"/>
+                                      <Component id="jTextField15" min="-2" pref="287" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="103" alignment="0" groupAlignment="1" attributes="0">
                                       <Component id="jLabel18" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -608,7 +608,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel25">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Shelf:"/>
+                <Property name="text" type="java.lang.String" value="Description:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="jTextField13">
