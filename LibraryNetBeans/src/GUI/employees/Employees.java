@@ -393,7 +393,12 @@ public class Employees extends javax.swing.JPanel implements
         telefone = jTextField6.getText();
         eMail = jTextField5.getText();
 
-        Constants.dbhandler.addPerson(nome, morada, bi, telefone, eMail, true);
+
+        if(Validation.isInteger(bi) && Validation.isInteger(telefone)){
+            Constants.dbhandler.addPerson(nome, morada, bi, telefone, eMail, true);
+        } else {
+            JOptionPane.showMessageDialog(this, "Invalid data");
+        }
 
     }//GEN-LAST:event_jButton2ActionPerformed
 

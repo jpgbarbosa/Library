@@ -124,11 +124,11 @@ public class Document extends javax.swing.JPanel implements
         jLabel23 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
-        jTextField13 = new javax.swing.JTextField();
+        TextPubTab3Doc = new javax.swing.JTextField();
         jTextField15 = new javax.swing.JTextField();
         DateTextDocTab3 = new javax.swing.JFormattedTextField();
         jButton8 = new javax.swing.JButton();
-        jTextField16 = new javax.swing.JTextField();
+        TitleTab3Doc = new javax.swing.JTextField();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTextArea3 = new javax.swing.JTextArea();
         AmountNewDocTab3 = new javax.swing.JSpinner();
@@ -275,7 +275,7 @@ public class Document extends javax.swing.JPanel implements
                                     .addComponent(jLabel15))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField17, javax.swing.GroupLayout.DEFAULT_SIZE, 441, Short.MAX_VALUE)
+                                    .addComponent(jTextField17, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                         .addComponent(jTextField19, javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jTextField20, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE))
@@ -557,10 +557,15 @@ public class Document extends javax.swing.JPanel implements
         DateTextDocTab3.setText("   /   /   ");
 
         jButton8.setText("Add Document");
-
-        jTextField16.addActionListener(new java.awt.event.ActionListener() {
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField16ActionPerformed(evt);
+                jButton8ActionPerformed(evt);
+            }
+        });
+
+        TitleTab3Doc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TitleTab3DocActionPerformed(evt);
             }
         });
 
@@ -629,12 +634,12 @@ public class Document extends javax.swing.JPanel implements
                                         .addComponent(jLabel21)
                                         .addComponent(jLabel22))
                                     .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, 407, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(TitleTab3Doc, javax.swing.GroupLayout.PREFERRED_SIZE, 407, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGroup(jPanel4Layout.createSequentialGroup()
                                             .addGap(18, 18, 18)
                                             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                                 .addComponent(jTextField18, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE)
-                                                .addComponent(jTextField13, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE)
+                                                .addComponent(TextPubTab3Doc, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE)
                                                 .addComponent(genreNewDoc, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
                             .addComponent(jLabel20)
                             .addGroup(jPanel4Layout.createSequentialGroup()
@@ -693,11 +698,11 @@ public class Document extends javax.swing.JPanel implements
                                 .addComponent(jLabel20))
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addGap(4, 4, 4)
-                                .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(TitleTab3Doc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel21)
-                            .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(TextPubTab3Doc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel22)
@@ -760,9 +765,9 @@ public class Document extends javax.swing.JPanel implements
         // TODO add your handling code here:
     }//GEN-LAST:event_jFormattedTextField2ActionPerformed
 
-    private void jTextField16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField16ActionPerformed
+    private void TitleTab3DocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TitleTab3DocActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField16ActionPerformed
+    }//GEN-LAST:event_TitleTab3DocActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         Constants.documentsMenu.setVisible(false);
@@ -927,6 +932,17 @@ public class Document extends javax.swing.JPanel implements
           }
     }//GEN-LAST:event_List2InDocsTab3ActionPerformed
 
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+         int [] date = Validation.checkInsertedDate(DateTextDocTab3.getText(), false);
+
+         String title = TitleTab3Doc.getText();
+         String pub = TextPubTab3Doc.getText();
+         String desc; // TODO adicionar nome do campo descricao
+
+
+         //addDocument(title, pub, date[2], date[1], date[0]);
+    }//GEN-LAST:event_jButton8ActionPerformed
+
     public void propertyChange(PropertyChangeEvent evt) {
         Object source = evt.getSource();
         Calendar cal;
@@ -981,6 +997,8 @@ public class Document extends javax.swing.JPanel implements
     private javax.swing.JButton List2InDocsTab2;
     private javax.swing.JButton List2InDocsTab3;
     private javax.swing.JSpinner NumCopiesDocTab3;
+    private javax.swing.JTextField TextPubTab3Doc;
+    private javax.swing.JTextField TitleTab3Doc;
     private javax.swing.ButtonGroup authorGroup;
     private javax.swing.ButtonGroup findGroup;
     private javax.swing.JComboBox genreComboBox;
@@ -1040,9 +1058,7 @@ public class Document extends javax.swing.JPanel implements
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
     private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField13;
     private javax.swing.JTextField jTextField15;
-    private javax.swing.JTextField jTextField16;
     private javax.swing.JTextField jTextField17;
     private javax.swing.JTextField jTextField18;
     private javax.swing.JTextField jTextField19;

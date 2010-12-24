@@ -167,7 +167,7 @@ create table PUBLICACAO
    ID_DOC               NUMBER               not null,
    ID_PRATELEIRA        INTEGER              not null,
    ID_AUTOR             INTEGER              not null,
-   ID_EDITORA           NUMBER,
+   falta           NUMBER,
    DESCRICAO            VARCHAR2(1024),
    DATA                 DATE,
    NOME_DOC             VARCHAR2(1024)       not null,

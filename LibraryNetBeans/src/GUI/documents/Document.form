@@ -1,4 +1,4 @@
-<?xml version="1.1" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.5" maxVersion="1.7" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
   <NonVisualComponents>
@@ -113,7 +113,7 @@
                                       </Group>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jTextField17" pref="441" max="32767" attributes="1"/>
+                                          <Component id="jTextField17" pref="400" max="32767" attributes="1"/>
                                           <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
                                               <Component id="jTextField19" alignment="0" max="32767" attributes="1"/>
                                               <Component id="jTextField20" alignment="0" pref="178" max="32767" attributes="1"/>
@@ -692,12 +692,12 @@
                                               <Component id="jLabel22" alignment="0" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="jTextField16" alignment="0" min="-2" pref="407" max="-2" attributes="0"/>
+                                              <Component id="TitleTab3Doc" alignment="0" min="-2" pref="407" max="-2" attributes="0"/>
                                               <Group type="102" alignment="0" attributes="0">
                                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                                       <Component id="jTextField18" alignment="0" pref="154" max="32767" attributes="1"/>
-                                                      <Component id="jTextField13" alignment="0" pref="154" max="32767" attributes="1"/>
+                                                      <Component id="TextPubTab3Doc" alignment="0" pref="154" max="32767" attributes="1"/>
                                                       <Component id="genreNewDoc" alignment="0" max="32767" attributes="1"/>
                                                   </Group>
                                               </Group>
@@ -773,13 +773,13 @@
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
-                                      <Component id="jTextField16" min="-2" max="-2" attributes="0"/>
+                                      <Component id="TitleTab3Doc" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel21" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextField13" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="TextPubTab3Doc" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
@@ -874,7 +874,7 @@
                 <Property name="text" type="java.lang.String" value="Shelf:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField13">
+            <Component class="javax.swing.JTextField" name="TextPubTab3Doc">
             </Component>
             <Component class="javax.swing.JTextField" name="jTextField15">
             </Component>
@@ -887,10 +887,13 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Add Document"/>
               </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="jTextField16">
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField16ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton8ActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JTextField" name="TitleTab3Doc">
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TitleTab3DocActionPerformed"/>
               </Events>
             </Component>
             <Container class="javax.swing.JScrollPane" name="jScrollPane3">

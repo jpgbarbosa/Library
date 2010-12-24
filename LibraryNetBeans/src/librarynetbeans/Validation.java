@@ -44,4 +44,13 @@ public class Validation {
             return null;
         }
     }
+
+    static public boolean isInteger(String number){
+        try{
+            Integer.parseInt(number);
+        } catch (NumberFormatException e1) {
+            return false;
+        }
+        return true;
+    }
 }

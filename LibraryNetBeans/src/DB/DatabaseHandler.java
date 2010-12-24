@@ -10,11 +10,13 @@ import DataStructures.Editora;
 import DataStructures.Person;
 import java.sql.CallableStatement;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.GregorianCalendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -128,6 +130,32 @@ public class DatabaseHandler implements DB.DataAccessInterface{
         return id;
 
     }
+
+     public void addDocument(String Autor, String Editora,String descri,int ano, int mes, int dia,
+             String nome,String disp, String total){
+         System.out.print("\n[Performing addDocument]");
+        //Execute statement
+        CallableStatement proc = null;
+        try {
+            /* If it's not an employee, than it is a reader. */
+            proc = conn.prepareCall("{ call addDocument(?, ?, ?, ?, ?, ?, ?, ?) }");
+
+            proc.setString(1, Autor);
+            proc.setString(2,Editora);
+            proc.setString(4, descri);
+            proc.setDate(5, new Date((new GregorianCalendar(ano, mes-1, dia)).getTimeInMillis()));
+            proc.setString(6, nome);
+            proc.setInt(7, Integer.parseInt(disp));
+            proc.setInt(8, Integer.parseInt(total));
+            proc.execute();
+
+            proc.close();
+
+        }catch (SQLException ex) {
+            Logger.getLogger(DatabaseHandler.class.getName()).log(Level.SEVERE, null, ex);
+            return;
+        }
+     }
 
     @Override
     public void addPerson(String name, String morada, String bi, String telefone, String eMail, boolean isEmployee){
