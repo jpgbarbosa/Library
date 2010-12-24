@@ -274,7 +274,40 @@ public class DatabaseHandler implements DB.DataAccessInterface{
         return booksList;
     }
 
+    @Override
+    public void newRequisiton(int[] book_ids, int id_reader, int id_employee){
+        System.out.print("\n[Performing newRequisiton]");
+        //Execute statement
+        CallableStatement proc = null;
+        int i;
 
+        for (i = 0; i < book_ids.length; i++){
+
+            /* This is not a valid book. */
+            if (book_ids[i] == -1){
+                continue;
+            }
+            try {
+            proc = conn.prepareCall("{ call newRequisition (?, ?, ?) }");
+
+            proc.setInt(1, book_ids[i]);
+            proc.setInt(2, id_reader);
+            proc.setInt(3, id_employee);
+            proc.execute();
+
+            proc.close();
+
+            }catch (SQLException ex) {
+                Logger.getLogger(DatabaseHandler.class.getName()).log(Level.SEVERE, null, ex);
+                return;
+            }
+        }
+
+        
+        
+        
+    }
+    
     @Override
     public ArrayList<Person> findReaderByName(String name, String orderBy){
 
