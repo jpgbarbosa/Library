@@ -47,17 +47,25 @@ END;
 
 /
 
-create or replace function getPrateleira (gen IN PRATELEIRA.GENERO%type) return PRATELEIRA.ID_PRATELEIRA%type is
+create or replace function getPrateleira (gen IN PRATELEIRA.GENERO%type, total IN PUBLICACAO.TOTAL%type) return PRATELEIRA.ID_PRATELEIRA%type is
 
 prat PRATELEIRA.ID_PRATELEIRA%type:=-1;
 
+cursor shelf is
+	select id_prateleira from prateleira where upper(genero) like upper(gen) and (OCUPACAO+total)<CAPACIDADE;
+
+
 begin
 
-select id_prateleira into prat from prateleira where upper(genero) like upper(gen);
+open shelf;
+fetch shelf into prat;
+close shelf;
 
-if SQL%NOTFOUND then
-	return prat;
-end if;
+return prat;	
+
+Exception
+	when no_data_found then
+		return prat;
 	
 return prat;
 	
@@ -74,11 +82,11 @@ begin
 
 select ID_EDITORA into edit from editora where upper(NOME_EDITORA) like upper(edi);
 
-if SQL%NOTFOUND then
-	return edit;
-end if;
-	
 return edit;
+
+Exception
+	when no_data_found then
+		return edit;
 	
 end;
 
@@ -97,39 +105,41 @@ CREATE OR REPLACE PROCEDURE addDocument ( Aut IN AUTOR.NOME_AUTOR%type, Edi IN E
 	idPra PRATELEIRA.ID_PRATELEIRA%type;
 	
 BEGIN
-
 	Begin
 		select id_autor into idAut from Autor where upper(nome_autor) like upper(Aut);
-
-		if SQL%NOTFOUND then
-			SELECT seq_id_author.nextval INTO idAut FROM dual;
-			insert into editora values (idAut,Aut);
-		elsif SQL%ROWCOUNT>1 then
-			retVal:=-1;
+		if SQL%ROWCOUNT>1 then
+			retval := -1;
 			return;
 		end if;
 		
-		idPra := getPrateleira(gen);
-		
-		if idPra=-1 then --n existem prateleiras para esse genero
-			retVal:=-2;
-			return;
-		end if;
-		
-		idEdi := getEditora(Edi);
-		
-		if idEdi=-1 then 
-			SELECT seq_id_publisher.nextval INTO idEdi FROM dual;
-			insert into editora values (idEdi,Edi);
-		end if;
-
+		Exception
+			when no_data_found then
+				SELECT seq_id_author.nextval INTO idAut FROM dual;
+				insert into AUTOR values (idAut,Aut);
 	end;
+	
+	idPra := getPrateleira(gen,total);
+	
+	if idPra=-1 then --n existem prateleiras para esse genero
+		SELECT seq_id_shelf.nextval INTO idPra FROM dual;
+		insert into prateleira values(0,20,idPra,gen);
+	end if;
+	
+	idEdi := getEditora(Edi);
+	
+	if idEdi=-1 then 
+		SELECT seq_id_publisher.nextval INTO idEdi FROM dual;
+		insert into editora values (idEdi,Edi);
+	end if;
 
 
 	SELECT seq_id_document.nextval INTO current_id
 	FROM dual;
 	
 	INSERT INTO PUBLICACAO VALUES (current_id, idPra, idAut, idEdi, descri, DATA, nome, total, total);
+	update prateleira set OCUPACAO=OCUPACAO+total where ID_PRATELEIRA = idPra;
+	
+	retVal :=1;
 		
 	COMMIT;
 	

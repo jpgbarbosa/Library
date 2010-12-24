@@ -142,15 +142,17 @@ public class DatabaseHandler implements DB.DataAccessInterface{
 
             proc.setString(1, Autor);
             proc.setString(2,Editora);
-            proc.setString(3, descri);
-            proc.setDate(4, new Date((new GregorianCalendar(ano, mes-1, dia)).getTimeInMillis()));
-            proc.setString(5, nome);
-            proc.setInt(6, total);
-            proc.setString(7, genero);
+            proc.setString(3, genero);
+            proc.setString(4, descri);
+            proc.setDate(5, new Date((new GregorianCalendar(ano, mes-1, dia)).getTimeInMillis()));
+            proc.setString(6, nome);
+            proc.setInt(7, total);
             proc.registerOutParameter(8, java.sql.Types.INTEGER);
             proc.execute();
 
-            System.out.println("Error returned: "+proc.getInt(8));
+            // TODO tratar valor de retorno
+            // TODO IDEIA: numero de livros nas prateleiras mantem-se inalterados. quando procuramos um livro
+            // e este se encontra em mais q uma, dizemos q existem nas 2
 
             proc.close();
 

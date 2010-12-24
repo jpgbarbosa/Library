@@ -39,3 +39,12 @@ CREATE SEQUENCE seq_id_author
 START WITH 1
 INCREMENT BY 1
 NOCYCLE;
+
+-- Sequences for shelfs
+DROP SEQUENCE seq_id_shelf;
+
+CREATE SEQUENCE seq_id_shelf
+START WITH 1
+INCREMENT BY 1
+NOCYCLE;
+
