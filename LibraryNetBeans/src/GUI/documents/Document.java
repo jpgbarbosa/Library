@@ -67,13 +67,11 @@ public class Document extends javax.swing.JPanel implements
         jRadioButton3 = new javax.swing.JRadioButton();
         jRadioButton4 = new javax.swing.JRadioButton();
         genreComboBox = new javax.swing.JComboBox();
-        jTextField9 = new javax.swing.JTextField();
         jRadioButton5 = new javax.swing.JRadioButton();
         jRadioButton6 = new javax.swing.JRadioButton();
         jLabel12 = new javax.swing.JLabel();
         jTextField10 = new javax.swing.JTextField();
         pagesComboBox = new javax.swing.JComboBox();
-        jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jTextField11 = new javax.swing.JTextField();
         jButton4 = new javax.swing.JButton();
@@ -85,7 +83,6 @@ public class Document extends javax.swing.JPanel implements
         jTextField19 = new javax.swing.JTextField();
         jTextField20 = new javax.swing.JTextField();
         ChooseDateDocsTab1 = new javax.swing.JButton();
-        List2InDocsTab2 = new javax.swing.JButton();
         jLabel15 = new javax.swing.JLabel();
         List2InDocsTab3 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
@@ -199,8 +196,6 @@ public class Document extends javax.swing.JPanel implements
 
         pagesComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "More", "Less" }));
 
-        jLabel13.setText("Title:");
-
         jLabel14.setText("ID:");
 
         jButton4.setText("List");
@@ -230,13 +225,6 @@ public class Document extends javax.swing.JPanel implements
             }
         });
 
-        List2InDocsTab2.setText("List");
-        List2InDocsTab2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                List2InDocsTab2ActionPerformed(evt);
-            }
-        });
-
         jLabel15.setText("Publication Date:");
 
         List2InDocsTab3.setText("List");
@@ -261,7 +249,6 @@ public class Document extends javax.swing.JPanel implements
                             .addComponent(jRadioButton4)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel13)
                                     .addComponent(jRadioButton1)
                                     .addComponent(jRadioButton5)
                                     .addComponent(jRadioButton6)
@@ -279,28 +266,23 @@ public class Document extends javax.swing.JPanel implements
                                         .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(List2InDocsTab1))
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                .addComponent(pagesComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(ChooseDateField, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                                    .addComponent(jLabel12)
-                                                    .addGap(18, 18, 18)
-                                                    .addComponent(jTextField10, javax.swing.GroupLayout.DEFAULT_SIZE, 64, Short.MAX_VALUE)
-                                                    .addGap(96, 96, 96)
-                                                    .addComponent(jButton4))
-                                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                                    .addGap(7, 7, 7)
-                                                    .addComponent(ChooseDateDocsTab1)
-                                                    .addGap(18, 18, 18)
-                                                    .addComponent(List2InDocsTab3))))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                            .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(List2InDocsTab2))))))))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(pagesComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(ChooseDateField, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addComponent(jLabel12)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(jTextField10, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
+                                                .addGap(96, 96, 96)
+                                                .addComponent(jButton4))
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addGap(7, 7, 7)
+                                                .addComponent(ChooseDateDocsTab1)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(List2InDocsTab3)))))))))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -340,11 +322,7 @@ public class Document extends javax.swing.JPanel implements
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jButton4)
                                 .addGap(18, 18, 18)))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel13)
-                            .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(List2InDocsTab2))
-                        .addGap(18, 18, 18)
+                        .addGap(41, 41, 41)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel14)
                             .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -725,7 +703,7 @@ public class Document extends javax.swing.JPanel implements
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 464, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton1)
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -820,28 +798,34 @@ public class Document extends javax.swing.JPanel implements
 
 
     private void List2InDocsTab1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_List2InDocsTab1ActionPerformed
-        //TODO: Protecções
-        String id = jTextField11.getText();
+        int id;
         ArrayList <Book> list = null;
         int i;
-        list = Constants.dbhandler.findBookById(Integer.parseInt(id));
 
-        if (list == null || list.isEmpty()){
-                jTextArea1.setText("No books were found.");
-            }
-            else{
-                for (i = 0; i < list.size(); i++){
-                    Book book = list.get(i);
-                    String str = "'"+ book.getTitle() + "'\nID: " + book.getId() + "\n"
-                            + "Autor: " + book.getAutor() + "\n"
-                            + "Editora: " + book.getEditora() + "\n"
-                            + "Genero: " + book.getGenero() + "\n"
-                            + "Descricao: " + book.getDescricao() + "\n"
-                            + "Exemplares: " + book.getTotal() + "\n"
-                            + "Disponiveis: " + book.getDisponiveis() + "\n";
-                    jTextArea1.append(str);
+        if (Validation.isInteger(jTextField11.getText())){
+            id = Integer.parseInt(jTextField11.getText());
+            list = Constants.dbhandler.findBookById(id);
+
+            if (list == null || list.isEmpty()){
+                    jTextArea1.setText("No books were found.");
                 }
-            }
+                else{
+                    for (i = 0; i < list.size(); i++){
+                        Book book = list.get(i);
+                        String str = "'"+ book.getTitle() + "'\nID: " + book.getId() + "\n"
+                                + "Autor: " + book.getAutor() + "\n"
+                                + "Editora: " + book.getEditora() + "\n"
+                                + "Genero: " + book.getGenero() + "\n"
+                                + "Descricao: " + book.getDescricao() + "\n"
+                                + "Exemplares: " + book.getTotal() + "\n"
+                                + "Disponiveis: " + book.getDisponiveis() + "\n";
+                        jTextArea1.append(str);
+                    }
+                }
+        }
+        else{
+            jTextArea1.setText("Invalid book ID.");
+        }
     }//GEN-LAST:event_List2InDocsTab1ActionPerformed
 
     private void ChooseDateDocsTab3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChooseDateDocsTab3ActionPerformed
@@ -857,24 +841,6 @@ public class Document extends javax.swing.JPanel implements
     private void genreNewDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_genreNewDocActionPerformed
 
     }//GEN-LAST:event_genreNewDocActionPerformed
-
-    private void List2InDocsTab2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_List2InDocsTab2ActionPerformed
-        //TODO: Protecções
-        String name = jTextField9.getText();
-        ArrayList <Book> list = null;
-        int i;
-        list = Constants.dbhandler.findBookByName(name);
-
-        if (list == null || list.isEmpty()){
-                jTextArea1.setText("No books were found.");
-            }
-            else{
-                for (i = 0; i < list.size(); i++){
-                    String str = list.get(i).getTitle() + " ID: " + list.get(i).getId() + "\n";
-                    jTextArea1.append(str);
-                }
-            }
-    }//GEN-LAST:event_List2InDocsTab2ActionPerformed
 
     private void List2InDocsTab3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_List2InDocsTab3ActionPerformed
         int [] date = Validation.checkInsertedDate(ChooseDateField.getText(), false);
@@ -1019,7 +985,6 @@ public class Document extends javax.swing.JPanel implements
     private javax.swing.JFormattedTextField ChooseDateField;
     private javax.swing.JFormattedTextField DateTextDocTab3;
     private javax.swing.JButton List2InDocsTab1;
-    private javax.swing.JButton List2InDocsTab2;
     private javax.swing.JButton List2InDocsTab3;
     private javax.swing.JSpinner NumCopiesDocTab3;
     private javax.swing.JTextField TextAutTab3Doc;
@@ -1040,7 +1005,6 @@ public class Document extends javax.swing.JPanel implements
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
@@ -1087,7 +1051,6 @@ public class Document extends javax.swing.JPanel implements
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
     private javax.swing.JComboBox pagesComboBox;
     private javax.swing.ButtonGroup publisherGroup;
     private javax.swing.ButtonGroup shelfGroup;

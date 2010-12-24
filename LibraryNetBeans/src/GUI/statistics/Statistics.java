@@ -10,18 +10,6 @@
  */
 
 package GUI.statistics;
-
-import GUI.readers.*;
-import DataStructures.Person;
-import com.toedter.calendar.JCalendar;
-import java.beans.PropertyChangeEvent;
-import java.beans.PropertyChangeListener;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
-import javax.swing.DefaultListModel;
-import javax.swing.JFrame;
-import javax.swing.ListModel;
 import librarynetbeans.Constants;
 
 /**
@@ -44,7 +32,6 @@ public class Statistics extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        genreGroup = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList();
@@ -147,7 +134,6 @@ public class Statistics extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.ButtonGroup genreGroup;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
