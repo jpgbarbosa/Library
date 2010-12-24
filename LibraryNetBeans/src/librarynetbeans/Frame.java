@@ -15,6 +15,7 @@ import GUI.MainMenu;
 import GUI.documents.Document;
 import GUI.employees.Employees;
 import GUI.readers.Reader;
+import GUI.statistics.Statistics;
 
 /**
  *
@@ -65,6 +66,7 @@ public class Frame extends javax.swing.JFrame {
                 Document doc = new Document();
                 Employees emp = new Employees();
                 Reader reader = new Reader();
+                Statistics stats = new Statistics();
 
                 login.setVisible(true);
                 mainMenu.setVisible(false);
@@ -72,7 +74,7 @@ public class Frame extends javax.swing.JFrame {
                 emp.setVisible(false);
                 reader.setVisible(false);
 
-                new Constants(login, mainMenu, doc, emp, reader, frame);
+                new Constants(login, mainMenu, doc, emp, reader, stats, frame);
                 frame.setSize(Constants.DIM_H,Constants.DIM_V);
 
                 frame.setContentPane(Constants.loginMenu);
