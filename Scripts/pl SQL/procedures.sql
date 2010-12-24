@@ -115,7 +115,7 @@ BEGIN
 		Exception
 			when no_data_found then
 				SELECT seq_id_author.nextval INTO idAut FROM dual;
-				insert into AUTOR values (idAut,Aut);
+				insert into AUTOR values (Aut,idAut);
 	end;
 	
 	idPra := getPrateleira(gen,total);

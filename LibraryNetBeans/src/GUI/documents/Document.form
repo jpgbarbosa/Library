@@ -64,7 +64,7 @@
               <Component id="jTabbedPane1" min="-2" pref="464" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
               <Component id="jButton1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="40" max="32767" attributes="0"/>
+              <EmptySpace pref="18" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -416,11 +416,6 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jLabel25" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-                                      <Component id="TextDescTab3Doc" min="-2" pref="287" max="-2" attributes="0"/>
-                                  </Group>
                                   <Group type="103" alignment="0" groupAlignment="1" attributes="0">
                                       <Component id="jLabel18" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Group type="102" alignment="1" attributes="0">
@@ -454,19 +449,17 @@
                                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                                       <Component id="jButton7" min="-2" max="-2" attributes="0"/>
                                   </Group>
+                                  <Component id="jLabel26" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="jLabel24" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="NumCopiesDocTab3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jLabel23" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="DateTextDocTab3" min="-2" pref="67" max="-2" attributes="0"/>
+                                      <Component id="jLabel25" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="ChooseDateDocsTab3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="TextDescTab3Doc" min="-2" pref="287" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="jLabel26" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -487,7 +480,7 @@
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jScrollPane3" pref="338" max="32767" attributes="1"/>
+                              <Component id="jScrollPane3" pref="350" max="32767" attributes="1"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
@@ -530,20 +523,15 @@
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel23" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="DateTextDocTab3" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="ChooseDateDocsTab3" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel24" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="NumCopiesDocTab3" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="TextDescTab3Doc" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel25" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="TextDescTab3Doc" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
+                              <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -596,11 +584,6 @@
                 <Property name="text" type="java.lang.String" value="Author:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel23">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Date:"/>
-              </Properties>
-            </Component>
             <Component class="javax.swing.JLabel" name="jLabel24">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Number of copies:"/>
@@ -614,11 +597,6 @@
             <Component class="javax.swing.JTextField" name="TextPubTab3Doc">
             </Component>
             <Component class="javax.swing.JTextField" name="TextDescTab3Doc">
-            </Component>
-            <Component class="javax.swing.JFormattedTextField" name="DateTextDocTab3">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="   /   /   "/>
-              </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="jButton8">
               <Properties>
@@ -662,14 +640,6 @@
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="NumCopiesDocTab3 = new javax.swing.JSpinner(new SpinnerNumberModel(1, 1, 100, 1));"/>
               </AuxValues>
-            </Component>
-            <Component class="javax.swing.JButton" name="ChooseDateDocsTab3">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Choose Date"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ChooseDateDocsTab3ActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel26">
               <Properties>

@@ -131,7 +131,7 @@ public class DatabaseHandler implements DB.DataAccessInterface{
 
     }
 
-     public void addDocument(String Autor, String Editora, String genero, String descri,int ano, int mes, int dia,
+     public void addDocument(String Autor, String Editora, String genero, String descri,
              String nome, int total){
          System.out.print("\n[Performing addDocument]");
         //Execute statement
@@ -144,7 +144,7 @@ public class DatabaseHandler implements DB.DataAccessInterface{
             proc.setString(2,Editora);
             proc.setString(3, genero);
             proc.setString(4, descri);
-            proc.setDate(5, new Date((new GregorianCalendar(ano, mes-1, dia)).getTimeInMillis()));
+            proc.setDate(5, new Date((new GregorianCalendar()).getTimeInMillis()));
             proc.setString(6, nome);
             proc.setInt(7, total);
             proc.registerOutParameter(8, java.sql.Types.INTEGER);

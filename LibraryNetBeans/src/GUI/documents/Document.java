@@ -98,12 +98,10 @@ public class Document extends javax.swing.JPanel implements
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
-        jLabel23 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
         TextPubTab3Doc = new javax.swing.JTextField();
         TextDescTab3Doc = new javax.swing.JTextField();
-        DateTextDocTab3 = new javax.swing.JFormattedTextField();
         jButton8 = new javax.swing.JButton();
         TitleTab3Doc = new javax.swing.JTextField();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -112,7 +110,6 @@ public class Document extends javax.swing.JPanel implements
         AmountNewDocTab3 = new javax.swing.JSpinner(new SpinnerNumberModel(1, 1, 100, 1));
         NumCopiesDocTab3 = new javax.swing.JSpinner();
         NumCopiesDocTab3 = new javax.swing.JSpinner(new SpinnerNumberModel(1, 1, 100, 1));
-        ChooseDateDocsTab3 = new javax.swing.JButton();
         jLabel26 = new javax.swing.JLabel();
         TextAutTab3Doc = new javax.swing.JTextField();
         genreNewDoc = new javax.swing.JComboBox();
@@ -381,13 +378,9 @@ public class Document extends javax.swing.JPanel implements
 
         jLabel22.setText("Author:");
 
-        jLabel23.setText("Date:");
-
         jLabel24.setText("Number of copies:");
 
         jLabel25.setText("Description:");
-
-        DateTextDocTab3.setText("   /   /   ");
 
         jButton8.setText("Add Document");
         jButton8.addActionListener(new java.awt.event.ActionListener() {
@@ -407,13 +400,6 @@ public class Document extends javax.swing.JPanel implements
         jScrollPane3.setViewportView(jTextArea3);
 
         AmountNewDocTab3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-
-        ChooseDateDocsTab3.setText("Choose Date");
-        ChooseDateDocsTab3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ChooseDateDocsTab3ActionPerformed(evt);
-            }
-        });
 
         jLabel26.setText("Genre:");
 
@@ -456,10 +442,6 @@ public class Document extends javax.swing.JPanel implements
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(39, 39, 39)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addComponent(jLabel25)
-                                .addGap(38, 38, 38)
-                                .addComponent(TextDescTab3Doc, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(jLabel18, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(jPanel4Layout.createSequentialGroup()
@@ -486,17 +468,15 @@ public class Document extends javax.swing.JPanel implements
                                 .addComponent(AmountNewDocTab3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(30, 30, 30)
                                 .addComponent(jButton7))
+                            .addComponent(jLabel26)
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addComponent(jLabel24)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(NumCopiesDocTab3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addComponent(jLabel23)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(DateTextDocTab3, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel25)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(ChooseDateDocsTab3))
-                            .addComponent(jLabel26))))
+                                .addComponent(TextDescTab3Doc, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(26, 26, 26)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(681, 681, 681))
@@ -511,7 +491,7 @@ public class Document extends javax.swing.JPanel implements
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 338, Short.MAX_VALUE))
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 350, Short.MAX_VALUE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(20, 20, 20)
                         .addComponent(jLabel16)
@@ -546,17 +526,13 @@ public class Document extends javax.swing.JPanel implements
                             .addComponent(genreNewDoc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel23)
-                            .addComponent(DateTextDocTab3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ChooseDateDocsTab3))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel24)
                             .addComponent(NumCopiesDocTab3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(TextDescTab3Doc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel25))))
+                            .addComponent(jLabel25)
+                            .addComponent(TextDescTab3Doc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(41, 41, 41)))
                 .addGap(18, 18, 18)
                 .addComponent(jButton8)
                 .addGap(80, 80, 80))
@@ -725,7 +701,7 @@ public class Document extends javax.swing.JPanel implements
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 464, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton1)
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -844,16 +820,6 @@ public class Document extends javax.swing.JPanel implements
             }
     }//GEN-LAST:event_List2InDocsTab1ActionPerformed
 
-    private void ChooseDateDocsTab3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChooseDateDocsTab3ActionPerformed
-        JFrame date = new JFrame("Choose Date");
-        newDocCalendar = new JCalendar();
-
-        date.getContentPane().add(newDocCalendar);
-        date.pack();
-        date.setVisible(true);
-        newDocCalendar.addPropertyChangeListener(this);
-    }//GEN-LAST:event_ChooseDateDocsTab3ActionPerformed
-
     private void genreNewDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_genreNewDocActionPerformed
 
     }//GEN-LAST:event_genreNewDocActionPerformed
@@ -888,17 +854,19 @@ public class Document extends javax.swing.JPanel implements
 
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-         int [] date = Validation.checkInsertedDate(DateTextDocTab3.getText(), true);
 
          String title = TitleTab3Doc.getText();
          String pub = TextPubTab3Doc.getText();
+         if(pub.equals("")){ pub="none";}
          String desc = TextDescTab3Doc.getText();
+         if(desc.equals("")){ desc="none";}
          String autor = TextAutTab3Doc.getText();
          int total = (Integer)NumCopiesDocTab3.getModel().getValue();
          String genre = (String)genreNewDoc.getSelectedItem();
+         if(genre.equals("")){ genre="none";}
 
-         if(!title.equals("") && date!=null){
-            Constants.dbhandler.addDocument(autor, pub, genre, desc,date[2], date[1], date[0],
+         if(!title.equals("") && !autor.equals("")){
+            Constants.dbhandler.addDocument(autor, pub, genre, desc,
                  title, total);
          } else {
               JOptionPane.showMessageDialog(this, "Invalid date or title field is empty");
@@ -980,14 +948,6 @@ public class Document extends javax.swing.JPanel implements
                                 + cal1.get(Calendar.MONTH) + "/"
                                 + cal1.get(Calendar.YEAR));
 
-        } else if (source == newDocCalendar) {
-                cal = newDocCalendar.getCalendar();
-                cal1 = new GregorianCalendar(cal.get(Calendar.YEAR),
-                                cal.get(Calendar.MONTH), cal.get(Calendar.DAY_OF_MONTH));
-                DateTextDocTab3.setText(cal1.get(Calendar.DAY_OF_MONTH) + "/"
-                                + cal1.get(Calendar.MONTH) + "/"
-                                + cal1.get(Calendar.YEAR));
-
         }
         /*
          * else if( source == OUTRO JCALENDAR)....
@@ -1007,7 +967,6 @@ public class Document extends javax.swing.JPanel implements
 
     /* Add a new JCalender for each ChooseDate input */
     private JCalendar listCalendar;
-    private JCalendar newDocCalendar;
 
     private Vector<String> genres=null;
     
@@ -1015,9 +974,7 @@ public class Document extends javax.swing.JPanel implements
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JSpinner AmountNewDocTab3;
     private javax.swing.JButton ChooseDateDocsTab1;
-    private javax.swing.JButton ChooseDateDocsTab3;
     private javax.swing.JFormattedTextField ChooseDateField;
-    private javax.swing.JFormattedTextField DateTextDocTab3;
     private javax.swing.JButton List2InDocsTab1;
     private javax.swing.JButton List2InDocsTab2;
     private javax.swing.JButton List2InDocsTab3;
@@ -1051,7 +1008,6 @@ public class Document extends javax.swing.JPanel implements
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
