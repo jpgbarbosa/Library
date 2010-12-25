@@ -131,23 +131,25 @@ public class DatabaseHandler implements DB.DataAccessInterface{
 
     }
 
+     @Override
      public void addDocument(String Autor, String Editora, String genero, String descri,
-             String nome, int total){
-         System.out.print("\n[Performing addDocument]");
+             String nome, int total, int numberOfPages){
+         System.out.print("\n[Performing addDocument]...");
         //Execute statement
         CallableStatement proc = null;
         try {
             /* If it's not an employee, than it is a reader. */
-            proc = conn.prepareCall("{ call addDocument(?, ?, ?, ?, ?, ?, ?, ?) }");
+            proc = conn.prepareCall("{ call addDocument(?, ?, ?, ?, ?, ?, ?, ?, ?) }");
 
             proc.setString(1, Autor);
             proc.setString(2,Editora);
             proc.setString(3, genero);
-            proc.setString(4, descri);
-            proc.setDate(5, new Date((new GregorianCalendar()).getTimeInMillis()));
-            proc.setString(6, nome);
-            proc.setInt(7, total);
-            proc.registerOutParameter(8, java.sql.Types.INTEGER);
+            proc.setInt(4, numberOfPages);
+            proc.setString(5, descri);
+            proc.setDate(6, new Date((new GregorianCalendar()).getTimeInMillis()));
+            proc.setString(7, nome);
+            proc.setInt(8, total);
+            proc.registerOutParameter(9, java.sql.Types.INTEGER);
             proc.execute();
 
             // TODO tratar valor de retorno
@@ -163,7 +165,7 @@ public class DatabaseHandler implements DB.DataAccessInterface{
      }
 
       public void addCopyDocument(int id, int novos){
-                  System.out.print("\n[Performing addCopyDocument]");
+        System.out.print("\n[Performing addCopyDocument]");
         //Execute statement
         CallableStatement proc = null;
         try {

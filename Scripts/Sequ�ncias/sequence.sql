@@ -6,6 +6,7 @@ START WITH 1
 INCREMENT BY 1
 NOCYCLE;
 
+-- Sequences for books
 DROP SEQUENCE seq_id_document;
 
 CREATE SEQUENCE seq_id_document
@@ -14,7 +15,7 @@ INCREMENT BY 1
 NOCYCLE;
 
 
--- Sequences for books
+-- Sequences for requisitions
 DROP SEQUENCE seq_id_aluguer;
 
 CREATE SEQUENCE seq_id_aluguer

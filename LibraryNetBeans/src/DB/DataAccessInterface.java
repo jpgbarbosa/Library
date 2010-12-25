@@ -27,4 +27,5 @@ public interface DataAccessInterface {
     public ArrayList<Person> findReaderByName(String name, String orderBy);
     public ArrayList<Book> findBookByName(String name);
     public ArrayList<Book> findBookById(int id);
+    public void addDocument(String Autor, String Editora, String genero, String descri,String nome, int total, int numberOfPages);
 }

@@ -96,9 +96,10 @@ end;
 -- falta verificar a questao das prateleiras! atencao a rollbacks!
 CREATE OR REPLACE PROCEDURE addDocument ( Aut IN AUTOR.NOME_AUTOR%type, Edi IN EDITORA.NOME_EDITORA%type,
 											gen IN PRATELEIRA.GENERO%type,
+											pages IN PUBLICACAO.PAGINAS%type,
 											descri IN PUBLICACAO.DESCRICAO%type,
 											DATA IN PUBLICACAO.DATA%type, nome IN PUBLICACAO.NOME_DOC%type, 
-											total IN PUBLICACAO.TOTAL%type, retVal out integer) IS
+											total IN PUBLICACAO.TOTAL%type, retVal OUT INTEGER) IS
 	current_id NUMBER;
 	idAut AUTOR.ID_AUTOR%type;
 	idEdi EDITORA.ID_EDITORA%type;
@@ -136,7 +137,7 @@ BEGIN
 	SELECT seq_id_document.nextval INTO current_id
 	FROM dual;
 	
-	INSERT INTO PUBLICACAO VALUES (current_id, idPra, idAut, idEdi, descri, DATA, nome, total, total);
+	INSERT INTO PUBLICACAO VALUES (current_id, idPra, idAut, idEdi, pages, descri, DATA, nome, total, total);
 	update prateleira set OCUPACAO=OCUPACAO+total where ID_PRATELEIRA = idPra;
 	
 	retVal :=1;
