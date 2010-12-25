@@ -1,0 +1,19 @@
+-> Protecções em todos os campos;
+-> Nas listagem, devemos promover a ordem, i.e. possibilitar por exemplo se o utilizador que ordenar os dados dos clientes
+   por ordem alfabética ou então pelos seus ID's.
+-> Não esquecer da cenas dos UPPERS, por causa dos inputs e do modo de registo das strings na base de dados (nao confiar no que 
+o utilizador introduz).
+-> Quando nao são encontrados resultados, informar o utilizador.
+-> As cenas da prateleira quando chega ao fim. Ter cuidade que se tivermos mais do que um prateleira, não sei se teremos
+   problemas com as procuras de livros por género, porque agora só procura um prateleira por género, penso eu. Talves não.
+-> Nas procuras por nome, usar aquela cena dos % e _ por causa da Strings, para não ser só nomes à letra.
+-> No diagrama, meter o n+umero de páginas.
+-> Permitir a alteração dos dados de utilizadores e funcionários.
+-> Eventualmente permitir que os empregados voltem a ser contratados uma vez despedidos.
+
+
+entao cenas q so tu podes fazer. interface com as estatisticas visto q o meu mara completamente
+e ficas entao com a cena dos users
+eu faço a entrega das reservas e adicionar livros e crio um data set
+e depois é ir fazendo o adicionar editoras e autores
+ta nice para ti?

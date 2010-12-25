@@ -56,15 +56,12 @@ public class Reader extends javax.swing.JPanel implements
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
         dateText2Reader = new javax.swing.JFormattedTextField();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
         jTextField4 = new javax.swing.JTextField();
         jTextField5 = new javax.swing.JTextField();
         jTextField6 = new javax.swing.JTextField();
@@ -108,8 +105,6 @@ public class Reader extends javax.swing.JPanel implements
 
         jLabel7.setText("Birthday");
 
-        jLabel8.setText("Gender:");
-
         jLabel9.setText("ID Card Number:");
 
         jLabel10.setText("Contact:");
@@ -117,13 +112,6 @@ public class Reader extends javax.swing.JPanel implements
         jLabel11.setText("E-mail address:");
 
         dateText2Reader.setText("   /   /   ");
-
-        genreGroup.add(jRadioButton1);
-        jRadioButton1.setSelected(true);
-        jRadioButton1.setText("M");
-
-        genreGroup.add(jRadioButton2);
-        jRadioButton2.setText("F");
 
         jList1.setModel(new javax.swing.DefaultListModel());
         jScrollPane1.setViewportView(jList1);
@@ -218,7 +206,6 @@ public class Reader extends javax.swing.JPanel implements
                                             .addComponent(jLabel6)
                                             .addComponent(jLabel5)
                                             .addComponent(jLabel7)
-                                            .addComponent(jLabel8)
                                             .addComponent(jLabel9))
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLabel1)
@@ -233,15 +220,9 @@ public class Reader extends javax.swing.JPanel implements
                                     .addComponent(jTextField4, javax.swing.GroupLayout.DEFAULT_SIZE, 375, Short.MAX_VALUE)
                                     .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 375, Short.MAX_VALUE)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addComponent(jRadioButton1)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jRadioButton2))
-                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addComponent(dateText2Reader, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(chooseDate2Emp)))
+                                        .addComponent(dateText2Reader, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(chooseDate2Emp)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
                                     .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 375, Short.MAX_VALUE))))))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -259,9 +240,7 @@ public class Reader extends javax.swing.JPanel implements
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel12)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(147, 147, 147))
         );
         jPanel1Layout.setVerticalGroup(
@@ -294,13 +273,7 @@ public class Reader extends javax.swing.JPanel implements
                                     .addComponent(jLabel7)
                                     .addComponent(dateText2Reader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(chooseDate2Emp))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel8)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jRadioButton1)
-                                        .addComponent(jRadioButton2)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGap(32, 32, 32)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel9)
                                     .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -474,12 +447,9 @@ public class Reader extends javax.swing.JPanel implements
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JList jList1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;

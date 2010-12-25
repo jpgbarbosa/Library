@@ -282,9 +282,8 @@ public class DatabaseHandler implements DB.DataAccessInterface{
                     + "WHERE a.id_autor = p.id_autor AND a.nome_autor = '" + value + "'";
         }
         else if(type.equals("Pages")){
-            String [] splitted = value.split(" ");
             query = "SELECT nome_doc, id_doc FROM publicacao p "
-                    + "WHERE p.paginas " + splitted[0] + " " + splitted[1];
+                    + "WHERE p.paginas " + value;
         }
 
         try {

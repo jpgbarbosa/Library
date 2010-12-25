@@ -1,0 +1,31 @@
+EMPREGADOS:
+	-> Nº de entradas
+	-> Nº de saídas
+	-> Tempo médio de trabalho na biblioteca
+	-> Nº médio
+	
+LEITORES:
+    -> Nº de leitores
+	-> Nº de leitores com livros emprestados
+	-> Nº de leitores atrasados na entrega
+	
+LIVROS E PRATELEIRAS:
+    -> Número máximo e mínimo de páginas
+	-> Número médio de páginas
+	-> Nº de livros
+	-> Nº de livros já  x número de vezes requisitados
+	-> Média de exemplares por livro
+	
+	-> Nº de prateleiras
+	-> Taxa de ocupação
+	-> Nº médio da capacidade
+	
+EMPRÉSTIMOS:
+	-> Nº total de empréstimos
+	-> Nº total de empréstimos a decorrer e já concluídos
+	-> Nº total de empréstimos atrasados
+	-> Nº médio de empréstimos
+	
+AUTORES E EDITORAS:
+	-> Nº de elementos
+	-> Média de livros por elemento

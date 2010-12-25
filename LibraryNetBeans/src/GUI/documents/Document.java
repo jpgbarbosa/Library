@@ -189,7 +189,7 @@ public class Document extends javax.swing.JPanel implements
         jRadioButton5.setText("Author");
 
         selectionGroup.add(jRadioButton6);
-        jRadioButton6.setText("Pages:");
+        jRadioButton6.setText("Pages");
 
         jLabel12.setText("than");
 
@@ -738,14 +738,17 @@ public class Document extends javax.swing.JPanel implements
             String str = (String) pagesComboBox.getSelectedItem();
 
             if (str.equals("More")){
-                value = ">";
+                value = "> ";
             }
             else{
-                value = "<";
+                value = "< ";
+            }
+
+            if (Validation.isInteger(jTextField10.getText())){
+                value += jTextField10.getText();
+                list = Constants.dbhandler.getSpecificBooks("Pages", value);
             }
             
-            value += jTextField17.getText();
-            list = Constants.dbhandler.getSpecificBooks("Pages", value);
         }
 
         if (list == null || list.isEmpty()){
