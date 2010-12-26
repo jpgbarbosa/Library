@@ -320,7 +320,6 @@ BEGIN
 	END;
 	
 	BEGIN
-		-- If the employees hasn't been fired, we consider the actual date as the exit date, just for counting purposes.
 		SELECT COUNT(*) INTO faulty_readers
 		FROM Emprestimo
 		WHERE Data_prevista - SYSDATE < 0 AND Data_entrega IS NULL
@@ -461,6 +460,16 @@ BEGIN
 	EXCEPTION
 		WHEN NO_DATA_FOUND THEN
 			finished_reqs := 0;
+	END;
+	
+	--Checks the faulty requisitions
+	BEGIN
+		SELECT COUNT(*) INTO no_faulty_reqs
+		FROM Emprestimo
+		WHERE Data_prevista - SYSDATE < 0 AND Data_entrega IS NULL;
+	EXCEPTION
+		WHEN NO_DATA_FOUND THEN
+			no_faulty_reqs := 0;
 	END;
 	
 	-- Checks the average of requisitions per day, counting only days with at least one requisition

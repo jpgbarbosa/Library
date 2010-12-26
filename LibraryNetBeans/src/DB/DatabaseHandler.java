@@ -614,7 +614,7 @@ public class DatabaseHandler implements DB.DataAccessInterface{
                     + "Number of Finished Requisitions: " + finished + "\n"
                     + "Number of Faulty Requisitions: " + faulty + "\n"
                     + "Number of Requisitons Per Day (Days with at least one requistion): " + avgReqs + "\n"
-                    + "Number of Days with Requisitions: " + noDays + "\n");
+                    + "Number of Days with Requisitions: " + noDays);
 
             proc.close();
 
