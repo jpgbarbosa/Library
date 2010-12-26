@@ -9,6 +9,7 @@ import DataStructures.Book;
 import DataStructures.Editora;
 import DataStructures.Person;
 import java.util.ArrayList;
+import javax.swing.JTextArea;
 
 /**
  * Interface for accessing data from the DB. The DatabaseHandler extends this interface.
@@ -28,4 +29,11 @@ public interface DataAccessInterface {
     public ArrayList<Book> findBookByName(String name);
     public ArrayList<Book> findBookById(int id);
     public void addDocument(String Autor, String Editora, String genero, String descri,String nome, int total, int numberOfPages);
+
+    /* Statistics */
+    public void readersStatistics(JTextArea textArea);
+    public void employeesStatistics(JTextArea textArea);
+    public void booksAndShelvesStatistics(JTextArea textArea);
+    public void requisitionsStatistics(JTextArea textArea);
+    public void authorsAndPublishersStatistics(JTextArea textArea);
 }

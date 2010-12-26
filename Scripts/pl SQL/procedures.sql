@@ -150,14 +150,14 @@ END;
 
 
 --penso que esta a funcionar como deve ser. verificar melhor
-create or Replace trigger checkShelf after update on publicacao for each row
+CREATE OR REPLACE TRIGGER checkShelf AFTER UPDATE ON Publicacao FOR EACH ROW
 
-declare
+DECLARE
 
-oldPratRow PRATELEIRA%ROWTYPE;
-newPratRow PRATELEIRA%ROWTYPE;
-pub publicacao%rowtype;
-idPra PRATELEIRA.ID_PRATELEIRA%type;
+	oldPratRow PRATELEIRA%ROWTYPE;
+	newPratRow PRATELEIRA%ROWTYPE;
+	pub publicacao%rowtype;
+	idPra PRATELEIRA.ID_PRATELEIRA%type;
 
 begin
 	--Procuramos se a prateleira q ja contem estas publicacoes tem espaco. se nao devolver nada, entao significa q ainda existe espaco nessa prateleira
@@ -193,18 +193,18 @@ end;
 CREATE OR REPLACE PROCEDURE addCopyDocument(idDoc IN PUBLICACAO.ID_DOC%type, novos IN PUBLICACAO.TOTAL%type) IS
 
 
-Begin
-	update PUBLICACAO
-		set DISPONIVEIS=DISPONIVEIS+novos, TOTAL=TOTAL+novos
-		where id_doc = idDoc;
+BEGIN
+	UPDATE PUBLICACAO
+	SET DISPONIVEIS=DISPONIVEIS+novos, TOTAL=TOTAL+novos
+	WHERE id_doc = idDoc;
 
-commit;
+	COMMIT;
 
-Exception
-	when no_data_found then
-		return;
+EXCEPTION
+	WHEN no_data_found THEN
+		RETURN;
 
-end;
+END;
 
 /	
 
@@ -249,4 +249,298 @@ EXCEPTION
 
 END;
 
+/
+
+-- STATISTICS
+
+-- Employees
+CREATE OR REPLACE PROCEDURE employeesStats (no_entries OUT INTEGER, fired_employees OUT INTEGER, avg_working_time OUT FLOAT) IS
+	
+BEGIN
+	
+	-- Checks the number of entries
+	BEGIN
+		SELECT COUNT(*) INTO no_entries
+		FROM Funcionario;
+	EXCEPTION
+		WHEN NO_DATA_FOUND THEN
+			no_entries := 0;
+	END;
+	
+	-- Checks the number of fired employees, meaning the ones who have an exit date
+	BEGIN
+		SELECT COUNT(*) INTO fired_employees
+		FROM Funcionario
+		WHERE Data_saida IS NOT NULL;
+	EXCEPTION
+		WHEN NO_DATA_FOUND THEN
+			no_entries := 0;
+	END;
+	
+	BEGIN
+		-- If the employees hasn't been fired, we consider the actual date as the exit date, just for counting purposes.
+		SELECT ROUND(AVG(NVL(Data_saida, SYSDATE) - Data_entrada), 2) INTO avg_working_time
+		FROM Funcionario;
+	EXCEPTION
+		WHEN NO_DATA_FOUND THEN
+			avg_working_time := 0;
+	END;
+	
+	
+	COMMIT;
+	
+
+END;
+/
+
+
+-- Readers
+CREATE OR REPLACE PROCEDURE readersStats (no_entries OUT INTEGER, readers_with_books OUT INTEGER, faulty_readers OUT INTEGER) IS
+	
+BEGIN
+	
+	-- Checks the number of entries
+	BEGIN
+		SELECT COUNT(*) INTO no_entries
+		FROM Leitor;
+	EXCEPTION
+		WHEN NO_DATA_FOUND THEN
+			no_entries := 0;
+	END;
+	
+	-- Checks the number of fired employees, meaning the ones who have an exit date
+	BEGIN
+		SELECT COUNT(*) INTO readers_with_books
+		FROM Emprestimo
+		WHERE Data_entrega IS NULL
+		GROUP BY LEI_ID_PESSOA;
+	EXCEPTION
+		WHEN NO_DATA_FOUND THEN
+			readers_with_books := 0;
+	END;
+	
+	BEGIN
+		-- If the employees hasn't been fired, we consider the actual date as the exit date, just for counting purposes.
+		SELECT COUNT(*) INTO faulty_readers
+		FROM Emprestimo
+		WHERE Data_prevista - SYSDATE < 0 AND Data_entrega IS NULL
+		GROUP BY LEI_ID_PESSOA;
+	EXCEPTION
+		WHEN NO_DATA_FOUND THEN
+			faulty_readers := 0;
+	END;
+	
+	
+	COMMIT;
+	
+
+END;
+/
+
+-- Books and Shelves
+CREATE OR REPLACE PROCEDURE booksAndShelvesStats (no_books OUT INTEGER, max_pages OUT INTEGER, min_pages OUT INTEGER,
+													avg_pages OUT FLOAT, avg_copies OUT FLOAT, no_shelves OUT INTEGER,
+													occupation OUT FLOAT, avg_capacity OUT FLOAT) IS
+	
+BEGIN
+	
+	-- Checks the number of books
+	BEGIN
+		SELECT COUNT(*) INTO no_books
+		FROM Publicacao;
+	EXCEPTION
+		WHEN NO_DATA_FOUND THEN
+			no_books := 0;
+	END;
+	
+	-- max pages
+	BEGIN
+		SELECT MAX(Paginas) INTO max_pages
+		FROM Publicacao;
+	EXCEPTION
+		WHEN NO_DATA_FOUND THEN
+			max_pages := 0;
+	END;
+	
+	-- min pages
+	BEGIN
+		SELECT MIN(Paginas) INTO min_pages
+		FROM Publicacao;
+	EXCEPTION
+		WHEN NO_DATA_FOUND THEN
+			min_pages := 0;
+	END;
+	
+	-- Check the average number of copies per publication
+	BEGIN
+		SELECT ROUND(AVG(Paginas),2) INTO avg_pages
+		FROM Publicacao;
+	EXCEPTION
+		WHEN NO_DATA_FOUND THEN
+			avg_pages := 0;
+	END;
+	
+	-- Check the average number of copies per publication
+	BEGIN
+		SELECT ROUND(AVG(Total),2) INTO avg_copies
+		FROM Publicacao;
+	EXCEPTION
+		WHEN NO_DATA_FOUND THEN
+			avg_copies := 0;
+	END;
+	
+	
+	
+	-- SHELVES
+	
+	-- Checks the number of books
+	BEGIN
+		SELECT COUNT(*) INTO no_shelves
+		FROM Prateleira;
+	EXCEPTION
+		WHEN NO_DATA_FOUND THEN
+			no_shelves := 0;
+	END;
+	
+	-- Checks the occupation rate of the shelves
+	BEGIN
+		SELECT ROUND(SUM(OCUPACAO)/SUM(CAPACIDADE), 2) INTO occupation
+		FROM Prateleira;
+	EXCEPTION
+		WHEN NO_DATA_FOUND THEN
+			occupation := 0;
+	END;
+	
+	
+	-- Checks the number of books
+	BEGIN
+		SELECT ROUND(AVG(CAPACIDADE),2) INTO avg_capacity
+		FROM Prateleira;
+	EXCEPTION
+		WHEN NO_DATA_FOUND THEN
+			avg_capacity := 0;
+	END;
+	
+	
+	COMMIT;
+	
+
+END;
+/
+
+-- Requisitions
+CREATE OR REPLACE PROCEDURE requisitionsStats (no_entries OUT INTEGER, on_going_reqs OUT INTEGER, finished_reqs OUT INTEGER,
+												no_faulty_reqs OUT INTEGER, avg_reqs_per_day OUT FLOAT, no_days_with_reqs OUT INTEGER) IS
+	
+BEGIN
+	
+	-- Checks the number of requisitons
+	BEGIN
+		SELECT COUNT(*) INTO no_entries
+		FROM Emprestimo;
+	EXCEPTION
+		WHEN NO_DATA_FOUND THEN
+			no_entries := 0;
+	END;
+	
+	-- Checks the number of on going requisitons
+	BEGIN
+		SELECT COUNT(*) INTO on_going_reqs
+		FROM Emprestimo
+		WHERE Data_entrega IS NULL;
+	EXCEPTION
+		WHEN NO_DATA_FOUND THEN
+			on_going_reqs := 0;
+	END;
+	
+	-- Checks the number of finished requisitions
+	BEGIN
+		SELECT COUNT(*) INTO finished_reqs
+		FROM Emprestimo
+		WHERE Data_entrega IS NOT NULL;
+	EXCEPTION
+		WHEN NO_DATA_FOUND THEN
+			finished_reqs := 0;
+	END;
+	
+	-- Checks the average of requisitions per day, counting only days with at least one requisition
+	BEGIN
+		SELECT ROUND(AVG(TO_CHAR(DATA_DE_REQUISITO,'yyyy-mm-dd')),2) INTO avg_reqs_per_day
+		FROM Emprestimo
+		GROUP BY TO_CHAR(DATA_DE_REQUISITO,'yyyy-mm-dd');
+	EXCEPTION
+		WHEN NO_DATA_FOUND THEN
+			avg_reqs_per_day := 0;
+	END;
+	
+	-- Checks the number of days with requisitions
+	BEGIN
+		SELECT COUNT(*) INTO no_days_with_reqs
+		FROM Emprestimo
+		GROUP BY TO_CHAR(DATA_DE_REQUISITO,'yyyy-mm-dd');
+	EXCEPTION
+		WHEN NO_DATA_FOUND THEN
+			no_days_with_reqs := 0;
+	END;
+	
+	
+	COMMIT;
+	
+
+END;
+/
+
+
+-- Authors and Publishers
+CREATE OR REPLACE PROCEDURE authorsAndPublishersStats (no_authors OUT INTEGER, avg_doc_per_author OUT FLOAT,
+														no_publishers OUT INTEGER, avg_doc_per_publisher OUT FLOAT) IS
+	
+BEGIN
+	
+	-- AUTHORS
+	-- Checks the number of entries
+	BEGIN
+		SELECT COUNT(*) INTO no_authors
+		FROM Autor;
+	EXCEPTION
+		WHEN NO_DATA_FOUND THEN
+			no_authors := 0;
+	END;
+	
+	-- Checks the average of copies per author
+	BEGIN
+		SELECT ROUND(AVG(Total), 2) INTO avg_doc_per_author
+		FROM Publicacao
+		GROUP BY ID_AUTOR;
+	EXCEPTION
+		WHEN NO_DATA_FOUND THEN
+			avg_doc_per_author := 0;
+	END;
+	
+	-- PUBLISHERS
+	
+	-- Checks the number of entries
+	BEGIN
+		SELECT COUNT(*) INTO no_publishers
+		FROM Editora;
+	EXCEPTION
+		WHEN NO_DATA_FOUND THEN
+			no_publishers := 0;
+	END;
+	
+	-- Checks the average of copies per publisher
+	BEGIN
+		SELECT ROUND(AVG(Total),2) INTO avg_doc_per_publisher
+		FROM Publicacao
+		GROUP BY ID_EDITORA;
+	EXCEPTION
+		WHEN NO_DATA_FOUND THEN
+			avg_doc_per_publisher := 0;
+	END;
+	
+	
+	COMMIT;
+	
+
+END;
 /

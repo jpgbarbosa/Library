@@ -19,6 +19,7 @@ import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JTextArea;
 
 /**
  * This class handles the database connection and queries that are performed
@@ -133,8 +134,8 @@ public class DatabaseHandler implements DB.DataAccessInterface{
 
      @Override
      public void addDocument(String Autor, String Editora, String genero, String descri,
-             String nome, int total, int numberOfPages){
-         System.out.print("\n[Performing addDocument]...");
+        String nome, int total, int numberOfPages){
+        System.out.print("\n[Performing addDocument]...");
         //Execute statement
         CallableStatement proc = null;
         try {
@@ -470,4 +471,190 @@ public class DatabaseHandler implements DB.DataAccessInterface{
         }
         return booksList;
     }
+
+
+
+    // STATISTICS //
+    @Override
+    public void readersStatistics(JTextArea textArea){
+        System.out.print("\n[Performing readersStatistics]...");
+        //Execute statement
+        CallableStatement proc = null;
+
+        try {
+            /* If it's not an employee, than it is a reader. */
+            proc = conn.prepareCall("{ call readersStats(?, ?, ?) }");
+
+            proc.registerOutParameter(1, java.sql.Types.INTEGER);
+            proc.registerOutParameter(2, java.sql.Types.INTEGER);
+            proc.registerOutParameter(3, java.sql.Types.INTEGER);
+            proc.execute();
+
+            Integer noEntries = (Integer) proc.getObject(1);
+            Integer noReadersWithBooks = (Integer) proc.getObject(2);
+            Integer noFaultyReaders = (Integer) proc.getObject(3);
+
+            textArea.setText("Number of Employees registered: " + noEntries + "\n"
+                    + "Number of Readers with Books Borrowed:" + noReadersWithBooks + "\n"
+                    + "Number of Faulty Readers: " + noFaultyReaders + "\n");
+
+            proc.close();
+
+        }catch (SQLException ex) {
+            Logger.getLogger(DatabaseHandler.class.getName()).log(Level.SEVERE, null, ex);
+            return;
+        }
+     }
+
+    @Override
+    public void employeesStatistics(JTextArea textArea){
+        System.out.print("\n[Performing employeesStatistics]...");
+        //Execute statement
+        CallableStatement proc = null;
+
+        try {
+            /* If it's not an employee, than it is a reader. */
+            proc = conn.prepareCall("{ call employeesStats(?, ?, ?) }");
+
+            proc.registerOutParameter(1, java.sql.Types.INTEGER);
+            proc.registerOutParameter(2, java.sql.Types.INTEGER);
+            proc.registerOutParameter(3, java.sql.Types.INTEGER);
+            proc.execute();
+
+            Integer noEntries = (Integer) proc.getObject(1);
+            Integer noFired = (Integer) proc.getObject(2);
+            Integer avg = (Integer) proc.getObject(3);
+            
+            textArea.setText("Number of Employees registered: " + noEntries + "\n"
+                    + "Number of Employees fired:" + noFired + "\n"
+                    + "Average Working Days: " + avg + "\n");
+
+            proc.close();
+
+        }catch (SQLException ex) {
+            Logger.getLogger(DatabaseHandler.class.getName()).log(Level.SEVERE, null, ex);
+            return;
+        }
+     }
+
+    @Override
+    public void booksAndShelvesStatistics(JTextArea textArea){
+        System.out.print("\n[Performing booksAndShelvesStatistics]...");
+        //Execute statement
+        CallableStatement proc = null;
+
+        try {
+            /* If it's not an employee, than it is a reader. */
+            proc = conn.prepareCall("{ call booksAndShelvesStats(?, ?, ?, ?, ?, ?, ?, ?) }");
+
+            proc.registerOutParameter(1, java.sql.Types.INTEGER);
+            proc.registerOutParameter(2, java.sql.Types.INTEGER);
+            proc.registerOutParameter(3, java.sql.Types.INTEGER);
+            proc.registerOutParameter(4, java.sql.Types.FLOAT);
+            proc.registerOutParameter(5, java.sql.Types.FLOAT);
+            proc.registerOutParameter(6, java.sql.Types.INTEGER);
+            proc.registerOutParameter(7, java.sql.Types.FLOAT);
+            proc.registerOutParameter(8, java.sql.Types.FLOAT);
+            proc.execute();
+
+            Integer noBooks = (Integer) proc.getObject(1);
+            Integer maxPages = (Integer) proc.getObject(2);
+            Integer minPages = (Integer) proc.getObject(3);
+            Double avgPages = (Double) proc.getObject(4);
+            Double avgNoCopies = (Double) proc.getObject(5);
+            Integer noShelves = (Integer) proc.getObject(6);
+            Double occupation = (Double) proc.getObject(7);
+            Double avgCapacity = (Double) proc.getObject(8);
+
+            textArea.setText("Number of Books: " + noBooks + "\n"
+                    + "Maximum Number of Pages: " + maxPages + "\n"
+                    + "Minimum Number of Pages: " + minPages + "\n"
+                    + "Average Number of Pages: " + avgPages + "\n"
+                    + "Average Number of Copies: " + avgNoCopies + "\n"
+                    + "Number of Shelves: " + noShelves + "\n"
+                    + "Occupation Rate: " + occupation + "\n"
+                    + "Average Shelf Capacity: " + avgCapacity + "\n");
+
+            proc.close();
+
+        }catch (SQLException ex) {
+            Logger.getLogger(DatabaseHandler.class.getName()).log(Level.SEVERE, null, ex);
+            return;
+        }
+     }
+
+    @Override
+    public void requisitionsStatistics(JTextArea textArea){
+        System.out.print("\n[Performing requisitionsStatistics]...");
+        //Execute statement
+        CallableStatement proc = null;
+
+        try {
+            /* If it's not an employee, than it is a reader. */
+            proc = conn.prepareCall("{ call requisitionsStats(?, ?, ?, ?, ?, ?) }");
+
+            proc.registerOutParameter(1, java.sql.Types.INTEGER);
+            proc.registerOutParameter(2, java.sql.Types.INTEGER);
+            proc.registerOutParameter(3, java.sql.Types.INTEGER);
+            proc.registerOutParameter(4, java.sql.Types.INTEGER);
+            proc.registerOutParameter(5, java.sql.Types.FLOAT);
+            proc.registerOutParameter(6, java.sql.Types.INTEGER);
+
+            proc.execute();
+
+            Integer noEntries = (Integer) proc.getObject(1);
+            Integer onGoing = (Integer) proc.getObject(2);
+            Integer finished = (Integer) proc.getObject(3);
+            Integer faulty = (Integer) proc.getObject(4);
+            Double avgReqs = (Double) proc.getObject(5);
+            Integer noDays = (Integer) proc.getObject(6);
+
+            textArea.setText("Number of Requisitons: " + noEntries + "\n"
+                    + "Number of Not Finished Requisitions: " + onGoing + "\n"
+                    + "Number of Finished Requisitions: " + finished + "\n"
+                    + "Number of Faulty Requisitions: " + faulty + "\n"
+                    + "Number of Requisitons Per Day (Days with at least one requistion): " + avgReqs + "\n"
+                    + "Number of Days with Requisitions: " + noDays + "\n");
+
+            proc.close();
+
+        }catch (SQLException ex) {
+            Logger.getLogger(DatabaseHandler.class.getName()).log(Level.SEVERE, null, ex);
+            return;
+        }
+     }
+
+    @Override
+    public void authorsAndPublishersStatistics(JTextArea textArea){
+        System.out.print("\n[Performing authorsAndPublishersStatistics]...");
+        //Execute statement
+        CallableStatement proc = null;
+
+        try {
+            /* If it's not an employee, than it is a reader. */
+            proc = conn.prepareCall("{ call authorsAndPublishersStats(?, ?, ?, ?) }");
+
+            proc.registerOutParameter(1, java.sql.Types.INTEGER);
+            proc.registerOutParameter(2, java.sql.Types.FLOAT);
+            proc.registerOutParameter(3, java.sql.Types.INTEGER);
+            proc.registerOutParameter(4, java.sql.Types.FLOAT);
+            proc.execute();
+
+            Integer noAuthors = (Integer) proc.getObject(1);
+            Double avgPerAuthor = (Double) proc.getObject(2);
+            Integer noPublishers = (Integer) proc.getObject(3);
+            Double avgPerPublisher = (Double) proc.getObject(4);
+
+            textArea.setText("Number of Authors: " + noAuthors + "\n"
+                    + "Average Copies Per Author: " + avgPerAuthor + "\n"
+                    + "Number of Publishers: " + noPublishers + "\n"
+                    + "Average Copies Per Publisher: " + avgPerPublisher + "\n");
+
+            proc.close();
+
+        }catch (SQLException ex) {
+            Logger.getLogger(DatabaseHandler.class.getName()).log(Level.SEVERE, null, ex);
+            return;
+        }
+     }
 }
