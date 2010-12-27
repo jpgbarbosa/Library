@@ -118,7 +118,7 @@ public class DatabaseHandler implements DB.DataAccessInterface{
             // execute querie
             ResultSet rset = stmt.executeQuery(
                     "SELECT * FROM Pessoa p, Leitor l "
-                     + "WHERE p.Id_pessoa = l.Id_pessoa AND p.nome_pessoa = '" + name + "'");
+                     + "WHERE p.Id_pessoa = l.Id_pessoa AND upper(p.nome_pessoa) like '%'||upper('" + name + "')||'%'");
             while (rset.next()) {//while there are still results left to read
                 id = rset.getInt("ID_PESSOA");
             }
@@ -159,6 +159,41 @@ public class DatabaseHandler implements DB.DataAccessInterface{
         }
         return  dados;
     }
+
+      public boolean changePersonData(String name, String morada, String bi, String telefone, String eMail, int [] date, boolean isEmployee){
+        System.out.print("\n[Performing addPerson]");
+        //Execute statement
+        CallableStatement proc = null;
+        Integer returnValue=0;
+
+        try {
+            if(isEmployee){
+                proc = conn.prepareCall("{ call updateEmployee(?, ?, ?, ?, ?, ?, ?) }");
+
+                proc.setString(1, name);
+                proc.setString(2, morada);
+                proc.setInt(3, Integer.parseInt(bi));
+                proc.setDate(4, new Date((new GregorianCalendar(date[2], date[1]-1, date[0])).getTimeInMillis()));
+                proc.setInt(5, Integer.parseInt(telefone));
+                proc.setString(6, eMail);
+                proc.registerOutParameter(7, java.sql.Types.INTEGER);
+                proc.execute();
+
+                returnValue = (Integer) proc.getObject(7);
+
+                proc.close();
+            } else {
+                
+            }
+        }catch (SQLException ex) {
+            Logger.getLogger(DatabaseHandler.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+        if (returnValue <=0){
+           return false;
+        }
+        return true;
+      }
 
 
      @Override
@@ -349,7 +384,7 @@ public class DatabaseHandler implements DB.DataAccessInterface{
                     + "WHERE p.id_prateleira = pr.id_prateleira AND pr.genero = '" + value + "'";
         }
         else if(type.equals("Title")){
-            query = "SELECT nome_doc, id_doc FROM publicacao WHERE nome_doc = '" + value + "'";
+            query = "SELECT nome_doc, id_doc FROM publicacao WHERE upper(nome_doc) = '%'||upper(" + value + "')||'%'";
         }
         else if(type.equals("Publisher")){
             query = "SELECT nome_doc, id_doc FROM publicacao p, editora e "
@@ -438,7 +473,7 @@ public class DatabaseHandler implements DB.DataAccessInterface{
             ResultSet rset = stmt.executeQuery("SELECT p.nome_pessoa, p.id_pessoa " +
                                 "FROM Pessoa p WHERE p.id_pessoa IN ("
                                 + "SELECT l.id_pessoa FROM Leitor l) AND "
-                                + "p.nome_pessoa = '" + name + "'"
+                                + "upper(p.nome_pessoa) like '%'||upper('" + name + "')||'%'"
                                 + "ORDER BY " + orderBy);//Select all from Album
             while (rset.next()) {//while there are still results left to read
                 //create Album instance with current album information
@@ -470,7 +505,7 @@ public class DatabaseHandler implements DB.DataAccessInterface{
             ResultSet rset = stmt.executeQuery("SELECT p.nome_pessoa, p.id_pessoa " +
                     "FROM Pessoa p WHERE p.id_pessoa IN ("
                     + "SELECT f.id_pessoa FROM Funcionario f) AND "
-                    + "p.nome_pessoa = '" + name + "' "
+                    + "upper(p.nome_pessoa) like '%'||upper('" + name + "')||'%' "
                     + "ORDER BY " + orderBy);//Select all from Album
             while (rset.next()) {//while there are still results left to read
                 //create Album instance with current album information
@@ -738,4 +773,29 @@ public class DatabaseHandler implements DB.DataAccessInterface{
             return;
         }
      }
+
+    public boolean fireEmployee(String id) {
+        System.out.print("\n[Performing fireEmployee]...");
+        //Execute statement
+        CallableStatement proc = null;
+        int retVal = 0;
+
+        try {
+            proc = conn.prepareCall("{ call fireEmployee(?, ?) }");
+
+            proc.setInt(1, Integer.parseInt(id));
+            proc.registerOutParameter(2, java.sql.Types.INTEGER);
+
+            retVal = (Integer)proc.getObject(2);
+            
+        }catch (SQLException ex) {
+            Logger.getLogger(DatabaseHandler.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+
+        if(retVal>0){
+            return true;
+        }
+        return false;
+    }
 }

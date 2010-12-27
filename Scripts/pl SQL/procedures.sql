@@ -26,6 +26,48 @@ END;
 
 /
 
+--finish this procedur that sets data_saida to sysdate. pay attention when we list employees
+create or replace procedure fireEmployee(biFuncionario in Pessoa.id_pessoa%type, retVal out number) is
+
+idPessoa Pessoa.id_pessoa%type;
+
+begin
+
+	select p.id_pessoa into idPessoa from pessoa p where p.BI = biFuncionario;
+	
+	update Funcionario f set f.DATA_SAIDA = sysdate where idPessoa = id_pessoa;
+	
+	retVal :=1;
+	
+	Exception
+		when no_data_found then
+			retVal :=-1;
+			return;
+
+
+end;
+
+/
+
+create or replace procedure updateEmployee (nomePessoa IN Pessoa.nome_pessoa%type, morada IN Pessoa.morada%type, bi IN NUMBER, data in date ,telefone IN NUMBER, email IN Pessoa.e_mail%type,
+											returnValue OUT INTEGER) IS
+
+idPessoa Pessoa.ID_Pessoa%type;
+											
+Begin
+
+select id_pessoa into idPessoa from pessoa p where p.bi = bi;
+
+update pessoa p set p.nome_pessoa = nomePessoa, p.morada=morada, p.data = data, p.telefone = telefone, p.e_mail=email where p.id_pessoa = id_pessoa;
+
+returnValue:=1;
+
+Exception
+	when no_data_found then
+		returnValue := -1;
+		return;
+end;
+/
 
 CREATE OR REPLACE PROCEDURE addEmployee ( nomePessoa IN Pessoa.nome_pessoa%type, morada IN Pessoa.morada%type, bi IN NUMBER, data in date ,telefone IN NUMBER, email IN Pessoa.e_mail%type,
 											returnValue OUT INTEGER) IS

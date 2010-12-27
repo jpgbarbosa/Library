@@ -12,7 +12,6 @@
 package GUI.employees;
 
 import DataStructures.Person;
-import GUI.readers.*;
 import com.toedter.calendar.JCalendar;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
@@ -71,7 +70,7 @@ public class Employees extends javax.swing.JPanel implements
         jTextField6 = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList();
-        jButton1 = new javax.swing.JButton();
+        fireButton = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
@@ -83,6 +82,7 @@ public class Employees extends javax.swing.JPanel implements
         FindButtonEmp1 = new javax.swing.JButton();
         jComboBox1 = new javax.swing.JComboBox();
         getInfoButton = new javax.swing.JButton();
+        clearFieldsButton = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(800, 400));
 
@@ -125,7 +125,12 @@ public class Employees extends javax.swing.JPanel implements
         jList1.setModel(new javax.swing.DefaultListModel());
         jScrollPane1.setViewportView(jList1);
 
-        jButton1.setText("Fire");
+        fireButton.setText("Fire");
+        fireButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fireButtonActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Add");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -135,6 +140,11 @@ public class Employees extends javax.swing.JPanel implements
         });
 
         jButton3.setText("Change Info");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setText("Return");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -189,13 +199,20 @@ public class Employees extends javax.swing.JPanel implements
             }
         });
 
+        clearFieldsButton.setText("Clear Fields");
+        clearFieldsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clearFieldsButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
@@ -241,36 +258,38 @@ public class Employees extends javax.swing.JPanel implements
                                                 .addComponent(BirthDate2Emp)
                                                 .addGap(204, 204, 204))
                                             .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 406, Short.MAX_VALUE)))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(getInfoButton))))
+                                    .addComponent(getInfoButton)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jButton2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(clearFieldsButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButton3))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addGap(110, 110, 110)
                         .addComponent(jLabel1)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(47, 47, 47)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE)
-                            .addContainerGap())
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                            .addComponent(jButton5)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jButton1)
-                            .addGap(82, 82, 82)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(58, 58, 58)
-                        .addComponent(jLabel12)
-                        .addContainerGap())))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(568, Short.MAX_VALUE)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(148, 148, 148))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addGap(47, 47, 47)
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE)
+                                    .addContainerGap())
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                    .addComponent(jButton5)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(fireButton)
+                                    .addGap(82, 82, 82)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(58, 58, 58)
+                                .addComponent(jLabel12)
+                                .addContainerGap())))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(47, 47, 47)
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(148, 148, 148))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -327,15 +346,16 @@ public class Employees extends javax.swing.JPanel implements
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButton3)
                             .addComponent(jButton2)
-                            .addComponent(jButton3))
+                            .addComponent(clearFieldsButton))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(getInfoButton))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButton5)
-                            .addComponent(jButton1))
+                            .addComponent(fireButton))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel12)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -355,7 +375,7 @@ public class Employees extends javax.swing.JPanel implements
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 474, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 477, Short.MAX_VALUE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -475,37 +495,112 @@ public class Employees extends javax.swing.JPanel implements
         //TODO: Protecções
         String orderBy;
 
-        orderBy = (((String) jComboBox1.getSelectedItem()).equals("Name") ? "nome_pessoa" : "id_pessoa");
-        ArrayList <Person> list = Constants.dbhandler.findEmployeeByName(jTextField1.getText(), orderBy);
+        if(jTextField1.getText().equals("")){
+            JOptionPane.showMessageDialog(this, "Invalid name");
+        } else {
 
-        DefaultListModel model = (DefaultListModel) jList1.getModel();
-        model.clear();
+            orderBy = (((String) jComboBox1.getSelectedItem()).equals("Name") ? "nome_pessoa" : "id_pessoa");
+            ArrayList <Person> list = Constants.dbhandler.findEmployeeByName(jTextField1.getText(), orderBy);
 
-        for (int i = 0; i < list.size(); i++){
-            String info = list.get(i).getNome() + " ID: " + list.get(i).getId();
-            model.addElement(info);
+            DefaultListModel model = (DefaultListModel) jList1.getModel();
+            model.clear();
+
+            for (int i = 0; i < list.size(); i++){
+                String info = list.get(i).getNome() + " ID: " + list.get(i).getId();
+                model.addElement(info);
+            }
         }
     }//GEN-LAST:event_FindButtonEmp1ActionPerformed
 
     //TODO alterar este método se a listagem for modificada
     private void getInfoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getInfoButtonActionPerformed
         String value = ((String)jList1.getSelectedValue());
-        int id;
 
         if(value!=null){
-           ArrayList<String> array = Constants.dbhandler.getEmployeeById(value.split(" ")[2]);
-
-            jTextField2.setText(array.get(0));
-            jTextField3.setText(array.get(1));
-            BirthdayTextEmp2.setText(array.get(2));
-            jTextField4.setText(array.get(3));
-            jTextField6.setText(array.get(4));
-            jTextField5.setText(array.get(5));
-            
+            clearFieldsButtonActionPerformed(null);
+            ArrayList<String> array = Constants.dbhandler.getEmployeeById(value.split(" ")[2]);
+            if(array!=null){
+                jTextField2.setText(array.get(0));
+                jTextField3.setText(array.get(1));
+                BirthdayTextEmp2.setText(array.get(2));
+                jTextField4.setText(array.get(3));
+                jTextField4.setEditable(false);
+                jTextField6.setText(array.get(4));
+                jTextField5.setText(array.get(5));
+            } else {
+                JOptionPane.showMessageDialog(this, "Something went wrong. Please contact your support!");
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "You must select an employee on the right side!");
         }
     }//GEN-LAST:event_getInfoButtonActionPerformed
 
-        public void propertyChange(PropertyChangeEvent evt) {
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        String nome, morada, eMail, telefone, bi;
+
+        nome = jTextField2.getText();
+        morada = jTextField3.getText();
+        bi = jTextField4.getText();
+        telefone = jTextField6.getText();
+        eMail = jTextField5.getText();
+
+        int [] date = Validation.checkInsertedDate(BirthdayTextEmp2.getText(), false);
+
+        if(!nome.equals("") && !morada.equals("") &&  Validation.isInteger(bi)
+                        && (!telefone.equals("") && Validation.isInteger(telefone) || telefone.equals("")) && date!=null){
+            if(Constants.dbhandler.changePersonData(nome, morada, bi, telefone, eMail, date, true)){
+                JOptionPane.showMessageDialog(this, "Changes made successfully");
+            } else {
+                JOptionPane.showMessageDialog(this, "Something went Wrong");
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Invalid Data");
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void clearFieldsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearFieldsButtonActionPerformed
+            jTextField2.setText("");
+            jTextField3.setText("");
+            BirthdayTextEmp2.setText("  /  /    ");
+            jTextField4.setText("");
+            jTextField4.setEditable(true);
+            jTextField6.setText("");
+            jTextField5.setText("");
+            ((DefaultListModel) jList1.getModel()).clear();
+    }//GEN-LAST:event_clearFieldsButtonActionPerformed
+
+    private void fireButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fireButtonActionPerformed
+        String value = ((String)jList1.getSelectedValue());
+
+        if(value!=null){
+            //clearFieldsButtonActionPerformed(null);
+            ArrayList<String> array = Constants.dbhandler.getEmployeeById(value.split(" ")[2]);
+            if(array!=null){
+                jTextField2.setText(array.get(0));
+                jTextField3.setText(array.get(1));
+                BirthdayTextEmp2.setText(array.get(2));
+                jTextField4.setText(array.get(3));
+                jTextField4.setEditable(false);
+                jTextField6.setText(array.get(4));
+                jTextField5.setText(array.get(5));
+
+                int opt = JOptionPane.showOptionDialog(this, "Are you sure that you want fire this client?",
+                        "Fire Cliente", 2, 2, null, new String [] {"Yes","No"}, 1);
+
+                //yes option == 0 | no option == 1
+                if(opt==0){
+                    Constants.dbhandler.fireEmployee(jTextField4.getText());
+                }
+
+            } else {
+                JOptionPane.showMessageDialog(this, "Something went wrong. Please contact your support!");
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "You must select an employee on the right side!");
+        }
+    }//GEN-LAST:event_fireButtonActionPerformed
+
+    public void propertyChange(PropertyChangeEvent evt) {
         Object source = evt.getSource();
         Calendar cal;
         GregorianCalendar cal1;
@@ -558,9 +653,10 @@ public class Employees extends javax.swing.JPanel implements
     private javax.swing.JFormattedTextField BirthdayTextEmp2;
     private javax.swing.JButton FindButtonEmp;
     private javax.swing.JButton FindButtonEmp1;
+    private javax.swing.JButton clearFieldsButton;
+    private javax.swing.JButton fireButton;
     private javax.swing.ButtonGroup genreGroup;
     private javax.swing.JButton getInfoButton;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
