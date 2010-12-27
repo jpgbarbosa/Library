@@ -1,5 +1,6 @@
 -- Adds a new reader to the data base.
-CREATE OR REPLACE PROCEDURE addReader ( nomePessoa IN Pessoa.nome_pessoa%type, morada IN Pessoa.morada%type, bi IN NUMBER, data in date ,telefone IN NUMBER, email IN Pessoa.e_mail%type) IS
+CREATE OR REPLACE PROCEDURE addReader ( nomePessoa IN Pessoa.nome_pessoa%type, morada IN Pessoa.morada%type, bi IN NUMBER, data IN date ,telefone IN NUMBER, email IN Pessoa.e_mail%type,
+										returnValue OUT INTEGER) IS
 	current_id NUMBER;
 	
 BEGIN
@@ -9,21 +10,28 @@ BEGIN
 	INSERT INTO Pessoa VALUES (nomePessoa, morada, bi, data , telefone, email, current_id);
 	INSERT INTO Leitor VALUES (current_id, 0);
 		
+	returnValue := 0;
 	COMMIT;
 	
 EXCEPTION
+	-- Error raised when we insert the same BI.
 	WHEN DUP_VAL_ON_INDEX THEN
-		current_id := -1;
+		ROLLBACK;
+		returnValue := -1;
 	WHEN OTHERS THEN
-		current_id := -1;
+		ROLLBACK;
+		returnValue := -2;
 		
 END;
 
 /
 
 
-CREATE OR REPLACE PROCEDURE addEmployee ( nomePessoa IN Pessoa.nome_pessoa%type, morada IN Pessoa.morada%type, bi IN NUMBER, data in date ,telefone IN NUMBER, email IN Pessoa.e_mail%type) IS
+CREATE OR REPLACE PROCEDURE addEmployee ( nomePessoa IN Pessoa.nome_pessoa%type, morada IN Pessoa.morada%type, bi IN NUMBER, data in date ,telefone IN NUMBER, email IN Pessoa.e_mail%type,
+											returnValue OUT INTEGER) IS
 	current_id NUMBER;
+	ID_NOT_FOUND exception; 
+	PRAGMA exception_init(ID_NOT_FOUND, -2291); 
 	
 BEGIN
 	SELECT seq_id_pessoa.nextval INTO current_id
@@ -32,16 +40,17 @@ BEGIN
 	INSERT INTO Pessoa VALUES (nomePessoa, morada, bi, data , telefone, email, current_id);
 	INSERT INTO Funcionario VALUES (current_id, sysdate, null);
 		
+	returnValue := 0;
 	COMMIT;
 	
 EXCEPTION
+	-- Error raised when we insert the same BI.
 	WHEN DUP_VAL_ON_INDEX THEN
-		current_id := -1;
-		-- Error raised when we insert the same BI.
-		--TODO:  Return an appropriate value. Maybe we have to create a OUT variable
+		ROLLBACK;
+		returnValue := -1;
 	WHEN OTHERS THEN
-		--TODO: The same as above.
-		current_id := -1;
+		ROLLBACK;
+		returnValue := -2;
 	
 END;
 

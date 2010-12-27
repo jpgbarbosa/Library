@@ -211,7 +211,7 @@ public class Employees extends javax.swing.JPanel implements
                                         .addComponent(BirthdayTextEmp1, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(BirthDate1Emp)
-                                        .addGap(26, 26, 26)
+                                        .addGap(34, 34, 34)
                                         .addComponent(FindButtonEmp))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -381,16 +381,28 @@ public class Employees extends javax.swing.JPanel implements
 
         if(!nome.equals("") && !morada.equals("") &&  Validation.isInteger(bi)
                         && (!telefone.equals("") && Validation.isInteger(telefone) || telefone.equals("")) && date!=null){
-            Constants.dbhandler.addPerson(nome, morada, bi, telefone, eMail, date, true);
+            int value = Constants.dbhandler.addPerson(nome, morada, bi, telefone, eMail, date, true);
 
-            jTextField2.setText("");
-            jTextField3.setText("");
-            jTextField4.setText("");
-            jTextField6.setText("");
-            jTextField5.setText("");
-            BirthdayTextEmp2.setText("");
+            
 
-            JOptionPane.showMessageDialog(this, "Employee Added Successfully");
+            if (value == 0){
+                jTextField2.setText("");
+                jTextField3.setText("");
+                jTextField4.setText("");
+                jTextField6.setText("");
+                jTextField5.setText("");
+                BirthdayTextEmp2.setText("");
+                JOptionPane.showMessageDialog(this, "Employee added successfully!");
+            }
+            else if(value == -1)
+            {
+                JOptionPane.showMessageDialog(this, "There's already an employee with such ID Card number!");
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(this, "Employee couldn't be added to the database...");
+            }
+            
         } else {
             JOptionPane.showMessageDialog(this, "Invalid data");
         }

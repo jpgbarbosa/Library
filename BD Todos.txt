@@ -52,3 +52,11 @@ EU já acrescentei e modifiquei os procedures. Estar atento não va alguma cena do
 -> os meus métodos não estao todos na interface. ha problemas?
 
 -> nao deviamos ter salários nos empregados?
+
+
+
+
+CUIDADOS!!!!
+Quando fizermos um novo diagrama, cuidado que foi inseridas páginas nos livros e datas nas pessoas. Ter o cuidado
+de por no diagrama por esta ordem para depois não termos de alterar todos os procedures.
+Por outro lado, o BI e o nome dos documentos não estava UNIQUE, e agora está apenas no ficheiro crebas e nao nos diagramas.

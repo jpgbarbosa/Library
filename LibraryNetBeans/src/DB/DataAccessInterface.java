@@ -20,7 +20,7 @@ public interface DataAccessInterface {
     public void close();
     public ArrayList<Editora> getPublishers();
     public int getIdReaderByName(String name);
-    public void addPerson(String name, String morada, String bi, String telefone, String eMail,int [] date, boolean isEmployee);
+    public int addPerson(String name, String morada, String bi, String telefone, String eMail,int [] date, boolean isEmployee);
     public ArrayList<Person> getPersonsList(boolean isEmployee, String orderBy);
     public ArrayList<Book> getSpecificBooks(String type, String value);
     public void newRequisiton(int[] book_ids, int id_reader, int id_employee);

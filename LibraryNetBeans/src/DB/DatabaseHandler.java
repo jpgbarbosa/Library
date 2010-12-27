@@ -265,17 +265,17 @@ public class DatabaseHandler implements DB.DataAccessInterface{
     }
 
     @Override
-    public void addPerson(String name, String morada, String bi, String telefone, String eMail, int [] date, boolean isEmployee){
+    public int addPerson(String name, String morada, String bi, String telefone, String eMail, int [] date, boolean isEmployee){
         System.out.print("\n[Performing addPerson]");
         //Execute statement
         CallableStatement proc = null;
         try {
             /* If it's not an employee, than it is a reader. */
             if (isEmployee){
-                proc = conn.prepareCall("{ call addEmployee(?, ?, ?, ?, ?, ?) }");
+                proc = conn.prepareCall("{ call addEmployee(?, ?, ?, ?, ?, ?, ?) }");
             }
             else{
-                proc = conn.prepareCall("{ call addReader(?, ?, ?, ?, ?, ?) }");
+                proc = conn.prepareCall("{ call addReader(?, ?, ?, ?, ?, ?, ?) }");
             }
             
             proc.setString(1, name);
@@ -284,13 +284,16 @@ public class DatabaseHandler implements DB.DataAccessInterface{
             proc.setDate(4, new Date((new GregorianCalendar(date[2], date[1]-1, date[0])).getTimeInMillis()));
             proc.setInt(5, Integer.parseInt(telefone));
             proc.setString(6, eMail);
+            proc.registerOutParameter(7, java.sql.Types.INTEGER);
             proc.execute();
 
-            proc.close();
+            Integer returnValue = (Integer) proc.getObject(7);
 
+            proc.close();
+            return returnValue;
         }catch (SQLException ex) {
             Logger.getLogger(DatabaseHandler.class.getName()).log(Level.SEVERE, null, ex);
-            return;
+            return -2;
         }
     }
 

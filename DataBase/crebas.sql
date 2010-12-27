@@ -145,6 +145,7 @@ create table PESSOA
    TELEFONE             NUMBER,
    E_MAIL               VARCHAR2(1024),
    ID_PESSOA            INTEGER              not null,
+   UNIQUE (BI),
    constraint PK_PESSOA primary key (ID_PESSOA)
 );
 
@@ -175,6 +176,7 @@ create table PUBLICACAO
    NOME_DOC             VARCHAR2(1024)       not null,
    DISPONIVEIS          INTEGER,
    TOTAL                INTEGER,
+   UNIQUE(NOME_DOC),
    constraint PK_PUBLICACAO primary key (ID_DOC)
 );
 
