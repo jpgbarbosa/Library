@@ -1,12 +1,12 @@
 -- Adds a new reader to the data base.
-CREATE OR REPLACE PROCEDURE addReader ( nomePessoa IN Pessoa.nome_pessoa%type, morada IN Pessoa.morada%type, bi IN NUMBER,telefone IN NUMBER, email IN Pessoa.e_mail%type) IS
+CREATE OR REPLACE PROCEDURE addReader ( nomePessoa IN Pessoa.nome_pessoa%type, morada IN Pessoa.morada%type, bi IN NUMBER, data in date ,telefone IN NUMBER, email IN Pessoa.e_mail%type) IS
 	current_id NUMBER;
 	
 BEGIN
 	SELECT seq_id_pessoa.nextval INTO current_id
 	FROM dual;
 	
-	INSERT INTO Pessoa VALUES (nomePessoa, morada, bi, telefone, email, current_id);
+	INSERT INTO Pessoa VALUES (nomePessoa, morada, bi, data , telefone, email, current_id);
 	INSERT INTO Leitor VALUES (current_id, 0);
 		
 	COMMIT;
@@ -22,14 +22,14 @@ END;
 /
 
 
-CREATE OR REPLACE PROCEDURE addEmployee ( nomePessoa IN Pessoa.nome_pessoa%type, morada IN Pessoa.morada%type, bi IN NUMBER,telefone IN NUMBER, email IN Pessoa.e_mail%type) IS
+CREATE OR REPLACE PROCEDURE addEmployee ( nomePessoa IN Pessoa.nome_pessoa%type, morada IN Pessoa.morada%type, bi IN NUMBER, data in date ,telefone IN NUMBER, email IN Pessoa.e_mail%type) IS
 	current_id NUMBER;
 	
 BEGIN
 	SELECT seq_id_pessoa.nextval INTO current_id
 	FROM dual;
 	
-	INSERT INTO Pessoa VALUES (nomePessoa, morada, bi, telefone, email, current_id);
+	INSERT INTO Pessoa VALUES (nomePessoa, morada, bi, data , telefone, email, current_id);
 	INSERT INTO Funcionario VALUES (current_id, sysdate, null);
 		
 	COMMIT;
@@ -190,7 +190,7 @@ end;
 /
 
 -- falta verificar a questao das prateleiras!
-CREATE OR REPLACE PROCEDURE addCopyDocument(idDoc IN PUBLICACAO.ID_DOC%type, novos IN PUBLICACAO.TOTAL%type) IS
+CREATE OR REPLACE PROCEDURE addCopyDocument(idDoc IN PUBLICACAO.ID_DOC%type, novos IN PUBLICACAO.TOTAL%type, retVal out number) IS
 
 
 BEGIN
@@ -198,10 +198,12 @@ BEGIN
 	SET DISPONIVEIS=DISPONIVEIS+novos, TOTAL=TOTAL+novos
 	WHERE id_doc = idDoc;
 
+	retVal:=1;
 	COMMIT;
 
 EXCEPTION
 	WHEN no_data_found THEN
+		retVal := -1;
 		RETURN;
 
 END;

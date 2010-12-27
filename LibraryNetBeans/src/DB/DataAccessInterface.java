@@ -20,7 +20,7 @@ public interface DataAccessInterface {
     public void close();
     public ArrayList<Editora> getPublishers();
     public int getIdReaderByName(String name);
-    public void addPerson(String name, String morada, String bi, String telefone, String eMail, boolean isEmployee);
+    public void addPerson(String name, String morada, String bi, String telefone, String eMail,int [] date, boolean isEmployee);
     public ArrayList<Person> getPersonsList(boolean isEmployee, String orderBy);
     public ArrayList<Book> getSpecificBooks(String type, String value);
     public void newRequisiton(int[] book_ids, int id_reader, int id_employee);
@@ -29,6 +29,7 @@ public interface DataAccessInterface {
     public ArrayList<Book> findBookByName(String name);
     public ArrayList<Book> findBookById(int id);
     public void addDocument(String Autor, String Editora, String genero, String descri,String nome, int total, int numberOfPages);
+    public ArrayList<Person> findPersonByBirthDate(int [] date, boolean isEmployee, String orderBy);
 
     /* Statistics */
     public void readersStatistics(JTextArea textArea);

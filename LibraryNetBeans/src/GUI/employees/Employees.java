@@ -82,6 +82,7 @@ public class Employees extends javax.swing.JPanel implements
         jLabel12 = new javax.swing.JLabel();
         FindButtonEmp1 = new javax.swing.JButton();
         jComboBox1 = new javax.swing.JComboBox();
+        getInfoButton = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(800, 400));
 
@@ -181,6 +182,13 @@ public class Employees extends javax.swing.JPanel implements
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Name", "ID" }));
 
+        getInfoButton.setText("Get Info");
+        getInfoButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                getInfoButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -190,11 +198,6 @@ public class Employees extends javax.swing.JPanel implements
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jButton2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel3)
@@ -213,8 +216,7 @@ public class Employees extends javax.swing.JPanel implements
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(FindButtonEmp1)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                                        .addComponent(FindButtonEmp1))))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel9)
@@ -225,22 +227,31 @@ public class Employees extends javax.swing.JPanel implements
                                     .addComponent(jLabel6)
                                     .addComponent(jLabel7)
                                     .addComponent(jLabel10))
-                                .addGap(24, 24, 24)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField6, javax.swing.GroupLayout.DEFAULT_SIZE, 406, Short.MAX_VALUE)
-                                    .addComponent(jTextField4, javax.swing.GroupLayout.DEFAULT_SIZE, 406, Short.MAX_VALUE)
-                                    .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 406, Short.MAX_VALUE)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(BirthdayTextEmp2, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(24, 24, 24)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jTextField6, javax.swing.GroupLayout.DEFAULT_SIZE, 406, Short.MAX_VALUE)
+                                            .addComponent(jTextField4, javax.swing.GroupLayout.DEFAULT_SIZE, 406, Short.MAX_VALUE)
+                                            .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 406, Short.MAX_VALUE)
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addComponent(BirthdayTextEmp2, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(BirthDate2Emp)
+                                                .addGap(204, 204, 204))
+                                            .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 406, Short.MAX_VALUE)))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(BirthDate2Emp)
-                                        .addGap(204, 204, 204))
-                                    .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 406, Short.MAX_VALUE)))))
+                                        .addComponent(getInfoButton))))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jButton2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton3))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(110, 110, 110)
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                        .addComponent(jLabel1)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel1Layout.createSequentialGroup()
@@ -317,7 +328,9 @@ public class Employees extends javax.swing.JPanel implements
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButton2)
-                            .addComponent(jButton3)))
+                            .addComponent(jButton3))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(getInfoButton))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -364,12 +377,25 @@ public class Employees extends javax.swing.JPanel implements
         telefone = jTextField6.getText();
         eMail = jTextField5.getText();
 
+        int [] date = Validation.checkInsertedDate(BirthdayTextEmp2.getText(), false);
 
-        if(Validation.isInteger(bi) && Validation.isInteger(telefone)){
-            Constants.dbhandler.addPerson(nome, morada, bi, telefone, eMail, true);
+        if(!nome.equals("") && !morada.equals("") &&  Validation.isInteger(bi)
+                        && (!telefone.equals("") && Validation.isInteger(telefone) || telefone.equals("")) && date!=null){
+            Constants.dbhandler.addPerson(nome, morada, bi, telefone, eMail, date, true);
+
+            jTextField2.setText("");
+            jTextField3.setText("");
+            jTextField4.setText("");
+            jTextField6.setText("");
+            jTextField5.setText("");
+            BirthdayTextEmp2.setText("");
+
+            JOptionPane.showMessageDialog(this, "Employee Added Successfully");
         } else {
             JOptionPane.showMessageDialog(this, "Invalid data");
         }
+
+
 
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -387,12 +413,21 @@ public class Employees extends javax.swing.JPanel implements
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void FindButtonEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FindButtonEmpActionPerformed
-         int [] date = Validation.checkInsertedDate(BirthdayTextEmp1.getText(), false);
+         String orderBy = (((String) jComboBox1.getSelectedItem()).equals("Name") ? "nome_pessoa" : "id_pessoa");
+        int [] date = Validation.checkInsertedDate(BirthdayTextEmp1.getText(), false);
 
           if(date==null){
               JOptionPane.showMessageDialog(this, "Invalid date");
           } else {
-            //TODO: data é válida. Fazer o list apenas!
+            ArrayList <Person> list = Constants.dbhandler.findPersonByBirthDate(date,true,orderBy);
+
+            DefaultListModel model = (DefaultListModel) jList1.getModel();
+            model.clear();
+
+            for (int i = 0; i < list.size(); i++){
+                String info = list.get(i).getNome() + " ID: " + list.get(i).getId();
+                model.addElement(info);
+            }
           }
     }//GEN-LAST:event_FindButtonEmpActionPerformed
 
@@ -440,6 +475,24 @@ public class Employees extends javax.swing.JPanel implements
         }
     }//GEN-LAST:event_FindButtonEmp1ActionPerformed
 
+    //TODO alterar este método se a listagem for modificada
+    private void getInfoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getInfoButtonActionPerformed
+        String value = ((String)jList1.getSelectedValue());
+        int id;
+
+        if(value!=null){
+           ArrayList<String> array = Constants.dbhandler.getEmployeeById(value.split(" ")[2]);
+
+            jTextField2.setText(array.get(0));
+            jTextField3.setText(array.get(1));
+            BirthdayTextEmp2.setText(array.get(2));
+            jTextField4.setText(array.get(3));
+            jTextField6.setText(array.get(4));
+            jTextField5.setText(array.get(5));
+            
+        }
+    }//GEN-LAST:event_getInfoButtonActionPerformed
+
         public void propertyChange(PropertyChangeEvent evt) {
         Object source = evt.getSource();
         Calendar cal;
@@ -449,7 +502,7 @@ public class Employees extends javax.swing.JPanel implements
                 cal1 = new GregorianCalendar(cal.get(Calendar.YEAR),
                                 cal.get(Calendar.MONTH), cal.get(Calendar.DAY_OF_MONTH));
                 BirthdayTextEmp1.setText(cal1.get(Calendar.DAY_OF_MONTH) + "/"
-                                + cal1.get(Calendar.MONTH) + "/"
+                                + (cal1.get(Calendar.MONTH)+1) + "/"
                                 + cal1.get(Calendar.YEAR));
 
         }
@@ -458,7 +511,7 @@ public class Employees extends javax.swing.JPanel implements
                 cal1 = new GregorianCalendar(cal.get(Calendar.YEAR),
                                 cal.get(Calendar.MONTH), cal.get(Calendar.DAY_OF_MONTH));
                 BirthdayTextEmp2.setText(cal1.get(Calendar.DAY_OF_MONTH) + "/"
-                                + cal1.get(Calendar.MONTH) + "/"
+                                + (cal1.get(Calendar.MONTH)+1) + "/"
                                 + cal1.get(Calendar.YEAR));
 
         }
@@ -468,7 +521,7 @@ public class Employees extends javax.swing.JPanel implements
 
     }
 
-
+    // TODO o que e isto? Nao sera para apagar?
     // This method returns the selected radio button in a button group
     public static JRadioButton getSelectionEmployees(ButtonGroup group) {
 
@@ -494,6 +547,7 @@ public class Employees extends javax.swing.JPanel implements
     private javax.swing.JButton FindButtonEmp;
     private javax.swing.JButton FindButtonEmp1;
     private javax.swing.ButtonGroup genreGroup;
+    private javax.swing.JButton getInfoButton;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;

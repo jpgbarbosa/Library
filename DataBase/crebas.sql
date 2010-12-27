@@ -141,6 +141,7 @@ create table PESSOA
    NOME_PESSOA          VARCHAR2(1024)       not null,
    MORADA               VARCHAR2(1024)       not null,
    BI                   NUMBER               not null,
+   DATA					DATE				 not null,
    TELEFONE             NUMBER,
    E_MAIL               VARCHAR2(1024),
    ID_PESSOA            INTEGER              not null,

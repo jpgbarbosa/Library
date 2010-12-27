@@ -20,6 +20,7 @@ import java.util.GregorianCalendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JTextArea;
+import librarynetbeans.Validation;
 
 /**
  * This class handles the database connection and queries that are performed
@@ -126,11 +127,39 @@ public class DatabaseHandler implements DB.DataAccessInterface{
             Logger.getLogger(DatabaseHandler.class.getName()).log(Level.SEVERE, null, ex);
             return -1;
         }
-        
-
         return id;
-
     }
+     
+      public  ArrayList<String> getEmployeeById(String id){
+
+          ArrayList<String> dados = new ArrayList<String>(6);
+
+        System.out.print("\n[Performing getIdReaderByName]");
+        try {
+            //Execute statement
+            Statement stmt;
+            stmt = conn.createStatement();//create statement
+            // execute querie
+            ResultSet rset = stmt.executeQuery(
+                    "SELECT * FROM Pessoa p, Funcionario l "
+                     + "WHERE p.Id_pessoa = l.Id_pessoa AND p.Id_pessoa = " + id);
+            while (rset.next()) {//while there are still results left to read
+
+                dados.add(""+rset.getString("NOME_PESSOA"));
+                dados.add(""+rset.getString("MORADA"));
+                dados.add(Validation.formatDate(""+rset.getDate("DATA")));
+                dados.add(""+rset.getInt("BI"));
+                dados.add(""+rset.getInt("TELEFONE"));
+                dados.add(""+rset.getString("E_MAIL"));
+            }
+            stmt.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(DatabaseHandler.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+        return  dados;
+    }
+
 
      @Override
      public void addDocument(String Autor, String Editora, String genero, String descri,
@@ -165,49 +194,96 @@ public class DatabaseHandler implements DB.DataAccessInterface{
         }
      }
 
-      public void addCopyDocument(int id, int novos){
+      public boolean addCopyDocument(int id, int novos){
         System.out.print("\n[Performing addCopyDocument]");
         //Execute statement
         CallableStatement proc = null;
+        int retVal=0;
         try {
             /* If it's not an employee, than it is a reader. */
-            proc = conn.prepareCall("{ call addCopyDocument(?, ?) }");
+            proc = conn.prepareCall("{ call addCopyDocument(?, ?, ?) }");
 
             proc.setInt(1, id);
             proc.setInt(2, novos);
+            proc.registerOutParameter(3, java.sql.Types.INTEGER);
             proc.execute();
 
             // TODO tratar valor de retorno
-            // TODO IDEIA: numero de livros nas prateleiras mantem-se inalterados. quando procuramos um livro
-            // e este se encontra em mais q uma, dizemos q existem nas 2
+            retVal=proc.getInt(3);
 
             proc.close();
 
         }catch (SQLException ex) {
             Logger.getLogger(DatabaseHandler.class.getName()).log(Level.SEVERE, null, ex);
-            return;
+            return false;
         }
+        if(retVal<0){
+            return true;
+        }
+        return false;
       }
 
+      public ArrayList<Person> findPersonByBirthDate(int [] date, boolean isEmployee, String orderBy){
+
+        ArrayList<Person> personsList = new ArrayList<Person>();
+        Person singlePerson;
+
+        System.out.print("\n[Performing findPersonByBirthDate] ... ");
+
+        String d = date[0]+"/"+date[1]+"/"+date[2];
+
+        System.out.println(d);
+
+        try {
+            String appendix;
+            //Execute statement
+            Statement stmt;
+            stmt = conn.createStatement();//create statement
+            // execute querie
+            if (isEmployee){
+                appendix = "SELECT f.id_pessoa FROM Funcionario f";
+            }
+            else{
+                appendix = "SELECT l.id_pessoa FROM Leitor l";
+            }
+            ResultSet rset = stmt.executeQuery("SELECT p.nome_pessoa, p.id_pessoa " +
+                                "FROM Pessoa p WHERE to_char(p.data,'dd/mm/yyyy') like '"+d+"' AND p.id_pessoa IN ("
+                                + appendix + ")"
+                                + "ORDER BY " + orderBy);//Select all from Album
+            while (rset.next()) {//while there are still results left to read
+                //create Album instance with current album information
+                //you can get each of the albums attributes by using the column name
+                singlePerson= new Person(rset.getString("NOME_PESSOA"), rset.getInt("ID_PESSOA"));
+                personsList.add(singlePerson);
+            }
+            stmt.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(DatabaseHandler.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+        return personsList;
+    }
+
     @Override
-    public void addPerson(String name, String morada, String bi, String telefone, String eMail, boolean isEmployee){
+    public void addPerson(String name, String morada, String bi, String telefone, String eMail, int [] date, boolean isEmployee){
         System.out.print("\n[Performing addPerson]");
         //Execute statement
         CallableStatement proc = null;
         try {
             /* If it's not an employee, than it is a reader. */
             if (isEmployee){
-                proc = conn.prepareCall("{ call addEmployee(?, ?, ?, ?, ?) }");
+                proc = conn.prepareCall("{ call addEmployee(?, ?, ?, ?, ?, ?) }");
             }
             else{
-                proc = conn.prepareCall("{ call addReader(?, ?, ?, ?, ?) }");
+                proc = conn.prepareCall("{ call addReader(?, ?, ?, ?, ?, ?) }");
             }
             
             proc.setString(1, name);
             proc.setString(2, morada);
             proc.setInt(3, Integer.parseInt(bi));
-            proc.setInt(4, Integer.parseInt(telefone));
-            proc.setString(5, eMail);
+            proc.setDate(4, new Date((new GregorianCalendar(date[2], date[1]-1, date[0])).getTimeInMillis()));
+            proc.setInt(5, Integer.parseInt(telefone));
+            proc.setString(6, eMail);
             proc.execute();
 
             proc.close();
@@ -216,9 +292,9 @@ public class DatabaseHandler implements DB.DataAccessInterface{
             Logger.getLogger(DatabaseHandler.class.getName()).log(Level.SEVERE, null, ex);
             return;
         }
-
-
     }
+
+
 
     @Override
     public ArrayList<Person> getPersonsList(boolean isEmployee, String orderBy){

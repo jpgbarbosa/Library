@@ -54,4 +54,10 @@ public class Validation {
         return true;
     }
 
+    static public String formatDate(String old){
+        String [] array = old.split("-");
+        
+        return array[2]+"/"+array[1]+"/"+array[0];
+    }
+
 }
