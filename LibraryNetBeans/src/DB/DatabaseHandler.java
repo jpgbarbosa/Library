@@ -162,7 +162,7 @@ public class DatabaseHandler implements DB.DataAccessInterface{
 
 
      @Override
-     public void addDocument(String Autor, String Editora, String genero, String descri,
+     public int addDocument(String Autor, String Editora, String genero, String descri,
         String nome, int total, int numberOfPages){
         System.out.print("\n[Performing addDocument]...");
         //Execute statement
@@ -181,24 +181,22 @@ public class DatabaseHandler implements DB.DataAccessInterface{
             proc.setInt(8, total);
             proc.registerOutParameter(9, java.sql.Types.INTEGER);
             proc.execute();
-
-            // TODO tratar valor de retorno
-            // TODO IDEIA: numero de livros nas prateleiras mantem-se inalterados. quando procuramos um livro
-            // e este se encontra em mais q uma, dizemos q existem nas 2
-
+            int outcome = proc.getInt(9);
             proc.close();
 
+            return outcome;
         }catch (SQLException ex) {
             Logger.getLogger(DatabaseHandler.class.getName()).log(Level.SEVERE, null, ex);
-            return;
+            return -2;
         }
      }
 
+     @Override
       public boolean addCopyDocument(int id, int novos){
         System.out.print("\n[Performing addCopyDocument]");
         //Execute statement
         CallableStatement proc = null;
-        int retVal=0;
+        int retVal = 0;
         try {
             /* If it's not an employee, than it is a reader. */
             proc = conn.prepareCall("{ call addCopyDocument(?, ?, ?) }");
@@ -217,10 +215,10 @@ public class DatabaseHandler implements DB.DataAccessInterface{
             Logger.getLogger(DatabaseHandler.class.getName()).log(Level.SEVERE, null, ex);
             return false;
         }
-        if(retVal<0){
-            return true;
-        }
-        return false;
+
+        if (retVal < 0)
+            return false;
+        return true;
       }
 
       public ArrayList<Person> findPersonByBirthDate(int [] date, boolean isEmployee, String orderBy){
@@ -387,10 +385,11 @@ public class DatabaseHandler implements DB.DataAccessInterface{
     }
 
     @Override
-    public void newRequisiton(int[] book_ids, int id_reader, int id_employee){
+    public int[] newRequisiton(int[] book_ids, int id_reader, int id_employee){
         System.out.print("\n[Performing newRequisiton]");
         //Execute statement
         CallableStatement proc = null;
+        int [] outcome = new int[3];
         int i;
 
         for (i = 0; i < book_ids.length; i++){
@@ -399,25 +398,28 @@ public class DatabaseHandler implements DB.DataAccessInterface{
             if (book_ids[i] == -1){
                 continue;
             }
+            System.out.println("We have " + book_ids[i]);
             try {
-            proc = conn.prepareCall("{ call newRequisition (?, ?, ?) }");
+            proc = conn.prepareCall("{ call newRequisition (?, ?, ?, ?) }");
 
             proc.setInt(1, book_ids[i]);
             proc.setInt(2, id_reader);
             proc.setInt(3, id_employee);
+            proc.registerOutParameter(4, java.sql.Types.INTEGER);
             proc.execute();
+
+            outcome[i] = proc.getInt(4);
 
             proc.close();
 
+
             }catch (SQLException ex) {
                 Logger.getLogger(DatabaseHandler.class.getName()).log(Level.SEVERE, null, ex);
-                return;
-            }
+                 outcome[i] = -3;
+            } 
         }
+        return outcome;
 
-        
-        
-        
     }
     
     @Override

@@ -862,8 +862,24 @@ public class Document extends javax.swing.JPanel implements
          }
 
          if(!title.equals("") && !autor.equals("") && numberOfPages > 0){
-            Constants.dbhandler.addDocument(autor, pub, genre, desc,
+            int outcome = Constants.dbhandler.addDocument(autor, pub, genre, desc,
                  title, total, numberOfPages);
+
+            if (outcome == 0){
+                TitleTab3Doc.setText("");
+                TextPubTab3Doc.setText("");
+                TextDescTab3Doc.setText("");
+                TextAutTab3Doc.setText("");
+                NumCopiesDocTab3.getModel().setValue(1);
+                jTextField13.setText("");
+                JOptionPane.showMessageDialog(this, "Book added to the library!");
+            }
+            else if (outcome == -1){
+                JOptionPane.showMessageDialog(this, "There's already a book with this title!");
+            }
+            else{
+                JOptionPane.showMessageDialog(this, "Book couldn't be added...");
+            }
          } else {
               JOptionPane.showMessageDialog(this, "Invalid date or title field is empty");
          }
@@ -924,8 +940,34 @@ public class Document extends javax.swing.JPanel implements
                  books[2] = Integer.parseInt(jTextField8.getText());
             }
 
-            //TODO: Maybe inform the user how many books were successful
-            Constants.dbhandler.newRequisiton(books, id_reader, id_employee);
+            int[] outcome = Constants.dbhandler.newRequisiton(books, id_reader, id_employee);
+            String text = "";
+
+            for (int i = 0; i < outcome.length; i++){
+                int value = outcome[i];
+
+                if (books[i] != -1){
+                    if (value == 0){
+                        text += "Book " + (i + 1) + " requisited successfully!\n";
+                    }
+                    else if (value == -1){
+                        text += "Book " + (i + 1) + " has ran out of stock. Try again later!\n";
+                    }
+                    else if (value == -2){
+                        text += "Book " + (i + 1) + " couldn't be found!\n";
+                    }
+                    else if (value == -3){
+                        text += "Reader ID couldn't be found!\n";
+                        break;
+                    }
+                    else {
+                        text += "Requisition number " + i + " couldn't be concluded...\n";
+                    }
+                }
+
+            }
+
+            JOptionPane.showMessageDialog(this, text);
 
             jTextArea2.append("Operation concluded!\n");
         }
@@ -936,7 +978,14 @@ public class Document extends javax.swing.JPanel implements
         String id = jTextField12.getText();
 
         if(Validation.isInteger(id)){
-            Constants.dbhandler.addCopyDocument(Integer.parseInt(id), amount);
+            boolean outcome = Constants.dbhandler.addCopyDocument(Integer.parseInt(id), amount);
+
+            if (outcome){
+                JOptionPane.showMessageDialog(this, "Operation concluded!");
+            }
+             else{
+                JOptionPane.showMessageDialog(this, "Operation couldn't be completed...");
+             }
         } else {
             JOptionPane.showMessageDialog(this, "Invalid ID");
         }

@@ -149,9 +149,18 @@ BEGIN
 	INSERT INTO PUBLICACAO VALUES (current_id, idPra, idAut, idEdi, pages, descri, DATA, nome, total, total);
 	update prateleira set OCUPACAO=OCUPACAO+total where ID_PRATELEIRA = idPra;
 	
-	retVal :=1;
+	retVal := 0;
 		
 	COMMIT;
+	
+EXCEPTION
+	-- Error raised when we insert the same title
+	WHEN DUP_VAL_ON_INDEX THEN
+		ROLLBACK;
+		retVal := -1;
+	WHEN OTHERS THEN
+		ROLLBACK;
+		retVal := -2;
 	
 END;
 
@@ -207,13 +216,14 @@ BEGIN
 	SET DISPONIVEIS=DISPONIVEIS+novos, TOTAL=TOTAL+novos
 	WHERE id_doc = idDoc;
 
-	retVal:=1;
+	retVal := 0 ;
 	COMMIT;
 
 EXCEPTION
-	WHEN no_data_found THEN
+	WHEN NO_DATA_FOUND THEN
 		retVal := -1;
-		RETURN;
+	WHEN OTHERS THEN
+		retVal := -2;
 
 END;
 
@@ -221,10 +231,12 @@ END;
 
 
 -- Script used to make requisitions.
-CREATE OR REPLACE PROCEDURE newRequisition ( book_id IN Publicacao.id_doc%type, reader_id IN Pessoa.id_pessoa%type, employee_id IN Pessoa.id_pessoa%type) IS
+CREATE OR REPLACE PROCEDURE newRequisition ( book_id IN Publicacao.id_doc%type, reader_id IN Pessoa.id_pessoa%type, employee_id IN Pessoa.id_pessoa%type,
+											returnValue OUT INTEGER) IS
 	no_available INTEGER; 
 	id_pessoa_conf INTEGER; 
 	current_id NUMBER;
+	temp NUMBER;
 	
 	ID_NOT_FOUND exception; 
 	PRAGMA exception_init(ID_NOT_FOUND, -2291); 
@@ -233,30 +245,43 @@ BEGIN
 	SELECT seq_id_aluguer.nextval INTO current_id
 	FROM dual;
 	
-	SELECT p.disponiveis INTO no_available 
-	FROM Publicacao p 
-	WHERE p.id_doc = book_id; 
+	temp := 0;
 	
-	IF (no_available > 0) THEN 
-		UPDATE Publicacao p SET p.disponiveis = p.disponiveis - 1 
+	BEGIN
+		SELECT p.disponiveis INTO no_available 
+		FROM Publicacao p 
 		WHERE p.id_doc = book_id; 
-		
-		UPDATE Leitor SET no_emprestimos = no_emprestimos + 1
-		WHERE id_pessoa = reader_id;
-		
-		INSERT INTO Emprestimo VALUES (reader_id, employee_id, book_id, current_id, SYSDATE, SYSDATE + 7, null ); 
-		 
-	ELSE 
-		id_pessoa_conf := -1; 
-	END IF; 
+	EXCEPTION
+		WHEN NO_DATA_FOUND THEN 
+			temp := 1;
+			returnValue := -2;
+	END;
+	
+	IF (temp < 1) THEN
+		IF (no_available > 0) THEN 
+			UPDATE Publicacao p SET p.disponiveis = p.disponiveis - 1 
+			WHERE p.id_doc = book_id; 
+			
+			UPDATE Leitor SET no_emprestimos = no_emprestimos + 1
+			WHERE id_pessoa = reader_id;
+			
+			--We have to change the 28 to employee_id
+			INSERT INTO Emprestimo VALUES (reader_id, 28, book_id, current_id, SYSDATE, SYSDATE + 7, null ); 
+			returnValue := 0;
+		ELSE 
+			returnValue := -1;
+		END IF; 
+	END IF;
 	
 	COMMIT; 
 	
 EXCEPTION 
 	WHEN NO_DATA_FOUND THEN 
-		id_pessoa_conf := -1; 
-	WHEN ID_NOT_FOUND THEN 
-		id_pessoa_conf := -1; 
+		ROLLBACK;
+		returnValue := -3; 
+	WHEN OTHERS THEN
+		ROLLBACK;
+		returnValue := -4;
 
 END;
 

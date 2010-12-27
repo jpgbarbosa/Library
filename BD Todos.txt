@@ -53,7 +53,7 @@ EU já acrescentei e modifiquei os procedures. Estar atento não va alguma cena do
 
 -> nao deviamos ter salários nos empregados?
 
-
+-> Nas requisições, não esquecer de mudar o valor estático de 28. Tester novamente com um número de user inválido.
 
 
 CUIDADOS!!!!

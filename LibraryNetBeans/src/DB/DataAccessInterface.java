@@ -23,14 +23,14 @@ public interface DataAccessInterface {
     public int addPerson(String name, String morada, String bi, String telefone, String eMail,int [] date, boolean isEmployee);
     public ArrayList<Person> getPersonsList(boolean isEmployee, String orderBy);
     public ArrayList<Book> getSpecificBooks(String type, String value);
-    public void newRequisiton(int[] book_ids, int id_reader, int id_employee);
+    public int[] newRequisiton(int[] book_ids, int id_reader, int id_employee);
     public ArrayList<Person> findEmployeeByName(String name, String orderBy);
     public ArrayList<Person> findReaderByName(String name, String orderBy);
     public ArrayList<Book> findBookByName(String name);
     public ArrayList<Book> findBookById(int id);
-    public void addDocument(String Autor, String Editora, String genero, String descri,String nome, int total, int numberOfPages);
+    public int addDocument(String Autor, String Editora, String genero, String descri,String nome, int total, int numberOfPages);
     public ArrayList<Person> findPersonByBirthDate(int [] date, boolean isEmployee, String orderBy);
-
+    public boolean addCopyDocument(int id, int novos);
     /* Statistics */
     public void readersStatistics(JTextArea textArea);
     public void employeesStatistics(JTextArea textArea);
