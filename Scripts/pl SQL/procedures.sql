@@ -209,9 +209,13 @@ end;
 
 -- falta verificar a questao das prateleiras!
 CREATE OR REPLACE PROCEDURE addCopyDocument(idDoc IN PUBLICACAO.ID_DOC%type, novos IN PUBLICACAO.TOTAL%type, retVal out number) IS
-
+	checker INTEGER;
 
 BEGIN
+	SELECT id_doc INTO checker
+	FROM Publicacao
+	WHERE id_doc = idDoc;
+
 	UPDATE PUBLICACAO
 	SET DISPONIVEIS=DISPONIVEIS+novos, TOTAL=TOTAL+novos
 	WHERE id_doc = idDoc;

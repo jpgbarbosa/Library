@@ -191,12 +191,12 @@ public class DatabaseHandler implements DB.DataAccessInterface{
         }
      }
 
-     @Override
+      @Override
       public boolean addCopyDocument(int id, int novos){
-        System.out.print("\n[Performing addCopyDocument]");
+        System.out.print("\n[Performing addCopyDocument]...");
         //Execute statement
         CallableStatement proc = null;
-        int retVal = 0;
+        Integer retVal = -1;
         try {
             /* If it's not an employee, than it is a reader. */
             proc = conn.prepareCall("{ call addCopyDocument(?, ?, ?) }");
@@ -206,8 +206,7 @@ public class DatabaseHandler implements DB.DataAccessInterface{
             proc.registerOutParameter(3, java.sql.Types.INTEGER);
             proc.execute();
 
-            // TODO tratar valor de retorno
-            retVal=proc.getInt(3);
+            retVal = (Integer) proc.getObject(3);
 
             proc.close();
 
@@ -216,9 +215,10 @@ public class DatabaseHandler implements DB.DataAccessInterface{
             return false;
         }
 
-        if (retVal < 0)
-            return false;
-        return true;
+        if (retVal == 0)
+            return true;
+        
+        return false;
       }
 
       public ArrayList<Person> findPersonByBirthDate(int [] date, boolean isEmployee, String orderBy){
@@ -398,7 +398,7 @@ public class DatabaseHandler implements DB.DataAccessInterface{
             if (book_ids[i] == -1){
                 continue;
             }
-            System.out.println("We have " + book_ids[i]);
+
             try {
             proc = conn.prepareCall("{ call newRequisition (?, ?, ?, ?) }");
 

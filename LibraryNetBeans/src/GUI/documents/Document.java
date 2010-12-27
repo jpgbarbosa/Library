@@ -343,6 +343,11 @@ public class Document extends javax.swing.JPanel implements
         jLabel18.setText("New Document:");
 
         jButton7.setText("Add");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
 
         jLabel19.setText("Amount:");
 
@@ -984,7 +989,7 @@ public class Document extends javax.swing.JPanel implements
                 JOptionPane.showMessageDialog(this, "Operation concluded!");
             }
              else{
-                JOptionPane.showMessageDialog(this, "Operation couldn't be completed...");
+                JOptionPane.showMessageDialog(this, "Book ID not found...");
              }
         } else {
             JOptionPane.showMessageDialog(this, "Invalid ID");
