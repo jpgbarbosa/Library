@@ -899,4 +899,33 @@ public class DatabaseHandler implements DB.DataAccessInterface{
         }
         return false;
     }
+
+    public ArrayList<String> getReaderById(String id) {
+         ArrayList<String> dados = new ArrayList<String>(6);
+
+        System.out.print("\n[Performing getIdReaderByID]...");
+        try {
+            //Execute statement
+            Statement stmt;
+            stmt = conn.createStatement();//create statement
+            // execute querie
+            ResultSet rset = stmt.executeQuery(
+                    "SELECT * FROM Pessoa p, Leitor l "
+                     + "WHERE p.Id_pessoa = l.Id_pessoa AND p.Id_pessoa = " + id);
+            while (rset.next()) {//while there are still results left to read
+
+                dados.add(""+rset.getString("NOME_PESSOA"));
+                dados.add(""+rset.getString("MORADA"));
+                dados.add(Validation.formatDate(""+rset.getDate("DATA")));
+                dados.add(""+rset.getInt("BI"));
+                dados.add(""+rset.getInt("TELEFONE"));
+                dados.add(""+rset.getString("E_MAIL"));
+            }
+            stmt.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(DatabaseHandler.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+        return  dados;
+    }
 }
