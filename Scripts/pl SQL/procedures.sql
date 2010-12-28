@@ -652,7 +652,7 @@ BEGIN
 	
 	-- Checks the average of requisitions per day, counting only days with at least one requisition
 	BEGIN
-		SELECT ROUND(AVG(TO_CHAR(DATA_DE_REQUISITO,'yyyy-mm-dd')),2) INTO avg_reqs_per_day
+		SELECT ROUND(AVG(COUNT(*)),2) INTO avg_reqs_per_day
 		FROM Emprestimo
 		GROUP BY TO_CHAR(DATA_DE_REQUISITO,'yyyy-mm-dd');
 	EXCEPTION
