@@ -2,7 +2,8 @@
 DROP SEQUENCE seq_id_pessoa;
 
 CREATE SEQUENCE seq_id_pessoa
-START WITH 1
+--We have to start in 2 because the number 1 is reserved for the admin.
+START WITH 2
 INCREMENT BY 1
 NOCYCLE;
 

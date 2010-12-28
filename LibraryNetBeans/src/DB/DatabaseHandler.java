@@ -74,6 +74,31 @@ public class DatabaseHandler implements DB.DataAccessInterface{
         }
     }
 
+    @Override
+    public int login(int userName, String password){
+        System.out.print("\n[Performing login]...");
+        //Execute statement
+        CallableStatement proc = null;
+        int retVal = 0;
+
+        try {
+            proc = conn.prepareCall("{ call login(?, ?, ?) }");
+
+            proc.setInt(1, userName);
+            proc.setString(2, password);
+            proc.registerOutParameter(3, java.sql.Types.INTEGER);
+            proc.execute();
+
+            retVal = (Integer)proc.getObject(3);
+
+        }catch (SQLException ex) {
+            Logger.getLogger(DatabaseHandler.class.getName()).log(Level.SEVERE, null, ex);
+            return -1;
+        }
+
+        return retVal;
+    }
+
     /**
      * Performs a query in order to get all albums currently in the database
      * @return
@@ -107,8 +132,9 @@ public class DatabaseHandler implements DB.DataAccessInterface{
     }
 
      @Override
-    public int getIdReaderByName(String name){
-        int id = -1;
+    public void getIdReaderByName(String name, JTextArea textArea){
+        Person reader;
+        ArrayList <Person> readers = new ArrayList<Person>();
 
         System.out.print("\n[Performing getIdReaderByName]...");
         try {
@@ -120,19 +146,29 @@ public class DatabaseHandler implements DB.DataAccessInterface{
                     "SELECT * FROM Pessoa p, Leitor l "
                      + "WHERE p.Id_pessoa = l.Id_pessoa AND upper(p.nome_pessoa) like '%'||upper('" + name + "')||'%'");
             while (rset.next()) {//while there are still results left to read
-                id = rset.getInt("ID_PESSOA");
+                reader= new Person(rset.getString("NOME_PESSOA"),rset.getInt("ID_PESSOA"));
+                readers.add(reader);
+
             }
             stmt.close();
         } catch (SQLException ex) {
             Logger.getLogger(DatabaseHandler.class.getName()).log(Level.SEVERE, null, ex);
-            return -1;
         }
-        return id;
+
+        textArea.setText("");
+        if (readers.size() > 0){
+            for (Person p : readers)
+                textArea.append("ID: " + p.getId()  + "\nNAME: " + p.getNome() + "\n\n");
+        }
+        else{
+            textArea.setText("There are no readers with such name!");
+        }
+
     }
      
       public  ArrayList<String> getEmployeeById(String id){
 
-          ArrayList<String> dados = new ArrayList<String>(6);
+        ArrayList<String> dados = new ArrayList<String>(6);
 
         System.out.print("\n[Performing getIdReaderByName]...");
         try {
@@ -311,14 +347,14 @@ public class DatabaseHandler implements DB.DataAccessInterface{
     }
 
     @Override
-    public int addPerson(String name, String morada, String bi, String telefone, String eMail, int [] date, boolean isEmployee){
+    public int addPerson(String name, String morada, String bi, String telefone, String eMail, int [] date, boolean isEmployee, String password){
         System.out.print("\n[Performing addPerson]");
         //Execute statement
         CallableStatement proc = null;
         try {
             /* If it's not an employee, than it is a reader. */
             if (isEmployee){
-                proc = conn.prepareCall("{ call addEmployee(?, ?, ?, ?, ?, ?, ?) }");
+                proc = conn.prepareCall("{ call addEmployee(?, ?, ?, ?, ?, ?, ?, ?) }");
             }
             else{
                 proc = conn.prepareCall("{ call addReader(?, ?, ?, ?, ?, ?, ?) }");
@@ -330,10 +366,25 @@ public class DatabaseHandler implements DB.DataAccessInterface{
             proc.setDate(4, new Date((new GregorianCalendar(date[2], date[1]-1, date[0])).getTimeInMillis()));
             proc.setInt(5, Integer.parseInt(telefone));
             proc.setString(6, eMail);
-            proc.registerOutParameter(7, java.sql.Types.INTEGER);
+
+            Integer returnValue;
+            if (isEmployee){
+                proc.setString(7, password);
+                proc.registerOutParameter(8, java.sql.Types.INTEGER);
+            }
+            else{
+                proc.registerOutParameter(7, java.sql.Types.INTEGER);
+            }
+            
             proc.execute();
 
-            Integer returnValue = (Integer) proc.getObject(7);
+            if (isEmployee){
+               returnValue = (Integer) proc.getObject(8);
+            }
+            else{
+                returnValue = (Integer) proc.getObject(7);
+            }
+            
 
             proc.close();
             return returnValue;

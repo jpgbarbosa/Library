@@ -29,6 +29,8 @@ public class Constants {
 
     final public static int DIM_H = 1000;
     final public static int DIM_V = 600;
+
+    public static int loginNumber = 0;
     
 
     public Constants(Login login, MainMenu main, Document doc, Employees emp,Reader readers, Statistics stats, Frame f){

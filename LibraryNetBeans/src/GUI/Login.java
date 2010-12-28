@@ -11,7 +11,9 @@
 
 package GUI;
 
+import javax.swing.JOptionPane;
 import librarynetbeans.Constants;
+import librarynetbeans.Validation;
 
 /**
  *
@@ -41,14 +43,14 @@ public class Login extends javax.swing.JPanel {
 
         jLabel2.setText("Password: ");
 
-        jTextField1.setText("admin");
+        jTextField1.setText("1");
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
             }
         });
 
-        jPasswordField1.setText("fixe");
+        jPasswordField1.setText("admin");
 
         jLabel1.setText("Username:");
 
@@ -105,11 +107,20 @@ public class Login extends javax.swing.JPanel {
         userName = jTextField1.getText();
         password = jPasswordField1.getText();
 
-        //TODO: Change this, to lookup in the database.
-        if (userName.equals("admin") && password.equals("fixe")){
-            Constants.loginMenu.setVisible(false);
-            Constants.mainMenu.setVisible(true);
-            Constants.frame.setContentPane(Constants.mainMenu);
+        if (Validation.isInteger(userName)){
+            int value = Constants.dbhandler.login(Integer.parseInt(userName), password);
+            
+            if (value == 1){
+                Constants.loginMenu.setVisible(false);
+                Constants.mainMenu.setVisible(true);
+                Constants.frame.setContentPane(Constants.mainMenu);
+            }
+            else{
+                JOptionPane.showMessageDialog(this, "Invalid login...");
+            }
+        }
+        else{
+            JOptionPane.showMessageDialog(this, "Invalid username...");
         }
 
     }//GEN-LAST:event_jButton1ActionPerformed

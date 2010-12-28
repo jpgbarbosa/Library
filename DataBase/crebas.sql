@@ -233,3 +233,16 @@ alter table PUBLICACAO
    add constraint FK_PUBLICAC_POSSUIR_EDITORA foreign key (ID_EDITORA)
       references EDITORA (ID_EDITORA);
 
+	  
+/*==============================================================*/
+/* Table: AUTENTICACAO                                            */
+/*==============================================================*/
+create table AUTENTICACAO 
+(
+   ID_EMPREGADO	       INTEGER              not null,
+   PASSWORD            VARCHAR2(1024)		not null,
+   constraint PK_AUTENTICACAO primary key (ID_EMPREGADO)
+);
+
+-- Inserts the admin login.
+insert into AUTENTICACAO values (1, 'admin');

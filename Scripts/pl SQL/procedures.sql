@@ -108,7 +108,7 @@ end;
 /
 
 CREATE OR REPLACE PROCEDURE addEmployee ( nomePessoa IN Pessoa.nome_pessoa%type, morada IN Pessoa.morada%type, bi IN NUMBER, data in date ,telefone IN NUMBER, email IN Pessoa.e_mail%type,
-											returnValue OUT INTEGER) IS
+											password IN Autenticacao.password%type, returnValue OUT INTEGER) IS
 	current_id NUMBER;
 	ID_NOT_FOUND exception; 
 	PRAGMA exception_init(ID_NOT_FOUND, -2291); 
@@ -119,8 +119,9 @@ BEGIN
 	
 	INSERT INTO Pessoa VALUES (nomePessoa, morada, bi, data , telefone, email, current_id);
 	INSERT INTO Funcionario VALUES (current_id, sysdate, null);
+	INSERT INTO AUTENTICACAO VALUES (current_id, password);
 		
-	returnValue := 0;
+	returnValue := current_id;
 	COMMIT;
 	
 EXCEPTION
@@ -730,3 +731,24 @@ BEGIN
 
 END;
 /
+
+CREATE OR REPLACE PROCEDURE login (username IN AUTENTICACAO.ID_EMPREGADO%type, pw IN AUTENTICACAO.PASSWORD%type, returnValue OUT INTEGER) IS
+
+	temp INTEGER;
+BEGIN
+	SELECT a.ID_EMPREGADO INTO temp
+	FROM Autenticacao a
+	WHERE a.ID_EMPREGADO = username AND a.PASSWORD = pw;
+	
+	returnValue := 1;
+
+EXCEPTION
+	WHEN NO_DATA_FOUND THEN
+		returnValue := -1;
+		
+END;
+/
+
+	SELECT a.ID_EMPREGADO
+	FROM Autenticacao a
+	WHERE a.ID_EMPREGADO = 1 AND a.PASSWORD = 'admin';

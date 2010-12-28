@@ -980,13 +980,7 @@ public class Document extends javax.swing.JPanel implements
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         String name = jTextField1.getText();
-        int id = Constants.dbhandler.getIdReaderByName(name);
-
-        if (id != -1){
-            jTextArea2.setText("ID: " + id  + "\nNAME: " + name);
-        } else{
-            jTextArea2.setText("There is no reader with such name!");
-        }
+        Constants.dbhandler.getIdReaderByName(name, jTextArea2);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -1061,8 +1055,6 @@ public class Document extends javax.swing.JPanel implements
             }
 
             JOptionPane.showMessageDialog(this, text);
-
-            jTextArea2.append("Operation concluded!\n");
         }
     }//GEN-LAST:event_jButton3ActionPerformed
 
@@ -1157,8 +1149,6 @@ public class Document extends javax.swing.JPanel implements
         }
 
         JOptionPane.showMessageDialog(this, text);
-
-        jTextArea2.append("Operation concluded!\n");
     }//GEN-LAST:event_jButton5ActionPerformed
 
 
