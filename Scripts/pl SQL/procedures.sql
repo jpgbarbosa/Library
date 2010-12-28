@@ -49,6 +49,27 @@ end;
 
 /
 
+create or replace procedure updateReader (nomePessoa IN Pessoa.nome_pessoa%type, pmorada IN Pessoa.morada%type, pbi IN NUMBER, data in date ,ptelefone IN NUMBER, email IN Pessoa.e_mail%type,
+											returnValue OUT INTEGER) IS
+
+idPessoa Pessoa.ID_Pessoa%type;
+											
+Begin
+
+select id_pessoa into idPessoa from pessoa p where p.bi = pbi;
+
+update pessoa p set p.nome_pessoa = nomePessoa, p.morada=pmorada, p.data = data, p.telefone = ptelefone, p.e_mail=email where p.id_pessoa = idPessoa;
+
+returnValue:=1;
+
+Exception
+	when no_data_found then
+		returnValue := -1;
+		return;
+end;
+
+/
+
 create or replace procedure updateEmployee (nomePessoa IN Pessoa.nome_pessoa%type, pmorada IN Pessoa.morada%type, pbi IN NUMBER, data in date ,ptelefone IN NUMBER, email IN Pessoa.e_mail%type,
 											returnValue OUT INTEGER) IS
 

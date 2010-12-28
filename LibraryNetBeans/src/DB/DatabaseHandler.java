@@ -183,7 +183,20 @@ public class DatabaseHandler implements DB.DataAccessInterface{
 
                 proc.close();
             } else {
-                
+                proc = conn.prepareCall("{ call updateReader(?, ?, ?, ?, ?, ?, ?) }");
+
+                proc.setString(1, name);
+                proc.setString(2, morada);
+                proc.setInt(3, Integer.parseInt(bi));
+                proc.setDate(4, new Date((new GregorianCalendar(date[2], date[1]-1, date[0])).getTimeInMillis()));
+                proc.setInt(5, Integer.parseInt(telefone));
+                proc.setString(6, eMail);
+                proc.registerOutParameter(7, java.sql.Types.INTEGER);
+                proc.execute();
+
+                returnValue = (Integer) proc.getObject(7);
+
+                proc.close();
             }
         }catch (SQLException ex) {
             Logger.getLogger(DatabaseHandler.class.getName()).log(Level.SEVERE, null, ex);

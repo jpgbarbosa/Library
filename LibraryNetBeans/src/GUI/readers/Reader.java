@@ -45,7 +45,6 @@ public class Reader extends javax.swing.JPanel implements
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-
         genreGroup = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -312,9 +311,11 @@ public class Reader extends javax.swing.JPanel implements
                 .addComponent(jButton4)
                 .addContainerGap())
         );
+		
+		
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
+		this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
@@ -328,7 +329,7 @@ public class Reader extends javax.swing.JPanel implements
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
-
+	
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         Constants.readersMenu.setVisible(false);
         Constants.mainMenu.setVisible(true);
@@ -374,6 +375,76 @@ public class Reader extends javax.swing.JPanel implements
         }
 
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    /* Code to GetInfoInReaders
+
+     private void ... {
+        String value = ((String)jList1.getSelectedValue());
+
+        if(value!=null){
+            clearFieldsButtonActionPerformed(null);
+            ArrayList<String> array = Constants.dbhandler.getReaderById(value.split(" ")[2]);
+            if(array!=null){
+                jTextField2.setText(array.get(0));
+                jTextField3.setText(array.get(1));
+                dateText2Reader.setText(array.get(2));
+                jTextField4.setText(array.get(3));
+                jTextField4.setEditable(false);
+                jTextField6.setText(array.get(4));
+                jTextField5.setText(array.get(5));
+            } else {
+                JOptionPane.showMessageDialog(this, "Something went wrong. Please contact your support!");
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "You must select an employee on the right side!");
+        }
+            
+     }
+
+     Code to cleanFields
+     private void...{
+            jTextField2.setText("");
+            jTextField3.setText("");
+            dateText2Reader.setText("  /  /    ");
+            jTextField4.setText("");
+            jTextField4.setEditable(true);
+            jTextField6.setText("");
+            jTextField5.setText("");
+            ((DefaultListModel) jList1.getModel()).clear();
+     }
+
+     *
+
+     code to updateREadersInfo
+     private void .... {
+     String nome, morada, eMail, telefone, bi;
+
+        nome = jTextField2.getText();
+        morada = jTextField3.getText();
+        bi = jTextField4.getText();
+        telefone = jTextField6.getText();
+        eMail = jTextField5.getText();
+
+        int [] date = Validation.checkInsertedDate(dateText2Reader.getText(), false);
+
+        if(!nome.equals("") && !morada.equals("") &&  Validation.isInteger(bi)
+                        && (!telefone.equals("") && Validation.isInteger(telefone) || telefone.equals("")) && date!=null){
+            // same method as in employees so far.
+            if(Constants.dbhandler.changePersonData(nome, morada, bi, telefone, eMail, date, false)){
+                JOptionPane.showMessageDialog(this, "Changes made successfully");
+            } else {
+                JOptionPane.showMessageDialog(this, "Something went Wrong");
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Invalid Data");
+        }
+     * }
+
+
+
+
+     */
+
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         String orderBy = (((String) jComboBox1.getSelectedItem()).equals("Name") ? "nome_pessoa" : "id_pessoa");
