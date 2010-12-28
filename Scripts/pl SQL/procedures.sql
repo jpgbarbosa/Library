@@ -37,14 +37,18 @@ begin
 	
 	update Funcionario set DATA_SAIDA = sysdate where idPessoa = id_pessoa;
 	
+	commit;
+	
 	retVal :=1;
 	
 	Exception
 		when no_data_found then
 			retVal :=-1;
 			return;
-
-
+	when others then
+		rollback;
+		returnValue := -2;
+		return;
 end;
 
 /
@@ -60,11 +64,17 @@ select id_pessoa into idPessoa from pessoa p where p.bi = pbi;
 
 update pessoa p set p.nome_pessoa = nomePessoa, p.morada=pmorada, p.data = data, p.telefone = ptelefone, p.e_mail=email where p.id_pessoa = idPessoa;
 
+commit;
+
 returnValue:=1;
 
 Exception
 	when no_data_found then
 		returnValue := -1;
+		return;
+	when others then
+		rollback;
+		returnValue := -2;
 		return;
 end;
 
@@ -81,11 +91,17 @@ select id_pessoa into idPessoa from pessoa p where p.bi = pbi;
 
 update pessoa p set p.nome_pessoa = nomePessoa, p.morada=pmorada, p.data = data, p.telefone = ptelefone, p.e_mail=email where p.id_pessoa = idPessoa;
 
+commit;
+
 returnValue:=1;
 
 Exception
 	when no_data_found then
 		returnValue := -1;
+		return;
+	when others then
+		rollback;
+		returnValue := -2;
 		return;
 end;
 
@@ -232,7 +248,7 @@ END;
 
 
 --penso que esta a funcionar como deve ser. verificar melhor
-CREATE OR REPLACE TRIGGER checkShelf AFTER UPDATE ON Publicacao FOR EACH ROW
+CREATE OR REPLACE TRIGGER checkShelf AFTER UPDATE ON Publicacao FOR EACH ROW when (new.total not like old.total)
 
 DECLARE
 
@@ -263,10 +279,14 @@ begin
 	update prateleira set OCUPACAO=OCUPACAO+:new.total where ID_PRATELEIRA = newPratRow.id_prateleira;
 	update prateleira set OCUPACAO=OCUPACAO-:old.total where ID_PRATELEIRA = oldPratRow.id_prateleira;
 	
+	commit;
+	
 	Exception
 		when no_data_found then
 			return;
-
+		when others then
+			rollback;
+			return;
 end;
 
 /
