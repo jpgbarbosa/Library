@@ -353,9 +353,8 @@ BEGIN
 			UPDATE Leitor SET no_emprestimos = no_emprestimos + 1
 			WHERE id_pessoa = reader_id;
 			
-			--We have to change the 28 to employee_id
-			INSERT INTO Emprestimo VALUES (reader_id, 28, book_id, current_id, SYSDATE, SYSDATE + 7, null ); 
-			returnValue := 0;
+			INSERT INTO Emprestimo VALUES (reader_id, employee_id, book_id, current_id, SYSDATE, SYSDATE + 7, null ); 
+			returnValue := current_id;
 		ELSE 
 			returnValue := -1;
 		END IF; 
@@ -370,6 +369,60 @@ EXCEPTION
 	WHEN OTHERS THEN
 		ROLLBACK;
 		returnValue := -4;
+
+END;
+
+/
+
+
+-- Script used to return requisitions.
+CREATE OR REPLACE PROCEDURE returnRequisition ( req_id IN Emprestimo.id_emprestimo%type, returnValue OUT INTEGER) IS
+	return_date DATE; 
+	id_book Publicacao.id_doc%type;
+	temp NUMBER;
+	
+	ID_NOT_FOUND exception; 
+	PRAGMA exception_init(ID_NOT_FOUND, -2291); 
+	
+BEGIN 
+	
+	temp := 0;
+	
+	BEGIN
+		SELECT e.data_entrega INTO return_date 
+		FROM Emprestimo e 
+		WHERE e.id_emprestimo = req_id; 
+	EXCEPTION
+		WHEN NO_DATA_FOUND THEN 
+			temp := 1;
+			returnValue := -2;
+	END;
+	
+	IF (temp < 1) THEN
+		IF (return_date IS NULL) THEN 
+		
+			SELECT e.id_doc INTO id_book
+			FROM Emprestimo e
+			WHERE e.id_emprestimo = req_id;
+			
+			UPDATE Publicacao SET disponiveis = disponiveis + 1
+			WHERE id_doc = id_book;
+			
+			UPDATE Emprestimo SET data_entrega = SYSDATE
+			WHERE id_emprestimo = req_id;
+			
+			returnValue := 0;
+		ELSE 
+			returnValue := -1;
+		END IF; 
+	END IF;
+	
+	COMMIT; 
+	
+EXCEPTION 
+	WHEN OTHERS THEN
+		ROLLBACK;
+		returnValue := -3;
 
 END;
 

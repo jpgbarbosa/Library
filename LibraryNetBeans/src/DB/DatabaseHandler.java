@@ -110,7 +110,7 @@ public class DatabaseHandler implements DB.DataAccessInterface{
     public int getIdReaderByName(String name){
         int id = -1;
 
-        System.out.print("\n[Performing getIdReaderByName]");
+        System.out.print("\n[Performing getIdReaderByName]...");
         try {
             //Execute statement
             Statement stmt;
@@ -134,7 +134,7 @@ public class DatabaseHandler implements DB.DataAccessInterface{
 
           ArrayList<String> dados = new ArrayList<String>(6);
 
-        System.out.print("\n[Performing getIdReaderByName]");
+        System.out.print("\n[Performing getIdReaderByName]...");
         try {
             //Execute statement
             Statement stmt;
@@ -161,7 +161,7 @@ public class DatabaseHandler implements DB.DataAccessInterface{
     }
 
       public boolean changePersonData(String name, String morada, String bi, String telefone, String eMail, int [] date, boolean isEmployee){
-        System.out.print("\n[Performing addPerson]");
+        System.out.print("\n[Performing addPerson]...");
         //Execute statement
         CallableStatement proc = null;
         Integer returnValue=0;
@@ -434,7 +434,7 @@ public class DatabaseHandler implements DB.DataAccessInterface{
 
     @Override
     public int[] newRequisiton(int[] book_ids, int id_reader, int id_employee){
-        System.out.print("\n[Performing newRequisiton]");
+        System.out.print("\n[Performing newRequisiton]...");
         //Execute statement
         CallableStatement proc = null;
         int [] outcome = new int[3];
@@ -465,6 +465,42 @@ public class DatabaseHandler implements DB.DataAccessInterface{
                 Logger.getLogger(DatabaseHandler.class.getName()).log(Level.SEVERE, null, ex);
                  outcome[i] = -3;
             } 
+        }
+        return outcome;
+
+    }
+
+    @Override
+    public int[] returnRequisiton(int[] book_ids){
+        System.out.print("\n[Performing returnRequisiton]...");
+        //Execute statement
+        CallableStatement proc = null;
+        int [] outcome = new int[3];
+        int i;
+
+        for (i = 0; i < book_ids.length; i++){
+
+            /* This is not a valid book. */
+            if (book_ids[i] == -1){
+                continue;
+            }
+
+            try {
+            proc = conn.prepareCall("{ call returnRequisition (?, ?) }");
+
+            proc.setInt(1, book_ids[i]);
+            proc.registerOutParameter(2, java.sql.Types.INTEGER);
+            proc.execute();
+
+            outcome[i] = proc.getInt(2);
+
+            proc.close();
+
+
+            }catch (SQLException ex) {
+                Logger.getLogger(DatabaseHandler.class.getName()).log(Level.SEVERE, null, ex);
+                 outcome[i] = -3;
+            }
         }
         return outcome;
 
