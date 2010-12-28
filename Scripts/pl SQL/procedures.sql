@@ -33,9 +33,9 @@ idPessoa Pessoa.id_pessoa%type;
 
 begin
 
-	select p.id_pessoa into idPessoa from pessoa p where p.BI = biFuncionario;
+	select id_pessoa into idPessoa from pessoa where BI = biFuncionario;
 	
-	update Funcionario f set f.DATA_SAIDA = sysdate where idPessoa = id_pessoa;
+	update Funcionario set DATA_SAIDA = sysdate where idPessoa = id_pessoa;
 	
 	retVal :=1;
 	
@@ -49,16 +49,16 @@ end;
 
 /
 
-create or replace procedure updateEmployee (nomePessoa IN Pessoa.nome_pessoa%type, morada IN Pessoa.morada%type, bi IN NUMBER, data in date ,telefone IN NUMBER, email IN Pessoa.e_mail%type,
+create or replace procedure updateEmployee (nomePessoa IN Pessoa.nome_pessoa%type, pmorada IN Pessoa.morada%type, pbi IN NUMBER, data in date ,ptelefone IN NUMBER, email IN Pessoa.e_mail%type,
 											returnValue OUT INTEGER) IS
 
 idPessoa Pessoa.ID_Pessoa%type;
 											
 Begin
 
-select id_pessoa into idPessoa from pessoa p where p.bi = bi;
+select id_pessoa into idPessoa from pessoa p where p.bi = pbi;
 
-update pessoa p set p.nome_pessoa = nomePessoa, p.morada=morada, p.data = data, p.telefone = telefone, p.e_mail=email where p.id_pessoa = id_pessoa;
+update pessoa p set p.nome_pessoa = nomePessoa, p.morada=pmorada, p.data = data, p.telefone = ptelefone, p.e_mail=email where p.id_pessoa = idPessoa;
 
 returnValue:=1;
 
@@ -67,6 +67,7 @@ Exception
 		returnValue := -1;
 		return;
 end;
+
 /
 
 CREATE OR REPLACE PROCEDURE addEmployee ( nomePessoa IN Pessoa.nome_pessoa%type, morada IN Pessoa.morada%type, bi IN NUMBER, data in date ,telefone IN NUMBER, email IN Pessoa.e_mail%type,

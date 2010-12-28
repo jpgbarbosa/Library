@@ -785,6 +785,7 @@ public class DatabaseHandler implements DB.DataAccessInterface{
 
             proc.setInt(1, Integer.parseInt(id));
             proc.registerOutParameter(2, java.sql.Types.INTEGER);
+            proc.execute();
 
             retVal = (Integer)proc.getObject(2);
             
