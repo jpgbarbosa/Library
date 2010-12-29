@@ -114,6 +114,7 @@ public class Login extends javax.swing.JPanel {
                 Constants.loginMenu.setVisible(false);
                 Constants.mainMenu.setVisible(true);
                 Constants.frame.setContentPane(Constants.mainMenu);
+                Constants.loginNumber = Integer.parseInt(userName);
             }
             else{
                 JOptionPane.showMessageDialog(this, "Invalid login...");
