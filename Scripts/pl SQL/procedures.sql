@@ -27,7 +27,7 @@ END;
 /
 
 --finish this procedur that sets data_saida to sysdate. pay attention when we list employees
-create or replace procedure fireEmployee(biFuncionario in Pessoa.id_pessoa%type, retVal out number) is
+create or replace procedure fireEmployee(biFuncionario in Pessoa.id_pessoa%type, retVal out integer) is
 
 idPessoa Pessoa.id_pessoa%type;
 
@@ -47,7 +47,7 @@ begin
 			return;
 	when others then
 		rollback;
-		returnValue := -2;
+		retVal := -2;
 		return;
 end;
 
@@ -394,6 +394,7 @@ BEGIN
 		FROM Emprestimo e 
 		WHERE e.id_emprestimo = req_id; 
 	EXCEPTION
+		-- If there's no requisiton with this ID.
 		WHEN NO_DATA_FOUND THEN 
 			temp := 1;
 			returnValue := -2;
@@ -414,6 +415,7 @@ BEGIN
 			
 			returnValue := 0;
 		ELSE 
+			-- if the requisition was already returned.
 			returnValue := -1;
 		END IF; 
 	END IF;

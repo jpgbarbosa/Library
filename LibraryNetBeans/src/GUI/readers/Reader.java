@@ -130,6 +130,11 @@ public class Reader extends javax.swing.JPanel implements
         });
 
         jButton3.setText("Change Info");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setText("Return");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -454,7 +459,7 @@ public class Reader extends javax.swing.JPanel implements
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         String orderBy = (((String) jComboBox1.getSelectedItem()).equals("Name") ? "nome_pessoa" : "id_pessoa");
-        ArrayList <Person> list = Constants.dbhandler.getPersonsList(false, orderBy);
+        ArrayList <Person> list = Constants.dbhandler.getPersonsList(false, orderBy, true);
 
         DefaultListModel model = (DefaultListModel) jList1.getModel();
         model.clear();
@@ -549,7 +554,8 @@ public class Reader extends javax.swing.JPanel implements
 
         if(value!=null){
             clearFieldsButtonActionPerformed(null);
-            ArrayList<String> array = Constants.dbhandler.getReaderById(value.split(" ")[2]);
+            String [] splitted = value.split(" ");
+            ArrayList<String> array = Constants.dbhandler.getReaderById(splitted[splitted.length-1]);
             if(array!=null){
                 jTextField2.setText(array.get(0));
                 jTextField3.setText(array.get(1));

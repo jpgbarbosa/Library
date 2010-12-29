@@ -397,7 +397,7 @@ public class DatabaseHandler implements DB.DataAccessInterface{
 
 
     @Override
-    public ArrayList<Person> getPersonsList(boolean isEmployee, String orderBy){
+    public ArrayList<Person> getPersonsList(boolean isEmployee, String orderBy, boolean listAll){
 
         ArrayList<Person> personsList = new ArrayList<Person>();
         Person singlePerson;
@@ -411,7 +411,7 @@ public class DatabaseHandler implements DB.DataAccessInterface{
             stmt = conn.createStatement();//create statement
             // execute querie
             if (isEmployee){
-                appendix = "SELECT f.id_pessoa FROM Funcionario f";
+                appendix = "SELECT f.id_pessoa FROM Funcionario f" + (listAll ? "" : " WHERE f.DATA_SAIDA IS NULL ");
             }
             else{
                 appendix = "SELECT l.id_pessoa FROM Leitor l";
@@ -522,36 +522,27 @@ public class DatabaseHandler implements DB.DataAccessInterface{
     }
 
     @Override
-    public int[] returnRequisiton(int[] book_ids){
+    public int returnRequisiton(int requisition_id){
         System.out.print("\n[Performing returnRequisiton]...");
         //Execute statement
         CallableStatement proc = null;
-        int [] outcome = new int[3];
-        int i;
+        int i, outcome = -3;
 
-        for (i = 0; i < book_ids.length; i++){
+        try {
+        proc = conn.prepareCall("{ call returnRequisition (?, ?) }");
 
-            /* This is not a valid book. */
-            if (book_ids[i] == -1){
-                continue;
-            }
+        proc.setInt(1, requisition_id);
+        proc.registerOutParameter(2, java.sql.Types.INTEGER);
+        proc.execute();
 
-            try {
-            proc = conn.prepareCall("{ call returnRequisition (?, ?) }");
+        outcome = proc.getInt(2);
 
-            proc.setInt(1, book_ids[i]);
-            proc.registerOutParameter(2, java.sql.Types.INTEGER);
-            proc.execute();
-
-            outcome[i] = proc.getInt(2);
-
-            proc.close();
+        proc.close();
 
 
-            }catch (SQLException ex) {
-                Logger.getLogger(DatabaseHandler.class.getName()).log(Level.SEVERE, null, ex);
-                 outcome[i] = -3;
-            }
+        }catch (SQLException ex) {
+            Logger.getLogger(DatabaseHandler.class.getName()).log(Level.SEVERE, null, ex);
+             return -3;
         }
         return outcome;
 
@@ -875,7 +866,7 @@ public class DatabaseHandler implements DB.DataAccessInterface{
      }
 
     public boolean fireEmployee(String id) {
-        System.out.print("\n[Performing fireEmployee]...");
+        System.out.print("\n[Performing fireEmployee]... " + id);
         //Execute statement
         CallableStatement proc = null;
         int retVal = 0;

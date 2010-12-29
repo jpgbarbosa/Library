@@ -35,7 +35,7 @@ select e.Lei_id_pessoa, p.nome_pessoa, e.id_pessoa, pp.nome_pessoa, e.id_doc, do
 			AND e.id_doc = doc.id_doc
 order by 1,7,8;	
 	
---fazer entrega do requisito
+--fazer entrega do requisito JÁ HÁ UMA FUNÇÃO MAIS ACTUALIZADA!!!!!!!! Chamada returnRequisition ou assim uma coisa
 create or replace procedure deliverRequest ( idReq in emprestimo.id_emprestimo%type, retVal out number) is
 
 idDoc publicacao.id_doc%type;

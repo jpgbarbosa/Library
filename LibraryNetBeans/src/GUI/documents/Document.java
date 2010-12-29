@@ -61,6 +61,47 @@ public class Document extends javax.swing.JPanel implements
         shelfGroup = new javax.swing.ButtonGroup();
         findGroup = new javax.swing.ButtonGroup();
         jTabbedPane1 = new javax.swing.JTabbedPane();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
+        jButton2 = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
+        jTextField4 = new javax.swing.JTextField();
+        jTextField6 = new javax.swing.JTextField();
+        jTextField8 = new javax.swing.JTextField();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextArea2 = new javax.swing.JTextArea();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
+        jPanel8 = new javax.swing.JPanel();
+        jPanel9 = new javax.swing.JPanel();
+        jLabel61 = new javax.swing.JLabel();
+        jRadioButton11 = new javax.swing.JRadioButton();
+        jRadioButton12 = new javax.swing.JRadioButton();
+        jRadioButton13 = new javax.swing.JRadioButton();
+        jRadioButton14 = new javax.swing.JRadioButton();
+        jRadioButton15 = new javax.swing.JRadioButton();
+        jLabel63 = new javax.swing.JLabel();
+        jTextField34 = new javax.swing.JTextField();
+        jButton16 = new javax.swing.JButton();
+        List2InDocsTab5 = new javax.swing.JButton();
+        ChooseDateField2 = new javax.swing.JFormattedTextField();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        jTextArea7 = new javax.swing.JTextArea();
+        jTextField35 = new javax.swing.JTextField();
+        jTextField36 = new javax.swing.JTextField();
+        jTextField37 = new javax.swing.JTextField();
+        ChooseDateDocsTab3 = new javax.swing.JButton();
+        jTextField38 = new javax.swing.JTextField();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList();
         jPanel1 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         jRadioButton1 = new javax.swing.JRadioButton();
@@ -112,37 +153,6 @@ public class Document extends javax.swing.JPanel implements
         genreNewDoc = new javax.swing.JComboBox();
         jLabel27 = new javax.swing.JLabel();
         jTextField13 = new javax.swing.JTextField();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
-        jLabel5 = new javax.swing.JLabel();
-        jButton5 = new javax.swing.JButton();
-        jTextField9 = new javax.swing.JTextField();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel23 = new javax.swing.JLabel();
-        jLabel28 = new javax.swing.JLabel();
-        jLabel29 = new javax.swing.JLabel();
-        jLabel30 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        jButton6 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -159,6 +169,298 @@ public class Document extends javax.swing.JPanel implements
         setPreferredSize(new java.awt.Dimension(800, 400));
 
         jTabbedPane1.setPreferredSize(new java.awt.Dimension(600, 500));
+
+        jPanel3.setPreferredSize(new java.awt.Dimension(800, 400));
+
+        jLabel1.setText("Reader");
+
+        jLabel2.setText("Requisitions");
+
+        jLabel3.setText("Name:");
+
+        jLabel4.setText("Reader ID:");
+
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Find");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jLabel6.setText("ID:");
+
+        jLabel8.setText("ID:");
+
+        jLabel10.setText("ID:");
+
+        jButton3.setText("REQUISITE");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        jTextArea2.setColumns(20);
+        jTextArea2.setRows(5);
+        jScrollPane2.setViewportView(jTextArea2);
+
+        jLabel5.setText("Books' IDs");
+
+        jLabel28.setText("NEW REQUISITION");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2)
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addComponent(jLabel3)
+                                        .addGap(4, 4, 4)
+                                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jButton2))))))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(43, 43, 43)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jLabel10)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jButton3)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jLabel8)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jLabel6)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel28)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addGap(18, 18, 18)
+                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(218, 218, 218)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(167, 167, 167))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton2))
+                .addGap(26, 26, 26)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(41, 41, 41)
+                        .addComponent(jLabel2)
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4)
+                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel28)
+                        .addGap(33, 33, 33)
+                        .addComponent(jLabel5)
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel6)
+                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel8)
+                            .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel10)
+                            .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                        .addComponent(jButton3)
+                        .addGap(39, 39, 39))))
+        );
+
+        jTabbedPane1.addTab("Requisitions", jPanel3);
+
+        jLabel61.setText("Find Document");
+
+        returnSelectionGroup.add(jRadioButton11);
+        jRadioButton11.setText("Reader ID");
+
+        returnSelectionGroup.add(jRadioButton12);
+        jRadioButton12.setText("Requisition ID");
+
+        returnSelectionGroup.add(jRadioButton13);
+        jRadioButton13.setText("Document Title");
+
+        returnSelectionGroup.add(jRadioButton14);
+        jRadioButton14.setText("Document ID");
+
+        returnSelectionGroup.add(jRadioButton15);
+        jRadioButton15.setText("Requisition Date");
+
+        jLabel63.setText("Requisition ID:");
+
+        jButton16.setText("List");
+        jButton16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton16ActionPerformed(evt);
+            }
+        });
+
+        List2InDocsTab5.setText("Return");
+        List2InDocsTab5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                List2InDocsTab5ActionPerformed(evt);
+            }
+        });
+
+        ChooseDateField2.setText("    /    /    ");
+
+        jTextArea7.setColumns(20);
+        jTextArea7.setRows(5);
+        jScrollPane7.setViewportView(jTextArea7);
+
+        ChooseDateDocsTab3.setText("Choose Date");
+        ChooseDateDocsTab3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ChooseDateDocsTab3ActionPerformed(evt);
+            }
+        });
+
+        jList1.setModel(new javax.swing.AbstractListModel() {
+            String[] strings = { "" };
+            public int getSize() { return strings.length; }
+            public Object getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane4.setViewportView(jList1);
+
+        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
+        jPanel9.setLayout(jPanel9Layout);
+        jPanel9Layout.setHorizontalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addGap(39, 39, 39)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jRadioButton14)
+                            .addComponent(jRadioButton15)
+                            .addComponent(jLabel63)
+                            .addComponent(jRadioButton12)
+                            .addComponent(jLabel61)
+                            .addComponent(jRadioButton11))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel9Layout.createSequentialGroup()
+                                    .addComponent(jTextField34, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(259, 259, 259)
+                                    .addComponent(List2InDocsTab5))
+                                .addComponent(jTextField36, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel9Layout.createSequentialGroup()
+                                    .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(jTextField37, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(ChooseDateField2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 68, Short.MAX_VALUE))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(ChooseDateDocsTab3)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jButton16)))
+                            .addComponent(jTextField38, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField35, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jRadioButton13))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
+        jPanel9Layout.setVerticalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel61)
+                        .addGap(50, 50, 50)
+                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jRadioButton11)
+                            .addComponent(jTextField38, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(19, 19, 19)
+                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jRadioButton12)
+                            .addComponent(jTextField35, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jRadioButton13)
+                            .addComponent(jTextField36, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jRadioButton14)
+                            .addComponent(jTextField37, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(9, 9, 9)
+                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jRadioButton15)
+                            .addComponent(ChooseDateField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ChooseDateDocsTab3)
+                            .addComponent(jButton16)))
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 231, Short.MAX_VALUE)))
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addGap(79, 79, 79)
+                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel63)
+                            .addComponent(jTextField34, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(List2InDocsTab5)))
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(24, Short.MAX_VALUE))
+        );
+
+        jRadioButton11.setSelected(true);
+
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(27, Short.MAX_VALUE))
+        );
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                .addContainerGap(23, Short.MAX_VALUE)
+                .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        jTabbedPane1.addTab("Return Books", jPanel8);
 
         jLabel11.setText("Find Document");
 
@@ -480,8 +782,8 @@ public class Document extends javax.swing.JPanel implements
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                     .addComponent(NumCopiesDocTab3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addGap(26, 26, 26)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(681, 681, 681))
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(670, 670, 670))
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(364, 364, 364)
                 .addComponent(jButton8)
@@ -490,271 +792,59 @@ public class Document extends javax.swing.JPanel implements
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 359, Short.MAX_VALUE))
+                .addGap(20, 20, 20)
+                .addComponent(jLabel16)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel17)
+                    .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel19)
+                    .addComponent(AmountNewDocTab3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton7))
+                .addGap(13, 13, 13)
+                .addComponent(jLabel18)
+                .addGap(14, 14, 14)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(jLabel16)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel17)
-                            .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel19)
-                            .addComponent(AmountNewDocTab3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton7))
-                        .addGap(13, 13, 13)
-                        .addComponent(jLabel18)
-                        .addGap(14, 14, 14)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(jLabel20))
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGap(4, 4, 4)
-                                .addComponent(TitleTab3Doc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel21)
-                            .addComponent(TextPubTab3Doc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel22)
-                            .addComponent(TextAutTab3Doc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(27, 27, 27)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel26)
-                            .addComponent(genreNewDoc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel27)
-                            .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(11, 11, 11)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel24)
-                            .addComponent(NumCopiesDocTab3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(TextDescTab3Doc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel25))
-                        .addGap(19, 19, 19)))
+                        .addGap(6, 6, 6)
+                        .addComponent(jLabel20))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(4, 4, 4)
+                        .addComponent(TitleTab3Doc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel21)
+                    .addComponent(TextPubTab3Doc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel22)
+                    .addComponent(TextAutTab3Doc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel26)
+                    .addComponent(genreNewDoc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel27)
+                    .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(11, 11, 11)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel24)
+                    .addComponent(NumCopiesDocTab3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(TextDescTab3Doc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel25))
+                .addGap(37, 37, 37)
                 .addComponent(jButton8)
-                .addGap(34, 34, 34))
+                .addGap(36, 36, 36))
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 359, Short.MAX_VALUE)
+                .addGap(66, 66, 66))
         );
 
         jTabbedPane1.addTab("New Document", jPanel4);
-
-        jPanel3.setPreferredSize(new java.awt.Dimension(800, 400));
-
-        jLabel1.setText("Reader");
-
-        jLabel2.setText("Requisitions");
-
-        jLabel3.setText("Name:");
-
-        jLabel4.setText("Reader ID:");
-
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
-
-        jButton2.setText("Find");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-
-        jLabel6.setText("ID:");
-
-        jLabel8.setText("ID:");
-
-        jLabel10.setText("ID:");
-
-        jButton3.setText("REQUISITE");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-
-        jTextArea2.setColumns(20);
-        jTextArea2.setRows(5);
-        jScrollPane2.setViewportView(jTextArea2);
-
-        jLabel5.setText("Books' IDs");
-
-        jButton5.setText("RETURN");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
-            }
-        });
-
-        jLabel13.setText("ID:");
-
-        jLabel9.setText("ID:");
-
-        jLabel7.setText("ID:");
-
-        jLabel23.setText("Requisitions' IDs");
-
-        jLabel28.setText("NEW REQUISITION");
-
-        jLabel29.setText("RETURN BOOKS");
-
-        jLabel30.setText("Reader ID:");
-
-        jButton6.setText("List Requisitions");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2)
-                                    .addGroup(jPanel3Layout.createSequentialGroup()
-                                        .addComponent(jLabel3)
-                                        .addGap(4, 4, 4)
-                                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jButton2))
-                                    .addGroup(jPanel3Layout.createSequentialGroup()
-                                        .addComponent(jLabel30)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(30, 30, 30)
-                                        .addComponent(jButton6))))))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(43, 43, 43)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel3Layout.createSequentialGroup()
-                                        .addComponent(jLabel10)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jButton3)
-                                    .addGroup(jPanel3Layout.createSequentialGroup()
-                                        .addComponent(jLabel8)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel3Layout.createSequentialGroup()
-                                        .addComponent(jLabel6)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel28))
-                                .addGap(108, 108, 108)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jButton5)
-                                    .addGroup(jPanel3Layout.createSequentialGroup()
-                                        .addComponent(jLabel13)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel3Layout.createSequentialGroup()
-                                        .addComponent(jLabel9)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel3Layout.createSequentialGroup()
-                                        .addComponent(jLabel7)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jLabel23)
-                                    .addComponent(jLabel29)))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addGap(18, 18, 18)
-                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(45, 45, 45)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(167, 167, 167))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2))
-                .addGap(26, 26, 26)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel30)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton6))
-                        .addGap(27, 27, 27)
-                        .addComponent(jLabel2)
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel28)
-                                    .addComponent(jLabel29))
-                                .addGap(33, 33, 33)
-                                .addComponent(jLabel5)
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel6)
-                                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel8)
-                                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel10)
-                                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jLabel23)
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel7)
-                                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel9)
-                                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel13)
-                                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton3)
-                            .addComponent(jButton5))
-                        .addGap(39, 39, 39))))
-        );
-
-        jTabbedPane1.addTab("Requisitions", jPanel3);
 
         jButton1.setText("Return");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -769,11 +859,10 @@ public class Document extends javax.swing.JPanel implements
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton1))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 825, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton1)
+                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 825, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -799,80 +888,6 @@ public class Document extends javax.swing.JPanel implements
         Constants.frame.setContentPane(Constants.mainMenu);
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void genreComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_genreComboBoxActionPerformed
-
-    }//GEN-LAST:event_genreComboBoxActionPerformed
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        //TODO: Protecções
-        JRadioButton b = getSelection(selectionGroup);
-        ArrayList<Book> list = null;
-        jTextArea1.setText("");
-        String value = null;
-        int i;
-
-        if (b.getText().equals("Genre")){
-            value = (String) genreComboBox.getSelectedItem();
-            list = Constants.dbhandler.getSpecificBooks("Genre", value);
-        }
-        else if(b.getText().equals("Title")){
-            value = jTextField17.getText();
-            if(value.equals("")){
-                JOptionPane.showMessageDialog(this, "Invalid Title");
-            } else {
-                list = Constants.dbhandler.getSpecificBooks("Title", value);
-            }
-        }
-        else if(b.getText().equals("Publisher")){
-            value = jTextField19.getText();
-            if(value.equals("")){
-                JOptionPane.showMessageDialog(this, "Invalid Publisher");
-            } else {
-                list = Constants.dbhandler.getSpecificBooks("Publisher", value);
-            }
-        }
-        else if(b.getText().equals("Author")){
-            value = jTextField20.getText();
-            if(value.equals("")){
-                JOptionPane.showMessageDialog(this, "Invalid Author");
-            } else {
-                list = Constants.dbhandler.getSpecificBooks("Author", value);
-            }
-        }
-        else if(b.getText().equals("Pages")){
-            String str = (String) pagesComboBox.getSelectedItem();
-
-            if (str.equals("More")){
-                value = "> ";
-            }
-            else{
-                value = "< ";
-            }
-
-            if (Validation.isInteger(jTextField10.getText())){
-                value += jTextField10.getText();
-                list = Constants.dbhandler.getSpecificBooks("Pages", value);
-            }
-            
-        }
-
-        if (list == null || list.isEmpty()){
-                jTextArea1.setText("No books were found.");
-            }
-            else{
-                for (i = 0; i < list.size(); i++){
-                    String str = list.get(i).getTitle() + " ID: " + list.get(i).getId() + "\n";
-                    jTextArea1.append(str);
-                }
-            }
-        
-
-    }//GEN-LAST:event_jButton4ActionPerformed
-
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
-
     /**
      * This function opens a calender to help user choosing a date easily.
      * It's important to add the PropertyChangeListener for each "Choose Date"
@@ -880,6 +895,157 @@ public class Document extends javax.swing.JPanel implements
      *
      * @param evt
      */
+
+
+    private void jRadioButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton5ActionPerformed
+
+    private void jTextField12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField12ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField12ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        int id_employee, id_reader;
+        int [] books = new int[3];
+
+        jTextArea2.setText("");
+        //TODO: We have to change the id_employee to the correct one!
+        id_employee = 42;
+
+        if (!Validation.isInteger(jTextField2.getText())){
+            jTextArea2.append("Invalid ID for the reader.\n");
+        } else{
+            id_reader = Integer.parseInt(jTextField2.getText());
+
+            if (jTextField4.getText().equals("")){
+                books[0] = -1;
+            } else if (!Validation.isInteger(jTextField4.getText())){
+                jTextArea2.append("Invalid ID for the first book.\n");
+            } else{
+                books[0] = Integer.parseInt(jTextField4.getText());
+            }
+
+            if (jTextField6.getText().equals("")){
+                books[1] = -1;
+            } else if (!Validation.isInteger(jTextField6.getText())){
+                jTextArea2.append("Invalid ID for the second book.\n");
+            } else{
+                books[1] = Integer.parseInt(jTextField6.getText());
+            }
+
+            if (jTextField8.getText().equals("")){
+                books[2] = -1;
+            } else if (!Validation.isInteger(jTextField8.getText())){
+                jTextArea2.append("Invalid ID for the third book.\n");
+            } else{
+                books[2] = Integer.parseInt(jTextField8.getText());
+            }
+
+            int[] outcome = Constants.dbhandler.newRequisiton(books, id_reader, id_employee);
+            String text = "";
+
+            for (int i = 0; i < outcome.length; i++){
+                int value = outcome[i];
+
+                if (books[i] != -1){
+                    if (value >= 0){
+                        text += "Book " + (i + 1) + " requisited successfully (Requisition ID: " + outcome[i] + " )!\n";
+                    } else if (value == -1){
+                        text += "Book " + (i + 1) + " has ran out of stock. Try again later!\n";
+                    } else if (value == -2){
+                        text += "Book " + (i + 1) + " couldn't be found!\n";
+                    } else if (value == -3){
+                        text += "Reader ID couldn't be found!\n";
+                        break;
+                    } else {
+                        text += "Requisition number " + i + " couldn't be concluded...\n";
+                    }
+                }
+
+            }
+
+            JOptionPane.showMessageDialog(this, text);
+        }
+}//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        String name = jTextField1.getText();
+        Constants.dbhandler.getIdReaderByName(name, jTextArea2);
+}//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+}//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void genreNewDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_genreNewDocActionPerformed
+
+}//GEN-LAST:event_genreNewDocActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        int numberOfPages = 0;
+        String title = TitleTab3Doc.getText();
+        String pub = TextPubTab3Doc.getText();
+        if(pub.equals("")){ pub="none";}
+        String desc = TextDescTab3Doc.getText();
+        if(desc.equals("")){ desc="none";}
+        String autor = TextAutTab3Doc.getText();
+        int total = (Integer)NumCopiesDocTab3.getModel().getValue();
+        String genre = (String)genreNewDoc.getSelectedItem();
+        if(genre.equals("")){ genre="none";}
+        if (Validation.isInteger(jTextField13.getText())){
+            numberOfPages = Integer.parseInt(jTextField13.getText());
+        }
+
+        if(!title.equals("") && !autor.equals("") && numberOfPages > 0){
+            int outcome = Constants.dbhandler.addDocument(autor, pub, genre, desc,
+                    title, total, numberOfPages);
+
+            if (outcome == 0){
+                TitleTab3Doc.setText("");
+                TextPubTab3Doc.setText("");
+                TextDescTab3Doc.setText("");
+                TextAutTab3Doc.setText("");
+                NumCopiesDocTab3.getModel().setValue(1);
+                jTextField13.setText("");
+                JOptionPane.showMessageDialog(this, "Book added to the library!");
+            } else if (outcome == -1){
+                JOptionPane.showMessageDialog(this, "There's already a book with this title!");
+            } else{
+                JOptionPane.showMessageDialog(this, "Book couldn't be added...");
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Invalid date or title field is empty");
+        }
+}//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        int amount = (Integer)AmountNewDocTab3.getModel().getValue();
+        String id = jTextField12.getText();
+
+        if(Validation.isInteger(id)){
+            boolean outcome = Constants.dbhandler.addCopyDocument(Integer.parseInt(id), amount);
+
+            if (outcome){
+                JOptionPane.showMessageDialog(this, "Operation concluded!");
+            } else{
+                JOptionPane.showMessageDialog(this, "Book ID not found...");
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Invalid ID");
+        }
+}//GEN-LAST:event_jButton7ActionPerformed
+
+    private void List2InDocsTab3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_List2InDocsTab3ActionPerformed
+        int [] date = Validation.checkInsertedDate(ChooseDateField.getText(), false);
+
+        if(date==null){
+            JOptionPane.showMessageDialog(this, "Invalid date");
+        } else {
+            //TODO: data é válida. Fazer o list apenas!
+        }
+}//GEN-LAST:event_List2InDocsTab3ActionPerformed
+
     private void ChooseDateDocsTab1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChooseDateDocsTab1ActionPerformed
         JFrame date = new JFrame("Choose Date");
         listCalendar = new JCalendar();
@@ -888,8 +1054,7 @@ public class Document extends javax.swing.JPanel implements
         date.pack();
         date.setVisible(true);
         listCalendar.addPropertyChangeListener(this);
-    }//GEN-LAST:event_ChooseDateDocsTab1ActionPerformed
-
+}//GEN-LAST:event_ChooseDateDocsTab1ActionPerformed
 
     private void List2InDocsTab1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_List2InDocsTab1ActionPerformed
         int id;
@@ -902,254 +1067,100 @@ public class Document extends javax.swing.JPanel implements
             list = Constants.dbhandler.findBookById(id);
 
             if (list == null || list.isEmpty()){
-                    jTextArea1.setText("No books were found.");
+                jTextArea1.setText("No books were found.");
+            } else{
+                for (i = 0; i < list.size(); i++){
+                    Book book = list.get(i);
+                    String str = "'"+ book.getTitle() + "'\nID: " + book.getId() + "\n"
+                            + "Autor: " + book.getAutor() + "\n"
+                            + "Editora: " + book.getEditora() + "\n"
+                            + "Genero: " + book.getGenero() + "\n"
+                            + "Descricao: " + book.getDescricao() + "\n"
+                            + "Exemplares: " + book.getTotal() + "\n"
+                            + "Disponiveis: " + book.getDisponiveis() + "\n";
+                    jTextArea1.append(str);
                 }
-                else{
-                    for (i = 0; i < list.size(); i++){
-                        Book book = list.get(i);
-                        String str = "'"+ book.getTitle() + "'\nID: " + book.getId() + "\n"
-                                + "Autor: " + book.getAutor() + "\n"
-                                + "Editora: " + book.getEditora() + "\n"
-                                + "Genero: " + book.getGenero() + "\n"
-                                + "Descricao: " + book.getDescricao() + "\n"
-                                + "Exemplares: " + book.getTotal() + "\n"
-                                + "Disponiveis: " + book.getDisponiveis() + "\n";
-                        jTextArea1.append(str);
-                    }
-                }
-        }
-        else{
+            }
+        } else{
             jTextArea1.setText("Invalid book ID.");
             JOptionPane.showMessageDialog(this, "Invalid ID");
         }
-    }//GEN-LAST:event_List2InDocsTab1ActionPerformed
+}//GEN-LAST:event_List2InDocsTab1ActionPerformed
 
-    private void genreNewDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_genreNewDocActionPerformed
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        //TODO: Protecções
+        JRadioButton b = getSelection(selectionGroup);
+        ArrayList<Book> list = null;
+        jTextArea1.setText("");
+        String value = null;
+        int i;
 
-    }//GEN-LAST:event_genreNewDocActionPerformed
-
-    private void List2InDocsTab3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_List2InDocsTab3ActionPerformed
-        int [] date = Validation.checkInsertedDate(ChooseDateField.getText(), false);
-
-          if(date==null){
-              JOptionPane.showMessageDialog(this, "Invalid date");
-          } else {
-            //TODO: data é válida. Fazer o list apenas!
-          }
-    }//GEN-LAST:event_List2InDocsTab3ActionPerformed
-
-
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-         int numberOfPages = 0;
-         String title = TitleTab3Doc.getText();
-         String pub = TextPubTab3Doc.getText();
-         if(pub.equals("")){ pub="none";}
-         String desc = TextDescTab3Doc.getText();
-         if(desc.equals("")){ desc="none";}
-         String autor = TextAutTab3Doc.getText();
-         int total = (Integer)NumCopiesDocTab3.getModel().getValue();
-         String genre = (String)genreNewDoc.getSelectedItem();
-         if(genre.equals("")){ genre="none";}
-         if (Validation.isInteger(jTextField13.getText())){
-             numberOfPages = Integer.parseInt(jTextField13.getText());
-         }
-
-         if(!title.equals("") && !autor.equals("") && numberOfPages > 0){
-            int outcome = Constants.dbhandler.addDocument(autor, pub, genre, desc,
-                 title, total, numberOfPages);
-
-            if (outcome == 0){
-                TitleTab3Doc.setText("");
-                TextPubTab3Doc.setText("");
-                TextDescTab3Doc.setText("");
-                TextAutTab3Doc.setText("");
-                NumCopiesDocTab3.getModel().setValue(1);
-                jTextField13.setText("");
-                JOptionPane.showMessageDialog(this, "Book added to the library!");
+        if (b.getText().equals("Genre")){
+            value = (String) genreComboBox.getSelectedItem();
+            list = Constants.dbhandler.getSpecificBooks("Genre", value);
+        } else if(b.getText().equals("Title")){
+            value = jTextField17.getText();
+            if(value.equals("")){
+                JOptionPane.showMessageDialog(this, "Invalid Title");
+            } else {
+                list = Constants.dbhandler.getSpecificBooks("Title", value);
             }
-            else if (outcome == -1){
-                JOptionPane.showMessageDialog(this, "There's already a book with this title!");
+        } else if(b.getText().equals("Publisher")){
+            value = jTextField19.getText();
+            if(value.equals("")){
+                JOptionPane.showMessageDialog(this, "Invalid Publisher");
+            } else {
+                list = Constants.dbhandler.getSpecificBooks("Publisher", value);
             }
-            else{
-                JOptionPane.showMessageDialog(this, "Book couldn't be added...");
+        } else if(b.getText().equals("Author")){
+            value = jTextField20.getText();
+            if(value.equals("")){
+                JOptionPane.showMessageDialog(this, "Invalid Author");
+            } else {
+                list = Constants.dbhandler.getSpecificBooks("Author", value);
             }
-         } else {
-              JOptionPane.showMessageDialog(this, "Invalid date or title field is empty");
-         }
-    }//GEN-LAST:event_jButton8ActionPerformed
+        } else if(b.getText().equals("Pages")){
+            String str = (String) pagesComboBox.getSelectedItem();
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        String name = jTextField1.getText();
-        Constants.dbhandler.getIdReaderByName(name, jTextArea2);
-    }//GEN-LAST:event_jButton2ActionPerformed
+            if (str.equals("More")){
+                value = "> ";
+            } else{
+                value = "< ";
+            }
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        int id_employee, id_reader;
-        int [] books = new int[3];
+            if (Validation.isInteger(jTextField10.getText())){
+                value += jTextField10.getText();
+                list = Constants.dbhandler.getSpecificBooks("Pages", value);
+            }
 
-        jTextArea2.setText("");
-        //TODO: We have to change the id_employee to the correct one!
-        id_employee = 42;
-
-        if (!Validation.isInteger(jTextField2.getText())){
-            jTextArea2.append("Invalid ID for the reader.\n");
         }
-        else{
-            id_reader = Integer.parseInt(jTextField2.getText());
 
-            if (jTextField4.getText().equals("")){
-                books[0] = -1;
+        if (list == null || list.isEmpty()){
+            jTextArea1.setText("No books were found.");
+        } else{
+            for (i = 0; i < list.size(); i++){
+                String str = list.get(i).getTitle() + " ID: " + list.get(i).getId() + "\n";
+                jTextArea1.append(str);
             }
-            else if (!Validation.isInteger(jTextField4.getText())){
-                jTextArea2.append("Invalid ID for the first book.\n");
-            }
-            else{
-                 books[0] = Integer.parseInt(jTextField4.getText());
-            }
-
-            if (jTextField6.getText().equals("")){
-                 books[1] = -1;
-            }
-            else if (!Validation.isInteger(jTextField6.getText())){
-                jTextArea2.append("Invalid ID for the second book.\n");
-            }
-            else{
-                 books[1] = Integer.parseInt(jTextField6.getText());
-            }
-
-            if (jTextField8.getText().equals("")){
-                 books[2] = -1;
-            }
-            else if (!Validation.isInteger(jTextField8.getText())){
-                jTextArea2.append("Invalid ID for the third book.\n");
-            }
-            else{
-                 books[2] = Integer.parseInt(jTextField8.getText());
-            }
-
-            int[] outcome = Constants.dbhandler.newRequisiton(books, id_reader, id_employee);
-            String text = "";
-
-            for (int i = 0; i < outcome.length; i++){
-                int value = outcome[i];
-
-                if (books[i] != -1){
-                    if (value >= 0){
-                        text += "Book " + (i + 1) + " requisited successfully (Requisition ID: " + outcome[i] + " )!\n";
-                    }
-                    else if (value == -1){
-                        text += "Book " + (i + 1) + " has ran out of stock. Try again later!\n";
-                    }
-                    else if (value == -2){
-                        text += "Book " + (i + 1) + " couldn't be found!\n";
-                    }
-                    else if (value == -3){
-                        text += "Reader ID couldn't be found!\n";
-                        break;
-                    }
-                    else {
-                        text += "Requisition number " + i + " couldn't be concluded...\n";
-                    }
-                }
-
-            }
-
-            JOptionPane.showMessageDialog(this, text);
         }
-    }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        int amount = (Integer)AmountNewDocTab3.getModel().getValue();
-        String id = jTextField12.getText();
+    }//GEN-LAST:event_jButton4ActionPerformed
 
-        if(Validation.isInteger(id)){
-            boolean outcome = Constants.dbhandler.addCopyDocument(Integer.parseInt(id), amount);
+    private void genreComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_genreComboBoxActionPerformed
 
-            if (outcome){
-                JOptionPane.showMessageDialog(this, "Operation concluded!");
-            }
-             else{
-                JOptionPane.showMessageDialog(this, "Book ID not found...");
-             }
-        } else {
-            JOptionPane.showMessageDialog(this, "Invalid ID");
-        }
-    }//GEN-LAST:event_jButton7ActionPerformed
+}//GEN-LAST:event_genreComboBoxActionPerformed
 
-    private void jRadioButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton5ActionPerformed
+    private void ChooseDateDocsTab3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChooseDateDocsTab3ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton5ActionPerformed
+}//GEN-LAST:event_ChooseDateDocsTab3ActionPerformed
 
-    private void jTextField12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField12ActionPerformed
+    private void List2InDocsTab5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_List2InDocsTab5ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField12ActionPerformed
+}//GEN-LAST:event_List2InDocsTab5ActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
-
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        int id_reader;
-        int [] requisitions = new int[3];
-
-        jTextArea2.setText("");
-
-
-        if (jTextField5.getText().equals("")){
-            requisitions[0] = -1;
-        }
-        else if (!Validation.isInteger(jTextField5.getText())){
-            jTextArea2.append("Invalid ID for the first requisition.\n");
-        }
-        else{
-             requisitions[0] = Integer.parseInt(jTextField5.getText());
-        }
-
-        if (jTextField7.getText().equals("")){
-             requisitions[1] = -1;
-        }
-        else if (!Validation.isInteger(jTextField7.getText())){
-            jTextArea2.append("Invalid ID for the second requisition.\n");
-        }
-        else{
-             requisitions[1] = Integer.parseInt(jTextField7.getText());
-        }
-
-        if (jTextField9.getText().equals("")){
-             requisitions[2] = -1;
-        }
-        else if (!Validation.isInteger(jTextField9.getText())){
-            jTextArea2.append("Invalid ID for the third requisition.\n");
-        }
-        else{
-             requisitions[2] = Integer.parseInt(jTextField9.getText());
-        }
-
-        int[] outcome = Constants.dbhandler.returnRequisiton(requisitions);
-        String text = "";
-
-        for (int i = 0; i < outcome.length; i++){
-            int value = outcome[i];
-
-            if (requisitions[i] != -1){
-                if (value >= 0){
-                    text += "Book for requisition " + requisitions[i] + " returned!\n";
-                }
-                else if (value == -1){
-                    text += "Requisition " + requisitions[i] + " was already returned...\n";
-                }
-                else if (value == -2){
-                    text += "Requisition " + requisitions[i] + " couldn't be found!\n";
-                }
-                else {
-                    text += "Requisition " + requisitions[i] + " couldn't be concluded...\n";
-                }
-            }
-
-        }
-
-        JOptionPane.showMessageDialog(this, text);
-    }//GEN-LAST:event_jButton5ActionPerformed
+}//GEN-LAST:event_jButton16ActionPerformed
 
 
     public void propertyChange(PropertyChangeEvent evt) {
@@ -1187,12 +1198,16 @@ public class Document extends javax.swing.JPanel implements
     private Vector<String> genres=null;
     
     private ButtonGroup selectionGroup = new ButtonGroup();
+    private ButtonGroup returnSelectionGroup = new ButtonGroup();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JSpinner AmountNewDocTab3;
     private javax.swing.JButton ChooseDateDocsTab1;
+    private javax.swing.JButton ChooseDateDocsTab3;
     private javax.swing.JFormattedTextField ChooseDateField;
+    private javax.swing.JFormattedTextField ChooseDateField2;
     private javax.swing.JButton List2InDocsTab1;
     private javax.swing.JButton List2InDocsTab3;
+    private javax.swing.JButton List2InDocsTab5;
     private javax.swing.JSpinner NumCopiesDocTab3;
     private javax.swing.JTextField TextAutTab3Doc;
     private javax.swing.JTextField TextDescTab3Doc;
@@ -1203,18 +1218,16 @@ public class Document extends javax.swing.JPanel implements
     private javax.swing.JComboBox genreComboBox;
     private javax.swing.JComboBox genreNewDoc;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton16;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
@@ -1225,26 +1238,31 @@ public class Document extends javax.swing.JPanel implements
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
-    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel61;
+    private javax.swing.JLabel jLabel63;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
+    private javax.swing.JList jList1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
     private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JRadioButton jRadioButton11;
+    private javax.swing.JRadioButton jRadioButton12;
+    private javax.swing.JRadioButton jRadioButton13;
+    private javax.swing.JRadioButton jRadioButton14;
+    private javax.swing.JRadioButton jRadioButton15;
     private javax.swing.JRadioButton jRadioButton3;
     private javax.swing.JRadioButton jRadioButton4;
     private javax.swing.JRadioButton jRadioButton5;
@@ -1252,10 +1270,13 @@ public class Document extends javax.swing.JPanel implements
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextArea jTextArea3;
+    private javax.swing.JTextArea jTextArea7;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
@@ -1265,13 +1286,14 @@ public class Document extends javax.swing.JPanel implements
     private javax.swing.JTextField jTextField19;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField20;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField34;
+    private javax.swing.JTextField jTextField35;
+    private javax.swing.JTextField jTextField36;
+    private javax.swing.JTextField jTextField37;
+    private javax.swing.JTextField jTextField38;
     private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
     private javax.swing.JComboBox pagesComboBox;
     private javax.swing.ButtonGroup publisherGroup;
     private javax.swing.ButtonGroup shelfGroup;
