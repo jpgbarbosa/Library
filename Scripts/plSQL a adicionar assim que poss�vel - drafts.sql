@@ -17,7 +17,7 @@ select e.ID_EMPRESTIMO, e.ID_DOC, e.lei_id_pessoa from emprestimo e, publicacao 
 
 	--entrada -> pDate: String dd/mm/yyyy
 select e.ID_EMPRESTIMO, e.ID_DOC, e.lei_id_pessoa from emprestimo e 
-	where to_char(e.DATA_DE_REQUISITO,'dd/mm/yyyy') like pDate;
+	where to_char(e.DATA_DE_REQUISITO,'dd/mm/yyyy') like pDate
 	order by 1,3,2;
 
 	--entrada idDoc

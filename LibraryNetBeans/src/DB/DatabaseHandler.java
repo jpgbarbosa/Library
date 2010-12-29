@@ -8,6 +8,7 @@ package DB;
 import DataStructures.Book;
 import DataStructures.Editora;
 import DataStructures.Person;
+import DataStructures.Requisition;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.Date;
@@ -312,7 +313,9 @@ public class DatabaseHandler implements DB.DataAccessInterface{
 
         System.out.print("\n[Performing findPersonByBirthDate] ... ");
 
-        String d = date[0]+"/"+date[1]+"/"+date[2];
+        String [] strDate = Validation.formatDateToSQL(date);
+
+        String d = strDate[0]+"/"+strDate[1]+"/"+strDate[2];
 
         System.out.println(d);
 
@@ -919,4 +922,167 @@ public class DatabaseHandler implements DB.DataAccessInterface{
         }
         return  dados;
     }
+
+    public ArrayList<String> getRequisitionByReaderId(String value) {
+        ArrayList<String> dados = new ArrayList<String>();
+        System.out.print("\n[Performing getRequisitionByReaderId: "+value+"]...");
+        try {
+            //Execute statement
+            Statement stmt;
+            stmt = conn.createStatement();//create statement
+            // execute querie
+            ResultSet rset = stmt.executeQuery("select ID_EMPRESTIMO, ID_DOC, LEI_ID_PESSOA "
+                    + "from emprestimo "
+                    + "where LEI_ID_PESSOA ="+value+" order by 1,2");
+                 
+            while (rset.next()) {//while there are still results left to read
+                dados.add("ReqID: "+rset.getString("ID_EMPRESTIMO")+
+                        " DocID: "+rset.getString("ID_DOC")+
+                        " ReaderID: "+rset.getString("LEI_ID_PESSOA"));
+            }
+            stmt.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(DatabaseHandler.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+        return  dados;
+    }
+
+    public ArrayList<String> getRequisitionById(String value) {
+        ArrayList<String> dados = new ArrayList<String>();
+        int val=Integer.parseInt(value);
+        System.out.print("\n[Performing getRequisitionById]...");
+        try {
+            //Execute statement
+            Statement stmt;
+            stmt = conn.createStatement();//create statement
+            // execute querie
+            ResultSet rset = stmt.executeQuery("select ID_EMPRESTIMO, ID_DOC, lei_id_pessoa "
+                    + "from emprestimo "
+                    + "where ID_EMPRESTIMO ="+val+" order by 1,3,2");
+
+            while (rset.next()) {//while there are still results left to read
+                dados.add("ReqID: "+rset.getString("ID_EMPRESTIMO")+
+                        " DocID: "+rset.getString("ID_DOC")+
+                        " ReaderID: "+rset.getString("LEI_ID_PESSOA"));
+            }
+            stmt.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(DatabaseHandler.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+        return  dados;
+    }
+
+    public ArrayList<String> getRequisitionByDocTitle(String value) {
+        ArrayList<String> dados = new ArrayList<String>();
+        System.out.print("\n[Performing getRequisitionByDocTitle]...");
+        try {
+            //Execute statement
+            Statement stmt;
+            stmt = conn.createStatement();//create statement
+            // execute querie
+            ResultSet rset = stmt.executeQuery("select e.ID_EMPRESTIMO, e.ID_DOC, e.lei_id_pessoa "
+                    + "from emprestimo e, publicacao p "
+                    + "where upper(p.NOME_DOC) like '%'||upper('"+value+"')||'%' AND e.ID_DOC = p.ID_DOC	"
+                    + "order by 2,3,1");
+
+            while (rset.next()) {//while there are still results left to read
+                    dados.add("ReqID: "+rset.getString("ID_EMPRESTIMO")+
+                        " DocID: "+rset.getString("ID_DOC")+
+                        " ReaderID: "+rset.getString("LEI_ID_PESSOA"));
+            }
+            stmt.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(DatabaseHandler.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+        return  dados;
+    }
+
+    public ArrayList<String> getRequisitionByDocId(String value) {
+        ArrayList<String> dados = new ArrayList<String>();
+        int val=Integer.parseInt(value);
+        System.out.print("\n[Performing getRequisitionByDocId]...");
+        try {
+            //Execute statement
+            Statement stmt;
+            stmt = conn.createStatement();//create statement
+            // execute querie
+            ResultSet rset = stmt.executeQuery("select ID_EMPRESTIMO, ID_DOC, lei_id_pessoa "
+                    + "from emprestimo "
+                    + "where ID_DOC = "+val+" order by 2,3,1");
+
+            while (rset.next()) {//while there are still results left to read
+                dados.add("ReqID: "+rset.getString("ID_EMPRESTIMO")+
+                        " DocID: "+rset.getString("ID_DOC")+
+                        " ReaderID: "+rset.getString("LEI_ID_PESSOA"));
+            }
+            stmt.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(DatabaseHandler.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+        return  dados;
+    }
+
+    public ArrayList<String> getRequisitionByDate(String value) {
+        ArrayList<String> dados = new ArrayList<String>();
+        System.out.print("\n[Performing getRequisitionByDate]...");
+        try {
+            //Execute statement
+            Statement stmt;
+            stmt = conn.createStatement();//create statement
+            // execute querie
+            ResultSet rset = stmt.executeQuery("select e.ID_EMPRESTIMO, e.ID_DOC, e.lei_id_pessoa "
+                    + "from emprestimo e "
+                    + "where to_char(e.DATA_DE_REQUISITO,'dd/mm/yyyy') like "+value
+                    + "order by 1,3,2");
+
+            while (rset.next()) {//while there are still results left to read
+                dados.add("ReqID: "+rset.getString("ID_EMPRESTIMO")+
+                        " DocID: "+rset.getString("ID_DOC")+
+                        " ReaderID: "+rset.getString("LEI_ID_PESSOA"));
+            }
+            stmt.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(DatabaseHandler.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+        return  dados;
+    }
+
+    public ArrayList<String> getRequisitionInfo(String value) {
+        ArrayList<String> dados = new ArrayList<String>();
+        int val=Integer.parseInt(value);
+        System.out.print("\n[Performing getRequisitionInfo]...");
+        try {
+            //Execute statement
+            Statement stmt;
+            stmt = conn.createStatement();//create statement
+            // execute querie
+            ResultSet rset = stmt.executeQuery("select e.Lei_id_pessoa, "
+                    + "p.nome_pessoa, e.id_pessoa, pp.nome_pessoa, e.id_doc, "
+                    + "doc.nome_doc, e.DATA_DE_REQUISITO, e.DATA_PREVISTA, "
+                    + "e.DATA_ENTREGA, doc.ID_PRATELEIRA "
+                        + "from emprestimo e, pessoa p, pessoa pp, publicacao doc "
+                        + "where e.id_emprestimo = "+val+" "
+                        + "AND e.lei_id_pessoa = p.id_pessoa "
+                        + "AND e.id_pessoa = pp.id_pessoa "
+                        + "AND e.id_doc = doc.id_doc "
+                    + "order by 1,7,8");
+            int rowCount = rset.getFetchSize();
+            while (rset.next()) {//while there are still results left to read
+                for(int i=1;i<=rowCount; i++){
+                    dados.add(rset.getString(i));
+                }
+            }
+            stmt.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(DatabaseHandler.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+        return  dados;
+    }
+
 }

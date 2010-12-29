@@ -60,4 +60,20 @@ public class Validation {
         return array[2]+"/"+array[1]+"/"+array[0];
     }
 
+    public static String [] formatDateToSQL(int[] date) {
+        String [] strDate = new String [3];
+
+        for(int i=0; i<2; i++){
+            if((date[i]+"").length()==1){
+                strDate[i]=("0"+date[i]);
+            } else {
+                strDate[i]=date[i]+"";
+            }
+        }
+
+        strDate[2] = date[2]+"";
+
+        return strDate;
+    }
+    
 }

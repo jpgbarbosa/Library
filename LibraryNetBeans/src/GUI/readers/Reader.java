@@ -53,7 +53,6 @@ public class Reader extends javax.swing.JPanel implements
         jLabel3 = new javax.swing.JLabel();
         dateText1Reader = new javax.swing.JFormattedTextField();
         jTextField1 = new javax.swing.JTextField();
-        jToggleButton1 = new javax.swing.JToggleButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -78,14 +77,16 @@ public class Reader extends javax.swing.JPanel implements
         chooseDate2Emp = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox();
-        jToggleButton2 = new javax.swing.JToggleButton();
         clearFieldsButton = new javax.swing.JButton();
         getInfoButton = new javax.swing.JButton();
+        findReaderByNameButton = new javax.swing.JButton();
+        findReaderByDateButton = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(800, 400));
 
         jPanel1.setPreferredSize(new java.awt.Dimension(800, 400));
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setText("Find Reader:");
 
         jLabel2.setText("Name:");
@@ -94,13 +95,7 @@ public class Reader extends javax.swing.JPanel implements
 
         dateText1Reader.setText("   /   /   ");
 
-        jToggleButton1.setText("Find");
-        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton1ActionPerformed(evt);
-            }
-        });
-
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel4.setText("New Reader:");
 
         jLabel5.setText("Name:");
@@ -168,13 +163,6 @@ public class Reader extends javax.swing.JPanel implements
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Name", "ID" }));
 
-        jToggleButton2.setText("Find");
-        jToggleButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton2ActionPerformed(evt);
-            }
-        });
-
         clearFieldsButton.setText("Clear Fields");
         clearFieldsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -189,6 +177,20 @@ public class Reader extends javax.swing.JPanel implements
             }
         });
 
+        findReaderByNameButton.setText("Find");
+        findReaderByNameButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                findReaderByNameButtonActionPerformed(evt);
+            }
+        });
+
+        findReaderByDateButton.setText("Find");
+        findReaderByDateButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                findReaderByDateButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -198,51 +200,47 @@ public class Reader extends javax.swing.JPanel implements
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(27, 27, 27)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(39, 39, 39)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(19, 19, 19)
-                                        .addComponent(jLabel3)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jLabel6)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel7)
+                                    .addComponent(jLabel9))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel1)
+                                    .addComponent(jLabel4)))
+                            .addComponent(jLabel10)
+                            .addComponent(jLabel11)
+                            .addComponent(jButton4)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(26, 26, 26)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel3))))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                         .addComponent(dateText1Reader, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(chooseDate1Emp))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel2)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(chooseDate1Emp))
+                                    .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 268, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jToggleButton2)
-                                    .addComponent(jToggleButton1))
-                                .addGap(45, 45, 45))
+                                    .addComponent(findReaderByNameButton)
+                                    .addComponent(findReaderByDateButton))
+                                .addGap(25, 25, 25))
+                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField6, javax.swing.GroupLayout.DEFAULT_SIZE, 352, Short.MAX_VALUE)
+                            .addComponent(jTextField4, javax.swing.GroupLayout.DEFAULT_SIZE, 352, Short.MAX_VALUE)
+                            .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 352, Short.MAX_VALUE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel6)
-                                            .addComponent(jLabel5)
-                                            .addComponent(jLabel7)
-                                            .addComponent(jLabel9))
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel1)
-                                            .addComponent(jLabel4)))
-                                    .addComponent(jLabel10)
-                                    .addComponent(jLabel11)
-                                    .addComponent(jButton4))
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField6, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
-                                    .addComponent(jTextField4, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
-                                    .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(dateText2Reader, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(chooseDate2Emp)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                                    .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)))))
+                                .addComponent(dateText2Reader, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(chooseDate2Emp)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                            .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 352, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jButton2)
@@ -292,7 +290,7 @@ public class Reader extends javax.swing.JPanel implements
                                         .addComponent(jLabel4))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGap(49, 49, 49)
-                                        .addComponent(jToggleButton1)))
+                                        .addComponent(findReaderByDateButton)))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel5)
@@ -322,9 +320,9 @@ public class Reader extends javax.swing.JPanel implements
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(31, 31, 31)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
                             .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jToggleButton2))))
+                            .addComponent(findReaderByNameButton)
+                            .addComponent(jLabel2))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton5)
@@ -490,26 +488,6 @@ public class Reader extends javax.swing.JPanel implements
         birthReadMod.addPropertyChangeListener(this);
     }//GEN-LAST:event_chooseDate2EmpActionPerformed
 
-    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jToggleButton1ActionPerformed
-
-    private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton2ActionPerformed
-                //TODO: Protecções
-        String orderBy;
-
-        orderBy = (((String) jComboBox1.getSelectedItem()).equals("Name") ? "nome_pessoa" : "id_pessoa");
-        ArrayList <Person> list = Constants.dbhandler.findReaderByName(jTextField1.getText(), orderBy);
-
-        DefaultListModel model = (DefaultListModel) jList1.getModel();
-        model.clear();
-
-        for (int i = 0; i < list.size(); i++){
-            String info = list.get(i).getNome() + " ID: " + list.get(i).getId();
-            model.addElement(info);
-        }
-    }//GEN-LAST:event_jToggleButton2ActionPerformed
-
     private void dateText1ReaderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dateText1ReaderActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_dateText1ReaderActionPerformed
@@ -572,6 +550,40 @@ public class Reader extends javax.swing.JPanel implements
         }
 }//GEN-LAST:event_getInfoButtonActionPerformed
 
+    private void findReaderByNameButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_findReaderByNameButtonActionPerformed
+        String orderBy;
+
+        orderBy = (((String) jComboBox1.getSelectedItem()).equals("Name") ? "nome_pessoa" : "id_pessoa");
+        ArrayList <Person> list = Constants.dbhandler.findReaderByName(jTextField1.getText(), orderBy);
+
+        DefaultListModel model = (DefaultListModel) jList1.getModel();
+        model.clear();
+
+        for (int i = 0; i < list.size(); i++){
+            String info = list.get(i).getNome() + " ID: " + list.get(i).getId();
+            model.addElement(info);
+        }
+    }//GEN-LAST:event_findReaderByNameButtonActionPerformed
+
+    private void findReaderByDateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_findReaderByDateButtonActionPerformed
+        String orderBy = (((String) jComboBox1.getSelectedItem()).equals("Name") ? "nome_pessoa" : "id_pessoa");
+        int [] date = Validation.checkInsertedDate(dateText1Reader.getText(), false);
+
+          if(date==null){
+              JOptionPane.showMessageDialog(this, "Invalid date");
+          } else {
+            ArrayList <Person> list = Constants.dbhandler.findPersonByBirthDate(date,false,orderBy);
+
+            DefaultListModel model = (DefaultListModel) jList1.getModel();
+            model.clear();
+
+            for (int i = 0; i < list.size(); i++){
+                String info = list.get(i).getNome() + " ID: " + list.get(i).getId();
+                model.addElement(info);
+            }
+          }
+    }//GEN-LAST:event_findReaderByDateButtonActionPerformed
+
         public void propertyChange(PropertyChangeEvent evt) {
             Object source = evt.getSource();
             Calendar cal;
@@ -602,6 +614,8 @@ public class Reader extends javax.swing.JPanel implements
     private javax.swing.JButton clearFieldsButton;
     private javax.swing.JFormattedTextField dateText1Reader;
     private javax.swing.JFormattedTextField dateText2Reader;
+    private javax.swing.JButton findReaderByDateButton;
+    private javax.swing.JButton findReaderByNameButton;
     private javax.swing.ButtonGroup genreGroup;
     private javax.swing.JButton getInfoButton;
     private javax.swing.JButton jButton1;
@@ -630,8 +644,6 @@ public class Reader extends javax.swing.JPanel implements
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
-    private javax.swing.JToggleButton jToggleButton1;
-    private javax.swing.JToggleButton jToggleButton2;
     // End of variables declaration//GEN-END:variables
 
 }
