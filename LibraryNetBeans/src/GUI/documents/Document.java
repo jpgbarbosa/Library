@@ -932,9 +932,7 @@ public class Document extends javax.swing.JPanel implements
         int [] books = new int[3];
 
         jTextArea2.setText("");
-        //TODO: We have to change the id_employee to the correct one!
-        id_employee = 2;
-        //id_employee = 48;
+        id_employee = Constants.loginNumber;
 
         if (!Validation.isInteger(jTextField2.getText())){
             jTextArea2.append("Invalid ID for the reader.\n");
@@ -980,6 +978,12 @@ public class Document extends javax.swing.JPanel implements
                         text += "Book " + (i + 1) + " couldn't be found!\n";
                     } else if (value == -3){
                         text += "Reader ID couldn't be found!\n";
+                        break;
+                    } else if (value == -5) {
+                        text += "Reader has more than three books already!\n";
+                        break;
+                    } else if (value == -6) {
+                        text += "Reader has books which should have already been delivered!\n";
                         break;
                     } else {
                         text += "Requisition number " + i + " couldn't be concluded...\n";

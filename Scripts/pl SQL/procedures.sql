@@ -336,6 +336,8 @@ CREATE OR REPLACE PROCEDURE newRequisition ( book_id IN Publicacao.id_doc%type, 
 	id_pessoa_conf INTEGER; 
 	current_id NUMBER;
 	temp NUMBER;
+	no_requisitions INTEGER;
+	no_faulty_requisitions INTEGER;
 	
 	ID_NOT_FOUND exception; 
 	PRAGMA exception_init(ID_NOT_FOUND, -2291); 
@@ -345,6 +347,9 @@ BEGIN
 	FROM dual;
 	
 	temp := 0;
+	no_requisitions := 0;
+	no_faulty_requisitions := 0;
+	returnValue := 0;
 	
 	BEGIN
 		SELECT p.disponiveis INTO no_available 
@@ -357,7 +362,38 @@ BEGIN
 	END;
 	
 	IF (temp < 1) THEN
-		IF (no_available > 0) THEN 
+		-- First, we check if there are enough copies for this requisition.
+		
+		--Then, we have to see if the reader hasn't more than three books or
+		BEGIN
+			SELECT COUNT(*) INTO no_requisitions
+			FROM Emprestimo
+			WHERE LEI_ID_PESSOA = reader_id AND Data_entrega IS NULL;
+			
+			IF (no_requisitions = 3) THEN
+				returnValue := -5;
+			END IF;
+		EXCEPTION
+			WHEN NO_DATA_FOUND THEN
+				no_requisitions := 0;
+		END;
+
+		-- isn't delaying in delivering some books.			
+		BEGIN
+			SELECT COUNT(*) INTO no_faulty_requisitions
+			FROM Emprestimo
+			WHERE LEI_ID_PESSOA = reader_id AND Data_prevista - SYSDATE < 0;
+			
+			IF (no_faulty_requisitions > 0) THEN
+				returnValue := -6;
+			END IF;
+		EXCEPTION
+			WHEN NO_DATA_FOUND THEN
+				no_faulty_requisitions := 0;
+		END;
+			
+		
+		IF (no_available > 0 AND returnValue >= 0) THEN 
 			UPDATE Publicacao p SET p.disponiveis = p.disponiveis - 1 
 			WHERE p.id_doc = book_id; 
 			
@@ -366,9 +402,10 @@ BEGIN
 			
 			INSERT INTO Emprestimo VALUES (reader_id, employee_id, book_id, current_id, SYSDATE, SYSDATE + 7, null ); 
 			returnValue := current_id;
-		ELSE 
+		ELSIF (no_available = 0 AND returnValue >= 0) THEN
 			returnValue := -1;
 		END IF; 
+		
 	END IF;
 	
 	COMMIT; 
@@ -501,9 +538,12 @@ BEGIN
 	-- Checks the number of fired employees, meaning the ones who have an exit date
 	BEGIN
 		SELECT COUNT(*) INTO readers_with_books
-		FROM Emprestimo
-		WHERE Data_entrega IS NULL
-		GROUP BY LEI_ID_PESSOA;
+		FROM (	SELECT LEI_ID_PESSOA "Pessoas"
+				FROM Emprestimo
+				WHERE Data_entrega IS NULL
+				GROUP BY LEI_ID_PESSOA) red;
+		
+		
 	EXCEPTION
 		WHEN NO_DATA_FOUND THEN
 			readers_with_books := 0;

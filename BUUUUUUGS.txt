@@ -1,10 +1,4 @@
 BUGS:
-	- Requisitions dá:  extracção exacta devolve mais que o número pedido de linhas  -> e n apresenta nada
-
-	-30/Dez/2010 0:43:59 DB.DatabaseHandler authorsAndPublishersStatistics
-		SEVERE: null
-		java.sql.SQLException: ORA-01422: extracção exacta devolve mais que o número pedido de linhas
-		
 	- estamos a permitir q um utilizador tenha mais de 3 emprestimos (fiz um exemplo com 3 livros iguais e mais outros 2 penso)
 	
 	- se inserirmos mais de 20 copias de um livro, as estantes q estao a ser criadas so suportam 20. 

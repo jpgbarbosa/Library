@@ -706,7 +706,7 @@ public class DatabaseHandler implements DB.DataAccessInterface{
             Integer noReadersWithBooks = (Integer) proc.getObject(2);
             Integer noFaultyReaders = (Integer) proc.getObject(3);
 
-            textArea.setText("Number of Employees registered: " + noEntries + "\n"
+            textArea.setText("Number of Readers registered: " + noEntries + "\n"
                     + "Number of Readers with Books Borrowed:" + noReadersWithBooks + "\n"
                     + "Number of Faulty Readers: " + noFaultyReaders + "\n");
 
@@ -932,7 +932,8 @@ public class DatabaseHandler implements DB.DataAccessInterface{
             // execute querie
             ResultSet rset = stmt.executeQuery("select ID_EMPRESTIMO, ID_DOC, LEI_ID_PESSOA "
                     + "from emprestimo "
-                    + "where LEI_ID_PESSOA ="+value+" order by 1,2");
+                    + "where LEI_ID_PESSOA ="+value+" AND Data_entrega IS NULL "
+                    + "order by 1,2");
                  
             while (rset.next()) {//while there are still results left to read
                 dados.add("ReqID: "+rset.getString("ID_EMPRESTIMO")+
