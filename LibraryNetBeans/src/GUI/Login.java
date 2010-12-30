@@ -109,8 +109,8 @@ public class Login extends javax.swing.JPanel {
 
         if (Validation.isInteger(userName)){
             int value = Constants.dbhandler.login(Integer.parseInt(userName), password);
-            
-            if (value == 1){
+
+            if (value >= 0){
                 Constants.loginMenu.setVisible(false);
                 Constants.mainMenu.setVisible(true);
                 Constants.frame.setContentPane(Constants.mainMenu);

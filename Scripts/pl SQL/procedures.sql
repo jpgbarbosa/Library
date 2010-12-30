@@ -708,9 +708,8 @@ BEGIN
 	
 	-- Checks the average of copies per author
 	BEGIN
-		SELECT ROUND(AVG(Total), 2) INTO avg_doc_per_author
-		FROM Publicacao
-		GROUP BY ID_AUTOR;
+		SELECT ROUND(p.soma/aut.total_aut) INTO avg_doc_per_author
+		FROM (SELECT COUNT(*) total_aut FROM Autor) aut, (SELECT SUM(Total) soma FROM Publicacao) p;
 	EXCEPTION
 		WHEN NO_DATA_FOUND THEN
 			avg_doc_per_author := 0;
@@ -729,9 +728,8 @@ BEGIN
 	
 	-- Checks the average of copies per publisher
 	BEGIN
-		SELECT ROUND(AVG(Total),2) INTO avg_doc_per_publisher
-		FROM Publicacao
-		GROUP BY ID_EDITORA;
+		SELECT ROUND(p.soma/e.total_edit) INTO avg_doc_per_publisher
+		FROM (SELECT COUNT(*) total_edit FROM Editora) e, (SELECT SUM(Total) soma FROM Publicacao) p;
 	EXCEPTION
 		WHEN NO_DATA_FOUND THEN
 			avg_doc_per_publisher := 0;
