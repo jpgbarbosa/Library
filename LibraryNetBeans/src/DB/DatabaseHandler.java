@@ -1035,7 +1035,7 @@ public class DatabaseHandler implements DB.DataAccessInterface{
             // execute querie
             ResultSet rset = stmt.executeQuery("select e.ID_EMPRESTIMO, e.ID_DOC, e.lei_id_pessoa "
                     + "from emprestimo e "
-                    + "where to_char(e.DATA_DE_REQUISITO,'dd/mm/yyyy') like "+value
+                    + "where to_char(e.DATA_DE_REQUISITO,'dd/mm/yyyy') like '"+value+"' "
                     + "order by 1,3,2");
 
             while (rset.next()) {//while there are still results left to read

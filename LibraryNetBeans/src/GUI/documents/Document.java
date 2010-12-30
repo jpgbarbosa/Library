@@ -1217,7 +1217,6 @@ public class Document extends javax.swing.JPanel implements
         docFieldInRB.setText("");
         docIdFieldInRB.setText("");
         reqDateFieldInRB.setText("  /  /    ");
-        ((DefaultListModel) jList1.getModel()).clear();
         reqInfoArea.setText("");
     }
 
@@ -1269,9 +1268,12 @@ public class Document extends javax.swing.JPanel implements
         } else if (radio.equals("Requisition Date")) {
             value = (String) reqDateFieldInRB.getText();
             int [] date = Validation.checkInsertedDate(value, false);
+            
             if(value.equals("") && date!=null){
                 JOptionPane.showMessageDialog(this, "Invalid Requisition Date");
             } else {
+                String [] strDate = Validation.formatDateToSQL(date);
+                value = strDate[0]+"/"+strDate[1]+"/"+strDate[2];
                 list = Constants.dbhandler.getRequisitionByDate(value);
             }
         } else {
@@ -1286,7 +1288,7 @@ public class Document extends javax.swing.JPanel implements
                 model.addElement(str);
             }
         }
-        //clearTabReturnReq();
+        clearTabReturnReq();
 }//GEN-LAST:event_jButton16ActionPerformed
 
     private void getReqInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getReqInfoActionPerformed
