@@ -31,9 +31,19 @@ create or replace procedure fireEmployee(biFuncionario in Pessoa.id_pessoa%type,
 
 idPessoa Pessoa.id_pessoa%type;
 
+varData Funcionario.DATA_SAIDA%type;
+
 begin
 
 	select id_pessoa into idPessoa from pessoa where BI = biFuncionario;
+	
+	select data_saida into varData from funcionario where id_pessoa = idPessoa;
+	
+	if varData is not null then
+		retVal:=-3;
+		return;	
+	end if;
+	
 	
 	update Funcionario set DATA_SAIDA = sysdate where idPessoa = id_pessoa;
 	
@@ -45,15 +55,15 @@ begin
 		when no_data_found then
 			retVal :=-1;
 			return;
-	when others then
-		rollback;
-		retVal := -2;
-		return;
+		when others then
+			rollback;
+			retVal := -2;
+			return;
 end;
 
 /
 
-create or replace procedure updateReader (nomePessoa IN Pessoa.nome_pessoa%type, pmorada IN Pessoa.morada%type, pbi IN NUMBER, data in date ,ptelefone IN NUMBER, email IN Pessoa.e_mail%type,
+create or replace procedure updateReader (nomePessoa IN Pessoa.nome_pessoa%type, pmorada IN Pessoa.morada%type, pbi IN NUMBER, varData in date ,ptelefone IN NUMBER, email IN Pessoa.e_mail%type,
 											returnValue OUT INTEGER) IS
 
 idPessoa Pessoa.ID_Pessoa%type;
@@ -62,7 +72,7 @@ Begin
 
 select id_pessoa into idPessoa from pessoa p where p.bi = pbi;
 
-update pessoa p set p.nome_pessoa = nomePessoa, p.morada=pmorada, p.data = data, p.telefone = ptelefone, p.e_mail=email where p.id_pessoa = idPessoa;
+update pessoa p set p.nome_pessoa = nomePessoa, p.morada=pmorada, p.data = varData, p.telefone = ptelefone, p.e_mail=email where p.id_pessoa = idPessoa;
 
 commit;
 

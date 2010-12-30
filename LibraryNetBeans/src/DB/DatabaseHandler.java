@@ -8,7 +8,6 @@ package DB;
 import DataStructures.Book;
 import DataStructures.Editora;
 import DataStructures.Person;
-import DataStructures.Requisition;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.Date;
@@ -332,7 +331,7 @@ public class DatabaseHandler implements DB.DataAccessInterface{
                 appendix = "SELECT l.id_pessoa FROM Leitor l";
             }
             ResultSet rset = stmt.executeQuery("SELECT p.nome_pessoa, p.id_pessoa " +
-                                "FROM Pessoa p WHERE to_char(p.data,'dd/mm/yyyy') like '"+d+"' AND p.id_pessoa IN ("
+                            "FROM Pessoa p WHERE to_char(p.data,'dd/mm/yyyy') like '"+d+"' AND p.id_pessoa IN ("
                                 + appendix + ")"
                                 + "ORDER BY " + orderBy);//Select all from Album
             while (rset.next()) {//while there are still results left to read
@@ -451,19 +450,22 @@ public class DatabaseHandler implements DB.DataAccessInterface{
                     + "WHERE p.id_prateleira = pr.id_prateleira AND pr.genero = '" + value + "'";
         }
         else if(type.equals("Title")){
-            query = "SELECT nome_doc, id_doc FROM publicacao WHERE upper(nome_doc) = '%'||upper(" + value + "')||'%'";
+            query = "SELECT nome_doc, id_doc FROM publicacao WHERE upper(nome_doc) like '%'||upper('" + value + "')||'%'";
         }
         else if(type.equals("Publisher")){
             query = "SELECT nome_doc, id_doc FROM publicacao p, editora e "
-                    + "WHERE e.id_editora = p.id_editora AND e.nome_editora = '" + value + "'";
+                    + "WHERE e.id_editora = p.id_editora AND upper(e.nome_editora) like '%'||upper('" + value + "')||'%'";
         }
         else if(type.equals("Author")){
             query = "SELECT nome_doc, id_doc FROM publicacao p, autor a "
-                    + "WHERE a.id_autor = p.id_autor AND a.nome_autor = '" + value + "'";
+                    + "WHERE a.id_autor = p.id_autor AND upper(a.nome_autor) like '%'||upper('" + value + "')||'%'";
         }
         else if(type.equals("Pages")){
             query = "SELECT nome_doc, id_doc FROM publicacao p "
                     + "WHERE p.paginas " + value;
+        } else if(type.equals("Date")){     
+             query = "SELECT nome_doc, id_doc FROM publicacao p "
+                    + "WHERE to_char(p.data,'dd/mm/yyyy') like '"+value+"'";
         }
 
         try {
@@ -868,7 +870,7 @@ public class DatabaseHandler implements DB.DataAccessInterface{
         }
      }
 
-    public boolean fireEmployee(String id) {
+    public int fireEmployee(String id) {
         System.out.print("\n[Performing fireEmployee]... " + id);
         //Execute statement
         CallableStatement proc = null;
@@ -885,13 +887,10 @@ public class DatabaseHandler implements DB.DataAccessInterface{
             
         }catch (SQLException ex) {
             Logger.getLogger(DatabaseHandler.class.getName()).log(Level.SEVERE, null, ex);
-            return false;
+            return -4;
         }
 
-        if(retVal>0){
-            return true;
-        }
-        return false;
+        return retVal;
     }
 
     public ArrayList<String> getReaderById(String id) {

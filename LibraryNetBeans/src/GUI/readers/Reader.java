@@ -504,7 +504,7 @@ public class Reader extends javax.swing.JPanel implements
         int [] date = Validation.checkInsertedDate(dateText2Reader.getText(), false);
 
         if(!nome.equals("") && !morada.equals("") &&  Validation.isInteger(bi)
-                        && (!telefone.equals("") && Validation.isInteger(telefone) || telefone.equals("")) && date!=null){
+                        && Validation.isInteger(telefone) && date!=null){
             // same method as in employees so far.
             if(Constants.dbhandler.changePersonData(nome, morada, bi, telefone, eMail, date, false)){
                 JOptionPane.showMessageDialog(this, "Changes made successfully");
