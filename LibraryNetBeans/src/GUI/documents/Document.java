@@ -94,7 +94,7 @@ public class Document extends javax.swing.JPanel implements
         jRadioButton5 = new javax.swing.JRadioButton();
         jRadioButton6 = new javax.swing.JRadioButton();
         jLabel12 = new javax.swing.JLabel();
-        pagesTextArea = new javax.swing.JTextField();
+        jTextField10 = new javax.swing.JTextField();
         pagesComboBox = new javax.swing.JComboBox();
         jLabel14 = new javax.swing.JLabel();
         jTextField11 = new javax.swing.JTextField();
@@ -269,16 +269,15 @@ public class Document extends javax.swing.JPanel implements
                         .addComponent(getReqInfo)
                         .addGap(7, 7, 7)))
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                    .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 268, Short.MAX_VALUE)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 268, Short.MAX_VALUE)))
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel9Layout.createSequentialGroup()
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addContainerGap()
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel9Layout.createSequentialGroup()
-                        .addContainerGap()
                         .addComponent(jLabel61)
                         .addGap(50, 50, 50)
                         .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -301,9 +300,7 @@ public class Document extends javax.swing.JPanel implements
                             .addComponent(jRadioButton15)
                             .addComponent(reqDateFieldInRB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(ChooseDateDocsTab3)))
-                    .addGroup(jPanel9Layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 234, Short.MAX_VALUE)))
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 246, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel9Layout.createSequentialGroup()
@@ -316,7 +313,7 @@ public class Document extends javax.swing.JPanel implements
                             .addComponent(deliveryIdField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(returnDeliveryButton)))
                     .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addGap(24, 24, 24))
         );
 
         jRadioButton11.setSelected(true);
@@ -327,7 +324,7 @@ public class Document extends javax.swing.JPanel implements
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(54, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -462,7 +459,7 @@ public class Document extends javax.swing.JPanel implements
                                             .addGroup(jPanel1Layout.createSequentialGroup()
                                                 .addComponent(jLabel12)
                                                 .addGap(18, 18, 18)
-                                                .addComponent(pagesTextArea, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
+                                                .addComponent(jTextField10, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
                                                 .addGap(145, 145, 145))
                                             .addComponent(ChooseDateDocsTab1)))))
                             .addComponent(jLabel11)))
@@ -471,7 +468,7 @@ public class Document extends javax.swing.JPanel implements
                         .addComponent(jButton4)))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -504,7 +501,7 @@ public class Document extends javax.swing.JPanel implements
                                     .addComponent(jRadioButton6)
                                     .addComponent(pagesComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel12)
-                                    .addComponent(pagesTextArea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jRadioButton7)
@@ -630,7 +627,7 @@ public class Document extends javax.swing.JPanel implements
                                             .addGroup(jPanel4Layout.createSequentialGroup()
                                                 .addComponent(NumCopiesDocTab3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGap(258, 258, 258))
-                                            .addComponent(TextDescTab3Doc, javax.swing.GroupLayout.DEFAULT_SIZE, 363, Short.MAX_VALUE)))
+                                            .addComponent(TextDescTab3Doc, javax.swing.GroupLayout.DEFAULT_SIZE, 374, Short.MAX_VALUE)))
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
                                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLabel21)
@@ -639,10 +636,10 @@ public class Document extends javax.swing.JPanel implements
                                             .addComponent(TitleTab3Doc, javax.swing.GroupLayout.PREFERRED_SIZE, 407, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addGroup(jPanel4Layout.createSequentialGroup()
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(TextAutTab3Doc, javax.swing.GroupLayout.DEFAULT_SIZE, 409, Short.MAX_VALUE))
+                                                .addComponent(TextAutTab3Doc, javax.swing.GroupLayout.DEFAULT_SIZE, 420, Short.MAX_VALUE))
                                             .addGroup(jPanel4Layout.createSequentialGroup()
                                                 .addGap(18, 18, 18)
-                                                .addComponent(TextPubTab3Doc, javax.swing.GroupLayout.DEFAULT_SIZE, 395, Short.MAX_VALUE))))
+                                                .addComponent(TextPubTab3Doc, javax.swing.GroupLayout.DEFAULT_SIZE, 406, Short.MAX_VALUE))))
                                     .addComponent(jLabel20, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
                                         .addGap(1, 1, 1)
@@ -653,7 +650,7 @@ public class Document extends javax.swing.JPanel implements
                                         .addComponent(jLabel19)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(AmountNewDocTab3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 114, Short.MAX_VALUE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 125, Short.MAX_VALUE)
                                         .addComponent(jButton7)
                                         .addGap(29, 29, 29))
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -813,17 +810,17 @@ public class Document extends javax.swing.JPanel implements
                                     .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(jLabel5))))
-                .addContainerGap(286, Short.MAX_VALUE))
+                .addContainerGap(297, Short.MAX_VALUE))
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addComponent(jLabel2)
-                .addContainerGap(745, Short.MAX_VALUE))
+                .addContainerGap(756, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 833, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 844, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(471, Short.MAX_VALUE)
+                .addContainerGap(482, Short.MAX_VALUE)
                 .addComponent(requisiteButton)
                 .addGap(305, 305, 305))
         );
@@ -885,7 +882,7 @@ public class Document extends javax.swing.JPanel implements
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 858, Short.MAX_VALUE)
+                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 869, Short.MAX_VALUE)
                     .addComponent(jButton1))
                 .addContainerGap())
         );
@@ -1144,8 +1141,8 @@ public class Document extends javax.swing.JPanel implements
                 value = "< ";
             }
 
-            if (Validation.isInteger(pagesTextArea.getText())){
-                value += pagesTextArea.getText();
+            if (Validation.isInteger(jTextField10.getText())){
+                value += jTextField10.getText();
                 list = Constants.dbhandler.getSpecificBooks("Pages", value);
             }
         } else if(b.getText().equals("Date")){
@@ -1224,7 +1221,7 @@ public class Document extends javax.swing.JPanel implements
         findByTitleArea.setText("");
         publisherTextArea.setText("");
         authorTextArea.setText("");
-        pagesTextArea.setText("");
+        jTextField10.setText("");
         ChooseDateField.setText("  /  /    ");
     }
 
@@ -1445,6 +1442,7 @@ public class Document extends javax.swing.JPanel implements
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextArea jTextArea3;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
     private javax.swing.JTextField jTextField12;
     private javax.swing.JTextField jTextField13;
@@ -1453,7 +1451,6 @@ public class Document extends javax.swing.JPanel implements
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JComboBox pagesComboBox;
-    private javax.swing.JTextField pagesTextArea;
     private javax.swing.ButtonGroup publisherGroup;
     private javax.swing.JTextField publisherTextArea;
     private javax.swing.JTextField readerIdFieldInRB;
