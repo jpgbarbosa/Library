@@ -1,28 +1,53 @@
--> Protecções em todos os campos;
-
--> Nas listagem, devemos promover a ordem, i.e. possibilitar por exemplo se o utilizador que ordenar os dados dos clientes
-   por ordem alfabética ou então pelos seus ID's.
-	r.: já n esta feito?
-
--> Não esquecer da cenas dos UPPERS, por causa dos inputs e do modo de registo das strings na base de dados (nao confiar no que 
-o utilizador introduz).
-
--> Quando nao são encontrados resultados, informar o utilizador.
+----------------importante-----------------
 
 -> As cenas da prateleira quando chega ao fim. Ter cuidade que se tivermos mais do que um prateleira, não sei se teremos
    problemas com as procuras de livros por género, porque agora só procura um prateleira por género, penso eu. Talves não.
 	R.: Depende. acho q n estamos a ver o caso em que temos mais livros do q a capacidade das estantes.
 		sol 1: se nao couber nas prateleiras com o tamanho default criamos uma com o tamanho necessário
 		sol 2: Fica dividido e aí ja temos problemas com as pesquisas.
+-------------------------------------------
 		
-
--> Nas procuras por nome, usar aquela cena dos % e _ por causa da Strings, para não ser só nomes à letra.
+-> Eventualmente permitir que os empregados voltem a ser contratados uma vez despedidos.
 
 -> No diagrama, meter o n+umero de páginas.
 
+-> os meus métodos não estao todos na interface. ha problemas?
+
+-> nao deviamos ter salários nos empregados?
+
+-> Nas requisições, não esquecer de mudar o valor estático de 28. Tester novamente com um número de user inválido.
+
+-> Proteger contra docs iguais e pessoas iguais. um reader pode ser employee?
+
+
+CUIDADOS!!!!
+->Quando fizermos um novo diagrama, cuidado que foi inseridas páginas nos livros e datas nas pessoas. Ter o cuidado
+	de por no diagrama por esta ordem para depois não termos de alterar todos os procedures.
+	Por outro lado, o BI e o nome dos documentos não estava UNIQUE, e agora está apenas no ficheiro crebas e nao nos diagramas.
+
+-> evitar variaveis PL/SQL com o nome DATA, dá asneira com o tipo DATA. chamar varData ou algo do genero.
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+SOLVED:
+
+-> Protecções em todos os campos; PENSO QUE ESTA DUNE
+
+-> Nas listagem, devemos promover a ordem, i.e. possibilitar por exemplo se o utilizador que ordenar os dados dos clientes
+   por ordem alfabética ou então pelos seus ID's.
+	R.: JÁ N ESTA FEITO?
+
+-> Não esquecer da cenas dos UPPERS, por causa dos inputs e do modo de registo das strings na base de dados (nao confiar no que 
+o utilizador introduz). r.: PENSO QUE ESTAO TODOS -> REVER
+
+-> Quando nao são encontrados resultados, informar o utilizador.-> REVER
+
+-> Nas procuras por nome, usar aquela cena dos % e _ por causa da Strings, para não ser só nomes à letra. DUNE 
+
 -> Permitir a alteração dos dados de utilizadores e funcionários.
 
--> Eventualmente permitir que os empregados voltem a ser contratados uma vez despedidos.
+
 
 
 entao cenas q so tu podes fazer. interface com as estatisticas visto q o meu mara completamente
@@ -47,16 +72,9 @@ As vezes nem os butões aparecem, e dado os fantásticos nomes que têm n os consig
 
 EU já acrescentei e modifiquei os procedures. Estar atento não va alguma cena do código nao estar de acordo.
 
--> Proteger contra docs iguais e pessoas iguais. um reader pode ser employee?
-
--> os meus métodos não estao todos na interface. ha problemas?
-
--> nao deviamos ter salários nos empregados?
-
--> Nas requisições, não esquecer de mudar o valor estático de 28. Tester novamente com um número de user inválido.
 
 
-CUIDADOS!!!!
-Quando fizermos um novo diagrama, cuidado que foi inseridas páginas nos livros e datas nas pessoas. Ter o cuidado
-de por no diagrama por esta ordem para depois não termos de alterar todos os procedures.
-Por outro lado, o BI e o nome dos documentos não estava UNIQUE, e agora está apenas no ficheiro crebas e nao nos diagramas.
+
+
+
+

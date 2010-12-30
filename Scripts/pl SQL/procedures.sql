@@ -90,7 +90,7 @@ end;
 
 /
 
-create or replace procedure updateEmployee (nomePessoa IN Pessoa.nome_pessoa%type, pmorada IN Pessoa.morada%type, pbi IN NUMBER, data in date ,ptelefone IN NUMBER, email IN Pessoa.e_mail%type,
+create or replace procedure updateEmployee (nomePessoa IN Pessoa.nome_pessoa%type, pmorada IN Pessoa.morada%type, pbi IN NUMBER, varData in date ,ptelefone IN NUMBER, email IN Pessoa.e_mail%type,
 											returnValue OUT INTEGER) IS
 
 idPessoa Pessoa.ID_Pessoa%type;
@@ -99,7 +99,7 @@ Begin
 
 select id_pessoa into idPessoa from pessoa p where p.bi = pbi;
 
-update pessoa p set p.nome_pessoa = nomePessoa, p.morada=pmorada, p.data = data, p.telefone = ptelefone, p.e_mail=email where p.id_pessoa = idPessoa;
+update pessoa p set p.nome_pessoa = nomePessoa, p.morada=pmorada, p.data = varData, p.telefone = ptelefone, p.e_mail=email where p.id_pessoa = idPessoa;
 
 commit;
 
@@ -198,7 +198,7 @@ CREATE OR REPLACE PROCEDURE addDocument ( Aut IN AUTOR.NOME_AUTOR%type, Edi IN E
 											gen IN PRATELEIRA.GENERO%type,
 											pages IN PUBLICACAO.PAGINAS%type,
 											descri IN PUBLICACAO.DESCRICAO%type,
-											DATA IN PUBLICACAO.DATA%type, nome IN PUBLICACAO.NOME_DOC%type, 
+											varData IN PUBLICACAO.DATA%type, nome IN PUBLICACAO.NOME_DOC%type, 
 											total IN PUBLICACAO.TOTAL%type, retVal OUT INTEGER) IS
 	current_id NUMBER;
 	idAut AUTOR.ID_AUTOR%type;
@@ -237,7 +237,7 @@ BEGIN
 	SELECT seq_id_document.nextval INTO current_id
 	FROM dual;
 	
-	INSERT INTO PUBLICACAO VALUES (current_id, idPra, idAut, idEdi, pages, descri, DATA, nome, total, total);
+	INSERT INTO PUBLICACAO VALUES (current_id, idPra, idAut, idEdi, pages, descri, varData, nome, total, total);
 	update prateleira set OCUPACAO=OCUPACAO+total where ID_PRATELEIRA = idPra;
 	
 	retVal := 0;
