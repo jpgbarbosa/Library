@@ -233,7 +233,9 @@ alter table PUBLICACAO
    add constraint FK_PUBLICAC_POSSUIR_EDITORA foreign key (ID_EDITORA)
       references EDITORA (ID_EDITORA);
 
-	  
+	 
+drop table autenticacao;
+
 /*==============================================================*/
 /* Table: AUTENTICACAO                                            */
 /*==============================================================*/
