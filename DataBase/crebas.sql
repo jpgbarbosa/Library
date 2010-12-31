@@ -250,3 +250,5 @@ create table AUTENTICACAO
 insert into AUTENTICACAO values (1, 'admin');
 INSERT INTO Pessoa VALUES ('Admin', 'Base de Dados', 0, SYSDATE , 0, 'admin@bd.uc.pt', 1);
 INSERT INTO Funcionario VALUES (1, sysdate, null);
+
+COMMIT;

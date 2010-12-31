@@ -11,6 +11,14 @@
 
 package GUI;
 
+import java.awt.Rectangle;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 import librarynetbeans.Constants;
 
 /**
@@ -22,6 +30,7 @@ public class MainMenu extends javax.swing.JPanel {
     /** Creates new form MainMenu */
     public MainMenu() {
         initComponents();
+        this.CreateImage("./Images/new-york-public-library5.jpg", "", 0, 0, 990, 570);
     }
 
     /** This method is called from within the constructor to
@@ -132,6 +141,25 @@ public class MainMenu extends javax.swing.JPanel {
         Constants.frame.setContentPane(Constants.statisticsMenu);
     }//GEN-LAST:event_jButton4ActionPerformed
 
+    public JLabel CreateImage(String path, String toolTip,int x,int y,int x1,int y1){
+        BufferedImage img = null;
+        Icon icon;
+        JLabel label;
+
+        try {
+                img = ImageIO.read(new File(path));
+        } catch (IOException e){
+                System.out.println("Could not open the image located in " + path + "!");
+        }
+        icon = new ImageIcon(img);
+        label = new JLabel(icon);
+        label.setBounds(new Rectangle(x,y,x1,y1));
+        if (!toolTip.equals(""))
+        	label.setToolTipText(toolTip);
+        add(label);
+
+        return label;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

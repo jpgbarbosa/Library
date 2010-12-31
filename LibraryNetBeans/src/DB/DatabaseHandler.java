@@ -709,7 +709,7 @@ public class DatabaseHandler implements DB.DataAccessInterface{
             Integer noFaultyReaders = (Integer) proc.getObject(3);
 
             textArea.setText("Number of Readers registered: " + noEntries + "\n"
-                    + "Number of Readers with Books Borrowed:" + noReadersWithBooks + "\n"
+                    + "Number of Readers with Books Borrowed: " + noReadersWithBooks + "\n"
                     + "Number of Faulty Readers: " + noFaultyReaders + "\n");
 
             proc.close();
@@ -740,7 +740,7 @@ public class DatabaseHandler implements DB.DataAccessInterface{
             Integer avg = (Integer) proc.getObject(3);
             
             textArea.setText("Number of Employees registered: " + noEntries + "\n"
-                    + "Number of Employees fired:" + noFired + "\n"
+                    + "Number of Employees fired: " + noFired + "\n"
                     + "Average Working Days: " + avg + "\n");
 
             proc.close();
