@@ -1,11 +1,4 @@
-----------------importante-----------------
 
--> As cenas da prateleira quando chega ao fim. Ter cuidade que se tivermos mais do que um prateleira, não sei se teremos
-   problemas com as procuras de livros por género, porque agora só procura um prateleira por género, penso eu. Talves não.
-	R.: Depende. acho q n estamos a ver o caso em que temos mais livros do q a capacidade das estantes.
-		sol 1: se nao couber nas prateleiras com o tamanho default criamos uma com o tamanho necessário
-		sol 2: Fica dividido e aí ja temos problemas com as pesquisas.
--------------------------------------------
 		
 -> Eventualmente permitir que os empregados voltem a ser contratados uma vez despedidos.
 
@@ -27,8 +20,18 @@ CUIDADOS!!!!
 
 -> evitar variaveis PL/SQL com o nome DATA, dá asneira com o tipo DATA. chamar varData ou algo do genero.
 
+-> TESTAR fortemente a cena das prateleiras
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+----------------importante-----------------
+
+-> As cenas da prateleira quando chega ao fim. Ter cuidade que se tivermos mais do que um prateleira, não sei se teremos
+   problemas com as procuras de livros por género, porque agora só procura um prateleira por género, penso eu. Talves não.
+	R.: Depende. acho q n estamos a ver o caso em que temos mais livros do q a capacidade das estantes.
+		sol 1: se nao couber nas prateleiras com o tamanho default criamos uma com o tamanho necessário
+		sol 2: Fica dividido e aí ja temos problemas com as pesquisas.
+-------------------------------------------
 
 SOLVED:
 
