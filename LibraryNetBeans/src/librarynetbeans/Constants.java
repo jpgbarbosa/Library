@@ -11,6 +11,7 @@ import GUI.documents.*;
 import GUI.employees.*;
 import GUI.readers.*;
 import GUI.statistics.Statistics;
+import javax.swing.JButton;
 
 /**
  *
@@ -24,6 +25,8 @@ public class Constants {
     public static Reader readersMenu;
     public static Statistics statisticsMenu;
     public static DatabaseHandler dbhandler;
+    public static JButton addEmployee;
+    public static JButton fireEmployee;
 
     public static Frame frame;
 

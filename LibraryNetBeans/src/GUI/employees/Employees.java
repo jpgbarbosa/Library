@@ -82,7 +82,9 @@ public class Employees extends javax.swing.JPanel implements
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList();
         fireButton = new javax.swing.JButton();
+		Constants.fireEmployee = fireButton;
         jButton2 = new javax.swing.JButton();
+		Constants.addEmployee = jButton2;
         jButton3 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         FindButtonEmp = new javax.swing.JButton();
@@ -601,13 +603,23 @@ public class Employees extends javax.swing.JPanel implements
 
         int [] date = Validation.checkInsertedDate(BirthdayTextEmp2.getText(), false);
 
+        
         if(!nome.equals("") && !morada.equals("") &&  Validation.isInteger(bi)
                         && (!telefone.equals("") && Validation.isInteger(telefone) || telefone.equals("")) && date!=null){
-            if(Constants.dbhandler.changePersonData(nome, morada, bi, telefone, eMail, date, true)){
-                JOptionPane.showMessageDialog(this, "Changes made successfully");
-            } else {
-                JOptionPane.showMessageDialog(this, "Something went Wrong");
+
+            int value = Constants.dbhandler.getBIEmployeeById(Integer.parseInt(bi));
+
+            if (value != Constants.loginNumber && Constants.loginNumber != 1){
+                JOptionPane.showMessageDialog(this, "You can't change information from other employees!");
+            } else{
+                if(Constants.dbhandler.changePersonData(nome, morada, bi, telefone, eMail, date, true)){
+                    JOptionPane.showMessageDialog(this, "Changes made successfully");
+                 } else {
+                    JOptionPane.showMessageDialog(this, "Something went Wrong");
+                }
             }
+
+            
         } else {
             JOptionPane.showMessageDialog(this, "Invalid Data");
         }

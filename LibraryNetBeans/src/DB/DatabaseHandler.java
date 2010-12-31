@@ -958,6 +958,31 @@ public class DatabaseHandler implements DB.DataAccessInterface{
         return  dados;
     }
 
+    public int getBIEmployeeById(int bi) {
+         int outcome = -1;
+
+        System.out.print("\n[Performing getBIEmployeeById]...");
+        try {
+            //Execute statement
+            Statement stmt;
+            stmt = conn.createStatement();//create statement
+            // execute querie
+            ResultSet rset = stmt.executeQuery(
+                    "SELECT p.Id_pessoa FROM Pessoa p "
+                     + "WHERE p.bi = " + bi);
+
+            while (rset.next()){
+                outcome =  rset.getInt("ID_PESSOA");
+            }
+
+            stmt.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(DatabaseHandler.class.getName()).log(Level.SEVERE, null, ex);
+            return -1;
+        }
+        return  outcome;
+    }
+
     public ArrayList<String> getRequisitionByReaderId(String value) {
         ArrayList<String> dados = new ArrayList<String>();
         System.out.print("\n[Performing getRequisitionByReaderId: "+value+"]...");
