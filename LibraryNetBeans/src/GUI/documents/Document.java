@@ -108,6 +108,25 @@ public class Document extends javax.swing.JPanel implements
         authorTextArea = new javax.swing.JTextField();
         ChooseDateDocsTab1 = new javax.swing.JButton();
         jRadioButton7 = new javax.swing.JRadioButton();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
+        jButton2 = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        requisiteButton = new javax.swing.JButton();
+        jTextField4 = new javax.swing.JTextField();
+        jTextField6 = new javax.swing.JTextField();
+        jTextField8 = new javax.swing.JTextField();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextArea2 = new javax.swing.JTextArea();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
@@ -135,25 +154,12 @@ public class Document extends javax.swing.JPanel implements
         genreNewDoc = new javax.swing.JComboBox();
         jLabel27 = new javax.swing.JLabel();
         jTextField13 = new javax.swing.JTextField();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        requisiteButton = new javax.swing.JButton();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jTextField14 = new javax.swing.JTextField();
+        jLabel28 = new javax.swing.JLabel();
+        AmountNewDocTab4 = new javax.swing.JSpinner();
+        AmountNewDocTab4 = new javax.swing.JSpinner(new SpinnerNumberModel(1, 1, 100, 1));
+        jButton9 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -324,12 +330,12 @@ public class Document extends javax.swing.JPanel implements
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
-                .addContainerGap(20, Short.MAX_VALUE)
+                .addContainerGap(27, Short.MAX_VALUE)
                 .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -468,7 +474,7 @@ public class Document extends javax.swing.JPanel implements
                         .addComponent(jButton4)))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -515,216 +521,12 @@ public class Document extends javax.swing.JPanel implements
                             .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(List2InDocsTab1)))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 388, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
 
         jRadioButton1.setSelected(true);
 
         jTabbedPane1.addTab("Find Documents", jPanel1);
-
-        jPanel4.setPreferredSize(new java.awt.Dimension(1000, 600));
-
-        jLabel16.setFont(new java.awt.Font("Tahoma", 1, 12));
-        jLabel16.setText("Add number of copies:");
-
-        jLabel17.setText("ID:");
-
-        jLabel18.setFont(new java.awt.Font("Tahoma", 1, 12));
-        jLabel18.setText("New Document:");
-
-        jButton7.setText("Add");
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
-            }
-        });
-
-        jLabel19.setText("Amount:");
-
-        jLabel20.setText("Title:");
-
-        jLabel21.setText("Publisher:");
-
-        jLabel22.setText("Author:");
-
-        jLabel24.setText("Number of copies:");
-
-        jLabel25.setText("Description:");
-
-        jButton8.setText("Add Document");
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
-            }
-        });
-
-        TitleTab3Doc.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TitleTab3DocActionPerformed(evt);
-            }
-        });
-
-        jTextArea3.setColumns(20);
-        jTextArea3.setRows(5);
-        jScrollPane3.setViewportView(jTextArea3);
-
-        AmountNewDocTab3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-
-        jLabel26.setText("Genre:");
-
-        if(genres==null){
-            genres = new Vector<String>(30);
-            try {
-                FileInputStream fstream = new FileInputStream("BookGenres.txt");
-                DataInputStream in = new DataInputStream(fstream);
-                BufferedReader br = new BufferedReader(new InputStreamReader(in));
-
-                String word;
-                while ((word = br.readLine()) != null){
-                    genres.add(word);
-                }
-
-                in.close();
-
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-        genreNewDoc.setModel(new javax.swing.DefaultComboBoxModel(genres));
-        genreNewDoc.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                genreNewDocActionPerformed(evt);
-            }
-        });
-
-        jLabel27.setText("Number of pages:");
-
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGap(22, 22, 22)
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel18)
-                                    .addComponent(jLabel16))
-                                .addGap(338, 338, 338))
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGap(39, 39, 39)
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
-                                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel24)
-                                            .addComponent(jLabel25))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                                .addComponent(NumCopiesDocTab3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(258, 258, 258))
-                                            .addComponent(TextDescTab3Doc, javax.swing.GroupLayout.DEFAULT_SIZE, 374, Short.MAX_VALUE)))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
-                                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel21)
-                                            .addComponent(jLabel22))
-                                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(TitleTab3Doc, javax.swing.GroupLayout.PREFERRED_SIZE, 407, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(TextAutTab3Doc, javax.swing.GroupLayout.DEFAULT_SIZE, 420, Short.MAX_VALUE))
-                                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                                .addGap(18, 18, 18)
-                                                .addComponent(TextPubTab3Doc, javax.swing.GroupLayout.DEFAULT_SIZE, 406, Short.MAX_VALUE))))
-                                    .addComponent(jLabel20, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
-                                        .addGap(1, 1, 1)
-                                        .addComponent(jLabel17)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jLabel19)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(AmountNewDocTab3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 125, Short.MAX_VALUE)
-                                        .addComponent(jButton7)
-                                        .addGap(29, 29, 29))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
-                                            .addComponent(jLabel27)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addComponent(jTextField13))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
-                                            .addComponent(jLabel26)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(genreNewDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(364, 364, 364)
-                        .addComponent(jButton8)))
-                .addContainerGap())
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(jLabel16)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel17)
-                    .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel19)
-                    .addComponent(AmountNewDocTab3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton7))
-                .addGap(13, 13, 13)
-                .addComponent(jLabel18)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(jLabel20))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(4, 4, 4)
-                        .addComponent(TitleTab3Doc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel21)
-                    .addComponent(TextPubTab3Doc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel22)
-                    .addComponent(TextAutTab3Doc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel26)
-                    .addComponent(genreNewDoc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel27)
-                    .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(11, 11, 11)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel24)
-                    .addComponent(NumCopiesDocTab3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel25)
-                    .addComponent(TextDescTab3Doc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(37, 37, 37)
-                .addComponent(jButton8)
-                .addGap(55, 55, 55))
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(54, Short.MAX_VALUE))
-        );
-
-        jTabbedPane1.addTab("New Document", jPanel4);
 
         jPanel3.setPreferredSize(new java.awt.Dimension(800, 400));
 
@@ -810,17 +612,17 @@ public class Document extends javax.swing.JPanel implements
                                     .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(jLabel5))))
-                .addContainerGap(297, Short.MAX_VALUE))
+                .addContainerGap(303, Short.MAX_VALUE))
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addComponent(jLabel2)
-                .addContainerGap(756, Short.MAX_VALUE))
+                .addContainerGap(762, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 844, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 850, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(482, Short.MAX_VALUE)
+                .addContainerGap(488, Short.MAX_VALUE)
                 .addComponent(requisiteButton)
                 .addGap(305, 305, 305))
         );
@@ -835,7 +637,7 @@ public class Document extends javax.swing.JPanel implements
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
                 .addGap(12, 12, 12)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -868,6 +670,245 @@ public class Document extends javax.swing.JPanel implements
 
         jTabbedPane1.addTab("Requisitions", jPanel3);
 
+        jPanel4.setPreferredSize(new java.awt.Dimension(1000, 600));
+
+        jLabel16.setFont(new java.awt.Font("Tahoma", 1, 12));
+        jLabel16.setText("Add number of copies:");
+
+        jLabel17.setText("ID:");
+
+        jLabel18.setFont(new java.awt.Font("Tahoma", 1, 12));
+        jLabel18.setText("New Document:");
+
+        jButton7.setText("Add");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+
+        jLabel19.setText("Amount:");
+
+        jLabel20.setText("Title:");
+
+        jLabel21.setText("Publisher:");
+
+        jLabel22.setText("Author:");
+
+        jLabel24.setText("Number of copies:");
+
+        jLabel25.setText("Description:");
+
+        jButton8.setText("Add Document");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
+
+        TitleTab3Doc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TitleTab3DocActionPerformed(evt);
+            }
+        });
+
+        jTextArea3.setColumns(20);
+        jTextArea3.setRows(5);
+        jScrollPane3.setViewportView(jTextArea3);
+
+        AmountNewDocTab3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+        jLabel26.setText("Genre:");
+
+        if(genres==null){
+            genres = new Vector<String>(30);
+            try {
+                FileInputStream fstream = new FileInputStream("BookGenres.txt");
+                DataInputStream in = new DataInputStream(fstream);
+                BufferedReader br = new BufferedReader(new InputStreamReader(in));
+
+                String word;
+                while ((word = br.readLine()) != null){
+                    genres.add(word);
+                }
+
+                in.close();
+
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        genreNewDoc.setModel(new javax.swing.DefaultComboBoxModel(genres));
+        genreNewDoc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                genreNewDocActionPerformed(evt);
+            }
+        });
+
+        jLabel27.setText("Number of pages:");
+
+        jLabel23.setText("ID:");
+
+        jLabel28.setText("Amount:");
+
+        AmountNewDocTab4.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+        jButton9.setText("Remove");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
+                                .addComponent(jLabel18)
+                                .addGap(338, 338, 338))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
+                                .addGap(17, 17, 17)
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
+                                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel24)
+                                            .addComponent(jLabel25))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                                .addComponent(NumCopiesDocTab3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 369, Short.MAX_VALUE))
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                                                .addComponent(TextDescTab3Doc, javax.swing.GroupLayout.DEFAULT_SIZE, 392, Short.MAX_VALUE)
+                                                .addGap(6, 6, 6))))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
+                                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel21)
+                                            .addComponent(jLabel22))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                                .addComponent(TextAutTab3Doc, javax.swing.GroupLayout.DEFAULT_SIZE, 438, Short.MAX_VALUE)
+                                                .addGap(6, 6, 6))
+                                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                                .addComponent(TextPubTab3Doc, javax.swing.GroupLayout.DEFAULT_SIZE, 438, Short.MAX_VALUE)
+                                                .addGap(6, 6, 6))
+                                            .addComponent(TitleTab3Doc, javax.swing.GroupLayout.DEFAULT_SIZE, 444, Short.MAX_VALUE)))
+                                    .addComponent(jLabel20, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
+                                            .addComponent(jLabel27)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(jTextField13))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
+                                            .addComponent(jLabel26)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(genreNewDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(jLabel23)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(10, 10, 10)
+                                .addComponent(jLabel28)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(AmountNewDocTab4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(jLabel17)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel19)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(AmountNewDocTab3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(134, 134, 134)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton9, javax.swing.GroupLayout.DEFAULT_SIZE, 77, Short.MAX_VALUE)
+                            .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, 77, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel16)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton8)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabel16)
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel17)
+                            .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel19)
+                            .addComponent(AmountNewDocTab3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton7))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel23)
+                            .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel28)
+                            .addComponent(jButton9)
+                            .addComponent(AmountNewDocTab4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(9, 9, 9)
+                        .addComponent(jLabel18)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGap(24, 24, 24)
+                                .addComponent(jLabel20))
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGap(22, 22, 22)
+                                .addComponent(TitleTab3Doc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel21)
+                            .addComponent(TextPubTab3Doc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel22)
+                            .addComponent(TextAutTab3Doc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(27, 27, 27)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel26)
+                            .addComponent(genreNewDoc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel27)
+                            .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(11, 11, 11)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel24)
+                            .addComponent(NumCopiesDocTab3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel25)
+                            .addComponent(TextDescTab3Doc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(30, 30, 30))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 391, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton8)
+                        .addGap(7, 7, 7))))
+        );
+
+        jTabbedPane1.addTab("New Document", jPanel4);
+
         jButton1.setText("Return");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -882,7 +923,7 @@ public class Document extends javax.swing.JPanel implements
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 869, Short.MAX_VALUE)
+                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 875, Short.MAX_VALUE)
                     .addComponent(jButton1))
                 .addContainerGap())
         );
@@ -890,10 +931,10 @@ public class Document extends javax.swing.JPanel implements
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 464, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 471, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton1)
-                .addContainerGap(97, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -1324,6 +1365,25 @@ public class Document extends javax.swing.JPanel implements
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButton7ActionPerformed
 
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        int amount = (Integer)AmountNewDocTab4.getModel().getValue();
+        String id = jTextField14.getText();
+
+        if(Validation.isInteger(id)){
+            int outcome = Constants.dbhandler.removeCopyDocument(Integer.parseInt(id), amount);
+
+            if (outcome==1){
+                JOptionPane.showMessageDialog(this, "Operation concluded!");
+            } else if (outcome == 0){
+                JOptionPane.showMessageDialog(this, "There aren't enough available copies.");
+            } else {
+                JOptionPane.showMessageDialog(this, "Document ID not found!");
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Invalid ID");
+        }
+    }//GEN-LAST:event_jButton9ActionPerformed
+
 
     public void propertyChange(PropertyChangeEvent evt) {
         Object source = evt.getSource();
@@ -1371,6 +1431,7 @@ public class Document extends javax.swing.JPanel implements
     private ButtonGroup returnSelectionGroup = new ButtonGroup();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JSpinner AmountNewDocTab3;
+    private javax.swing.JSpinner AmountNewDocTab4;
     private javax.swing.JButton ChooseDateDocsTab1;
     private javax.swing.JButton ChooseDateDocsTab3;
     private javax.swing.JFormattedTextField ChooseDateField;
@@ -1396,6 +1457,7 @@ public class Document extends javax.swing.JPanel implements
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1409,10 +1471,12 @@ public class Document extends javax.swing.JPanel implements
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1453,6 +1517,7 @@ public class Document extends javax.swing.JPanel implements
     private javax.swing.JTextField jTextField11;
     private javax.swing.JTextField jTextField12;
     private javax.swing.JTextField jTextField13;
+    private javax.swing.JTextField jTextField14;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField6;

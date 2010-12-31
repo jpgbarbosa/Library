@@ -1087,4 +1087,30 @@ public class DatabaseHandler implements DB.DataAccessInterface{
         return  dados;
     }
 
+    public int removeCopyDocument(int id, int amount) {
+        System.out.print("\n[Performing removeCopyDocument"+id+"]...");
+        //Execute statement
+        CallableStatement proc = null;
+        Integer retVal = -1;
+        try {
+            /* If it's not an employee, than it is a reader. */
+            proc = conn.prepareCall("{ call removeCopyDocument(?, ?, ?) }");
+
+            proc.setInt(1, id);
+            proc.setInt(2, amount);
+            proc.registerOutParameter(3, java.sql.Types.INTEGER);
+            proc.execute();
+
+            retVal = (Integer) proc.getObject(3);
+
+            proc.close();
+
+        }catch (SQLException ex) {
+            Logger.getLogger(DatabaseHandler.class.getName()).log(Level.SEVERE, null, ex);
+            return -1;
+        }
+        System.out.println(retVal);
+        return retVal;
+    }
+
 }

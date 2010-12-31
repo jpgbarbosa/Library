@@ -312,6 +312,41 @@ end;
 
 /
 
+create or replace procedure removeCopyDocument(idDoc IN PUBLICACAO.ID_DOC%type, noRem IN PUBLICACAO.TOTAL%type, retVal out number) IS
+
+avail publicacao.disponiveis%type;
+pra publicacao.id_prateleira%type;
+
+Begin
+	select disponiveis into avail from publicacao where id_doc = idDoc;
+	select id_prateleira into pra from publicacao where id_doc = idDoc;
+	
+	if avail>=noRem then
+		UPDATE PUBLICACAO
+		SET DISPONIVEIS=DISPONIVEIS-noRem, TOTAL=TOTAL-noRem
+		WHERE id_doc = idDoc;
+	
+		UPDATE PRATELEIRA
+		set OCUPACAO=OCUPACAO-noRem
+		where ID_PRATELEIRA = pra;
+		
+		retVal :=1;
+	else
+		retVal :=0;
+	end if;
+	
+	COMMIT;
+
+EXCEPTION
+	WHEN NO_DATA_FOUND THEN
+		retVal := -1;
+	WHEN OTHERS THEN
+		retVal := -2;
+end;
+
+/
+
+
 -- falta verificar a questao das prateleiras!
 CREATE OR REPLACE PROCEDURE addCopyDocument(idDoc IN PUBLICACAO.ID_DOC%type, novos IN PUBLICACAO.TOTAL%type, retVal out number) IS
 	checker INTEGER;
@@ -325,8 +360,6 @@ BEGIN
 	SET DISPONIVEIS=DISPONIVEIS+novos, TOTAL=TOTAL+novos
 	WHERE id_doc = idDoc;
 	
-
-
 	retVal := 0 ;
 	COMMIT;
 

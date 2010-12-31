@@ -1,4 +1,15 @@
+PRIORITÁRIOS:
 
+-> TRANSACÇOES e SELECT FOR UPDATE
+
+-> Permitir apagar requisitos (Podem acontecer enganos a adicioanr o requisito ou entao o empregado q o de como entregue logo mas n e la mto correcto)
+
+-> Permitir apagar cópias até aos 0 disponíveis ---> DUNE se nao concordares apaga :P
+
+-> Reorganizar as prateleiras (parece-me demasiado complexo).
+
+
+~~~~~~~~~~~~~~
 		
 -> Eventualmente permitir que os empregados voltem a ser contratados uma vez despedidos.
 

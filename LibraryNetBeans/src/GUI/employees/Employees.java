@@ -107,7 +107,7 @@ public class Employees extends javax.swing.JPanel implements
             }
         });
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel4.setText("New Employee:");
 
         jLabel5.setText("Name:");
