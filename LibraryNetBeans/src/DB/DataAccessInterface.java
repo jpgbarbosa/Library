@@ -23,6 +23,7 @@ public interface DataAccessInterface {
     public void getIdReaderByName(String name, JTextArea textArea);
     public int addPerson(String name, String morada, String bi, String telefone, String eMail,int [] date, boolean isEmployee, String password);
     public ArrayList<Person> getPersonsList(boolean isEmployee, String orderBy, boolean listAll);
+    public ArrayList<Person> getFaultyReadersList(String orderBy);
     public ArrayList<Book> getSpecificBooks(String type, String value);
     public int[] newRequisiton(int[] book_ids, int id_reader, int id_employee);
     public int returnRequisiton(int requisition_ids);

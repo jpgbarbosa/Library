@@ -437,6 +437,40 @@ public class DatabaseHandler implements DB.DataAccessInterface{
     }
 
     @Override
+    public ArrayList<Person> getFaultyReadersList(String orderBy){
+
+        ArrayList<Person> personsList = new ArrayList<Person>();
+        Person singlePerson;
+
+        System.out.print("\n[Performing getFaultyReadersList] ... ");
+
+        try {
+            String appendix;
+            //Execute statement
+            Statement stmt;
+            stmt = conn.createStatement();//create statement
+            // execute querie
+            ResultSet rset = stmt.executeQuery("SELECT p.nome_pessoa, p.id_pessoa " +
+                                "FROM Pessoa p WHERE p.id_pessoa IN ("
+                                + "SELECT e.lei_id_pessoa FROM Emprestimo e "
+                                + "WHERE Data_prevista - SYSDATE < 0 "
+                                + "GROUP BY e.lei_id_pessoa)"
+                                + "ORDER BY " + orderBy);//Select all from Album
+            while (rset.next()) {//while there are still results left to read
+                //create Album instance with current album information
+                //you can get each of the albums attributes by using the column name
+                singlePerson= new Person(rset.getString("NOME_PESSOA"), rset.getInt("ID_PESSOA"));
+                personsList.add(singlePerson);
+            }
+            stmt.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(DatabaseHandler.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+        return personsList;
+    }
+
+    @Override
     public ArrayList<Book> getSpecificBooks(String type, String value){
         ArrayList<Book> booksList = new ArrayList<Book>();
         Book singleBook;
