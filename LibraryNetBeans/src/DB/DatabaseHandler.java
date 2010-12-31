@@ -277,7 +277,7 @@ public class DatabaseHandler implements DB.DataAccessInterface{
 
       @Override
       public boolean addCopyDocument(int id, int novos){
-        System.out.print("\n[Performing addCopyDocument]...");
+        System.out.print("\n[Performing addCopyDocument"+id+"]...");
         //Execute statement
         CallableStatement proc = null;
         Integer retVal = -1;
@@ -298,7 +298,7 @@ public class DatabaseHandler implements DB.DataAccessInterface{
             Logger.getLogger(DatabaseHandler.class.getName()).log(Level.SEVERE, null, ex);
             return false;
         }
-
+        System.out.println(retVal);
         if (retVal == 0)
             return true;
         
@@ -447,25 +447,25 @@ public class DatabaseHandler implements DB.DataAccessInterface{
 
         if (type.equals("Genre")){
             query = "SELECT p.nome_doc, p.id_doc FROM publicacao p, prateleira pr "
-                    + "WHERE p.id_prateleira = pr.id_prateleira AND pr.genero = '" + value + "'";
+                    + "WHERE p.id_prateleira = pr.id_prateleira AND pr.genero = '" + value + "' order by 2";
         }
         else if(type.equals("Title")){
-            query = "SELECT nome_doc, id_doc FROM publicacao WHERE upper(nome_doc) like '%'||upper('" + value + "')||'%'";
+            query = "SELECT nome_doc, id_doc FROM publicacao WHERE upper(nome_doc) like '%'||upper('" + value + "')||'%' order by 2";
         }
         else if(type.equals("Publisher")){
             query = "SELECT nome_doc, id_doc FROM publicacao p, editora e "
-                    + "WHERE e.id_editora = p.id_editora AND upper(e.nome_editora) like '%'||upper('" + value + "')||'%'";
+                    + "WHERE e.id_editora = p.id_editora AND upper(e.nome_editora) like '%'||upper('" + value + "')||'%' order by 2";
         }
         else if(type.equals("Author")){
             query = "SELECT nome_doc, id_doc FROM publicacao p, autor a "
-                    + "WHERE a.id_autor = p.id_autor AND upper(a.nome_autor) like '%'||upper('" + value + "')||'%'";
+                    + "WHERE a.id_autor = p.id_autor AND upper(a.nome_autor) like '%'||upper('" + value + "')||'%' order by 2";
         }
         else if(type.equals("Pages")){
             query = "SELECT nome_doc, id_doc FROM publicacao p "
-                    + "WHERE p.paginas " + value;
+                    + "WHERE p.paginas " + value+" order by p.paginas";
         } else if(type.equals("Date")){     
              query = "SELECT nome_doc, id_doc FROM publicacao p "
-                    + "WHERE to_char(p.data,'dd/mm/yyyy') like '"+value+"'";
+                    + "WHERE to_char(p.data,'dd/mm/yyyy') like '"+value+"' order by 2";
         }
 
         try {
@@ -661,8 +661,9 @@ public class DatabaseHandler implements DB.DataAccessInterface{
             stmt = conn.createStatement();//create statement
             // execute querie
             ResultSet rset = stmt.executeQuery("SELECT p.nome_doc, p.id_doc, p.descricao, "
-                    + "pra.genero, a.nome_autor, e.nome_editora, p.total, p.disponiveis " +
-                    "FROM Publicacao p, Prateleira pra, Autor a, Editora e "
+                    + "pra.genero, a.nome_autor, e.nome_editora, p.total, p.disponiveis, "
+                    + "p.paginas, p.data, p.id_prateleira "
+                    + "FROM Publicacao p, Prateleira pra, Autor a, Editora e "
                     + "WHERE p.id_doc = " + id + " "
                     + "AND p.id_autor = a.id_autor "
                     + "AND p.id_prateleira = pra.id_prateleira "
@@ -673,7 +674,8 @@ public class DatabaseHandler implements DB.DataAccessInterface{
                 singleBook = new Book(rset.getString("NOME_DOC"), rset.getInt("ID_DOC"),
                         rset.getString("GENERO"), rset.getString("DESCRICAO"),
                         rset.getString("NOME_AUTOR"), rset.getString("NOME_EDITORA"),
-                        rset.getInt("TOTAL"), rset.getInt("DISPONIVEIS"));
+                        rset.getInt("TOTAL"), rset.getInt("DISPONIVEIS"), rset.getString("PAGINAS"),
+                        rset.getString("DATA"), rset.getInt("ID_PRATELEIRA"));
                 booksList.add(singleBook);
             }
             stmt.close();

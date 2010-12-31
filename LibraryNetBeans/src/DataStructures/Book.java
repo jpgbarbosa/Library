@@ -10,8 +10,8 @@ package DataStructures;
  * @author LG
  */
 public class Book {
-    String titulo, genero, descricao, autor, editora;
-    int id, total, disponiveis;
+    String titulo, genero, descricao, autor, editora, paginas, data;
+    int id, total, disponiveis, prateleira;
 
     public Book (String titulo, int id){
         this.titulo = titulo;
@@ -19,7 +19,7 @@ public class Book {
     }
 
     public Book (String titulo, int id, String genero, String descricao,
-            String autor, String editora, int total, int disponiveis){
+            String autor, String editora, int total, int disponiveis, String paginas, String data, int prateleira){
         this.titulo = titulo;
         this.id = id;
         this.genero = genero;
@@ -28,6 +28,9 @@ public class Book {
         this.descricao = descricao;
         this.total = total;
         this.disponiveis = disponiveis;
+        this.paginas = paginas;
+        this.data = data;
+        this.prateleira = prateleira;
     }
 
     public String getTitle(){
@@ -60,6 +63,18 @@ public class Book {
 
     public int getTotal() {
         return total;
+    }
+
+    public String getPaginas(){
+        return paginas;
+    }
+
+    public String getData(){
+        return data;
+    }
+
+    public int getPrateleira(){
+        return prateleira;
     }
 
     

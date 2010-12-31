@@ -223,7 +223,11 @@ BEGIN
 	
 	if idPra=-1 then --n existem prateleiras para esse genero
 		SELECT seq_id_shelf.nextval INTO idPra FROM dual;
-		insert into prateleira values(20,0,idPra,gen);
+		if total > 100 then
+			insert into prateleira values(total+10,0,idPra,gen);
+		else
+			insert into prateleira values(100,0,idPra,gen);
+		end if;
 	end if;
 	
 	idEdi := getEditora(Edi);
@@ -259,7 +263,7 @@ END;
 
 
 --penso que esta a funcionar como deve ser. verificar melhor
-CREATE OR REPLACE TRIGGER checkShelf AFTER UPDATE ON Publicacao FOR EACH ROW when (new.total not like old.total)
+CREATE OR REPLACE TRIGGER checkShelf AFTER UPDATE OF TOTAL ON PUBLICACAO FOR EACH ROW when (new.total != old.total)
 
 DECLARE
 
@@ -269,6 +273,7 @@ DECLARE
 	idPra PRATELEIRA.ID_PRATELEIRA%type;
 
 begin
+
 	--Procuramos se a prateleira q ja contem estas publicacoes tem espaco. se nao devolver nada, entao significa q ainda existe espaco nessa prateleira
 	select * into oldPratRow from prateleira where :old.id_prateleira = id_prateleira 
 		AND (capacidade < OCUPACAO +(:new.total-:old.total));
@@ -282,18 +287,23 @@ begin
 			--se nao existir entao criamos uma nova
 			when no_data_found then
 				SELECT seq_id_shelf.nextval INTO idPra FROM dual;
-				insert into prateleira values(20,0,idPra,oldPratRow.genero);
-					select * into newPratRow from prateleira where (capacidade >= OCUPACAO +(:new.total)) 
-						AND genero like oldPratRow.genero;
+				if :new.total>100 then
+					insert into prateleira values(:new.total+10,0,idPra,oldPratRow.genero);
+				else
+					insert into prateleira values(100,0,idPra,oldPratRow.genero);
+				end if;
+				
+				select * into newPratRow from prateleira where (capacidade >= OCUPACAO +(:new.total)) 
+					AND genero like oldPratRow.genero;
+					
 	end;
-
+	
 	update prateleira set OCUPACAO=OCUPACAO+:new.total where ID_PRATELEIRA = newPratRow.id_prateleira;
 	update prateleira set OCUPACAO=OCUPACAO-:old.total where ID_PRATELEIRA = oldPratRow.id_prateleira;
 	
-	commit;
-	
 	Exception
 		when no_data_found then
+			update prateleira set ocupacao=ocupacao+(:new.total-:old.total) where ID_PRATELEIRA = :old.id_prateleira;
 			return;
 		when others then
 			rollback;
@@ -314,6 +324,8 @@ BEGIN
 	UPDATE PUBLICACAO
 	SET DISPONIVEIS=DISPONIVEIS+novos, TOTAL=TOTAL+novos
 	WHERE id_doc = idDoc;
+	
+
 
 	retVal := 0 ;
 	COMMIT;

@@ -893,7 +893,7 @@ public class Document extends javax.swing.JPanel implements
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 464, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(97, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -1094,7 +1094,10 @@ public class Document extends javax.swing.JPanel implements
                             + "Genero: " + book.getGenero() + "\n"
                             + "Descricao: " + book.getDescricao() + "\n"
                             + "Exemplares: " + book.getTotal() + "\n"
-                            + "Disponiveis: " + book.getDisponiveis() + "\n";
+                            + "Disponiveis: " + book.getDisponiveis() + "\n"
+                            + "Paginas: " + book.getPaginas() + "\n"
+                            + "Data: " + book.getData() + "\n"
+                            + "Prateleira: " + book.getPrateleira() + "\n";
                     jTextArea1.append(str);
                 }
             }
