@@ -48,6 +48,8 @@ public class Employees extends javax.swing.JPanel implements
     public Employees() {
         initComponents();
         this.CreateImage("./Images/new-york-public-library5.jpg", "", 0, 0, 990, 570);
+        Constants.fireEmployee = fireButton;
+        Constants.addEmployee = jButton2;
     }
 
     /** This method is called from within the constructor to
@@ -82,9 +84,7 @@ public class Employees extends javax.swing.JPanel implements
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList();
         fireButton = new javax.swing.JButton();
-		Constants.fireEmployee = fireButton;
         jButton2 = new javax.swing.JButton();
-		Constants.addEmployee = jButton2;
         jButton3 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         FindButtonEmp = new javax.swing.JButton();
