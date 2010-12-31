@@ -23,98 +23,90 @@ EXCEPTION
 		returnValue := -2;
 		
 END;
-
 /
 
 --finish this procedur that sets data_saida to sysdate. pay attention when we list employees
-create or replace procedure fireEmployee(biFuncionario in Pessoa.id_pessoa%type, retVal out integer) is
+CREATE OR REPLACE PROCEDURE fireEmployee(biFuncionario IN Pessoa.id_pessoa%type, retVal OUT INTEGER) IS
 
-idPessoa Pessoa.id_pessoa%type;
+	idPessoa Pessoa.id_pessoa%type;
+	varData Funcionario.DATA_SAIDA%type;
 
-varData Funcionario.DATA_SAIDA%type;
+BEGIN
 
-begin
-
-	select id_pessoa into idPessoa from pessoa where BI = biFuncionario;
+	SELECT id_pessoa INTO idPessoa FROM pessoa WHERE BI = biFuncionario FOR UPDATE;
+	SELECT data_saida INTO varData FROM funcionario WHERE id_pessoa = idPessoa FOR UPDATE;
 	
-	select data_saida into varData from funcionario where id_pessoa = idPessoa;
-	
-	if varData is not null then
+	IF (varData IS NOT NULL) THEN
 		retVal:=-3;
-		return;	
-	end if;
+		RETURN;	
+	END IF;
 	
-	
-	update Funcionario set DATA_SAIDA = sysdate where idPessoa = id_pessoa;
-	
-	commit;
+	UPDATE Funcionario SET DATA_SAIDA = SYSDATE WHERE idPessoa = id_pessoa;
 	
 	retVal :=1;
+	COMMIT;
 	
-	Exception
-		when no_data_found then
-			retVal :=-1;
-			return;
-		when others then
-			rollback;
-			retVal := -2;
-			return;
-end;
-
+EXCEPTION
+	WHEN no_data_found THEN
+		retVal :=-1;
+		RETURN;
+	WHEN OTHERS THEN
+		ROLLBACK;
+		retVal := -2;
+		RETURN;
+END;
 /
 
-create or replace procedure updateReader (nomePessoa IN Pessoa.nome_pessoa%type, pmorada IN Pessoa.morada%type, pbi IN NUMBER, varData in date ,ptelefone IN NUMBER, email IN Pessoa.e_mail%type,
+CREATE OR REPLACE PROCEDURE updateReader (nomePessoa IN Pessoa.nome_pessoa%type, pmorada IN Pessoa.morada%type, pbi IN NUMBER, varData IN DATE ,ptelefone IN NUMBER, email IN Pessoa.e_mail%type,
 											returnValue OUT INTEGER) IS
 
-idPessoa Pessoa.ID_Pessoa%type;
+	idPessoa Pessoa.ID_Pessoa%type;
 											
-Begin
+BEGIN
 
-select id_pessoa into idPessoa from pessoa p where p.bi = pbi;
+	SELECT id_pessoa INTO idPessoa FROM pessoa p WHERE p.bi = pbi FOR UPDATE;
 
-update pessoa p set p.nome_pessoa = nomePessoa, p.morada=pmorada, p.data = varData, p.telefone = ptelefone, p.e_mail=email where p.id_pessoa = idPessoa;
+	UPDATE pessoa p SET p.nome_pessoa = nomePessoa, p.morada=pmorada, p.data = varData, p.telefone = ptelefone, p.e_mail=email
+	WHERE p.id_pessoa = idPessoa;
 
-commit;
+	returnValue := 1;
+	COMMIT;
 
-returnValue:=1;
-
-Exception
-	when no_data_found then
+EXCEPTION
+	WHEN no_data_found THEN
 		returnValue := -1;
-		return;
-	when others then
-		rollback;
+		RETURN;
+	WHEN OTHERS THEN
+		ROLLBACK;
 		returnValue := -2;
-		return;
-end;
-
+		RETURN;
+END;
 /
 
-create or replace procedure updateEmployee (nomePessoa IN Pessoa.nome_pessoa%type, pmorada IN Pessoa.morada%type, pbi IN NUMBER, varData in date ,ptelefone IN NUMBER, email IN Pessoa.e_mail%type,
+CREATE OR REPLACE PROCEDURE updateEmployee (nomePessoa IN Pessoa.nome_pessoa%type, pmorada IN Pessoa.morada%type, pbi IN NUMBER, varData IN DATE ,ptelefone IN NUMBER, email IN Pessoa.e_mail%type,
 											returnValue OUT INTEGER) IS
 
-idPessoa Pessoa.ID_Pessoa%type;
+	idPessoa Pessoa.ID_Pessoa%type;
 											
-Begin
+BEGIN
 
-select id_pessoa into idPessoa from pessoa p where p.bi = pbi;
+	SELECT id_pessoa INTO idPessoa FROM pessoa p WHERE p.bi = pbi FOR UPDATE;
 
-update pessoa p set p.nome_pessoa = nomePessoa, p.morada=pmorada, p.data = varData, p.telefone = ptelefone, p.e_mail=email where p.id_pessoa = idPessoa;
+	UPDATE pessoa p SET p.nome_pessoa = nomePessoa, p.morada=pmorada, p.data = varData, p.telefone = ptelefone, p.e_mail=email
+	WHERE p.id_pessoa = idPessoa;
 
-commit;
+	returnValue:=1;
+	COMMIT;
 
-returnValue:=1;
-
-Exception
-	when no_data_found then
+EXCEPTION
+	WHEN no_data_found THEN
 		returnValue := -1;
-		return;
-	when others then
-		rollback;
+		RETURN;
+	WHEN OTHERS THEN
+		ROLLBACK;
 		returnValue := -2;
-		return;
-end;
-
+		RETURN;
+END;
 /
 
 CREATE OR REPLACE PROCEDURE addEmployee ( nomePessoa IN Pessoa.nome_pessoa%type, morada IN Pessoa.morada%type, bi IN NUMBER, data in date ,telefone IN NUMBER, email IN Pessoa.e_mail%type,
@@ -144,52 +136,46 @@ EXCEPTION
 		returnValue := -2;
 	
 END;
-
 /
 
-create or replace function getPrateleira (gen IN PRATELEIRA.GENERO%type, total IN PUBLICACAO.TOTAL%type) return PRATELEIRA.ID_PRATELEIRA%type is
+CREATE OR REPLACE FUNCTION getPrateleira (gen IN PRATELEIRA.GENERO%type, total IN PUBLICACAO.TOTAL%type) RETURN PRATELEIRA.ID_PRATELEIRA%type IS
 
-prat PRATELEIRA.ID_PRATELEIRA%type:=-1;
+	prat PRATELEIRA.ID_PRATELEIRA%type:=-1;
 
-cursor shelf is
-	select id_prateleira from prateleira where upper(genero) like upper(gen) and (OCUPACAO+total)<CAPACIDADE;
+	CURSOR shelf IS
+		SELECT id_prateleira FROM prateleira WHERE UPPER(genero) LIKE UPPER(gen) AND (OCUPACAO+total)<CAPACIDADE;
 
+BEGIN
 
-begin
+	OPEN shelf;
+	FETCH shelf INTO prat;
+	CLOSE shelf;
 
-open shelf;
-fetch shelf into prat;
-close shelf;
+	RETURN prat;	
 
-return prat;	
-
-Exception
-	when no_data_found then
-		return prat;
+EXCEPTION
+	WHEN no_data_found THEN
+		RETURN prat;
 	
-return prat;
-	
-end;
-
+END;
 /
 
 
-create or replace function getEditora (edi IN EDITORA.NOME_EDITORA%type) return EDITORA.ID_EDITORA%type is
+CREATE OR REPLACE FUNCTION getEditora (edi IN EDITORA.NOME_EDITORA%type) RETURN EDITORA.ID_EDITORA%type IS
 
-edit EDITORA.ID_EDITORA%type:=-1;
+	edit EDITORA.ID_EDITORA%type:=-1;
 
-begin
+BEGIN
 
-select ID_EDITORA into edit from editora where upper(NOME_EDITORA) like upper(edi);
+	SELECT ID_EDITORA INTO edit FROM editora WHERE UPPER(NOME_EDITORA) LIKE UPPER(edi);
 
-return edit;
+	RETURN edit;
 
-Exception
-	when no_data_found then
-		return edit;
+EXCEPTION
+	WHEN no_data_found THEN
+		RETURN edit;
 	
-end;
-
+END;
 /
 
 
@@ -206,46 +192,45 @@ CREATE OR REPLACE PROCEDURE addDocument ( Aut IN AUTOR.NOME_AUTOR%type, Edi IN E
 	idPra PRATELEIRA.ID_PRATELEIRA%type;
 	
 BEGIN
-	Begin
-		select id_autor into idAut from Autor where upper(nome_autor) like upper(Aut);
-		if SQL%ROWCOUNT>1 then
+	BEGIN
+		SELECT id_autor INTO idAut FROM Autor WHERE UPPER(nome_autor) LIKE UPPER(Aut) FOR UPDATE;
+		IF (SQL%ROWCOUNT > 1) THEN
 			retval := -1;
-			return;
-		end if;
+			RETURN;
+		END IF;
 		
-		Exception
-			when no_data_found then
-				SELECT seq_id_author.nextval INTO idAut FROM dual;
-				insert into AUTOR values (Aut,idAut);
-	end;
+		EXCEPTION
+			WHEN no_data_found then
+				SELECT seq_id_author.NEXTVAL INTO idAut FROM dual;
+				INSERT INTO AUTOR VALUES (Aut,idAut);
+	END;
 	
 	idPra := getPrateleira(gen,total);
 	
-	if idPra=-1 then --n existem prateleiras para esse genero
-		SELECT seq_id_shelf.nextval INTO idPra FROM dual;
-		if total > 100 then
-			insert into prateleira values(total+10,0,idPra,gen);
-		else
-			insert into prateleira values(100,0,idPra,gen);
-		end if;
-	end if;
+	IF (idPra = -1) THEN --n existem prateleiras para esse genero
+		SELECT seq_id_shelf.NEXTVAL INTO idPra FROM dual;
+		IF (total > 100) THEN
+			INSERT INTO prateleira VALUES(total+10,0,idPra,gen);
+		ELSE
+			INSERT INTO prateleira VALUES(100,0,idPra,gen);
+		END IF;
+	END IF;
 	
 	idEdi := getEditora(Edi);
 	
-	if idEdi=-1 then 
-		SELECT seq_id_publisher.nextval INTO idEdi FROM dual;
-		insert into editora values (idEdi,Edi);
-	end if;
+	IF (idEdi = -1) THEN 
+		SELECT seq_id_publisher.NEXTVAL INTO idEdi FROM dual;
+		INSERT INTO editora VALUES (idEdi,Edi);
+	END IF;
 
 
-	SELECT seq_id_document.nextval INTO current_id
+	SELECT seq_id_document.NEXTVAL INTO current_id
 	FROM dual;
 	
 	INSERT INTO PUBLICACAO VALUES (current_id, idPra, idAut, idEdi, pages, descri, varData, nome, total, total);
-	update prateleira set OCUPACAO=OCUPACAO+total where ID_PRATELEIRA = idPra;
+	UPDATE prateleira SET OCUPACAO = OCUPACAO+total WHERE ID_PRATELEIRA = idPra;
 	
 	retVal := 0;
-		
 	COMMIT;
 	
 EXCEPTION
@@ -258,12 +243,11 @@ EXCEPTION
 		retVal := -2;
 	
 END;
-
 /
 
 
 --penso que esta a funcionar como deve ser. verificar melhor
-CREATE OR REPLACE TRIGGER checkShelf AFTER UPDATE OF TOTAL ON PUBLICACAO FOR EACH ROW when (new.total != old.total)
+CREATE OR REPLACE TRIGGER checkShelf AFTER UPDATE OF TOTAL ON PUBLICACAO FOR EACH ROW WHEN (new.total != old.total)
 
 DECLARE
 
@@ -272,68 +256,69 @@ DECLARE
 	pub publicacao%rowtype;
 	idPra PRATELEIRA.ID_PRATELEIRA%type;
 
-begin
+BEGIN
 
 	--Procuramos se a prateleira q ja contem estas publicacoes tem espaco. se nao devolver nada, entao significa q ainda existe espaco nessa prateleira
-	select * into oldPratRow from prateleira where :old.id_prateleira = id_prateleira 
-		AND (capacidade < OCUPACAO +(:new.total-:old.total));
+	SELECT * INTO oldPratRow FROM prateleira WHERE :old.id_prateleira = id_prateleira 
+		AND (capacidade < OCUPACAO +(:new.total-:old.total)) FOR UPDATE;
 		
 	BEGIN
 		--Procuramos um prateleira do mesmo genero que tenha espaco
-		select * into newPratRow from prateleira where (capacidade >= OCUPACAO +(:new.total)) 
-			AND genero like oldPratRow.genero;
+		SELECT * INTO newPratRow FROM prateleira WHERE (capacidade >= OCUPACAO +(:new.total)) 
+			AND genero LIKE oldPratRow.genero FOR UPDATE;
 		
-		Exception 
-			--se nao existir entao criamos uma nova
-			when no_data_found then
-				SELECT seq_id_shelf.nextval INTO idPra FROM dual;
-				if :new.total>100 then
-					insert into prateleira values(:new.total+10,0,idPra,oldPratRow.genero);
-				else
-					insert into prateleira values(100,0,idPra,oldPratRow.genero);
-				end if;
-				
-				select * into newPratRow from prateleira where (capacidade >= OCUPACAO +(:new.total)) 
-					AND genero like oldPratRow.genero;
+	EXCEPTION 
+		--se nao existir entao criamos uma nova
+		WHEN no_data_found THEN
+			SELECT seq_id_shelf.NEXTVAL INTO idPra FROM dual;
+			IF (:new.total > 100) THEN
+				INSERT INTO prateleira VALUES(:new.total+10,0,idPra,oldPratRow.genero);
+			ELSE
+				INSERT INTO prateleira VALUES(100,0,idPra,oldPratRow.genero);
+			END IF;
+			
+			SELECT * INTO newPratRow FROM prateleira WHERE (capacidade >= OCUPACAO +(:new.total)) 
+				AND genero like oldPratRow.genero FOR UPDATE;
 					
-	end;
+	END;
 	
-	update prateleira set OCUPACAO=OCUPACAO+:new.total where ID_PRATELEIRA = newPratRow.id_prateleira;
-	update prateleira set OCUPACAO=OCUPACAO-:old.total where ID_PRATELEIRA = oldPratRow.id_prateleira;
+	UPDATE prateleira SET OCUPACAO=OCUPACAO+:new.total WHERE ID_PRATELEIRA = newPratRow.id_prateleira;
+	UPDATE prateleira SET OCUPACAO=OCUPACAO-:old.total WHERE ID_PRATELEIRA = oldPratRow.id_prateleira;
 	
-	Exception
-		when no_data_found then
-			update prateleira set ocupacao=ocupacao+(:new.total-:old.total) where ID_PRATELEIRA = :old.id_prateleira;
-			return;
-		when others then
-			rollback;
-			return;
-end;
-
+	COMMIT;
+	
+	EXCEPTION
+		WHEN no_data_found THEN
+			UPDATE prateleira set ocupacao=ocupacao+(:new.total-:old.total) where ID_PRATELEIRA = :old.id_prateleira;
+			RETURN;
+		WHEN OTHERS THEN
+			ROLLBACK;
+			RETURN;
+END;
 /
 
-create or replace procedure removeCopyDocument(idDoc IN PUBLICACAO.ID_DOC%type, noRem IN PUBLICACAO.TOTAL%type, retVal out number) IS
+CREATE OR REPLACE PROCEDURE removeCopyDocument(idDoc IN PUBLICACAO.ID_DOC%type, noRem IN PUBLICACAO.TOTAL%type, retVal OUT NUMBER) IS
 
-avail publicacao.disponiveis%type;
-pra publicacao.id_prateleira%type;
+	avail publicacao.disponiveis%type;
+	pra publicacao.id_prateleira%type;
 
-Begin
-	select disponiveis into avail from publicacao where id_doc = idDoc;
-	select id_prateleira into pra from publicacao where id_doc = idDoc;
+BEGIN
+	SELECT disponiveis INTO avail FROM publicacao WHERE id_doc = idDoc FOR UPDATE;
+	SELECT id_prateleira INTO pra FROM publicacao WHERE id_doc = idDoc FOR UPDATE;
 	
-	if avail>=noRem then
+	IF (avail >= noRem) THEN
 		UPDATE PUBLICACAO
 		SET DISPONIVEIS=DISPONIVEIS-noRem, TOTAL=TOTAL-noRem
 		WHERE id_doc = idDoc;
 	
 		UPDATE PRATELEIRA
-		set OCUPACAO=OCUPACAO-noRem
-		where ID_PRATELEIRA = pra;
+		SET OCUPACAO=OCUPACAO-noRem
+		WHERE ID_PRATELEIRA = pra;
 		
 		retVal :=1;
-	else
+	ELSE
 		retVal :=0;
-	end if;
+	END IF;
 	
 	COMMIT;
 
@@ -342,25 +327,25 @@ EXCEPTION
 		retVal := -1;
 	WHEN OTHERS THEN
 		retVal := -2;
-end;
-
+END;
 /
 
 
 -- falta verificar a questao das prateleiras!
-CREATE OR REPLACE PROCEDURE addCopyDocument(idDoc IN PUBLICACAO.ID_DOC%type, novos IN PUBLICACAO.TOTAL%type, retVal out number) IS
+CREATE OR REPLACE PROCEDURE addCopyDocument(idDoc IN PUBLICACAO.ID_DOC%type, novos IN PUBLICACAO.TOTAL%type, retVal OUT NUMBER) IS
 	checker INTEGER;
 
 BEGIN
 	SELECT id_doc INTO checker
 	FROM Publicacao
-	WHERE id_doc = idDoc;
+	WHERE id_doc = idDoc
+	FOR UPDATE;
 
 	UPDATE PUBLICACAO
 	SET DISPONIVEIS=DISPONIVEIS+novos, TOTAL=TOTAL+novos
 	WHERE id_doc = idDoc;
 	
-	retVal := 0 ;
+	retVal := 0;
 	COMMIT;
 
 EXCEPTION
@@ -370,7 +355,6 @@ EXCEPTION
 		retVal := -2;
 
 END;
-
 /	
 
 
@@ -380,7 +364,6 @@ CREATE OR REPLACE PROCEDURE newRequisition ( book_id IN Publicacao.id_doc%type, 
 	no_available INTEGER; 
 	id_pessoa_conf INTEGER; 
 	current_id NUMBER;
-	temp NUMBER;
 	no_requisitions INTEGER;
 	no_faulty_requisitions INTEGER;
 	
@@ -391,7 +374,6 @@ BEGIN
 	SELECT seq_id_aluguer.nextval INTO current_id
 	FROM dual;
 	
-	temp := 0;
 	no_requisitions := 0;
 	no_faulty_requisitions := 0;
 	returnValue := 0;
@@ -402,56 +384,53 @@ BEGIN
 		WHERE p.id_doc = book_id; 
 	EXCEPTION
 		WHEN NO_DATA_FOUND THEN 
-			temp := 1;
 			returnValue := -2;
+			RETURN;
 	END;
-	
-	IF (temp < 1) THEN
-		-- First, we check if there are enough copies for this requisition.
 		
-		--Then, we have to see if the reader hasn't more than three books or
-		BEGIN
-			SELECT COUNT(*) INTO no_requisitions
-			FROM Emprestimo
-			WHERE LEI_ID_PESSOA = reader_id AND Data_entrega IS NULL;
-			
-			IF (no_requisitions = 3) THEN
-				returnValue := -5;
-			END IF;
-		EXCEPTION
-			WHEN NO_DATA_FOUND THEN
-				no_requisitions := 0;
-		END;
+	--Then, we have to see if the reader hasn't more than three books or
+	BEGIN
+		SELECT COUNT(*) INTO no_requisitions
+		FROM Emprestimo
+		WHERE LEI_ID_PESSOA = reader_id AND Data_entrega IS NULL;
+		
+		IF (no_requisitions = 3) THEN
+			returnValue := -5;
+			RETURN;
+		END IF;
+	EXCEPTION
+		WHEN NO_DATA_FOUND THEN
+			no_requisitions := 0;
+	END;
 
-		-- isn't delaying in delivering some books.			
-		BEGIN
-			SELECT COUNT(*) INTO no_faulty_requisitions
-			FROM Emprestimo
-			WHERE LEI_ID_PESSOA = reader_id AND Data_prevista - SYSDATE < 0;
-			
-			IF (no_faulty_requisitions > 0) THEN
-				returnValue := -6;
-			END IF;
-		EXCEPTION
-			WHEN NO_DATA_FOUND THEN
-				no_faulty_requisitions := 0;
-		END;
-			
+	-- isn't delaying in delivering some books.			
+	BEGIN
+		SELECT COUNT(*) INTO no_faulty_requisitions
+		FROM Emprestimo
+		WHERE LEI_ID_PESSOA = reader_id AND Data_prevista - SYSDATE < 0;
 		
-		IF (no_available > 0 AND returnValue >= 0) THEN 
-			UPDATE Publicacao p SET p.disponiveis = p.disponiveis - 1 
-			WHERE p.id_doc = book_id; 
-			
-			UPDATE Leitor SET no_emprestimos = no_emprestimos + 1
-			WHERE id_pessoa = reader_id;
-			
-			INSERT INTO Emprestimo VALUES (reader_id, employee_id, book_id, current_id, SYSDATE, SYSDATE + 7, null ); 
-			returnValue := current_id;
-		ELSIF (no_available = 0 AND returnValue >= 0) THEN
-			returnValue := -1;
-		END IF; 
+		IF (no_faulty_requisitions > 0) THEN
+			returnValue := -6;
+			RETURN;
+		END IF;
+	EXCEPTION
+		WHEN NO_DATA_FOUND THEN
+			no_faulty_requisitions := 0;
+	END;
 		
-	END IF;
+	-- We check if there are enough copies for this requisition.
+	IF (no_available > 0) THEN 
+		UPDATE Publicacao p SET p.disponiveis = p.disponiveis - 1 
+		WHERE p.id_doc = book_id; 
+		
+		UPDATE Leitor SET no_emprestimos = no_emprestimos + 1
+		WHERE id_pessoa = reader_id;
+		
+		INSERT INTO Emprestimo VALUES (reader_id, employee_id, book_id, current_id, SYSDATE, SYSDATE + 7, null ); 
+		returnValue := current_id;
+	ELSIF (no_available = 0) THEN
+		returnValue := -1;
+	END IF; 
 	
 	COMMIT; 
 	
@@ -464,7 +443,6 @@ EXCEPTION
 		returnValue := -4;
 
 END;
-
 /
 
 
@@ -472,45 +450,42 @@ END;
 CREATE OR REPLACE PROCEDURE returnRequisition ( req_id IN Emprestimo.id_emprestimo%type, returnValue OUT INTEGER) IS
 	return_date DATE; 
 	id_book Publicacao.id_doc%type;
-	temp NUMBER;
 	
 	ID_NOT_FOUND exception; 
 	PRAGMA exception_init(ID_NOT_FOUND, -2291); 
 	
 BEGIN 
 	
-	temp := 0;
-	
 	BEGIN
 		SELECT e.data_entrega INTO return_date 
 		FROM Emprestimo e 
-		WHERE e.id_emprestimo = req_id; 
+		WHERE e.id_emprestimo = req_id
+		FOR UPDATE; 
 	EXCEPTION
 		-- If there's no requisiton with this ID.
 		WHEN NO_DATA_FOUND THEN 
-			temp := 1;
 			returnValue := -2;
+			RETURN;
 	END;
 	
-	IF (temp < 1) THEN
-		IF (return_date IS NULL) THEN 
+	IF (return_date IS NULL) THEN 
+	
+		SELECT e.id_doc INTO id_book
+		FROM Emprestimo e
+		WHERE e.id_emprestimo = req_id
+		FOR UPDATE;
 		
-			SELECT e.id_doc INTO id_book
-			FROM Emprestimo e
-			WHERE e.id_emprestimo = req_id;
-			
-			UPDATE Publicacao SET disponiveis = disponiveis + 1
-			WHERE id_doc = id_book;
-			
-			UPDATE Emprestimo SET data_entrega = SYSDATE
-			WHERE id_emprestimo = req_id;
-			
-			returnValue := 0;
-		ELSE 
-			-- if the requisition was already returned.
-			returnValue := -1;
-		END IF; 
-	END IF;
+		UPDATE Publicacao SET disponiveis = disponiveis + 1
+		WHERE id_doc = id_book;
+		
+		UPDATE Emprestimo SET data_entrega = SYSDATE
+		WHERE id_emprestimo = req_id;
+		
+		returnValue := 0;
+	ELSE 
+		-- if the requisition was already returned.
+		returnValue := -1;
+	END IF; 
 	
 	COMMIT; 
 	
@@ -520,7 +495,6 @@ EXCEPTION
 		returnValue := -3;
 
 END;
-
 /
 
 -- STATISTICS
@@ -529,6 +503,8 @@ END;
 CREATE OR REPLACE PROCEDURE employeesStats (no_entries OUT INTEGER, fired_employees OUT INTEGER, avg_working_time OUT FLOAT) IS
 	
 BEGIN
+	
+	SET TRANSACTION READ ONLY;
 	
 	-- Checks the number of entries
 	BEGIN
@@ -558,9 +534,7 @@ BEGIN
 			avg_working_time := 0;
 	END;
 	
-	
 	COMMIT;
-	
 
 END;
 /
@@ -570,6 +544,8 @@ END;
 CREATE OR REPLACE PROCEDURE readersStats (no_entries OUT INTEGER, readers_with_books OUT INTEGER, faulty_readers OUT INTEGER) IS
 	
 BEGIN
+
+	SET TRANSACTION READ ONLY;
 	
 	-- Checks the number of entries
 	BEGIN
@@ -587,8 +563,7 @@ BEGIN
 				FROM Emprestimo
 				WHERE Data_entrega IS NULL
 				GROUP BY LEI_ID_PESSOA) red;
-		
-		
+	
 	EXCEPTION
 		WHEN NO_DATA_FOUND THEN
 			readers_with_books := 0;
@@ -604,9 +579,7 @@ BEGIN
 			faulty_readers := 0;
 	END;
 	
-	
 	COMMIT;
-	
 
 END;
 /
@@ -617,6 +590,8 @@ CREATE OR REPLACE PROCEDURE booksAndShelvesStats (no_books OUT INTEGER, max_page
 													occupation OUT FLOAT, avg_capacity OUT FLOAT) IS
 	
 BEGIN
+	
+	SET TRANSACTION READ ONLY;
 	
 	-- Checks the number of books
 	BEGIN
@@ -663,8 +638,6 @@ BEGIN
 			avg_copies := 0;
 	END;
 	
-	
-	
 	-- SHELVES
 	
 	-- Checks the number of books
@@ -685,7 +658,6 @@ BEGIN
 			occupation := 0;
 	END;
 	
-	
 	-- Checks the number of books
 	BEGIN
 		SELECT ROUND(AVG(CAPACIDADE),2) INTO avg_capacity
@@ -693,11 +665,9 @@ BEGIN
 	EXCEPTION
 		WHEN NO_DATA_FOUND THEN
 			avg_capacity := 0;
-	END;
-	
+	END;	
 	
 	COMMIT;
-	
 
 END;
 /
@@ -707,6 +677,8 @@ CREATE OR REPLACE PROCEDURE requisitionsStats (no_entries OUT INTEGER, on_going_
 												no_faulty_reqs OUT INTEGER, avg_reqs_per_day OUT FLOAT, no_days_with_reqs OUT INTEGER) IS
 	
 BEGIN
+	
+	SET TRANSACTION READ ONLY;
 	
 	-- Checks the number of requisitons
 	BEGIN
@@ -767,9 +739,7 @@ BEGIN
 			no_days_with_reqs := 0;
 	END;
 	
-	
 	COMMIT;
-	
 
 END;
 /
@@ -780,6 +750,8 @@ CREATE OR REPLACE PROCEDURE authorsAndPublishersStats (no_authors OUT INTEGER, a
 														no_publishers OUT INTEGER, avg_doc_per_publisher OUT FLOAT) IS
 	
 BEGIN
+	
+	SET TRANSACTION READ ONLY;
 	
 	-- AUTHORS
 	-- Checks the number of entries
@@ -820,15 +792,14 @@ BEGIN
 			avg_doc_per_publisher := 0;
 	END;
 	
-	
 	COMMIT;
-	
 
 END;
 /
 
 CREATE OR REPLACE PROCEDURE login (username IN AUTENTICACAO.ID_EMPREGADO%type, pw IN AUTENTICACAO.PASSWORD%type, returnValue OUT INTEGER) IS
 
+	-- Just to check if we have this ID.
 	temp INTEGER;
 BEGIN
 	SELECT a.ID_EMPREGADO INTO temp
