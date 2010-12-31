@@ -814,7 +814,3 @@ EXCEPTION
 		
 END;
 /
-
-	SELECT a.ID_EMPREGADO
-	FROM Autenticacao a
-	WHERE a.ID_EMPREGADO = 1 AND a.PASSWORD = 'admin';
