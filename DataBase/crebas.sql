@@ -91,6 +91,8 @@ create table EMPRESTIMO
    constraint PK_EMPRESTIMO primary key (LEI_ID_PESSOA, ID_PESSOA, ID_DOC, ID_EMPRESTIMO)
 );
 
+
+
 /*==============================================================*/
 /* Index: REQUISITAR_FK                                         */
 /*==============================================================*/
@@ -232,8 +234,10 @@ alter table PUBLICACAO
 alter table PUBLICACAO
    add constraint FK_PUBLICAC_POSSUIR_EDITORA foreign key (ID_EDITORA)
       references EDITORA (ID_EDITORA);
-
 	 
+alter table AUTENTICACAO
+   drop constraint FK_AUTENTICACAO_EMPREGADO;
+   
 drop table autenticacao;
 
 /*==============================================================*/
@@ -246,9 +250,13 @@ create table AUTENTICACAO
    constraint PK_AUTENTICACAO primary key (ID_EMPREGADO)
 );
 
+alter table AUTENTICACAO
+   add constraint FK_AUTENTICACAO_EMPREGADO foreign key (ID_EMPREGADO)
+      references FUNCIONARIO (ID_PESSOA);
+
 -- Inserts the admin login.
-insert into AUTENTICACAO values (1, 'admin');
-INSERT INTO Pessoa VALUES ('Admin', 'Base de Dados', 0, SYSDATE , 0, 'admin@bd.uc.pt', 1);
-INSERT INTO Funcionario VALUES (1, sysdate, null);
+INSERT INTO PESSOA VALUES ('Admin', 'Base de Dados', 0, SYSDATE , 0, 'admin@bd.uc.pt', 1);
+INSERT INTO FUNCIONARIO VALUES (1, sysdate, null);
+INSERT INTO AUTENTICACAO VALUES (1, 'admin');
 
 COMMIT;

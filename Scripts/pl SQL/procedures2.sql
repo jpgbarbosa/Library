@@ -37,7 +37,6 @@ BEGIN
 	SELECT data_saida INTO varData FROM funcionario WHERE id_pessoa = idPessoa FOR UPDATE;
 	
 	IF (varData IS NOT NULL) THEN
-		ROLLBACK;
 		retVal:=-3;
 		RETURN;	
 	END IF;
@@ -48,8 +47,7 @@ BEGIN
 	COMMIT;
 	
 EXCEPTION
-	WHEN NO_DATA_FOUND THEN
-		ROLLBACK;
+	WHEN no_data_found THEN
 		retVal :=-1;
 		RETURN;
 	WHEN OTHERS THEN
@@ -76,7 +74,6 @@ BEGIN
 
 EXCEPTION
 	WHEN no_data_found THEN
-		ROLLBACK;
 		returnValue := -1;
 		RETURN;
 	WHEN OTHERS THEN
@@ -87,7 +84,7 @@ END;
 /
 
 CREATE OR REPLACE PROCEDURE updateEmployee (nomePessoa IN Pessoa.nome_pessoa%type, pmorada IN Pessoa.morada%type, pbi IN NUMBER, varData IN DATE ,ptelefone IN NUMBER, email IN Pessoa.e_mail%type,
-											ppassword IN Autenticacao.password%type, returnValue OUT INTEGER) IS
+											returnValue OUT INTEGER) IS
 
 	idPessoa Pessoa.ID_Pessoa%type;
 											
@@ -95,18 +92,14 @@ BEGIN
 
 	SELECT id_pessoa INTO idPessoa FROM pessoa p WHERE p.bi = pbi FOR UPDATE;
 
-	UPDATE Pessoa p SET p.nome_pessoa = nomePessoa, p.morada=pmorada, p.data = varData, p.telefone = ptelefone, p.e_mail=email
+	UPDATE pessoa p SET p.nome_pessoa = nomePessoa, p.morada=pmorada, p.data = varData, p.telefone = ptelefone, p.e_mail=email
 	WHERE p.id_pessoa = idPessoa;
-	
-	UPDATE Autenticacao a SET a.password = ppassword
-	WHERE a.Id_empregado = idPessoa;
 
 	returnValue:=1;
 	COMMIT;
 
 EXCEPTION
 	WHEN no_data_found THEN
-		ROLLBACK;
 		returnValue := -1;
 		RETURN;
 	WHEN OTHERS THEN
@@ -202,7 +195,6 @@ BEGIN
 	BEGIN
 		SELECT id_autor INTO idAut FROM Autor WHERE UPPER(nome_autor) LIKE UPPER(Aut) FOR UPDATE;
 		IF (SQL%ROWCOUNT > 1) THEN
-			ROLLBACK;
 			retval := -1;
 			RETURN;
 		END IF;
@@ -295,26 +287,26 @@ BEGIN
 	
 	COMMIT;
 	
-EXCEPTION
-	WHEN no_data_found THEN
-		UPDATE prateleira set ocupacao=ocupacao+(:new.total-:old.total) where ID_PRATELEIRA = :old.id_prateleira;
-		COMMIT;
-		RETURN;
-	WHEN OTHERS THEN
-		ROLLBACK;
-		RETURN;
+	EXCEPTION
+		WHEN no_data_found THEN
+			UPDATE prateleira set ocupacao=ocupacao+(:new.total-:old.total) where ID_PRATELEIRA = :old.id_prateleira;
+			RETURN;
+		WHEN OTHERS THEN
+			ROLLBACK;
+			RETURN;
 END;
 /
 
---Updates the number of available books and the number of requisitions of a given reader.
-CREATE OR REPLACE TRIGGER updateReqsAndCopies AFTER INSERT ON Emprestimo FOR EACH ROW
 
-BEGIN
-	UPDATE Publicacao p SET p.disponiveis = p.disponiveis - 1 
-	WHERE p.id_doc = :new.id_doc; 
-		
-	UPDATE Leitor SET no_emprestimos = no_emprestimos + 1
-	WHERE id_pessoa = :new.lei_id_pessoa;
+CREATE OR REPLACE TRIGGER checkAuthors BEFORE INSERT ON PUBLICACAO FOR EACH ROW
+
+
+END;
+/
+
+CREATE OR REPLACE TRIGGER checkPublishers BEFORE INSERT ON PUBLICACAO FOR EACH ROW
+
+
 END;
 /
 
@@ -441,6 +433,12 @@ BEGIN
 		
 	-- We check if there are enough copies for this requisition.
 	IF (no_available > 0) THEN 
+		UPDATE Publicacao p SET p.disponiveis = p.disponiveis - 1 
+		WHERE p.id_doc = book_id; 
+		
+		UPDATE Leitor SET no_emprestimos = no_emprestimos + 1
+		WHERE id_pessoa = reader_id;
+		
 		INSERT INTO Emprestimo VALUES (reader_id, employee_id, book_id, current_id, SYSDATE, SYSDATE + 7, null ); 
 		returnValue := current_id;
 	ELSIF (no_available = 0) THEN
@@ -479,7 +477,6 @@ BEGIN
 	EXCEPTION
 		-- If there's no requisiton with this ID.
 		WHEN NO_DATA_FOUND THEN 
-			ROLLBACK;
 			returnValue := -2;
 			RETURN;
 	END;

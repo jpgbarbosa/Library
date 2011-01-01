@@ -612,10 +612,15 @@ public class Employees extends javax.swing.JPanel implements
             if (value != Constants.loginNumber && Constants.loginNumber != 1){
                 JOptionPane.showMessageDialog(this, "You can't change information from other employees!");
             } else{
-                if(Constants.dbhandler.changePersonData(nome, morada, bi, telefone, eMail, date, true)){
-                    JOptionPane.showMessageDialog(this, "Changes made successfully");
-                 } else {
-                    JOptionPane.showMessageDialog(this, "Something went Wrong");
+
+                if (!jPasswordField1.getText().equals("") && jPasswordField1.getText().equals(jPasswordField2.getText())){
+                    if(Constants.dbhandler.changePersonData(nome, morada, bi, telefone, eMail, date, true, jPasswordField1.getText())){
+                        JOptionPane.showMessageDialog(this, "Changes made successfully");
+                     } else {
+                        JOptionPane.showMessageDialog(this, "Something went Wrong");
+                    }
+                }else{
+                    JOptionPane.showMessageDialog(this, "Invalid new password!");
                 }
             }
 

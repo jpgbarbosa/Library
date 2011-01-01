@@ -135,7 +135,43 @@ public class DatabaseHandler implements DB.DataAccessInterface{
 
     }
 
-     @Override
+    @Override
+    public String getNumberReqsAndIsFaulty(String id){
+        int noReqs = 0,faults = 0;
+        String text = "";
+
+        System.out.print("\n[Performing getNumberReqsAndIsFaulty]...");
+        try {
+            //Execute statement
+            Statement stmt;
+            stmt = conn.createStatement();//create statement
+            // execute querie
+            ResultSet rset = stmt.executeQuery(
+                    "SELECT NO_EMPRESTIMOS FROM Leitor l "
+                     + "WHERE l.Id_pessoa = " + id);
+            while (rset.next()) {//while there are still results left to read
+                noReqs = rset.getInt("NO_EMPRESTIMOS");
+            }
+
+            rset = stmt.executeQuery(
+                    "SELECT COUNT(*) Total FROM Emprestimo e "
+                     + "WHERE e.Lei_id_pessoa = " + id + " AND Data_entrega - SYSDATE < 0");
+            while (rset.next()) {//while there are still results left to read
+                faults = rset.getInt("TOTAL");
+            }
+
+            stmt.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(DatabaseHandler.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        text += "This reader has made " + noReqs + " requisition(s).\n";
+        text += "This reader has " + faults + " book(s) that should been delivered.\n";
+
+        return text;
+    }
+
+    @Override
     public void getIdReaderByName(String name, JTextArea textArea){
         Person reader;
         ArrayList <Person> readers = new ArrayList<Person>();
@@ -200,7 +236,7 @@ public class DatabaseHandler implements DB.DataAccessInterface{
         return  dados;
     }
 
-      public boolean changePersonData(String name, String morada, String bi, String telefone, String eMail, int [] date, boolean isEmployee){
+      public boolean changePersonData(String name, String morada, String bi, String telefone, String eMail, int [] date, boolean isEmployee, String password){
         System.out.print("\n[Performing addPerson]...");
         //Execute statement
         CallableStatement proc = null;
@@ -208,7 +244,7 @@ public class DatabaseHandler implements DB.DataAccessInterface{
 
         try {
             if(isEmployee){
-                proc = conn.prepareCall("{ call updateEmployee(?, ?, ?, ?, ?, ?, ?) }");
+                proc = conn.prepareCall("{ call updateEmployee(?, ?, ?, ?, ?, ?, ?, ?) }");
 
                 proc.setString(1, name);
                 proc.setString(2, morada);
@@ -216,10 +252,11 @@ public class DatabaseHandler implements DB.DataAccessInterface{
                 proc.setDate(4, new Date((new GregorianCalendar(date[2], date[1]-1, date[0])).getTimeInMillis()));
                 proc.setInt(5, Integer.parseInt(telefone));
                 proc.setString(6, eMail);
-                proc.registerOutParameter(7, java.sql.Types.INTEGER);
+                proc.setString(7, password);
+                proc.registerOutParameter(8, java.sql.Types.INTEGER);
                 proc.execute();
 
-                returnValue = (Integer) proc.getObject(7);
+                returnValue = (Integer) proc.getObject(8);
 
                 proc.close();
             } else {
