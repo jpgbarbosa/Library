@@ -522,7 +522,7 @@ BEGIN
 		WHERE Data_saida IS NOT NULL;
 	EXCEPTION
 		WHEN NO_DATA_FOUND THEN
-			no_entries := 0;
+			fired_employees := 0;
 	END;
 	
 	BEGIN
@@ -606,36 +606,36 @@ BEGIN
 	BEGIN
 		SELECT MAX(Paginas) INTO max_pages
 		FROM Publicacao;
-	EXCEPTION
-		WHEN NO_DATA_FOUND THEN
+		IF (max_pages IS NULL) THEN
 			max_pages := 0;
+		END IF;
 	END;
 	
 	-- min pages
 	BEGIN
 		SELECT MIN(Paginas) INTO min_pages
 		FROM Publicacao;
-	EXCEPTION
-		WHEN NO_DATA_FOUND THEN
+		IF (min_pages IS NULL) THEN
 			min_pages := 0;
+		END IF;
 	END;
 	
 	-- Check the average number of copies per publication
 	BEGIN
 		SELECT ROUND(AVG(Paginas),2) INTO avg_pages
 		FROM Publicacao;
-	EXCEPTION
-		WHEN NO_DATA_FOUND THEN
+		IF (avg_pages IS NULL) THEN
 			avg_pages := 0;
+		END IF;
 	END;
 	
 	-- Check the average number of copies per publication
 	BEGIN
 		SELECT ROUND(AVG(Total),2) INTO avg_copies
 		FROM Publicacao;
-	EXCEPTION
-		WHEN NO_DATA_FOUND THEN
+		IF (avg_copies IS NULL) THEN
 			avg_copies := 0;
+		END IF;	
 	END;
 	
 	-- SHELVES
@@ -653,18 +653,18 @@ BEGIN
 	BEGIN
 		SELECT ROUND(SUM(OCUPACAO)/SUM(CAPACIDADE), 2) INTO occupation
 		FROM Prateleira;
-	EXCEPTION
-		WHEN NO_DATA_FOUND THEN
+		IF (occupation IS NULL) THEN
 			occupation := 0;
+		END IF;			
 	END;
 	
 	-- Checks the number of books
 	BEGIN
 		SELECT ROUND(AVG(CAPACIDADE),2) INTO avg_capacity
 		FROM Prateleira;
-	EXCEPTION
-		WHEN NO_DATA_FOUND THEN
+		IF (avg_capacity IS NULL) THEN
 			avg_capacity := 0;
+		END IF;	
 	END;	
 	
 	COMMIT;
@@ -724,9 +724,9 @@ BEGIN
 		SELECT ROUND(AVG(COUNT(*)),2) INTO avg_reqs_per_day
 		FROM Emprestimo
 		GROUP BY TO_CHAR(DATA_DE_REQUISITO,'yyyy-mm-dd');
-	EXCEPTION
-		WHEN NO_DATA_FOUND THEN
+		IF (avg_reqs_per_day IS NULL) THEN
 			avg_reqs_per_day := 0;
+		END IF;	
 	END;
 	
 	-- Checks the number of days with requisitions
@@ -767,9 +767,9 @@ BEGIN
 	BEGIN
 		SELECT ROUND(p.soma/aut.total_aut) INTO avg_doc_per_author
 		FROM (SELECT COUNT(*) total_aut FROM Autor) aut, (SELECT SUM(Total) soma FROM Publicacao) p;
-	EXCEPTION
-		WHEN NO_DATA_FOUND THEN
+		IF (avg_doc_per_author IS NULL) THEN
 			avg_doc_per_author := 0;
+		END IF;		
 	END;
 	
 	-- PUBLISHERS
@@ -787,9 +787,9 @@ BEGIN
 	BEGIN
 		SELECT ROUND(p.soma/e.total_edit) INTO avg_doc_per_publisher
 		FROM (SELECT COUNT(*) total_edit FROM Editora) e, (SELECT SUM(Total) soma FROM Publicacao) p;
-	EXCEPTION
-		WHEN NO_DATA_FOUND THEN
+		IF (avg_doc_per_publisher IS NULL) THEN
 			avg_doc_per_publisher := 0;
+		END IF;
 	END;
 	
 	COMMIT;
