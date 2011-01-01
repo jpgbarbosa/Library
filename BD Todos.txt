@@ -1,10 +1,6 @@
 PRIORITÁRIOS:
 
--> TRANSACÇOES e SELECT FOR UPDATE
-
 -> Permitir apagar requisitos (Podem acontecer enganos a adicioanr o requisito ou entao o empregado q o de como entregue logo mas n e la mto correcto)
-
--> Permitir apagar cópias até aos 0 disponíveis ---> DUNE se nao concordares apaga :P
 
 -> Reorganizar as prateleiras (parece-me demasiado complexo).
 
@@ -15,11 +11,7 @@ PRIORITÁRIOS:
 
 -> No diagrama, meter o n+umero de páginas.
 
--> os meus métodos não estao todos na interface. ha problemas?
-
 -> nao deviamos ter salários nos empregados?
-
--> Nas requisições, não esquecer de mudar o valor estático de 28. Tester novamente com um número de user inválido.
 
 -> Proteger contra docs iguais e pessoas iguais. um reader pode ser employee?
 
@@ -46,39 +38,10 @@ CUIDADOS!!!!
 
 SOLVED:
 
--> Protecções em todos os campos; PENSO QUE ESTA DUNE
-
--> Nas listagem, devemos promover a ordem, i.e. possibilitar por exemplo se o utilizador que ordenar os dados dos clientes
-   por ordem alfabética ou então pelos seus ID's.
-	R.: JÁ N ESTA FEITO?
-
 -> Não esquecer da cenas dos UPPERS, por causa dos inputs e do modo de registo das strings na base de dados (nao confiar no que 
 o utilizador introduz). r.: PENSO QUE ESTAO TODOS -> REVER
 
 -> Quando nao são encontrados resultados, informar o utilizador.-> REVER
-
--> Nas procuras por nome, usar aquela cena dos % e _ por causa da Strings, para não ser só nomes à letra. DUNE 
-
--> Permitir a alteração dos dados de utilizadores e funcionários.
-
-
-
-
-entao cenas q so tu podes fazer. interface com as estatisticas visto q o meu mara completamente
-e ficas entao com a cena dos users
-
-eu faço a entrega das reservas e adicionar livros e crio um data set
-e depois é ir fazendo o adicionar editoras e autores
-R.: penso que já esta feito. quando inserimos um livro ele insere a editora se nao existir. o mesmo acontece com os autores. n interessa adicionar autores se nao tiverem 	publicacoes
-
-
-CENAS DO GUI:
-As vezes nem os butões aparecem, e dado os fantásticos nomes que têm n os consigo distinguir.
-
--> TO IVO: junta a pesquisa por data q esta em baixo na tab findDocument aos radioButtons. nao faço isso visto a minha GUI estar marada aí.
-
--> TO IVO: Tirar os toggle buttons. List reader por data de nascimento n esta implementado penso. -> ja implementei. faz a junção para o botão pq ta tudo marado
-
 -----
 
 -> Acrescentar isto à tabela de cliente, não? 

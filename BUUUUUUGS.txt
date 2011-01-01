@@ -1,6 +1,4 @@
 BUGS:
-	- estamos a permitir q um user tenha mais de 3 emprestimos (fiz um exemplo com 3 livros iguais e mais outros 2 penso) -> PENSO Q TU (IVO) JA CORRIGISTE! CERTIFICA-TE
-	
 	- se inserirmos mais de 20 copias de um livro, as estantes q estao a ser criadas so suportam 20. 
 		podemos proibir ou criar prateliras de x em x elementos conforme seja necessario 
 			-> CRIO UMA TABELA COM O NUMERO DE COPIAS MAIS 10 SE A TABELA NAO TIVER ESPACO DISPONIVEL ATE 100 docs.
