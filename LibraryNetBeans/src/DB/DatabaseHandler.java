@@ -29,16 +29,20 @@ import librarynetbeans.Validation;
 public class DatabaseHandler implements DB.DataAccessInterface{
 
     //YOU MIGHT NEED TO CHANGE THIS INFORMATION!!!
-    final String username = "bd01";//username of the DB (YOU MIGHT NEED TO CHANGE THIS IF YOU USERNAME IS DIFFERENT!)
+    /*final String username = "bd01";//username of the DB (YOU MIGHT NEED TO CHANGE THIS IF YOU USERNAME IS DIFFERENT!)
     final String password = "bd01";//password of the DB (YOU MIGHT NEED TO CHANGE THIS IF YOU PASSWORD IS DIFFERENT!)
-    final String url = "jdbc:oracle:thin:@localhost:1521:orcl"; //you might need to change this URL... it ends with orcl (instead of xe) if you are using Oracle. If you are using Oracle Express use xe in the end instead of orcl
+    final String url = "jdbc:oracle:thin:@localhost:1521:orcl"; //you might need to change this URL... it ends with orcl (instead of xe) if you are using Oracle. If you are using Oracle Express use xe in the end instead of orcl*/
     private Connection conn; //connection to the database
 
     /**
      * Creates the connection to the database
      */
     public DatabaseHandler() {	
+        connect("jdbc:oracle:thin:@localhost:1521:orcl", "employee", "employee");
+    }
 
+    @Override
+    final public void connect(String url, String username, String password){
         try {
             //Connect to the database
             //The following snippet registers the driver and gets a connection to the database, in the case of a normal java application.
@@ -66,7 +70,7 @@ public class DatabaseHandler implements DB.DataAccessInterface{
      * Closes the connection with the database
      */
     @Override
-    public void close(){
+    final public void close(){
         try {
             conn.close();//close the connection to the database
         } catch (SQLException ex) {

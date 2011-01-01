@@ -129,6 +129,13 @@ public class Login extends javax.swing.JPanel {
                     Constants.addEmployee.setVisible(false);
                     Constants.fireEmployee.setVisible(false);
                 }
+                else{
+                    /* Closes the old connection and opens a new
+                     * session in the DB with the user admin.
+                     */
+                    Constants.dbhandler.close();
+                    Constants.dbhandler.connect("jdbc:oracle:thin:@localhost:1521:orcl", "bd01", "bd01");
+                }
             }
             else{
                 JOptionPane.showMessageDialog(this, "Invalid login...");

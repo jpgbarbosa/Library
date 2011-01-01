@@ -16,7 +16,8 @@ import javax.swing.JTextArea;
  * @author Luís Cardoso & Pedro Catré
  */
 public interface DataAccessInterface {
-    
+
+    public void connect(String url, String username, String password);
     public void close();
     public int login (int username, String password);
     public ArrayList<Editora> getPublishers();
