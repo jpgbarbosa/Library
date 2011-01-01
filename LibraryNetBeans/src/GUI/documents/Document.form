@@ -49,7 +49,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jTabbedPane1" alignment="0" pref="941" max="32767" attributes="0"/>
+                  <Component id="jTabbedPane1" alignment="0" pref="917" max="32767" attributes="0"/>
                   <Component id="jButton1" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -92,7 +92,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jPanel9" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="34" max="32767" attributes="0"/>
+                      <EmptySpace pref="12" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -236,8 +236,14 @@
                 </Component>
                 <Component class="javax.swing.JRadioButton" name="jRadioButton11">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="&lt;HTML&gt;&lt;B&gt;Reader ID:&lt;/B&gt;&lt;HTML"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="11" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Reader ID"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButton11ActionPerformed"/>
+                  </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="jRadioButton11.setSelected(true);"/>
                     <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="returnSelectionGroup.add(jRadioButton11);"/>
@@ -245,7 +251,10 @@
                 </Component>
                 <Component class="javax.swing.JRadioButton" name="jRadioButton12">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="&lt;HTML&gt;&lt;B&gt;Requisition ID:&lt;/B&gt;&lt;HTML"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="11" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Requisition ID"/>
                   </Properties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="returnSelectionGroup.add(jRadioButton12);"/>
@@ -253,7 +262,10 @@
                 </Component>
                 <Component class="javax.swing.JRadioButton" name="jRadioButton13">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="&lt;HTML&gt; &lt;B&gt;Document Title:&lt;/B&gt;&lt;HTML"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="11" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Document Title"/>
                   </Properties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="returnSelectionGroup.add(jRadioButton13);"/>
@@ -261,7 +273,10 @@
                 </Component>
                 <Component class="javax.swing.JRadioButton" name="jRadioButton14">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="&lt;HTML&gt;&lt;B&gt;Document ID:&lt;/B&gt;&lt;HTML"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="11" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Document ID"/>
                   </Properties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="returnSelectionGroup.add(jRadioButton14);"/>
@@ -269,7 +284,10 @@
                 </Component>
                 <Component class="javax.swing.JRadioButton" name="jRadioButton15">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="&lt;HTML&gt;&lt;B&gt;Requisition Date:&lt;/B&gt;&lt;HTML"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="11" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Requisition Date"/>
                   </Properties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="returnSelectionGroup.add(jRadioButton15);"/>
@@ -277,7 +295,10 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel63">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="&lt;HTML&gt;&lt;B&gt;Requisition ID:&lt;/B&gt;&lt;HTML"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="11" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Requisition ID"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="deliveryIdField">
@@ -302,6 +323,9 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="    /    /    "/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="reqDateFieldInRBActionPerformed"/>
+                  </Events>
                 </Component>
                 <Container class="javax.swing.JScrollPane" name="jScrollPane7">
                   <AuxValues>
@@ -400,10 +424,10 @@
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="102" attributes="0">
                                               <Component id="jTextField11" min="-2" pref="331" max="-2" attributes="0"/>
-                                              <EmptySpace pref="12" max="32767" attributes="0"/>
+                                              <EmptySpace max="32767" attributes="0"/>
                                               <Component id="List2InDocsTab1" min="-2" max="-2" attributes="0"/>
                                           </Group>
-                                          <Component id="findByTitleArea" pref="392" max="32767" attributes="1"/>
+                                          <Component id="findByTitleArea" pref="386" max="32767" attributes="1"/>
                                           <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
                                               <Component id="publisherTextArea" alignment="0" max="32767" attributes="1"/>
                                               <Component id="authorTextArea" alignment="0" pref="178" max="32767" attributes="1"/>
@@ -419,7 +443,7 @@
                                                   <Group type="102" alignment="0" attributes="0">
                                                       <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
                                                       <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                                                      <Component id="jTextField10" pref="127" max="32767" attributes="0"/>
+                                                      <Component id="jTextField10" pref="121" max="32767" attributes="0"/>
                                                       <EmptySpace min="-2" pref="145" max="-2" attributes="0"/>
                                                   </Group>
                                                   <Component id="ChooseDateDocsTab1" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -706,20 +730,20 @@
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace pref="365" max="32767" attributes="0"/>
+                      <EmptySpace pref="341" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="828" max="32767" attributes="0"/>
+                      <EmptySpace pref="804" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jScrollPane2" pref="916" max="32767" attributes="0"/>
+                      <Component id="jScrollPane2" pref="892" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="554" max="32767" attributes="0"/>
+                      <EmptySpace pref="530" max="32767" attributes="0"/>
                       <Component id="requisiteButton" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="305" max="-2" attributes="0"/>
                   </Group>
@@ -899,10 +923,10 @@
                                               <Group type="103" groupAlignment="0" attributes="0">
                                                   <Group type="102" attributes="0">
                                                       <Component id="NumCopiesDocTab3" min="-2" max="-2" attributes="0"/>
-                                                      <EmptySpace pref="424" max="32767" attributes="0"/>
+                                                      <EmptySpace pref="400" max="32767" attributes="0"/>
                                                   </Group>
                                                   <Group type="102" alignment="1" attributes="0">
-                                                      <Component id="TextDescTab3Doc" pref="447" max="32767" attributes="0"/>
+                                                      <Component id="TextDescTab3Doc" pref="423" max="32767" attributes="0"/>
                                                       <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                                                   </Group>
                                               </Group>
@@ -915,14 +939,14 @@
                                               <EmptySpace max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" attributes="0">
                                                   <Group type="102" alignment="0" attributes="0">
-                                                      <Component id="TextAutTab3Doc" pref="493" max="32767" attributes="1"/>
+                                                      <Component id="TextAutTab3Doc" pref="469" max="32767" attributes="1"/>
                                                       <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                                                   </Group>
                                                   <Group type="102" alignment="0" attributes="0">
-                                                      <Component id="TextPubTab3Doc" pref="493" max="32767" attributes="1"/>
+                                                      <Component id="TextPubTab3Doc" pref="469" max="32767" attributes="1"/>
                                                       <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                                                   </Group>
-                                                  <Component id="TitleTab3Doc" alignment="0" pref="499" max="32767" attributes="0"/>
+                                                  <Component id="TitleTab3Doc" alignment="0" pref="475" max="32767" attributes="0"/>
                                               </Group>
                                           </Group>
                                           <Component id="jLabel20" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -966,8 +990,8 @@
                               </Group>
                               <EmptySpace min="-2" pref="134" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jButton9" pref="149" max="32767" attributes="0"/>
-                                  <Component id="jButton7" alignment="0" pref="149" max="32767" attributes="0"/>
+                                  <Component id="jButton9" pref="125" max="32767" attributes="0"/>
+                                  <Component id="jButton7" alignment="0" pref="125" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
