@@ -553,6 +553,7 @@ public class Reader extends javax.swing.JPanel implements
             jTextField4.setEditable(true);
             jTextField6.setText("");
             jTextField5.setText("");
+            InfoArea.setText("");
             ((DefaultListModel) jList1.getModel()).clear();
 }//GEN-LAST:event_clearFieldsButtonActionPerformed
 

@@ -155,7 +155,7 @@ public class DatabaseHandler implements DB.DataAccessInterface{
 
             rset = stmt.executeQuery(
                     "SELECT COUNT(*) Total FROM Emprestimo e "
-                     + "WHERE e.Lei_id_pessoa = " + id + " AND Data_entrega - SYSDATE < 0");
+                     + "WHERE e.Lei_id_pessoa = " + id + " AND Data_prevista - SYSDATE < 0 AND Data_entrega IS NULL");
             while (rset.next()) {//while there are still results left to read
                 faults = rset.getInt("TOTAL");
             }

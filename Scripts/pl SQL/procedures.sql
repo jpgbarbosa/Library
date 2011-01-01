@@ -345,8 +345,10 @@ BEGIN
 
 EXCEPTION
 	WHEN NO_DATA_FOUND THEN
+		ROLLBACK;
 		retVal := -1;
 	WHEN OTHERS THEN
+		ROLLBACK;
 		retVal := -2;
 END;
 /
@@ -371,8 +373,10 @@ BEGIN
 
 EXCEPTION
 	WHEN NO_DATA_FOUND THEN
+		ROLLBACK;
 		retVal := -1;
 	WHEN OTHERS THEN
+		ROLLBACK;
 		retVal := -2;
 
 END;
@@ -428,7 +432,7 @@ BEGIN
 	BEGIN
 		SELECT COUNT(*) INTO no_faulty_requisitions
 		FROM Emprestimo
-		WHERE LEI_ID_PESSOA = reader_id AND Data_prevista - SYSDATE < 0;
+		WHERE LEI_ID_PESSOA = reader_id AND Data_prevista - SYSDATE < 0 AND Data_entrega IS NULL;
 		
 		IF (no_faulty_requisitions > 0) THEN
 			returnValue := -6;
