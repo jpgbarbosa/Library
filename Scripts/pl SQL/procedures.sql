@@ -255,7 +255,7 @@ END;
 
 
 --penso que esta a funcionar como deve ser. verificar melhor
-CREATE OR REPLACE TRIGGER checkShelf AFTER UPDATE OF TOTAL ON PUBLICACAO FOR EACH ROW WHEN (new.total != old.total)
+CREATE OR REPLACE TRIGGER checkShelf BEFORE UPDATE OF TOTAL ON PUBLICACAO FOR EACH ROW WHEN (new.total != old.total)
 
 DECLARE
 
@@ -298,16 +298,14 @@ BEGIN
 EXCEPTION
 	WHEN no_data_found THEN
 		UPDATE prateleira set ocupacao=ocupacao+(:new.total-:old.total) where ID_PRATELEIRA = :old.id_prateleira;
-		COMMIT;
 		RETURN;
 	WHEN OTHERS THEN
-		ROLLBACK;
 		RETURN;
 END;
 /
 
 --Updates the number of available books and the number of requisitions of a given reader.
-CREATE OR REPLACE TRIGGER updateReqsAndCopies AFTER INSERT ON Emprestimo FOR EACH ROW
+CREATE OR REPLACE TRIGGER updateReqsAndCopies BEFORE INSERT ON Emprestimo FOR EACH ROW
 
 BEGIN
 	UPDATE Publicacao p SET p.disponiveis = p.disponiveis - 1 
@@ -315,6 +313,7 @@ BEGIN
 		
 	UPDATE Leitor SET no_emprestimos = no_emprestimos + 1
 	WHERE id_pessoa = :new.lei_id_pessoa;
+
 END;
 /
 
@@ -457,9 +456,9 @@ EXCEPTION
 	WHEN NO_DATA_FOUND THEN 
 		ROLLBACK;
 		returnValue := -3; 
-	WHEN OTHERS THEN
-		ROLLBACK;
-		returnValue := -4;
+	--WHEN OTHERS THEN
+		--ROLLBACK;
+		--returnValue := -4;
 
 END;
 /
