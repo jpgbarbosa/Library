@@ -259,4 +259,15 @@ INSERT INTO PESSOA VALUES ('Admin', 'Base de Dados', 0, SYSDATE , 0, 'admin@bd.u
 INSERT INTO FUNCIONARIO VALUES (1, sysdate, null);
 INSERT INTO AUTENTICACAO VALUES (1, 'admin');
 
+
+drop table temp;
+/*==============================================================*/
+/* Table: TEMP                                            */
+/*==============================================================*/
+create table TEMP 
+(
+   ID_DOC	       INTEGER              not null,
+   ID_PRATELEIRA   INTEGER				not null
+);
+
 COMMIT;

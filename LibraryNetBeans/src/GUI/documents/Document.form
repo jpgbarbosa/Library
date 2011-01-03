@@ -49,7 +49,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jTabbedPane1" alignment="0" pref="917" max="32767" attributes="0"/>
+                  <Component id="jTabbedPane1" alignment="0" pref="915" max="32767" attributes="0"/>
                   <Component id="jButton1" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -92,7 +92,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jPanel9" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="12" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -730,20 +730,20 @@
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace pref="341" max="32767" attributes="0"/>
+                      <EmptySpace pref="339" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="804" max="32767" attributes="0"/>
+                      <EmptySpace pref="802" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jScrollPane2" pref="892" max="32767" attributes="0"/>
+                      <Component id="jScrollPane2" pref="890" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="530" max="32767" attributes="0"/>
+                      <EmptySpace pref="528" max="32767" attributes="0"/>
                       <Component id="requisiteButton" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="305" max="-2" attributes="0"/>
                   </Group>
@@ -923,10 +923,10 @@
                                               <Group type="103" groupAlignment="0" attributes="0">
                                                   <Group type="102" attributes="0">
                                                       <Component id="NumCopiesDocTab3" min="-2" max="-2" attributes="0"/>
-                                                      <EmptySpace pref="400" max="32767" attributes="0"/>
+                                                      <EmptySpace pref="398" max="32767" attributes="0"/>
                                                   </Group>
                                                   <Group type="102" alignment="1" attributes="0">
-                                                      <Component id="TextDescTab3Doc" pref="423" max="32767" attributes="0"/>
+                                                      <Component id="TextDescTab3Doc" pref="421" max="32767" attributes="0"/>
                                                       <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                                                   </Group>
                                               </Group>
@@ -939,14 +939,14 @@
                                               <EmptySpace max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" attributes="0">
                                                   <Group type="102" alignment="0" attributes="0">
-                                                      <Component id="TextAutTab3Doc" pref="469" max="32767" attributes="1"/>
+                                                      <Component id="TextAutTab3Doc" pref="467" max="32767" attributes="1"/>
                                                       <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                                                   </Group>
                                                   <Group type="102" alignment="0" attributes="0">
-                                                      <Component id="TextPubTab3Doc" pref="469" max="32767" attributes="1"/>
+                                                      <Component id="TextPubTab3Doc" pref="467" max="32767" attributes="1"/>
                                                       <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                                                   </Group>
-                                                  <Component id="TitleTab3Doc" alignment="0" pref="475" max="32767" attributes="0"/>
+                                                  <Component id="TitleTab3Doc" alignment="0" pref="473" max="32767" attributes="0"/>
                                               </Group>
                                           </Group>
                                           <Component id="jLabel20" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -990,8 +990,8 @@
                               </Group>
                               <EmptySpace min="-2" pref="134" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jButton9" pref="125" max="32767" attributes="0"/>
-                                  <Component id="jButton7" alignment="0" pref="125" max="32767" attributes="0"/>
+                                  <Component id="jButton9" pref="123" max="32767" attributes="0"/>
+                                  <Component id="jButton7" alignment="0" pref="123" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">

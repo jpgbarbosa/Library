@@ -191,7 +191,7 @@ public class Document extends javax.swing.JPanel implements
         jLabel61.setText("Find Requisition");
 
         returnSelectionGroup.add(jRadioButton11);
-        jRadioButton11.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jRadioButton11.setFont(new java.awt.Font("Tahoma", 1, 11));
         jRadioButton11.setText("Reader ID");
         jRadioButton11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -200,22 +200,22 @@ public class Document extends javax.swing.JPanel implements
         });
 
         returnSelectionGroup.add(jRadioButton12);
-        jRadioButton12.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jRadioButton12.setFont(new java.awt.Font("Tahoma", 1, 11));
         jRadioButton12.setText("Requisition ID");
 
         returnSelectionGroup.add(jRadioButton13);
-        jRadioButton13.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jRadioButton13.setFont(new java.awt.Font("Tahoma", 1, 11));
         jRadioButton13.setText("Document Title");
 
         returnSelectionGroup.add(jRadioButton14);
-        jRadioButton14.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jRadioButton14.setFont(new java.awt.Font("Tahoma", 1, 11));
         jRadioButton14.setText("Document ID");
 
         returnSelectionGroup.add(jRadioButton15);
-        jRadioButton15.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jRadioButton15.setFont(new java.awt.Font("Tahoma", 1, 11));
         jRadioButton15.setText("Requisition Date");
 
-        jLabel63.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel63.setFont(new java.awt.Font("Tahoma", 1, 11));
         jLabel63.setText("Requisition ID");
 
         jButton16.setText("List");
@@ -233,19 +233,22 @@ public class Document extends javax.swing.JPanel implements
         });
 
         reqDateFieldInRB.setText("    /    /    ");
+        reqDateFieldInRB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                reqDateFieldInRBActionPerformed(evt);
+            }
+        });
 
         reqInfoArea.setColumns(20);
         reqInfoArea.setRows(5);
         jScrollPane7.setViewportView(reqInfoArea);
 
-              
         ChooseDateDocsTab3.setText("Choose Date");
         ChooseDateDocsTab3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ChooseDateDocsTab3ActionPerformed(evt);
             }
         });
-
 
         jList1.setModel(new javax.swing.DefaultListModel());
         jScrollPane4.setViewportView(jList1);
@@ -356,7 +359,7 @@ public class Document extends javax.swing.JPanel implements
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -635,17 +638,17 @@ public class Document extends javax.swing.JPanel implements
                                     .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(341, Short.MAX_VALUE))
+                .addContainerGap(339, Short.MAX_VALUE))
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addComponent(jLabel2)
-                .addContainerGap(804, Short.MAX_VALUE))
+                .addContainerGap(802, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 892, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 890, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(530, Short.MAX_VALUE)
+                .addContainerGap(528, Short.MAX_VALUE)
                 .addComponent(requisiteButton)
                 .addGap(305, 305, 305))
         );
@@ -802,9 +805,9 @@ public class Document extends javax.swing.JPanel implements
                                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(jPanel4Layout.createSequentialGroup()
                                                 .addComponent(NumCopiesDocTab3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 400, Short.MAX_VALUE))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 398, Short.MAX_VALUE))
                                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                                                .addComponent(TextDescTab3Doc, javax.swing.GroupLayout.DEFAULT_SIZE, 423, Short.MAX_VALUE)
+                                                .addComponent(TextDescTab3Doc, javax.swing.GroupLayout.DEFAULT_SIZE, 421, Short.MAX_VALUE)
                                                 .addGap(6, 6, 6))))
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
                                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -813,12 +816,12 @@ public class Document extends javax.swing.JPanel implements
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(jPanel4Layout.createSequentialGroup()
-                                                .addComponent(TextAutTab3Doc, javax.swing.GroupLayout.DEFAULT_SIZE, 469, Short.MAX_VALUE)
+                                                .addComponent(TextAutTab3Doc, javax.swing.GroupLayout.DEFAULT_SIZE, 467, Short.MAX_VALUE)
                                                 .addGap(6, 6, 6))
                                             .addGroup(jPanel4Layout.createSequentialGroup()
-                                                .addComponent(TextPubTab3Doc, javax.swing.GroupLayout.DEFAULT_SIZE, 469, Short.MAX_VALUE)
+                                                .addComponent(TextPubTab3Doc, javax.swing.GroupLayout.DEFAULT_SIZE, 467, Short.MAX_VALUE)
                                                 .addGap(6, 6, 6))
-                                            .addComponent(TitleTab3Doc, javax.swing.GroupLayout.DEFAULT_SIZE, 475, Short.MAX_VALUE)))
+                                            .addComponent(TitleTab3Doc, javax.swing.GroupLayout.DEFAULT_SIZE, 473, Short.MAX_VALUE)))
                                     .addComponent(jLabel20, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
@@ -850,8 +853,8 @@ public class Document extends javax.swing.JPanel implements
                                 .addComponent(AmountNewDocTab3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(134, 134, 134)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton9, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
-                            .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)))
+                            .addComponent(jButton9, javax.swing.GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE)
+                            .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE)))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel16)))
@@ -939,7 +942,7 @@ public class Document extends javax.swing.JPanel implements
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 917, Short.MAX_VALUE)
+                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 915, Short.MAX_VALUE)
                     .addComponent(jButton1))
                 .addContainerGap())
         );

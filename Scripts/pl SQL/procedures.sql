@@ -119,8 +119,6 @@ END;
 CREATE OR REPLACE PROCEDURE addEmployee ( nomePessoa IN Pessoa.nome_pessoa%type, morada IN Pessoa.morada%type, bi IN NUMBER, data in date ,telefone IN NUMBER, email IN Pessoa.e_mail%type,
 											password IN Autenticacao.password%type, returnValue OUT INTEGER) IS
 	current_id NUMBER;
-	ID_NOT_FOUND exception; 
-	PRAGMA exception_init(ID_NOT_FOUND, -2291); 
 	
 BEGIN
 	SELECT seq_id_pessoa.nextval INTO current_id
@@ -255,7 +253,7 @@ END;
 
 
 --penso que esta a funcionar como deve ser. verificar melhor
-CREATE OR REPLACE TRIGGER checkShelf BEFORE UPDATE OF TOTAL ON PUBLICACAO FOR EACH ROW WHEN (new.total != old.total)
+CREATE OR REPLACE TRIGGER checkShelf AFTER UPDATE OF TOTAL ON PUBLICACAO FOR EACH ROW WHEN (new.total != old.total)
 
 DECLARE
 
@@ -263,10 +261,12 @@ DECLARE
 	newPratRow PRATELEIRA%ROWTYPE;
 	pub publicacao%rowtype;
 	idPra PRATELEIRA.ID_PRATELEIRA%type;
+	temp NUMBER;
 
 BEGIN
 
-	--Procuramos se a prateleira q ja contem estas publicacoes tem espaco. se nao devolver nada, entao significa q ainda existe espaco nessa prateleira
+	temp := 0;
+	--Procuramos se a prateleira que já contêm estas publicações tem espaço, se nao devolver nada, entao significa que ainda existe espaco nessa prateleira
 	SELECT * INTO oldPratRow FROM prateleira WHERE :old.id_prateleira = id_prateleira 
 		AND (capacidade < OCUPACAO +(:new.total-:old.total)) FOR UPDATE;
 		
@@ -275,6 +275,7 @@ BEGIN
 		SELECT * INTO newPratRow FROM prateleira WHERE (capacidade >= OCUPACAO +(:new.total)) 
 			AND genero LIKE oldPratRow.genero FOR UPDATE;
 		
+		temp := 1;
 	EXCEPTION 
 		--se nao existir entao criamos uma nova
 		WHEN no_data_found THEN
@@ -293,14 +294,17 @@ BEGIN
 	UPDATE prateleira SET OCUPACAO=OCUPACAO+:new.total WHERE ID_PRATELEIRA = newPratRow.id_prateleira;
 	UPDATE prateleira SET OCUPACAO=OCUPACAO-:old.total WHERE ID_PRATELEIRA = oldPratRow.id_prateleira;
 	
-	COMMIT;
+	IF (temp = 0) THEN
+		INSERT INTO TEMP VALUES (:new.id_doc, idPra);
+	ELSE
+		INSERT INTO TEMP VALUES (:new.id_doc, newPratRow.id_prateleira);
+	END IF;
 	
 EXCEPTION
 	WHEN no_data_found THEN
 		UPDATE prateleira set ocupacao=ocupacao+(:new.total-:old.total) where ID_PRATELEIRA = :old.id_prateleira;
 		RETURN;
-	WHEN OTHERS THEN
-		RETURN;
+	
 END;
 /
 
@@ -356,17 +360,28 @@ END;
 -- falta verificar a questao das prateleiras!
 CREATE OR REPLACE PROCEDURE addCopyDocument(idDoc IN PUBLICACAO.ID_DOC%type, novos IN PUBLICACAO.TOTAL%type, retVal OUT NUMBER) IS
 	checker INTEGER;
+	temp INTEGER;
 
 BEGIN
 	SELECT id_doc INTO checker
 	FROM Publicacao
-	WHERE id_doc = idDoc
-	FOR UPDATE;
+	WHERE id_doc = idDoc;
 
 	UPDATE PUBLICACAO
 	SET DISPONIVEIS=DISPONIVEIS+novos, TOTAL=TOTAL+novos
 	WHERE id_doc = idDoc;
 	
+	BEGIN
+		SELECT ID_PRATELEIRA INTO temp
+		FROM TEMP
+		WHERE ID_DOC = idDoc;
+		
+		UPDATE Publicacao SET ID_PRATELEIRA = temp WHERE ID_DOC = idDoc;
+		DELETE FROM TEMP WHERE ID_DOC = idDoc;
+	EXCEPTION
+		WHEN NO_DATA_FOUND THEN
+			temp := 0;
+	END;
 	retVal := 0;
 	COMMIT;
 
@@ -390,9 +405,6 @@ CREATE OR REPLACE PROCEDURE newRequisition ( book_id IN Publicacao.id_doc%type, 
 	current_id NUMBER;
 	no_requisitions INTEGER;
 	no_faulty_requisitions INTEGER;
-	
-	ID_NOT_FOUND exception; 
-	PRAGMA exception_init(ID_NOT_FOUND, -2291); 
 	
 BEGIN 
 	SELECT seq_id_aluguer.nextval INTO current_id
@@ -456,9 +468,9 @@ EXCEPTION
 	WHEN NO_DATA_FOUND THEN 
 		ROLLBACK;
 		returnValue := -3; 
-	--WHEN OTHERS THEN
-		--ROLLBACK;
-		--returnValue := -4;
+	WHEN OTHERS THEN
+		ROLLBACK;
+		returnValue := -4;
 
 END;
 /
@@ -468,9 +480,6 @@ END;
 CREATE OR REPLACE PROCEDURE returnRequisition ( req_id IN Emprestimo.id_emprestimo%type, returnValue OUT INTEGER) IS
 	return_date DATE; 
 	id_book Publicacao.id_doc%type;
-	
-	ID_NOT_FOUND exception; 
-	PRAGMA exception_init(ID_NOT_FOUND, -2291); 
 	
 BEGIN 
 	
